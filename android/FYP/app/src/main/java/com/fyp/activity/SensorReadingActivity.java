@@ -1,7 +1,11 @@
 package com.fyp.activity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +15,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.fyp.R;
+import com.fyp.constant.ActivityType;
 import com.fyp.constant.FileNames;
 import com.fyp.constant.SharedPreferencesKey;
 import com.fyp.controller.SharedPreferencesController;
@@ -27,11 +32,14 @@ import org.json.JSONObject;
 
 public class SensorReadingActivity extends AppCompatActivity {
     private final String TAG = "SensorReadingActivity";
-    private final int DEFAULT_TIMER = 1000 * 60 * 2;
+    private final long DEFAULT_TIMER = 1000 * 60 * 2;
 
-    private int timer;
+    private long timer;
+    private volatile boolean stopTimer = false;
+    private String activityType;
     private Button startRecordingButton;
     private EditText timerEditText;
+    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +47,55 @@ public class SensorReadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sensor_reading);
 
         this.setupReference();
-        this.loadTimerAndServerAddressPreferences();
+        this.loadTimerPreferences();
     }
 
     private void setupReference() {
         this.startRecordingButton = (Button) this.findViewById(R.id.start_recording_button);
         this.timerEditText = (EditText) this.findViewById(R.id.timer_edittext);
+        this.vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
-    private void loadTimerAndServerAddressPreferences() {
-        this.timer = SharedPreferencesController.getInstance().getInt(SharedPreferencesKey.TIMER_KEY);
+    private void loadTimerPreferences() {
+        this.timer = SharedPreferencesController.getInstance().getLong(SharedPreferencesKey.TIMER_KEY);
         if (this.timer == 0) this.timer = DEFAULT_TIMER;
-        this.timerEditText.setText("" + this.timer);
+        this.timerEditText.setText("" + this.timer / 1000);
+    }
+
+    private class Timer extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            long start = System.currentTimeMillis();
+            long diff;
+
+            while (!stopTimer) {
+                diff = System.currentTimeMillis() - start;
+                if (diff >= timer) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            stopSensorRecording();
+                        }
+                    });
+
+                    // Because the runnable action is queued if the current thread is not the UI thread
+                    stopTimer = true;
+                } else {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 
     public void startSensorRecording(View view) {
-        // Need to spawn a timer thread to handle stopping
+        this.stopTimer = false;
+        new Timer().execute();
 
         Intent accelerometerReaderServiceIntent = new Intent(this, AccelerometerReaderService.class);
         Intent barometerReaderServiceIntent = new Intent(this, BarometerReaderService.class);
@@ -70,10 +111,21 @@ public class SensorReadingActivity extends AppCompatActivity {
         this.startService(linearAccelerometerReaderServiceIntent);
         this.startService(magneticReaderServiceIntent);
 
+        Toast.makeText(this, "Start sensor recording!", Toast.LENGTH_SHORT).show();
+        this.startSensorRecordingVibration();
         this.startRecordingButton.setEnabled(false);
     }
 
+    private void startSensorRecordingVibration() {
+        long[] pattern = {0, 100};
+        this.vibrator.vibrate(pattern, -1);
+    }
+
     public void stopSensorRecording(View view) {
+        this.stopSensorRecording();
+    }
+
+    private void stopSensorRecording() {
         Intent accelerometerReaderServiceIntent = new Intent(this, AccelerometerReaderService.class);
         Intent barometerReaderServiceIntent = new Intent(this, BarometerReaderService.class);
         Intent gravityReaderServiceIntent = new Intent(this, GravityReaderService.class);
@@ -88,15 +140,21 @@ public class SensorReadingActivity extends AppCompatActivity {
         this.stopService(linearAccelerometerReaderServiceIntent);
         this.stopService(magneticReaderServiceIntent);
 
+        Toast.makeText(this, "Stop sensor recording!", Toast.LENGTH_SHORT).show();
+        this.stopTimer = true;
+        this.stopSensorRecordingVibration();
         this.startRecordingButton.setEnabled(true);
+    }
 
-        // Should stop the timer thread as well (premature stopping)
+    private void stopSensorRecordingVibration() {
+        long[] pattern = {0, 100, 100, 100, 100, 100};
+        this.vibrator.vibrate(pattern, -1);
     }
 
     public void saveTimer(View view) {
         try {
-            this.timer = Integer.parseInt(this.timerEditText.getText().toString());
-            SharedPreferencesController.getInstance().setInt(SharedPreferencesKey.TIMER_KEY, this.timer);
+            this.timer = Long.parseLong(this.timerEditText.getText().toString()) * 1000;
+            SharedPreferencesController.getInstance().setLong(SharedPreferencesKey.TIMER_KEY, this.timer);
         } catch (NumberFormatException e) {
             this.timer = DEFAULT_TIMER;
         } finally {
@@ -119,6 +177,7 @@ public class SensorReadingActivity extends AppCompatActivity {
             }
         };
 
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Loading..", "Sending sensor data to server..", true);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -129,12 +188,14 @@ public class SensorReadingActivity extends AppCompatActivity {
                 String linearAccelerometerResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.LINEAR_ACCELEROMETER_RESULT);
                 String magneticResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.MAGNETIC_RESULT);
 
-                HttpManager.getInstance().sendFileContent(FileNames.ACCELEROMETER_RESULT, accelerometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(FileNames.BAROMETER_RESULT, barometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(FileNames.GRAVITY_RESULT, gravityResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(FileNames.GYROSCOPE_RESULT, gyroscopeResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(FileNames.LINEAR_ACCELEROMETER_RESULT, linearAccelerometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(FileNames.MAGNETIC_RESULT, magneticResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.ACCELEROMETER_RESULT, accelerometerResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.BAROMETER_RESULT, barometerResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.GRAVITY_RESULT, gravityResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.GYROSCOPE_RESULT, gyroscopeResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.LINEAR_ACCELEROMETER_RESULT, linearAccelerometerResultFileContent, onSuccess, onError);
+                HttpManager.getInstance().sendFileContent(activityType, FileNames.MAGNETIC_RESULT, magneticResultFileContent, onSuccess, onError);
+
+                progressDialog.dismiss();
             }
         }).start();
     }

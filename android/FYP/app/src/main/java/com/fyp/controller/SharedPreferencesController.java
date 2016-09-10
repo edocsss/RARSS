@@ -22,14 +22,14 @@ public class SharedPreferencesController {
         return instance;
     }
 
-    public void setInt(String key, int value) {
+    public void setLong(String key, long value) {
         SharedPreferences.Editor editor = this.sharedPreferences.edit();
-        editor.putInt(key, value);
+        editor.putLong(key, value);
         editor.apply();
     }
 
-    public int getInt(String key) {
-        return this.sharedPreferences.getInt(key, 0);
+    public long getLong(String key) {
+        return this.sharedPreferences.getLong(key, 0);
     }
 
     public void setString(String key, String value) {

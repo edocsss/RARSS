@@ -12,7 +12,7 @@ import android.util.Log;
 
 import com.fyp.FYPApp;
 import com.fyp.constant.FileNames;
-import com.fyp.handler.SensorReadingHandler;
+import com.fyp.task.SensorReadingHandler;
 import com.fyp.model.BarometerReading;
 import com.fyp.util.FileUtil;
 

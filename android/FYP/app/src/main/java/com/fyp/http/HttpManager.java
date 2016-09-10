@@ -9,7 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.fyp.FYPApp;
-import com.fyp.constant.Constant;
+import com.fyp.constant.URL;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,13 +54,15 @@ public class HttpManager {
         requestQueue.cancelAll(requestTag);
     }
 
-    public void sendFileContent(final String fileName,
+    public void sendFileContent(final String activityType,
+                                final String fileName,
                                 final String fileContent,
                                 Response.Listener<JSONObject> onSuccess,
                                 Response.ErrorListener onError) {
 
         JSONObject sendFileJSON = new JSONObject();
         try {
+            sendFileJSON.put("activityType", activityType);
             sendFileJSON.put("fileName", fileName);
             sendFileJSON.put("fileContent", fileContent);
         } catch (JSONException e) {
@@ -69,7 +71,7 @@ public class HttpManager {
 
         JsonObjectRequest sendFileRequest = new JsonObjectRequest(
                 Request.Method.POST,
-                Constant.SERVER_ADDRESS,
+                URL.SERVER_ADDRESS,
                 sendFileJSON,
                 onSuccess,
                 onError
