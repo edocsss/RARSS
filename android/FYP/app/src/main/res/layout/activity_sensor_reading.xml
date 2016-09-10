@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.fyp.activity.SensorReadingActivity">
+
+    <LinearLayout
+        android:id="@+id/sensor_reading_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_xs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sensor_reading_header"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!--
+            DUMMY LAYOUT TO PREVENT EDITTEXT FROM GETTING THE FOCUS WHEN THE ACTIVITY STARTS!!
+            THIS IS A HACK!!!
+            http://stackoverflow.com/questions/1555109/stop-edittext-from-gaining-focus-at-activity-startup
+        -->
+        <View
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_sm">
+
+            <EditText
+                android:id="@+id/timer_edittext"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/save_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_timer"
+                android:layout_weight="3"
+                android:onClick="saveTimer"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_sm">
+
+            <Button
+                android:id="@+id/start_recording_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_recording_button"
+                android:layout_weight="1"
+                android:onClick="startSensorRecording"/>
+
+            <Button
+                android:id="@+id/stop_recording_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_recording_button"
+                android:layout_weight="1"
+                android:onClick="stopSensorRecording"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/send_data_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/send_data"
+                android:onClick="sendFileToServer"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

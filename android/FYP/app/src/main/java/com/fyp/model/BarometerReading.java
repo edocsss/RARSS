@@ -21,4 +21,18 @@ public class BarometerReading extends SensorReading {
     public float getBz() {
         return bz;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getTimestamp());
+        sb.append(",");
+        sb.append(this.getBx());
+        sb.append(",");
+        sb.append(this.getBy());
+        sb.append(",");
+        sb.append(this.getBz());
+
+        return sb.toString();
+    }
 }

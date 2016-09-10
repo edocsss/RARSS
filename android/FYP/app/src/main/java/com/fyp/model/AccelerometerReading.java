@@ -22,4 +22,18 @@ public class AccelerometerReading extends SensorReading {
     public double getAz() {
         return az;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getTimestamp());
+        sb.append(",");
+        sb.append(this.getAx());
+        sb.append(",");
+        sb.append(this.getAy());
+        sb.append(",");
+        sb.append(this.getAz());
+
+        return sb.toString();
+    }
 }
