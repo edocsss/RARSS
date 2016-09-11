@@ -8,4 +8,14 @@
     <string name="save_timer">Save Timer</string>
     <string name="save_server_address">Save Address</string>
     <string name="send_data">Send Data</string>
+    <string name="in_seconds">In seconds</string>
+
+    <string name="activity_prompt">Select activity type!</string>
+    <string-array name="activity_arrays">
+        <item>Standing</item>
+        <item>Sitting</item>
+        <item>Lying</item>
+        <item>Walking</item>
+        <item>Running</item>
+    </string-array>
 </resources>

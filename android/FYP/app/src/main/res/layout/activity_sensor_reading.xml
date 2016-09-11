@@ -51,6 +51,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
+                android:hint="@string/in_seconds"
                 android:layout_weight="3"/>
 
             <Button
@@ -60,6 +61,21 @@
                 android:text="@string/save_timer"
                 android:layout_weight="3"
                 android:onClick="saveTimer"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_sm">
+
+            <Spinner
+                android:id="@+id/activity_type_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/activity_arrays"
+                android:prompt="@string/activity_prompt"
+                android:spinnerMode="dropdown"/>
 
         </LinearLayout>
 

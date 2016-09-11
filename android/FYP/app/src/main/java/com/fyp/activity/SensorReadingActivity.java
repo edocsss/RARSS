@@ -3,19 +3,25 @@ package com.fyp.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.fyp.R;
-import com.fyp.constant.ActivityType;
 import com.fyp.constant.FileNames;
 import com.fyp.constant.SharedPreferencesKey;
 import com.fyp.controller.SharedPreferencesController;
@@ -26,19 +32,23 @@ import com.fyp.service.GravityReaderService;
 import com.fyp.service.GyroscopeReaderService;
 import com.fyp.service.LinearAccelerometerReaderService;
 import com.fyp.service.MagneticReaderService;
+import com.fyp.util.AudioUtil;
 import com.fyp.util.FileUtil;
 
 import org.json.JSONObject;
 
-public class SensorReadingActivity extends AppCompatActivity {
+public class SensorReadingActivity extends AppCompatActivity implements OnItemSelectedListener {
     private final String TAG = "SensorReadingActivity";
     private final long DEFAULT_TIMER = 1000 * 60 * 2;
+    private final String DEFAULT_ACTIVITY_TYPE = "standing";
 
     private long timer;
     private volatile boolean stopTimer = false;
-    private String activityType;
+    private String activityType = DEFAULT_ACTIVITY_TYPE;
+
     private Button startRecordingButton;
     private EditText timerEditText;
+    private Spinner activityTypeSpinner;
     private Vibrator vibrator;
 
     @Override
@@ -47,13 +57,19 @@ public class SensorReadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sensor_reading);
 
         this.setupReference();
+        this.setupActivityTypeSpinnerListener();
         this.loadTimerPreferences();
     }
 
     private void setupReference() {
         this.startRecordingButton = (Button) this.findViewById(R.id.start_recording_button);
         this.timerEditText = (EditText) this.findViewById(R.id.timer_edittext);
+        this.activityTypeSpinner = (Spinner) this.findViewById(R.id.activity_type_spinner);
         this.vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+    }
+
+    private void setupActivityTypeSpinnerListener() {
+        this.activityTypeSpinner.setOnItemSelectedListener(this);
     }
 
     private void loadTimerPreferences() {
@@ -112,13 +128,12 @@ public class SensorReadingActivity extends AppCompatActivity {
         this.startService(magneticReaderServiceIntent);
 
         Toast.makeText(this, "Start sensor recording!", Toast.LENGTH_SHORT).show();
-        this.startSensorRecordingVibration();
+        this.startSensorRecordingRingtone();
         this.startRecordingButton.setEnabled(false);
     }
 
-    private void startSensorRecordingVibration() {
-        long[] pattern = {0, 100};
-        this.vibrator.vibrate(pattern, -1);
+    private void startSensorRecordingRingtone() {
+        AudioUtil.play(this, R.raw.beep);
     }
 
     public void stopSensorRecording(View view) {
@@ -142,13 +157,20 @@ public class SensorReadingActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Stop sensor recording!", Toast.LENGTH_SHORT).show();
         this.stopTimer = true;
-        this.stopSensorRecordingVibration();
+        this.stopSensorRecordingRingtone();
         this.startRecordingButton.setEnabled(true);
     }
 
-    private void stopSensorRecordingVibration() {
-        long[] pattern = {0, 100, 100, 100, 100, 100};
-        this.vibrator.vibrate(pattern, -1);
+    private void stopSensorRecordingRingtone() {
+        try {
+            AudioUtil.play(this, R.raw.beep);
+            Thread.sleep(500);
+            AudioUtil.play(this, R.raw.beep);
+            Thread.sleep(500);
+            AudioUtil.play(this, R.raw.beep);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveTimer(View view) {
@@ -199,4 +221,14 @@ public class SensorReadingActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        this.activityType = (String) parent.getItemAtPosition(position);
+        this.activityType = this.activityType.toLowerCase();
+        Log.i(TAG, this.activityType);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {}
 }
