@@ -79,4 +79,19 @@ public class HttpManager {
 
         HttpManager.getInstance().enqueueRequest(sendFileRequest);
     }
+
+    public void sendPostRequest(final JSONObject jsonObject,
+                                final String url,
+                                Response.Listener<JSONObject> onSuccess,
+                                Response.ErrorListener onError) {
+        JsonObjectRequest postRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                jsonObject,
+                onSuccess,
+                onError
+        );
+
+        HttpManager.getInstance().enqueueRequest(postRequest);
+    }
 }

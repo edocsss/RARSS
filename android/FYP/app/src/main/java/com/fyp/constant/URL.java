@@ -1,5 +1,6 @@
 package com.fyp.constant;
 
 public class URL {
-    public static final String SERVER_ADDRESS = "http://b40d623a.ngrok.io";
+    public static final String SERVER_ADDRESS = "http://889c84a6.ngrok.io";
+    public static final String NOTIFY_SMARTWATCH_ADDRESS = SERVER_ADDRESS + "/smartwatch/notify";
 }

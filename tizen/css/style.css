@@ -32,3 +32,9 @@ body {
 	font-size: 14px;
 	color: #FFFFFF;
 }
+
+.control_button {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}

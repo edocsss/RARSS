@@ -3,6 +3,7 @@ package com.fyp.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.fyp.R;
 import com.fyp.constant.FileNames;
 import com.fyp.constant.SharedPreferencesKey;
+import com.fyp.controller.SensorController;
 import com.fyp.controller.SharedPreferencesController;
 import com.fyp.http.HttpManager;
 import com.fyp.service.AccelerometerReaderService;
@@ -110,6 +112,7 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
     }
 
     public void startSensorRecording(View view) {
+        SensorController.getInstance().startSmartwatchSensorRecording(activityType);
         this.stopTimer = false;
         new Timer().execute();
 
@@ -141,6 +144,8 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
     }
 
     private void stopSensorRecording() {
+        SensorController.getInstance().stopSmartwatchSensorRecording();
+
         Intent accelerometerReaderServiceIntent = new Intent(this, AccelerometerReaderService.class);
         Intent barometerReaderServiceIntent = new Intent(this, BarometerReaderService.class);
         Intent gravityReaderServiceIntent = new Intent(this, GravityReaderService.class);
