@@ -1,2 +1,5 @@
 server/webapp/data/**
 android/FYP/volley
+tizen_key
+.idea
+.DS_Store

@@ -17,7 +17,7 @@ def upload_sensor_data():
 
 @app.route('/test', methods=['GET'])
 def test():
-    return 'Test'
+    return json.dumps({ 'result': True })
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', debug=True, threaded=True)
