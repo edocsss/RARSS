@@ -11,20 +11,13 @@
 	var MAGNETIC_LOCALSTORAGE_KEY = 'magnetic';
 	var ULTRAVIOLET_LOCALSTORAGE_KEY = 'ultraviolet';
 	
-	var ACCELEROMETER_RESULT_FILE_NAME = 'accelerometer_watch.csv';
-	var GYROSCOPE_RESULT_FILE_NAME = 'gyroscope_watch.csv';
-	var LIGHT_RESULT_FILE_NAME = 'light_watch.csv';
-	var PRESSURE_RESULT_FILE_NAME = 'pressure_watch.csv';
-	var MAGNETIC_RESULT_FILE_NAME = 'magnetic_watch.csv';
-	var ULTRAVIOLET_RESULT_FILE_NAME = 'ultraviolet_watch.csv';
-	
 	var activityType = '';
 	var startRecording = false;
 	var sensorReadings = {
-			accelerometer: { date: 0, data: [] },
-			gyroscope: { date: 0, data: [] },
-			light: { date: 0, data: [] },
-			pressure: { date: 0, data: [] },
+			accelerometer: { data: [] },
+			gyroscope: { data: [] },
+			light: { data: [] },
+			pressure: { data: [] },
 			magnetic: { date: 0, data: [] },
 			uv: { date: 0, data: [] }
 	};
@@ -182,16 +175,7 @@
 	}
 	
 	function storeSensoryDataToLocalStorage() {
-		console.log('Storing data to local storage...');
-		
-		var currentTime = getCurrentTimeString();
-		sensorReadings.accelerometer.date = currentTime;
-		sensorReadings.gyroscope.date = currentTime;
-		sensorReadings.light.date = currentTime;
-		sensorReadings.pressure.date = currentTime;
-		sensorReadings.magnetic.date = currentTime;
-		sensorReadings.uv.date = currentTime;
-		
+		console.log('Storing data to local storage...');		
 		localStorage.setItem(ACCELEROMETER_LOCALSTORAGE_KEY, JSON.stringify(sensorReadings.accelerometer));
 		localStorage.setItem(GYROSCOPE_LOCALSTORAGE_KEY, JSON.stringify(sensorReadings.gyroscope));
 		localStorage.setItem(LIGHT_LOCALSTORAGE_KEY, JSON.stringify(sensorReadings.light));
@@ -217,53 +201,9 @@
 	
 	function sendSensoryDataToServer() {
 		var sensorData = loadSensoryDataFromLocalStorage();
-		
 		sendData({
-			fileDate: sensorData.accelerometer.date,
-			sensorType: 'accelerometer',
 			activityType: activityType,
-			fileName: ACCELEROMETER_RESULT_FILE_NAME,
-			fileContent: sensorData.accelerometer.data
-		});
-		
-		sendData({
-			fileDate: sensorData.gyroscope.date,
-			sensorType: 'gyroscope',
-			activityType: activityType,
-			fileName: GYROSCOPE_RESULT_FILE_NAME,
-			fileContent: sensorData.gyroscope.data
-		});
-		
-		sendData({
-			fileDate: sensorData.light.date,
-			sensorType: 'light',
-			activityType: activityType,
-			fileName: LIGHT_RESULT_FILE_NAME,
-			fileContent: sensorData.light.data
-		});
-		
-		sendData({
-			fileDate: sensorData.pressure.date,
-			sensorType: 'pressure',
-			activityType: activityType,
-			fileName: PRESSURE_RESULT_FILE_NAME,
-			fileContent: sensorData.pressure.data
-		});
-		
-		sendData({
-			fileDate: sensorData.magnetic.date,
-			sensorType: 'magnetic',
-			activityType: activityType,
-			fileName: MAGNETIC_RESULT_FILE_NAME,
-			fileContent: sensorData.magnetic.data
-		});
-		
-		sendData({
-			fileDate: sensorData.uv.date,
-			sensorType: 'ultraviolet',
-			activityType: activityType,
-			fileName: ULTRAVIOLET_RESULT_FILE_NAME,
-			fileContent: sensorData.uv.data
+			sensoryData: sensorData
 		});
 	}
 	
@@ -298,7 +238,7 @@
 			console.log('WebSocket connection close, ready state: ' + e.target.readyState);
 			if (retryCounter < MAX_WS_RETRY) {
 				setTimeout(function () {
-					setupWebsocket()
+					setupWebsocket();
 				}, 1000);
 			}
 			
@@ -312,15 +252,13 @@
 				setupAllSensors();
 			} else if (message === 'stop_recording') {
 				stopAndUnsetAllSensors();
+			} else if (message === 'send data') {
+				sendSensoryDataToServer();
 			}
 		};
 	}
 	
 	function getCurrentTimestamp() {
 		return new Date().getTime();
-	}
-	
-	function getCurrentTimeString() {
-		return new Date().toString();
 	}
 }());

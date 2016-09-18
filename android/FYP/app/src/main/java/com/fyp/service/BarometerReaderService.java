@@ -64,9 +64,6 @@ public class BarometerReaderService extends Service implements SensorEventListen
 
     private String convertBarometerReadingToCSV() {
         StringBuilder sb = new StringBuilder();
-        sb.append(new Date().toString());
-        sb.append("\n");
-
         for (BarometerReading br: this.barometerReadings) {
             sb.append(br.toString());
             sb.append("\n");
@@ -79,9 +76,7 @@ public class BarometerReaderService extends Service implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
         BarometerReading br = new BarometerReading(
                 System.currentTimeMillis(),
-                event.values[0],
-                event.values[1],
-                event.values[2]
+                event.values[0]
         );
 
         this.handler.post(new SensorReadingHandler<>(br, barometerReadings));
@@ -89,6 +84,6 @@ public class BarometerReaderService extends Service implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        Log.i(TAG, "Accuracy changes: " + sensor.toString() + " " + accuracy);
+        Log.i(TAG, "Barometer accuracy changes: " + sensor.toString() + " " + accuracy);
     }
 }

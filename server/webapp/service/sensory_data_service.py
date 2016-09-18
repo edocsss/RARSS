@@ -1,42 +1,57 @@
 import os
-import webapp.constant.data_path as DATA_PATH
+import config as CONFIG
 
 class SensoryDataService:
+    def handle_smartphone_sensory_data(self, activity_type, sensory_data):
+        accelerometer_data = sensory_data['accelerometer']
+        barometer_data = sensory_data['barometer']
+        gravity_data = sensory_data['gravity']
+        gyroscope_data = sensory_data['gyroscope']
+        linear_accelerometer_data = sensory_data['linearAccelerometer']
+        magnetic_data = sensory_data['magnetic']
+
+        self.store_smartphone_file(activity_type, CONFIG.ACCELEROMETER_RESULT_SMARTPHONE, accelerometer_data)
+        self.store_smartphone_file(activity_type, CONFIG.BAROMETER_RESULT_SMARTPHONE, barometer_data)
+        self.store_smartphone_file(activity_type, CONFIG.GRAVITY_RESULT_SMARTPHONE, gravity_data)
+        self.store_smartphone_file(activity_type, CONFIG.GYROSCOPE_RESULT_SMARTPHONE, gyroscope_data)
+        self.store_smartphone_file(activity_type, CONFIG.LINEAR_ACCELEROMETER_RESULT_SMARTPHONE, linear_accelerometer_data)
+        self.store_smartphone_file(activity_type, CONFIG.MAGNETIC_RESULT_SMARTPHONE, magnetic_data)
+
+
+    def handle_smartwatch_sensory_data(self, activity_type, sensory_data):
+        accelerometer_data = self.convert_smartwatch_accelerometer_data_to_csv(sensory_data['accelerometer']['data'])
+        gyroscope_data = self.convert_smartwatch_gyroscope_data_to_csv(sensory_data['gyroscope']['data'])
+        light_data = self.convert_smartwatch_light_data_to_csv(sensory_data['light']['data'])
+        pressure_data = self.convert_smartwatch_pressure_data_to_csv(sensory_data['pressure']['data'])
+        magnetic_data = self.convert_smartwatch_magnetic_data_to_csv(sensory_data['magnetic']['data'])
+        uv_data = self.convert_smartwatch_ultraviolet_data_to_csv(sensory_data['uv']['data'])
+
+        self.store_smartwatch_file(activity_type, CONFIG.ACCELEROMETER_RESULT_SMARTWATCH, accelerometer_data)
+        self.store_smartwatch_file(activity_type, CONFIG.GYROSCOPE_RESULT_SMARTWATCH, gyroscope_data)
+        self.store_smartwatch_file(activity_type, CONFIG.LIGHT_RESULT_SMARTWATCH, light_data)
+        self.store_smartwatch_file(activity_type, CONFIG.PRESSURE_RESULT_SMARTWATCH, pressure_data)
+        self.store_smartwatch_file(activity_type, CONFIG.MAGNETIC_RESULT_SMARTWATCH, magnetic_data)
+        self.store_smartwatch_file(activity_type, CONFIG.ULTRAVIOLET_RESULT_SMARTWATCH, uv_data)
+
+
     def store_smartphone_file(self, activity_type, file_name, file_content):
-        file_date, file_content = self.get_file_creation_date(file_content)
-        file_name = self.update_file_name_with_date_timestamp(file_name, file_date)
         self.create_activity_directory(activity_type)
 
-        f = open(os.path.join(DATA_PATH.DATA_FOLDER_PATH, activity_type, file_name), 'w')
+        f = open(os.path.join(CONFIG.RAW_DATA_DIR, activity_type, file_name), 'w')
         f.write(file_content)
         f.close()
 
 
-    def store_smartwatch_file(self, activity_type, file_name, file_content, file_date):
-        file_name = self.update_file_name_with_date_timestamp(file_name, file_date)
+    def store_smartwatch_file(self, activity_type, file_name, file_content):
         self.create_activity_directory(activity_type)
 
-        f = open(os.path.join(DATA_PATH.DATA_FOLDER_PATH, activity_type, file_name), 'w')
+        f = open(os.path.join(CONFIG.RAW_DATA_DIR, activity_type, file_name), 'w')
         f.write(file_content)
         f.close()
-
-
-    def get_file_creation_date(self, file_content):
-        first_newline_index = file_content.find('\n')
-        return file_content[0:first_newline_index], file_content[first_newline_index + 1:]
-
-
-    def update_file_name_with_date_timestamp(self, file_name, file_date):
-        l = file_name.split('.')
-        file_name = l[0]
-        file_extension = l[1]
-
-        file_name = file_name + '_' + file_date + '.' + file_extension
-        return file_name.replace(' ', '_')
 
 
     def create_activity_directory(self, activity_type):
-        dir_path = os.path.join(DATA_PATH.DATA_FOLDER_PATH, activity_type)
+        dir_path = os.path.join(CONFIG.RAW_DATA_DIR, activity_type)
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
 
@@ -44,7 +59,7 @@ class SensoryDataService:
     def convert_smartwatch_accelerometer_data_to_csv(self, accelerometer_data):
         result_list = []
         for a in accelerometer_data:
-            result_list.append('{},{}'.format(a['timestamp'], a['ax'], a['ay'], ['az']))
+            result_list.append('{},{},{},{}'.format(a['timestamp'], a['ax'], a['ay'], ['az']))
 
         return '\n'.join(result_list)
 
@@ -52,7 +67,7 @@ class SensoryDataService:
     def convert_smartwatch_gyroscope_data_to_csv(self, gyroscope_data):
         result_list = []
         for g in gyroscope_data:
-            result_list.append('{},{}'.format(g['timestamp'], g['gx'], g['gy'], g['gz']))
+            result_list.append('{},{},{},{}'.format(g['timestamp'], g['gx'], g['gy'], g['gz']))
 
         return '\n'.join(result_list)
 

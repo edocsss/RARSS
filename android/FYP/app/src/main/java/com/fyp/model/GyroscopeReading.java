@@ -1,24 +1,24 @@
 package com.fyp.model;
 
 public class GyroscopeReading extends SensorReading {
-    private float gx, gy, gz;
+    private double gx, gy, gz;
 
-    public GyroscopeReading(long timestamp, float gx, float gy, float gz) {
+    public GyroscopeReading(long timestamp, double gx, double gy, double gz) {
         super(timestamp);
         this.gx = gx;
         this.gy = gy;
         this.gz = gz;
     }
 
-    public float getGx() {
+    public double getGx() {
         return gx;
     }
 
-    public float getGy() {
+    public double getGy() {
         return gy;
     }
 
-    public float getGz() {
+    public double getGz() {
         return gz;
     }
 

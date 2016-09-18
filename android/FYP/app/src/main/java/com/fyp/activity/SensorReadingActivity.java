@@ -37,6 +37,7 @@ import com.fyp.service.MagneticReaderService;
 import com.fyp.util.AudioUtil;
 import com.fyp.util.FileUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SensorReadingActivity extends AppCompatActivity implements OnItemSelectedListener {
@@ -215,13 +216,19 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
                 String linearAccelerometerResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.LINEAR_ACCELEROMETER_RESULT);
                 String magneticResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.MAGNETIC_RESULT);
 
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.ACCELEROMETER_RESULT, accelerometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.BAROMETER_RESULT, barometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.GRAVITY_RESULT, gravityResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.GYROSCOPE_RESULT, gyroscopeResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.LINEAR_ACCELEROMETER_RESULT, linearAccelerometerResultFileContent, onSuccess, onError);
-                HttpManager.getInstance().sendFileContent(activityType, FileNames.MAGNETIC_RESULT, magneticResultFileContent, onSuccess, onError);
+                JSONObject sensoryData = new JSONObject();
+                try {
+                    sensoryData.put("accelerometer", accelerometerResultFileContent);
+                    sensoryData.put("barometer", barometerResultFileContent);
+                    sensoryData.put("gravity", gravityResultFileContent);
+                    sensoryData.put("gyroscope", gyroscopeResultFileContent);
+                    sensoryData.put("linearAccelerometer", linearAccelerometerResultFileContent);
+                    sensoryData.put("magnetic", magneticResultFileContent);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
+                SensorController.getInstance().sendSensoryData(activityType, sensoryData, onSuccess, onError);
                 progressDialog.dismiss();
             }
         }).start();

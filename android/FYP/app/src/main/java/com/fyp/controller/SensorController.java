@@ -45,6 +45,18 @@ public class SensorController {
         Log.i(TAG, "All available sensors are retrieved!");
     }
 
+    public void sendSensoryData(String activityType, JSONObject sensoryData, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("activityType", activityType);
+            jsonObject.put("sensoryData", sensoryData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        HttpManager.getInstance().sendPostRequest(jsonObject, URL.SEND_SENSORY_DATA_ADDRESS, onSuccess, onError);
+    }
+
     public void startSmartwatchSensorRecording(String activityType) {
         JSONObject jsonObject = new JSONObject();
         try {
