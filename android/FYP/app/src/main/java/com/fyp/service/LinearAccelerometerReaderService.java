@@ -64,6 +64,8 @@ public class LinearAccelerometerReaderService extends Service implements SensorE
 
     private String convertLinearAccelerometerReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,lax,lay,laz\n");
+
         for (AccelerometerReading ar: this.linearAccelerometerReadings) {
             sb.append(ar.toString());
             sb.append("\n");

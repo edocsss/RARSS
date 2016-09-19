@@ -64,6 +64,8 @@ public class BarometerReaderService extends Service implements SensorEventListen
 
     private String convertBarometerReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,pressure\n");
+
         for (BarometerReading br: this.barometerReadings) {
             sb.append(br.toString());
             sb.append("\n");

@@ -64,6 +64,8 @@ public class GyroscopeReaderService extends Service implements SensorEventListen
 
     private String convertGyroscopeReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,gx,gy,gz\n");
+
         for (GyroscopeReading gr: this.gyroscopeReadings) {
             sb.append(gr.toString());
             sb.append("\n");

@@ -64,6 +64,8 @@ public class GravityReaderService extends Service implements SensorEventListener
 
     private String convertGravityReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,grx,gry,grz\n");
+
         for (GravityReading gr: this.gravityReadings) {
             sb.append(gr.toString());
             sb.append("\n");

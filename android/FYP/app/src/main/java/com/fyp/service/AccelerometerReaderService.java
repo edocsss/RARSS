@@ -64,6 +64,8 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
 
     private String convertAccelerometerReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,ax,ay,az\n");
+
         for (AccelerometerReading ar: this.accelerometerReadings) {
             sb.append(ar.toString());
             sb.append("\n");

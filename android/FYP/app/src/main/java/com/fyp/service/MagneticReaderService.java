@@ -64,6 +64,8 @@ public class MagneticReaderService extends Service implements SensorEventListene
 
     private String convertMagneticReadingToCSV() {
         StringBuilder sb = new StringBuilder();
+        sb.append("timestamp,mx,my,mz\n");
+
         for (MagneticReading mr: this.magneticReadings) {
             sb.append(mr.toString());
             sb.append("\n");
