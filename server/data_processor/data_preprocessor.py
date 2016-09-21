@@ -1,18 +1,18 @@
 from data_processor import raw_data_reader
 from data_processor import data_sampler
 from data_processor import data_window_selector
+from data_processor import feature_generator
 import math
 
 def sample_and_generate_feature(raw_data, activity_type):
     data_sampler.sample_data_by_frequency(raw_data, activity_type)
     data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
-    # generate feature here
+    feature_generator.generate_feature(activity_type)
 
 
 def preprocess_data(activity_type):
     raw_data = raw_data_reader.read_all_data(activity_type)
     raw_data = calculate_additional_fields(raw_data)
-
     sample_and_generate_feature(raw_data, activity_type)
 
 

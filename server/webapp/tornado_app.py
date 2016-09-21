@@ -15,6 +15,6 @@ if __name__ == '__main__':
         (r"/smartwatch/upload", SmartwatchHandler)
     ], debug=True)
 
-    print("Starting server...")
+    print("Starting server at port {}...".format(PORT_NUMBER))
     app.listen(PORT_NUMBER)
     ioloop.IOLoop.current().start()

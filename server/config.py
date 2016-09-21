@@ -5,6 +5,7 @@ DATA_DIR = os.path.join(ROOT_DIR, 'data')
 RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 SAMPLED_DATA_DIR = os.path.join(DATA_DIR, 'sampled')
 WINDOWED_DATA_DIR = os.path.join(DATA_DIR, 'windowed')
+FEATURES_DATA_DIR = os.path.join(DATA_DIR, 'features')
 
 RAW_ACCELEROMETER_RESULT_SMARTPHONE = 'raw_accelerometer_phone.csv'
 RAW_BAROMETER_RESULT_SMARTPHONE = 'raw_barometer_phone.csv'
@@ -40,9 +41,13 @@ COMBINED_SAMPLED_SMARTWATCH_DATA = 'sampled_smartwatch_combined.csv'
 WINDOWED_SMARTPHONE_DATA = 'windowed_smartphone_combined.csv'
 WINDOWED_SMARTWATCH_DATA = 'windowed_smartwatch_combined.csv'
 
+FEATURES_SMARTPHONE_DATA = 'features_smartphone_combined.csv'
+FEATURES_SMARTWATCH_DATA = 'features_smartwatch_combined.csv'
+
 SAMPLING_FREQUENCY = 10 # in Hz
 SAMPLING_INTERVAL = int(1000 / SAMPLING_FREQUENCY)
 OUTLIER_REMOVAL_SIZE = 1000
 
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5
+N_ROWS_PER_WINDOW = int(WINDOW_SIZE / SAMPLING_INTERVAL)

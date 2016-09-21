@@ -32,16 +32,15 @@ def divide_smartwatch_data_to_windows(activity_type):
 
 def divide_dataframe_to_windows(df):
     result_df = pd.DataFrame(data=None, columns=df.columns)
-    n_rows_per_window = int(CONFIG.WINDOW_SIZE / CONFIG.SAMPLING_INTERVAL)
-    row_step = int(n_rows_per_window * CONFIG.WINDOW_OVERLAP)
+    row_step = int(CONFIG.N_ROWS_PER_WINDOW * CONFIG.WINDOW_OVERLAP)
     total_rows = df.shape[0]
 
     for i in range(0, total_rows, row_step):
         # Ignore the last window if the last window is NOT FULL!
-        if i + n_rows_per_window > total_rows:
+        if i + CONFIG.N_ROWS_PER_WINDOW > total_rows:
             break
 
-        window_df = df[i:i + n_rows_per_window]
+        window_df = df[i:i + CONFIG.N_ROWS_PER_WINDOW]
         result_df = result_df.append(window_df, ignore_index=True)
 
     return result_df

@@ -186,7 +186,8 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
         } catch (NumberFormatException e) {
             this.timer = DEFAULT_TIMER;
         } finally {
-            Toast.makeText(this, "Timer: " + this.timer, Toast.LENGTH_SHORT).show();
+            long timerInSecond = this.timer / 1000;
+            Toast.makeText(this, "Timer: " + timerInSecond + "s", Toast.LENGTH_SHORT).show();
         }
     }
 
