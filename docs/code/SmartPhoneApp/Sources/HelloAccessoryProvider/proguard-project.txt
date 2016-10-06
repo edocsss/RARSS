@@ -1,0 +1,13 @@
+# view AndroidManifest.xml #generated:23
+-keep class com.samsung.android.example.helloaccessoryprovider.service.HelloAccessoryProviderService { <init>(...); }
+
+# view AndroidManifest.xml #generated:31
+-keep class com.samsung.android.sdk.accessory.RegisterUponInstallReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:26
+-keep class com.samsung.android.sdk.accessory.ServiceConnectionIndicationBroadcastReceiver { <init>(...); }
+
+-keepclassmembers class com.samsung.** { *; }
+-keep class com.samsung.** { *; } 
+-dontwarn com.samsung.**
+-keepattributes InnerClasses

@@ -1,0 +1,71 @@
+<md-progress-linear md-mode="indeterminate" class="md-accent" ng-class="{ 'hidden': !rawDataVisualizerController.isLoadingData }"></md-progress-linear>
+
+<md-content class="md-padding" layout="column">
+    <h1 class="text-center">Raw Data Visualizer</h1>
+
+    <div layout="row">
+        <div flex-offset="15" flex="30" layout="column">
+            <md-input-container>
+                <label>Activity Type</label>
+                <md-select ng-model="rawDataVisualizerController.activityType">
+                    <md-option ng-repeat="activityType in rawDataVisualizerController.ACTIVITY_TYPES" ng-value="activityType.replace(' ', '_').toLowerCase()">
+                        {{ activityType }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div flex="30" layout="column">
+            <md-input-container>
+                <label>Data Source</label>
+                <md-select ng-model="rawDataVisualizerController.dataSource">
+                    <md-option ng-repeat="dataSource in rawDataVisualizerController.DATA_SOURCES" ng-value="dataSource.replace(' ', '_').toLowerCase()">
+                        {{ dataSource }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div flex="10" layout="column">
+            <md-button class="md-raised md-accent" ng-click="rawDataVisualizerController.loadRawData(rawDataVisualizerController.activityType, rawDataVisualizerController.dataSource)">
+                Load Data!
+            </md-button>
+        </div>
+    </div>
+
+    <div layout="row" ng-hide="rawDataVisualizerController.initialLoad" id="raw-data-visualizer-initial-circular-loading">
+        <div flex="100" layout="column" layout-align="center center">
+            <md-progress-circular md-mode="indeterminate" ng-disabled="rawDataVisualizerController.initialLoad"></md-progress-circular>
+        </div>
+    </div>
+
+    <div layout="row" ng-repeat="i in [] | range: rawDataVisualizerController.getNumberOfGraphRows()">
+        <div
+            flex="{{ rawDataVisualizerController.getGraphCardWidth() }}"
+            layout="column"
+            ng-repeat="j in [] | range: rawDataVisualizerController.NUMBER_OF_GRAPH_COLUMNS"
+            ng-show="rawDataVisualizerController.initialLoad">
+
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline text-center">{{ rawDataVisualizerController.getRawDataByRowAndCol(i, j).graphName }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                    <canvas
+                        class="chart chart-line"
+                        chart-data="rawDataVisualizerController.getRawDataByRowAndCol(i, j).data"
+                        chart-labels="rawDataVisualizerController.getRawDataByRowAndCol(i, j).labels"
+                        chart-series="rawDataVisualizerController.getRawDataByRowAndCol(i, j).series"
+                        chart-colors="rawDataVisualizerController.chartColors">
+                    </canvas>
+                    <!-- <canvas id="{{ 'graph-canvas-' + rawDataVisualizerController.getRawDataByRowAndCol(i, j)[0] }}"></canvas> -->
+                    <!-- {{ rawDataVisualizerController.buildGraph(i, j) }} -->
+                </md-card-content>
+            </md-card>
+
+        </div>
+    </div>
+</md-content>

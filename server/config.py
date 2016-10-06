@@ -1,4 +1,5 @@
 import os
+import time
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(ROOT_DIR, 'data')
@@ -7,36 +8,53 @@ SAMPLED_DATA_DIR = os.path.join(DATA_DIR, 'sampled')
 WINDOWED_DATA_DIR = os.path.join(DATA_DIR, 'windowed')
 FEATURES_DATA_DIR = os.path.join(DATA_DIR, 'features')
 
-RAW_ACCELEROMETER_RESULT_SMARTPHONE = 'raw_accelerometer_phone.csv'
-RAW_BAROMETER_RESULT_SMARTPHONE = 'raw_barometer_phone.csv'
-RAW_GRAVITY_RESULT_SMARTPHONE = 'raw_gravity_phone.csv'
-RAW_GYROSCOPE_RESULT_SMARTPHONE = 'raw_roscope_phone.csv'
-RAW_LINEAR_ACCELEROMETER_RESULT_SMARTPHONE = 'raw_linear_accelerometer_phone.csv'
-RAW_MAGNETIC_RESULT_SMARTPHONE = 'raw_magnetic_phone.csv'
+RAW_DATA_RESULT = {
+    'sp_accelerometer': 'raw_accelerometer_phone.csv',
+    'sp_barometer': 'raw_barometer_phone.csv',
+    'sp_gravity': 'raw_gravity_phone.csv',
+    'sp_gyroscope': 'raw_gyroscope_phone.csv',
+    'sp_linear_accelerometer': 'raw_linear_accelerometer_phone.csv',
+    'sp_magnetic': 'raw_magnetic_phone.csv',
 
-RAW_ACCELEROMETER_RESULT_SMARTWATCH = 'raw_accelerometer_watch.csv'
-RAW_GYROSCOPE_RESULT_SMARTWATCH = 'raw_gyroscope_watch.csv'
-RAW_LIGHT_RESULT_SMARTWATCH = 'raw_light_watch.csv'
-RAW_PRESSURE_RESULT_SMARTWATCH = 'raw_pressure_watch.csv'
-RAW_MAGNETIC_RESULT_SMARTWATCH = 'raw_magnetic_watch.csv'
-RAW_ULTRAVIOLET_RESULT_SMARTWATCH = 'raw_ultraviolet_watch.csv'
+    'sw_accelerometer': 'raw_accelerometer_watch.csv',
+    'sw_gyroscope': 'raw_gyroscope_watch.csv',
+    'sw_light': 'raw_light_watch.csv',
+    'sw_pressure': 'raw_pressure_watch.csv',
+    'sw_magnetic': 'raw_magnetic_watch.csv',
+    'sw_ultraviolet': 'raw_ultraviolet_watch.csv'
+}
 
-SAMPLED_ACCELEROMETER_RESULT_SMARTPHONE = 'sampled_accelerometer_phone.csv'
-SAMPLED_BAROMETER_RESULT_SMARTPHONE = 'sampled_barometer_phone.csv'
-SAMPLED_GRAVITY_RESULT_SMARTPHONE = 'sampled_gravity_phone.csv'
-SAMPLED_GYROSCOPE_RESULT_SMARTPHONE = 'sampled_roscope_phone.csv'
-SAMPLED_LINEAR_ACCELEROMETER_RESULT_SMARTPHONE = 'sampled_linear_accelerometer_phone.csv'
-SAMPLED_MAGNETIC_RESULT_SMARTPHONE = 'sampled_magnetic_phone.csv'
+SAMPLED_DATA_RESULT = {
+    'sp_accelerometer': 'sampled_accelerometer_phone.csv',
+    'sp_barometer': 'sampled_barometer_phone.csv',
+    'sp_gravity': 'sampled_gravity_phone.csv',
+    'sp_gyroscope': 'sampled_gyroscope_phone.csv',
+    'sp_linear_accelerometer': 'sampled_linear_accelerometer_phone.csv',
+    'sp_magnetic': 'sampled_magnetic_phone.csv',
 
-SAMPLED_ACCELEROMETER_RESULT_SMARTWATCH = 'sampled_accelerometer_watch.csv'
-SAMPLED_GYROSCOPE_RESULT_SMARTWATCH = 'sampled_gyroscope_watch.csv'
-SAMPLED_LIGHT_RESULT_SMARTWATCH = 'sampled_light_watch.csv'
-SAMPLED_PRESSURE_RESULT_SMARTWATCH = 'sampled_pressure_watch.csv'
-SAMPLED_MAGNETIC_RESULT_SMARTWATCH = 'sampled_magnetic_watch.csv'
-SAMPLED_ULTRAVIOLET_RESULT_SMARTWATCH = 'sampled_ultraviolet_watch.csv'
+    'sw_accelerometer': 'sampled_accelerometer_watch.csv',
+    'sw_gyroscope': 'sampled_gyroscope_watch.csv',
+    'sw_light': 'sampled_light_watch.csv',
+    'sw_pressure': 'sampled_pressure_watch.csv',
+    'sw_magnetic': 'sampled_magnetic_watch.csv',
+    'sw_ultraviolet': 'sampled_ultraviolet_watch.csv'
+}
 
-COMBINED_SAMPLED_SMARTPHONE_DATA = 'sampled_smartphone_combined.csv'
-COMBINED_SAMPLED_SMARTWATCH_DATA = 'sampled_smartwatch_combined.csv'
+WINDOWED_DATA_RESULT = {
+    'sp_accelerometer': 'windowed_accelerometer_phone.csv',
+    'sp_barometer': 'windowed_barometer_phone.csv',
+    'sp_gravity': 'windowed_gravity_phone.csv',
+    'sp_gyroscope': 'windowed_gyroscope_phone.csv',
+    'sp_linear_accelerometer': 'windowed_linear_accelerometer_phone.csv',
+    'sp_magnetic': 'windowed_magnetic_phone.csv',
+
+    'sw_accelerometer': 'windowed_accelerometer_watch.csv',
+    'sw_gyroscope': 'windowed_gyroscope_watch.csv',
+    'sw_light': 'windowed_light_watch.csv',
+    'sw_pressure': 'windowed_pressure_watch.csv',
+    'sw_magnetic': 'windowed_magnetic_watch.csv',
+    'sw_ultraviolet': 'windowed_ultraviolet_watch.csv'
+}
 
 WINDOWED_SMARTPHONE_DATA = 'windowed_smartphone_combined.csv'
 WINDOWED_SMARTWATCH_DATA = 'windowed_smartwatch_combined.csv'
@@ -46,7 +64,7 @@ FEATURES_SMARTWATCH_DATA = 'features_smartwatch_combined.csv'
 
 SAMPLING_FREQUENCY = 10 # in Hz
 SAMPLING_INTERVAL = int(1000 / SAMPLING_FREQUENCY)
-OUTLIER_REMOVAL_SIZE = 1000
+OUTLIER_REMOVAL_SIZE = 5000
 
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5

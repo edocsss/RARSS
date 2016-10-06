@@ -1,0 +1,18 @@
+{
+  "name": "fyp-webclient",
+  "homepage": "https://github.com/edwin-candinegara/FYP_HumanActivityRecognition",
+  "authors": [
+    "Edwin Candinegara <edwin.candinegara@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "chart.js": "^2.3.0",
+    "angular-ui-router": "^0.3.1",
+    "angular-material": "^1.1.1",
+    "angular-chart.js": "^1.0.3"
+  }
+}

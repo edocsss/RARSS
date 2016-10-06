@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>Aging in Place</title>
+	<link rel="stylesheet"  href="lib/tau/wearable/theme/default/tau.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet"  href="css/style.css">
+	
+</head>
+
+<body>
+	<div class="ui-page ui-page-active" id="main">
+		<header class="ui-header">
+			<h2 class="ui-title">AIP Health Monitor</h2>
+		</header>
+<!--		<select id=sensor_select onchange="sensorChange();">
+ 			<option value="heartrate">Heart Rate</option>
+ 			<option value="ultraviolet">Ultraviolet</option>
+			<option value="pedometer">Pedometer</option>
+  			<option value="light">Light</option>
+  			<option value="pressure">Pressure</option>
+  			<option value="magnetic">Magnetic</option>
+  			<option value="wifi_test">Wifi Test</option>
+		</select> -->
+		<span class=header>Heart Rate</span>
+		<div class="ui-grid-col-2 button-group-height">
+			<button type="button" class="ui-btn" onclick="start();">Start</button>
+			<button type="button" class="ui-btn" onclick="stop();">Stop</button>
+		</div>
+
+		<div class="ui-content content-padding" style='margin:auto;'>
+			<img id="heartrate_animation" class="heartrate-animation" src="img/heartbeat.gif" style="display: none;"></img>	
+			<span class=content_text id=textbox></span>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+<!-- load javascript file for your application -->
+<script src="js/app.js"></script>
+<script src="js/lowBatteryCheck.js"></script>
+</html>

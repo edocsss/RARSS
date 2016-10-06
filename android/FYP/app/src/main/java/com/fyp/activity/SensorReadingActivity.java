@@ -1,15 +1,9 @@
 package com.fyp.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.SensorManager;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +21,6 @@ import com.fyp.constant.FileNames;
 import com.fyp.constant.SharedPreferencesKey;
 import com.fyp.controller.SensorController;
 import com.fyp.controller.SharedPreferencesController;
-import com.fyp.http.HttpManager;
 import com.fyp.service.AccelerometerReaderService;
 import com.fyp.service.BarometerReaderService;
 import com.fyp.service.GravityReaderService;
@@ -52,7 +45,6 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
     private Button startRecordingButton;
     private EditText timerEditText;
     private Spinner activityTypeSpinner;
-    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +60,6 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
         this.startRecordingButton = (Button) this.findViewById(R.id.start_recording_button);
         this.timerEditText = (EditText) this.findViewById(R.id.timer_edittext);
         this.activityTypeSpinner = (Spinner) this.findViewById(R.id.activity_type_spinner);
-        this.vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     private void setupActivityTypeSpinnerListener() {
@@ -238,7 +229,7 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         this.activityType = (String) parent.getItemAtPosition(position);
-        this.activityType = this.activityType.toLowerCase();
+        this.activityType = this.activityType.replaceAll(" ", "_").toLowerCase();
         Log.i(TAG, this.activityType);
     }
 

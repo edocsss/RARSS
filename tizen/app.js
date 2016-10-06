@@ -1,8 +1,8 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://e6fcee6a.ngrok.io';
+	var SERVER_URL = 'http://cac983b5.ngrok.io';
 	var DATA_UPLOAD_URL = SERVER_URL + '/smartwatch/upload';
-	var WEBSOCKET_URL = 'ws://e6fcee6a.ngrok.io/smartwatch/ws';
+	var WEBSOCKET_URL = 'ws://cac983b5.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
@@ -70,7 +70,7 @@
 				sensorReadings.gyroscope.data.push({ gx: gx, gy: gy, gz: gz, timestamp: getCurrentTimestamp() });
 			}
 			
-			prevTimestamp = getCurrentTimestamp();			
+			prevTimestamp = getCurrentTimestamp();
 		}
 	});
 	
@@ -86,12 +86,22 @@
 		sendSensoryDataToServer();
 	};
 	
+	document.getElementById('setup_websocket_data').onclick = function () {
+		setupWebsocket();
+	};
+	
 	function setupLightSensor() {
+		var prevLightReading = getCurrentTimestamp();
 		lightSensor =  webapis.sensorservice.getDefaultSensor('LIGHT');
+		
 		lightSensor.setChangeListener(function (data) {
-			document.getElementById('light').innerHTML = 'Light: ' + data.lightLevel;
-			if (startRecording) {
-				sensorReadings.light.data.push({ light: data.lightLevel, timestamp: getCurrentTimestamp() });
+			if (getCurrentTimestamp() - prevLightReading >= SENSOR_INTERVAL) {
+				document.getElementById('light').innerHTML = 'Light: ' + data.lightLevel;
+				if (startRecording) {
+					sensorReadings.light.data.push({ light: data.lightLevel, timestamp: getCurrentTimestamp() });
+				}
+				
+				prevLightReading = getCurrentTimestamp();
 			}
 		});
 		
@@ -101,14 +111,21 @@
 	}
 	
 	function setupMagneticSensor() {
+		var prevMagneticReading = getCurrentTimestamp();
 		magneticSensor = webapis.sensorservice.getDefaultSensor('MAGNETIC');
+		
 		magneticSensor.setChangeListener(function (data) {
-			document.getElementById('magnetic_x').innerHTML = 'MX: ' + data.x;
-			document.getElementById('magnetic_y').innerHTML = 'MY: ' + data.y;
-			document.getElementById('magnetic_z').innerHTML = 'MZ: ' + data.z;
-			document.getElementById('magnetic_accuracy').innerHTML = 'Acc: ' + data.accuracy;
-			if (startRecording) { 
-				sensorReadings.magnetic.data.push({ mx: data.x, my: data.y, mz: data.z, mAcc: data.accuracy, timestamp: getCurrentTimestamp() });
+			if (getCurrentTimestamp() - prevMagneticReading >= SENSOR_INTERVAL) {
+				document.getElementById('magnetic_x').innerHTML = 'MX: ' + data.x;
+				document.getElementById('magnetic_y').innerHTML = 'MY: ' + data.y;
+				document.getElementById('magnetic_z').innerHTML = 'MZ: ' + data.z;
+				document.getElementById('magnetic_accuracy').innerHTML = 'Acc: ' + data.accuracy;
+				
+				if (startRecording) { 
+					sensorReadings.magnetic.data.push({ mx: data.x, my: data.y, mz: data.z, mAcc: data.accuracy, timestamp: getCurrentTimestamp() });
+				}
+				
+				prevMagneticReading = getCurrentTimestamp();
 			}
 		});
 		
@@ -118,11 +135,17 @@
 	}
 	
 	function setupPressureSensor() {
+		var prevPressureReading = getCurrentTimestamp();
 		pressureSensor = webapis.sensorservice.getDefaultSensor('PRESSURE');
+		
 		pressureSensor.setChangeListener(function (data) {
-			document.getElementById('pressure').innerHTML = 'Pres: ' + data.pressure;
-			if (startRecording) {
-				sensorReadings.pressure.data.push({ pressure: data.pressure, timestamp: getCurrentTimestamp() });
+			if (getCurrentTimestamp() - prevPressureReading >= SENSOR_INTERVAL) {
+				document.getElementById('pressure').innerHTML = 'Pres: ' + data.pressure;
+				if (startRecording) {
+					sensorReadings.pressure.data.push({ pressure: data.pressure, timestamp: getCurrentTimestamp() });
+				}
+				
+				prevPressureReading = getCurrentTimestamp();
 			}
 		});
 		
@@ -132,11 +155,16 @@
 	}
 	
 	function setupUVSensor() {
+		var prevUVReading = getCurrentTimestamp();
 		uvSensor = webapis.sensorservice.getDefaultSensor('ULTRAVIOLET');
 		uvSensor.setChangeListener(function (data) {
-			document.getElementById('ultraviolet').innerHTML = 'UV: ' + data.ultravioletLevel;
-			if (startRecording) {
-				sensorReadings.uv.data.push({ uv: data.ultravioletLevel, timestamp: getCurrentTimestamp() });
+			if (getCurrentTimestamp() - prevUVReading >= SENSOR_INTERVAL) {
+				document.getElementById('ultraviolet').innerHTML = 'UV: ' + data.ultravioletLevel;
+				if (startRecording) {
+					sensorReadings.uv.data.push({ uv: data.ultravioletLevel, timestamp: getCurrentTimestamp() });
+				}
+				
+				prevUVReading = getCurrentTimestamp();
 			}
 		});
 		
@@ -199,11 +227,12 @@
 		return data;
 	}
 	
-	function sendSensoryDataToServer() {
+	function sendSensoryDataToServer(fileId) {
 		var sensorData = loadSensoryDataFromLocalStorage();
 		sendData({
 			activityType: activityType,
-			sensoryData: sensorData
+			sensoryData: sensorData,
+			fileId: fileId
 		});
 	}
 	
@@ -220,7 +249,7 @@
 		console.log("Data sent to server!");
 	}
 	
-	var MAX_WS_RETRY = 5;
+	var MAX_WS_RETRY = 10;
 	var retryCounter = 0;
 	
 	function setupWebsocket() {		
@@ -240,6 +269,9 @@
 				setTimeout(function () {
 					setupWebsocket();
 				}, 1000);
+			} else {
+				retryCounter = 0;
+				return;
 			}
 			
 			retryCounter++;
@@ -252,8 +284,9 @@
 				setupAllSensors();
 			} else if (message === 'stop_recording') {
 				stopAndUnsetAllSensors();
-			} else if (message === 'send data') {
-				sendSensoryDataToServer();
+			} else if (message.indexOf('send_data') > -1) {
+				var fileId = message.split(' ')[1];
+				sendSensoryDataToServer(fileId);
 			}
 		};
 	}

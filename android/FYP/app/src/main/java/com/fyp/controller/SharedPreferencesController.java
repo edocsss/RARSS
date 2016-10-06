@@ -41,4 +41,14 @@ public class SharedPreferencesController {
     public String getString(String key) {
         return this.sharedPreferences.getString(key, "");
     }
+
+    public void setInt(String key, int value) {
+        SharedPreferences.Editor editor = this.sharedPreferences.edit();
+        editor.putInt(key, value);
+        editor.apply();
+    }
+
+    public int getInt(String key) {
+        return this.sharedPreferences.getInt(key, 0);
+    }
 }

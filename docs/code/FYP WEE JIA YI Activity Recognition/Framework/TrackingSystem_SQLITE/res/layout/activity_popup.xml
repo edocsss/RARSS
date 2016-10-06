@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/popupbackground"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvQn"
+        android:layout_marginRight="14dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn7"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:text="Sharp Turn ACW"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+            
+            <Button
+                android:id="@+id/btn8"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:text="Sharp Turn CW"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn9"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:text="Gradient Turn ACW"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn10"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:text="Gradient Turn CW"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <EditText
+                    android:id="@+id/txtIpAddr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:visibility="invisible" >
+
+                    <requestFocus />
+                </EditText>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:text="Walking"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:paddingTop="5sp"
+                android:text="Sitting"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:text="Sitting"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible"  />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/txtLearnMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:paddingTop="5sp"
+                android:text="Running"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:paddingTop="5sp"
+                android:text="Standing"
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnchoice"
+                android:drawablePadding="-15sp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="More..."
+                android:textColor="#000000"
+                android:textSize="7sp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvQn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/linearLayout1"
+        android:layout_marginTop="45dp"
+        android:gravity="right"
+        android:text="Let me know what you&apos;re doing now!"
+        android:textColor="#9F000F"
+        android:textSize="13sp" />
+
+</RelativeLayout>

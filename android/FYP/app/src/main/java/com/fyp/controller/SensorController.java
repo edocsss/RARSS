@@ -50,6 +50,7 @@ public class SensorController {
         try {
             jsonObject.put("activityType", activityType);
             jsonObject.put("sensoryData", sensoryData);
+            jsonObject.put("fileId", FYPApp.getNextFileIdAndIncrement());
         } catch (JSONException e) {
             e.printStackTrace();
         }

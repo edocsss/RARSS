@@ -1,0 +1,24 @@
+The android application will generate a stream of Accelerometer and Barometer data:
+1. Each data row will contain the Start Time, End Time, sensor reading, and ACTIVITY TAG (an integer code mapped to the activity name)
+2. The preprocessor will need 2 files:
+    - The original raw data CSV file (the stream of sensor readings)
+    - The Activity Tag CSV file
+        - This file can be created MANUALLY by looking at the raw data CSV file
+        - For each activity data stream (those data rows with the same activity tag code put sequentially):
+            - Take the Start Time and End Time (NOT THE READING START AND END TIME, BUT ACTUALLY THE START AND END OF THE WHOLE ACTIVITY!!)
+            - Note down the activity tag code
+
+        - Basically, this Activity Tag CSV file is kind of a summary of the RAW DATA STREAM FILE
+
+
+3. The preprocessor will loop through EACH OF THE ACTIVITY TAG FILE rows:
+    - For each of them, take all Accelerometer reading for THAT ACTIVITY TAG
+    - This is done by looping through the RAW DATA FILE line by line and adding that RAW DATA to the current ACTIVITY TAG RAW DATA LIST
+
+4. Conduct data sampling at a fixed frequency:
+    - Loop through the raw data for that activity tag
+    - If there are multiple raw data points in one interval, only use the last data point
+    - Calculate the accelerometer magnitude
+    - Once sampling is done for one interval, add that to the PROCESSED INPUT array
+    - Each Activity Tag HAS ONE PROCESSED INPUT ARRAY!!
+        - This is because the file does not contain the class name information (it's in the file name only)

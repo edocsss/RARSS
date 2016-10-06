@@ -1,8 +1,9 @@
 import os
 import config as CONFIG
+import time
 
 class SensoryDataService:
-    def handle_smartphone_sensory_data(self, activity_type, sensory_data):
+    def handle_smartphone_sensory_data(self, activity_type, sensory_data, file_id):
         accelerometer_data = sensory_data['accelerometer']
         barometer_data = sensory_data['barometer']
         gravity_data = sensory_data['gravity']
@@ -13,15 +14,15 @@ class SensoryDataService:
         self.create_raw_data_directory()
         self.create_raw_activity_directory(activity_type)
 
-        self.store_smartphone_file(activity_type, CONFIG.RAW_ACCELEROMETER_RESULT_SMARTPHONE, accelerometer_data)
-        self.store_smartphone_file(activity_type, CONFIG.RAW_BAROMETER_RESULT_SMARTPHONE, barometer_data)
-        self.store_smartphone_file(activity_type, CONFIG.RAW_GRAVITY_RESULT_SMARTPHONE, gravity_data)
-        self.store_smartphone_file(activity_type, CONFIG.RAW_GYROSCOPE_RESULT_SMARTPHONE, gyroscope_data)
-        self.store_smartphone_file(activity_type, CONFIG.RAW_LINEAR_ACCELEROMETER_RESULT_SMARTPHONE, linear_accelerometer_data)
-        self.store_smartphone_file(activity_type, CONFIG.RAW_MAGNETIC_RESULT_SMARTPHONE, magnetic_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_accelerometer'], accelerometer_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_barometer'], barometer_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_gravity'], gravity_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_gyroscope'], gyroscope_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_linear_accelerometer'], linear_accelerometer_data)
+        self.store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_magnetic'], magnetic_data)
 
 
-    def handle_smartwatch_sensory_data(self, activity_type, sensory_data):
+    def handle_smartwatch_sensory_data(self, activity_type, sensory_data, file_id):
         accelerometer_data = self.convert_smartwatch_accelerometer_data_to_csv(sensory_data['accelerometer']['data'])
         gyroscope_data = self.convert_smartwatch_gyroscope_data_to_csv(sensory_data['gyroscope']['data'])
         light_data = self.convert_smartwatch_light_data_to_csv(sensory_data['light']['data'])
@@ -29,12 +30,15 @@ class SensoryDataService:
         magnetic_data = self.convert_smartwatch_magnetic_data_to_csv(sensory_data['magnetic']['data'])
         uv_data = self.convert_smartwatch_ultraviolet_data_to_csv(sensory_data['uv']['data'])
 
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_ACCELEROMETER_RESULT_SMARTWATCH, accelerometer_data)
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_GYROSCOPE_RESULT_SMARTWATCH, gyroscope_data)
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_LIGHT_RESULT_SMARTWATCH, light_data)
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_PRESSURE_RESULT_SMARTWATCH, pressure_data)
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_MAGNETIC_RESULT_SMARTWATCH, magnetic_data)
-        self.store_smartwatch_file(activity_type, CONFIG.RAW_ULTRAVIOLET_RESULT_SMARTWATCH, uv_data)
+        self.create_raw_data_directory()
+        self.create_raw_activity_directory(activity_type)
+
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_accelerometer'], accelerometer_data)
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_gyroscope'], gyroscope_data)
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_light'], light_data)
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_pressure'], pressure_data)
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_magnetic'], magnetic_data)
+        self.store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_ultraviolet'], uv_data)
 
 
     def store_smartphone_file(self, activity_type, file_name, file_content):

@@ -17,5 +17,16 @@
         <item>Lying</item>
         <item>Walking</item>
         <item>Running</item>
+        <item>Going Upstairs</item>
+        <item>Going Downstairs</item>
+        <item>Brushing</item>
+        <item>Typing</item>
+        <item>Writing</item>
+        <item>Reading</item>
+        <item>Eating</item>
+        <item>Food Preparation</item>
+        <item>Folding</item>
+        <item>Sweeping the Floor</item>
+        <item>Testing</item>
     </string-array>
 </resources>

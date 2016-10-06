@@ -1,0 +1,11 @@
+function [data = getPrinComp(temp, )
+
+[ U, mu, variances ] = pca(temp');
+
+dim = 1;
+while (sum(variances(1:dim))/sum(variances))<THRESHOLD && dim < size(temp,2)
+    dim = dim+1;
+end
+dim
+[ Y, Xhat, pe ] = pca_apply(temp', U, mu, variances, dim );
+data = [Y' data(:, size(data,2)-2)];

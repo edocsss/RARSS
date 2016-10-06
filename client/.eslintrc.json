@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": ["eslint:recommended"],
+    "globals": {
+        "angular": true,
+        "Chart": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

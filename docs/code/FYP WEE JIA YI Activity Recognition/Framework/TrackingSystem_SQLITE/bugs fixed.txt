@@ -1,0 +1,2 @@
+1. version.xml copied over to project folder
+2. add in the google_play_service_lib's jar file

@@ -1,0 +1,19 @@
+<md-sidenav
+    class="md-sidenav-left"
+    md-is-open="false"
+    md-component-id="main-sidenav"
+    md-whiteframe="4">
+
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Menu</h1>
+    </md-toolbar>
+
+    <md-content>
+        <md-list>
+            <md-list-item ng-click="sidenavController.openPage('rawDataVisualizer')" ng-class="{ 'sidenav-active': sidenavController.getActiveState() === 'rawDataVisualizer' }">
+                <md-icon md-svg-icon="images/icons/ic_multiline_chart_black_36px.svg" class="sidenav-list-icon"></md-icon>
+                <p>Raw Data Visualizer</p>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>

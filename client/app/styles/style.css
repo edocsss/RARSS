@@ -1,0 +1,50 @@
+.text-center {
+    text-align: center;
+}
+
+.sidenav-active {
+    background-color: #DDDDDD;
+}
+
+.sidenav-list-icon {
+    margin-top: 12px !important;
+    margin-right: 20px !important;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+md-toast {
+    min-width: 100% !important;
+}
+
+md-toast.md-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+md-input-container.md-input-invalid > md-icon,
+md-input-container.md-input-invalid > label {
+    color: rgb(221, 44, 0);
+}
+
+pre {
+    font-size: 14px;
+}
+
+.control-button-margin {
+    margin-left: 6px;
+}
+
+div#raw-data-visualizer-initial-circular-loading {
+    margin-top: 100px;
+}
+
+
+
+@media (min-width: 1920px) {
+    md-toast .md-toast-content {
+        max-width: 100%;
+    }
+}

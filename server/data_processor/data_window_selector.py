@@ -1,33 +1,26 @@
 import os
 import config as CONFIG
 import pandas as pd
+from util import sampled_data_reader
+from models.data_item import DataItem
 
 
 def divide_and_store_sampled_data_to_windows(activity_type):
-    windowed_smartphone_df = divide_smartphone_data_to_windows(activity_type)
-    windowed_smartwatch_df = divide_smartwatch_data_to_windows(activity_type)
+    sampled_data = sampled_data_reader.read_all_sampled_data(activity_type)
+    windowed_data = {}
 
-    create_windowed_data_directory()
-    create_windowed_activity_directory(activity_type)
+    for k, v in sampled_data.items():
+        result = []
+        for sampled_data_item in v:
+            file_id = sampled_data_item.file_id
+            dataframe = sampled_data_item.dataframe
 
-    store_windowed_smartphone_df_to_file(windowed_smartphone_df, activity_type)
-    store_windowed_smartwatch_df_to_file(windowed_smartwatch_df, activity_type)
+            windowed_dataframe = divide_dataframe_to_windows(dataframe)
+            result.append(DataItem(file_id, windowed_dataframe))
 
+        windowed_data[k] = result
 
-def divide_smartphone_data_to_windows(activity_type):
-    print('Dividing combined smartphone data into windows..')
-    combined_smartphone_df = read_combined_smartphone_data(activity_type)
-    print('Combined smartphone data divided into windows!')
-
-    return divide_dataframe_to_windows(combined_smartphone_df)
-
-
-def divide_smartwatch_data_to_windows(activity_type):
-    print('Dividing combined smartwatch data into windows..')
-    combined_smartwatch_df = read_combined_smartwatch_data(activity_type)
-    print('Combined smartwatch data divided into windows!')
-
-    return divide_dataframe_to_windows(combined_smartwatch_df)
+    store_windowed_data_to_files(windowed_data, activity_type)
 
 
 def divide_dataframe_to_windows(df):
@@ -46,16 +39,6 @@ def divide_dataframe_to_windows(df):
     return result_df
 
 
-def read_combined_smartphone_data(activity_type):
-    file_path = os.path.join(CONFIG.SAMPLED_DATA_DIR, activity_type, CONFIG.COMBINED_SAMPLED_SMARTPHONE_DATA)
-    return pd.read_csv(file_path)
-
-
-def read_combined_smartwatch_data(activity_type):
-    file_path = os.path.join(CONFIG.SAMPLED_DATA_DIR, activity_type, CONFIG.COMBINED_SAMPLED_SMARTWATCH_DATA)
-    return pd.read_csv(file_path)
-
-
 def create_windowed_data_directory():
     dir_path = os.path.join(CONFIG.WINDOWED_DATA_DIR)
     if not os.path.isdir(dir_path):
@@ -68,15 +51,19 @@ def create_windowed_activity_directory(activity_type):
         os.mkdir(dir_path)
 
 
-def store_windowed_smartphone_df_to_file(windowed_smartphone_df, activity_type):
-    print('Storing windowed smartphone dataframe to file..')
-    file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, CONFIG.WINDOWED_SMARTPHONE_DATA)
-    windowed_smartphone_df.to_csv(file_path)
-    print('Windowed smartphone dataframe stored!')
+def store_windowed_data_to_files(windowed_data, activity_type):
+    print('Writing windowed data to files..')
+    create_windowed_data_directory()
+    create_windowed_activity_directory(activity_type)
+
+    for k, v in windowed_data.items():
+        for windowed_data_item in v:
+            file_name = windowed_data_item.file_id + '_' + CONFIG.WINDOWED_DATA_RESULT[k]
+            write_windowed_dataframe_to_csv(activity_type, file_name, windowed_data_item.dataframe)
+
+    print('Windowed data stored!')
 
 
-def store_windowed_smartwatch_df_to_file(windowed_smartwatch_df, activity_type):
-    print('Storing windowed smartwatch dataframe to file..')
-    file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, CONFIG.WINDOWED_SMARTWATCH_DATA)
-    windowed_smartwatch_df.to_csv(file_path)
-    print('Windowed smartwatch dataframe stored!')
+def write_windowed_dataframe_to_csv(activity_type, file_name, dataframe):
+    file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, file_name)
+    dataframe.to_csv(file_path)
