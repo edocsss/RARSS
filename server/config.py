@@ -6,6 +6,7 @@ DATA_DIR = os.path.join(ROOT_DIR, 'data')
 RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 SAMPLED_DATA_DIR = os.path.join(DATA_DIR, 'sampled')
 WINDOWED_DATA_DIR = os.path.join(DATA_DIR, 'windowed')
+COMBINED_DATA_DIR = os.path.join(DATA_DIR, 'combined')
 FEATURES_DATA_DIR = os.path.join(DATA_DIR, 'features')
 
 RAW_DATA_RESULT = {
@@ -54,6 +55,11 @@ WINDOWED_DATA_RESULT = {
     'sw_pressure': 'windowed_pressure_watch.csv',
     'sw_magnetic': 'windowed_magnetic_watch.csv',
     'sw_ultraviolet': 'windowed_ultraviolet_watch.csv'
+}
+
+COMBINED_DATA_RESULT = {
+    'sp': 'combined_smartphone.csv',
+    'sw': 'combined_smartwatch.csv'
 }
 
 WINDOWED_SMARTPHONE_DATA = 'windowed_smartphone_combined.csv'
