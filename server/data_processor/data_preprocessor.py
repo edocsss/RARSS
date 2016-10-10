@@ -4,6 +4,7 @@ from data_processor import data_sampler
 from data_processor import data_window_selector
 from data_processor import feature_generator
 from util import raw_data_reader
+import threading
 
 
 def sample_and_generate_feature(raw_data, activity_type):
@@ -22,8 +23,8 @@ if __name__ == '__main__':
         'brushing',
         'eating',
         'folding',
-        # 'going_downstairs',
-        # 'going_upstairs',
+        'going_downstairs',
+        'going_upstairs',
         'lying',
         'reading',
         'running',
@@ -36,8 +37,14 @@ if __name__ == '__main__':
         'writing'
     ]
 
+    threads = []
     for activity in activities:
         print('Full pre-processing: {}'.format(activity))
-        preprocess_data(activity)
+        t = threading.Thread(target=preprocess_data, args=(activity,))
+        t.start()
+        threads.append(t)
         print()
         print()
+
+    for t in threads:
+        t.join()
