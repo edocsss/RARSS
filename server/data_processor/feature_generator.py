@@ -1,35 +1,43 @@
 import os
 import config as CONFIG
 import pandas as pd
-
-
-def read_windowed_smartphone_data(activity_type):
-    print('Reading windowed smartphone data..')
-    file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, CONFIG.WINDOWED_SMARTPHONE_DATA)
-    return pd.read_csv(file_path)
-
-
-def read_windowed_smartwatch_data(activity_type):
-    print('Reading windowed smartwatch data..')
-    file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, CONFIG.WINDOWED_SMARTWATCH_DATA)
-    return pd.read_csv(file_path)
+import math
+from util import combined_data_reader
 
 
 def generate_feature(activity_type):
-    smartphone_df = read_windowed_smartphone_data(activity_type)
-    smartwatch_df = read_windowed_smartwatch_data(activity_type)
+    combined_data = combined_data_reader.read_all_combined_data(activity_type)
+    smartphone_df = combined_data['sp']
+    smartwatch_df = combined_data['sw']
 
-    smartphone_features = generate_smartphone_features(smartphone_df)
-    smartwatch_features = generate_smartwatch_features(smartwatch_df)
+    smartphone_df = _include_additional_data(smartphone_df)
+    smartwatch_df = _include_additional_data(smartwatch_df)
 
-    create_features_directory()
-    create_features_activity_directory(activity_type)
+    smartphone_features = _generate_smartphone_features(smartphone_df)
+    smartwatch_features = _generate_smartwatch_features(smartwatch_df)
 
-    write_smartphone_features_to_file(smartphone_features, activity_type)
-    write_smartwatch_features_to_file(smartwatch_features, activity_type)
+    _create_features_directory()
+    _create_features_activity_directory(activity_type)
+
+    _write_smartphone_features_to_file(smartphone_features, activity_type)
+    _write_smartwatch_features_to_file(smartwatch_features, activity_type)
 
 
-def generate_smartphone_features(smartphone_df):
+def _include_additional_data(df):
+    df['acc_magnitude'] = df.apply(
+        _calculate_accelerometer_magnitude,
+        axis=1,
+        args=(['ax', 'ay', 'az'],)
+    )
+
+    return df
+
+
+def _calculate_accelerometer_magnitude(row, fields):
+    return math.sqrt(sum([math.pow(row[f], 2) for f in fields]))
+
+
+def _generate_smartphone_features(smartphone_df):
     print('Generating smartphone features..')
     result_df = pd.DataFrame(data=None, columns=[
         'mean_ax',
@@ -44,7 +52,7 @@ def generate_smartphone_features(smartphone_df):
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
         one_window_df = smartphone_df[i : i + CONFIG.N_ROWS_PER_WINDOW]
-        accelerometer_features = generate_accelerometer_feature_per_window(one_window_df)
+        accelerometer_features = _generate_accelerometer_feature_per_window(one_window_df)
 
         one_window_features = pd.concat([
             accelerometer_features
@@ -55,7 +63,7 @@ def generate_smartphone_features(smartphone_df):
     return result_df
 
 
-def generate_smartwatch_features(smartwatch_df):
+def _generate_smartwatch_features(smartwatch_df):
     print('Generating smartwatch features..')
     result_df = pd.DataFrame(data=None, columns=[
         'mean_ax',
@@ -70,7 +78,7 @@ def generate_smartwatch_features(smartwatch_df):
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
         one_window_df = smartwatch_df[i : i + CONFIG.N_ROWS_PER_WINDOW]
-        accelerometer_features = generate_accelerometer_feature_per_window(one_window_df)
+        accelerometer_features = _generate_accelerometer_feature_per_window(one_window_df)
 
         one_window_features = pd.concat([
             accelerometer_features
@@ -81,52 +89,71 @@ def generate_smartwatch_features(smartwatch_df):
     return result_df
 
 
-def generate_accelerometer_feature_per_window(df):
-    print('Generating accelerometer feature for one window..')
+def _generate_accelerometer_feature_per_window(df):
     accelerometer_related_data = df[['ax', 'ay', 'az', 'acc_magnitude']]
-    one_window_smartphone_data_mean = accelerometer_related_data.mean()
-    one_window_smartphone_data_mean.rename({
-        'ax': 'mean_ax',
-        'ay': 'mean_ay',
-        'az': 'mean_az',
-        'acc_magnitude': 'mean_acc_magnitude'
-    }, inplace=True)
+    result = []
+    result_cols = [
+        'mean_ax',
+        'mean_ay',
+        'mean_az',
+        'mean_acc_magnitude',
+        'var_ax',
+        'var_ay',
+        'var_az',
+        'var_acc_magnitude',
+        'cov_a_xy',
+        'cov_a_yz',
+        'cov_a_xz',
+        'cov_a_xmag',
+        'cov_a_ymag',
+        'cov_a_zmag'
+    ]
 
-    one_window_smartphone_data_variance = accelerometer_related_data.var()
-    one_window_smartphone_data_variance.rename({
-        'ax': 'var_ax',
-        'ay': 'var_ay',
-        'az': 'var_az',
-        'acc_magnitude': 'var_acc_magnitude'
-    }, inplace=True)
+    result += accelerometer_related_data.mean().tolist()
+    result += accelerometer_related_data.var().tolist()
 
-    one_window_smartphone_feature_series = pd.concat([
-        one_window_smartphone_data_mean,
-        one_window_smartphone_data_variance
-    ])
+    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'ay'))
+    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'az'))
+    result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'az'))
+    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'acc_magnitude'))
+    result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'acc_magnitude'))
+    result.append(_calculate_covariance(accelerometer_related_data, 'az', 'acc_magnitude'))
 
-    return one_window_smartphone_feature_series
+    result_df = pd.DataFrame(data=[result], columns=result_cols)
+    return result_df
 
 
-def create_features_directory():
+def _calculate_covariance(df, col1, col2):
+    relevant_df = df[[col1, col2]]
+    mean_col1 = relevant_df[col1].mean()
+    mean_col2 = relevant_df[col2].mean()
+
+    total = 0
+    for i, row in relevant_df.iterrows():
+        total += (row[col1] - mean_col1) * (row[col2] - mean_col2)
+
+    return total / (len(relevant_df) - 1)
+
+
+def _create_features_directory():
     dir_path = os.path.join(CONFIG.FEATURES_DATA_DIR)
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
 
 
-def create_features_activity_directory(activity_type):
+def _create_features_activity_directory(activity_type):
     dir_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type)
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
 
 
-def write_smartphone_features_to_file(smartphone_features, activity_type):
+def _write_smartphone_features_to_file(smartphone_features, activity_type):
     print('Writing smartphone features to file..')
     file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FEATURES_SMARTPHONE_DATA)
     smartphone_features.to_csv(file_path)
 
 
-def write_smartwatch_features_to_file(smartwatch_features, activity_type):
+def _write_smartwatch_features_to_file(smartwatch_features, activity_type):
     print('Writing smartwatch features to file..')
     file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FEATURES_SMARTWATCH_DATA)
     smartwatch_features.to_csv(file_path)

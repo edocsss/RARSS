@@ -8,16 +8,12 @@ from util import raw_data_reader
 import threading
 
 
-def sample_and_generate_feature(raw_data, activity_type):
-    # data_sampler.sample_data_by_frequency(raw_data, activity_type)
-    # data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
-    data_combiner.combine_data(activity_type)
-    # feature_generator.generate_feature(activity_type)
-
-
 def preprocess_data(activity_type):
     raw_data = raw_data_reader.read_all_raw_data(activity_type)
-    sample_and_generate_feature(raw_data, activity_type)
+    data_sampler.sample_data_by_frequency(raw_data, activity_type)
+    data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
+    data_combiner.combine_data(activity_type)
+    feature_generator.generate_feature(activity_type)
 
 
 if __name__ == '__main__':

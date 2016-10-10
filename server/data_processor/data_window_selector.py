@@ -15,15 +15,15 @@ def divide_and_store_sampled_data_to_windows(activity_type):
             file_id = sampled_data_item.file_id
             dataframe = sampled_data_item.dataframe
 
-            windowed_dataframe = divide_dataframe_to_windows(dataframe)
+            windowed_dataframe = _divide_dataframe_to_windows(dataframe)
             result.append(DataItem(file_id, windowed_dataframe))
 
         windowed_data[k] = result
 
-    store_windowed_data_to_files(windowed_data, activity_type)
+    _store_windowed_data_to_files(windowed_data, activity_type)
 
 
-def divide_dataframe_to_windows(df):
+def _divide_dataframe_to_windows(df):
     result_df = pd.DataFrame(data=None, columns=df.columns)
     row_step = int(CONFIG.N_ROWS_PER_WINDOW * CONFIG.WINDOW_OVERLAP)
     total_rows = df.shape[0]
@@ -39,31 +39,31 @@ def divide_dataframe_to_windows(df):
     return result_df
 
 
-def create_windowed_data_directory():
+def _create_windowed_data_directory():
     dir_path = os.path.join(CONFIG.WINDOWED_DATA_DIR)
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
 
 
-def create_windowed_activity_directory(activity_type):
+def _create_windowed_activity_directory(activity_type):
     dir_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type)
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
 
 
-def store_windowed_data_to_files(windowed_data, activity_type):
+def _store_windowed_data_to_files(windowed_data, activity_type):
     print('Writing windowed data to files..')
-    create_windowed_data_directory()
-    create_windowed_activity_directory(activity_type)
+    _create_windowed_data_directory()
+    _create_windowed_activity_directory(activity_type)
 
     for k, v in windowed_data.items():
         for windowed_data_item in v:
             file_name = windowed_data_item.file_id + '_' + CONFIG.WINDOWED_DATA_RESULT[k]
-            write_windowed_dataframe_to_csv(activity_type, file_name, windowed_data_item.dataframe)
+            _write_windowed_dataframe_to_csv(activity_type, file_name, windowed_data_item.dataframe)
 
     print('Windowed data stored!')
 
 
-def write_windowed_dataframe_to_csv(activity_type, file_name, dataframe):
+def _write_windowed_dataframe_to_csv(activity_type, file_name, dataframe):
     file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, file_name)
     dataframe.to_csv(file_path)
