@@ -9,6 +9,6 @@ class RawDataService():
             data = raw_data_reader.read_smartwatch_raw_data(activity_type)
 
         for k, v in data.items():
-            data[k] = v.values.tolist()
+            data[k] = v[0].values.tolist()
 
         return data

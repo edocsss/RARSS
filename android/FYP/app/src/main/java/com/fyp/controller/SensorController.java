@@ -79,7 +79,7 @@ public class SensorController {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Log.e(TAG, error.getMessage());
                     }
                 }
         );

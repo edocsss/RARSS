@@ -1,8 +1,8 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://cac983b5.ngrok.io';
+	var SERVER_URL = 'http://f9018b22.ngrok.io';
 	var DATA_UPLOAD_URL = SERVER_URL + '/smartwatch/upload';
-	var WEBSOCKET_URL = 'ws://cac983b5.ngrok.io/smartwatch/ws';
+	var WEBSOCKET_URL = 'ws://f9018b22.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
@@ -181,6 +181,9 @@
 		setupMagneticSensor();
 		setupPressureSensor();
 		setupUVSensor();
+		
+		tizen.power.request("SCREEN", "SCREEN_NORMAL");
+		tizen.power.request("CPU", "CPU_AWAKE");
 	}
 	
 	function stopAndUnsetAllSensors() {
@@ -200,6 +203,8 @@
 		uvSensor.stop();
 		
 		storeSensoryDataToLocalStorage();
+		tizen.power.release("SCREEN");
+		tizen.power.release("CPU");
 	}
 	
 	function storeSensoryDataToLocalStorage() {

@@ -1,5 +1,5 @@
 import os
-import time
+import math
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(ROOT_DIR, 'data')
@@ -59,18 +59,23 @@ WINDOWED_DATA_RESULT = {
 
 COMBINED_DATA_RESULT = {
     'sp': 'combined_smartphone.csv',
-    'sw': 'combined_smartwatch.csv'
+    'sw': 'combined_smartwatch.csv',
+    'sp_sw': 'combined_sp_sw.csv',
+    'full': 'combined_full.csv'
 }
 
-WINDOWED_SMARTPHONE_DATA = 'windowed_smartphone_combined.csv'
-WINDOWED_SMARTWATCH_DATA = 'windowed_smartwatch_combined.csv'
-
-FEATURES_SMARTPHONE_DATA = 'features_smartphone_combined.csv'
-FEATURES_SMARTWATCH_DATA = 'features_smartwatch_combined.csv'
+FEATURES_DATA_RESULT = {
+    'sp': 'features_smartphone_combined.csv',
+    'sw': 'features_smartwatch_combined.csv'
+}
 
 SAMPLING_FREQUENCY = 10 # in Hz
 SAMPLING_INTERVAL = int(1000 / SAMPLING_FREQUENCY)
 OUTLIER_REMOVAL_SIZE = 5000
+
+THRESHOLD_WEIRD_TIMESTAMP_DETECTION = 10
+SENSOR_SAMPLING_FREQUENCY = 250 # by observation in the reading logs
+N_SAMPLE_WEIRD_TIMESTAMP_REPLACEMENT = math.ceil(SENSOR_SAMPLING_FREQUENCY / SAMPLING_INTERVAL)
 
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5

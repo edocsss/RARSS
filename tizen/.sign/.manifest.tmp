@@ -1,9 +1,10 @@
 .DS_Store__DEL__1lFlJ5EFymdzGAUAaI30vcaaLHt3F1LwpG7xILf9jsM=
-app.js__DEL__x+ZMe+7hRjCUuVUb6J727wSA+z0tHWRLMT/G6tIo3zw=
-config.xml__DEL__meWTAOzlbCu4D5RQauJUG5eNf/jvJOnY9TNWN8corhk=
+app.js__DEL__t/RCIY4XxUjb9dZ0ZLLnJpAjkCoH+NbfTu+IBC8XBQo=
+app_webworker.js__DEL__uADUNKHX7SCw02h8d/qr0LHJFXo8Ug1ueKdRmJF/F48=
+config.xml__DEL__eq29FJ7g/iwXm/RYcQafufFoQOAl7+0WAzj2m2xyzYA=
 css/style.css__DEL__G4CUnQ0jfnGsAcJbs88rfO93s5tv7RRYTNB7pihxxbU=
 icon.png__DEL__vPjxjOppORd6hn9Bw4sh06gqtDoJzoFbV/8e9FyIdvk=
-index.html__DEL__LRPhqeAwjhvCinsxsjKMWLOwPb7uqCvq//8taJzG+eY=
+index.html__DEL__M5Tq52ZW/xDh4uu3M2ulqxw+xXefK1rbD3NVEVqCuyY=
 lib/.DS_Store__DEL__1lFlJ5EFymdzGAUAaI30vcaaLHt3F1LwpG7xILf9jsM=
 lib/tau/LICENSE.Flora__DEL__R4988xI3tkQMAcLGLOROY5Wp8YTDrI0X90uMvrydtQw=
 lib/tau/VERSION__DEL__AgEEx0UtoejCJ3/znmkckO8elLO7qrdgT4N4aPL1jwg=
@@ -258,4 +259,5 @@ lib/tau/wearable/theme/default/tau.min.css__DEL__i7Ml9F7vwiNtrBfTz8MMGreSmFTon1S
 lib/tau/wearable/theme/default/tau.min.template__DEL__UTLnyuhkbUUZCANbcpEmVeOqSG9UuwqSStpqdA50kt4=
 lib/tau/wearable/theme/default/tau.template__DEL__3iXD+hFr15v1h/d1mhzy+EA8fRqS4qwZeE+FaskjsMQ=
 lowBatteryCheck.js__DEL__Vy4eAkGG3Qll16lg9iCNddEVsO6NSreHf9R1125fpwk=
-author-signature.xml__DEL__i3OG3icgQ54pIuEu79NhNW7FbpPe0dJ2OZHr6glPEhY=
+worker.js__DEL__AX6za8SAQWvUzt2OOddNPU4gIRwKLSevtJOAYxaDiEU=
+author-signature.xml__DEL__SLdEo38NqCdYJEBx/0ZiivnWT3LGu6Z8IwsHxvv62NQ=

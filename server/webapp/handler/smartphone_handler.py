@@ -10,12 +10,11 @@ sensory_data_service = SensoryDataService()
 
 class SmartphoneHandler(BaseHandler):
     def post(self):
-        print(self.request.body)
         f = json_decode(self.request.body)
-
         activity_type = f['activityType']
         sensory_data = f['sensoryData']
         file_id = str(f['fileId'])
+        print('Smartphone: {}'.format(file_id))
 
         sensory_data_service.handle_smartphone_sensory_data(activity_type, sensory_data, file_id)
         SmartwatchWebsocketHandler.broadcast('send_data {}'.format(file_id))
