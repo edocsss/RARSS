@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 
-path = os.path.join('sweeping_the_floor', '29_raw_accelerometer_watch.csv')
+path = os.path.join('brushing', '36_raw_accelerometer_watch.csv')
 df = pd.read_csv(path)
 x = df['timestamp']
 y = df['ax']

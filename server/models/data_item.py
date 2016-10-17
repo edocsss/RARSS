@@ -1,6 +1,6 @@
 class DataItem:
-    def __init__(self, file_name, dataframe):
-        self.file_id = file_name.split('_')[0]
+    def __init__(self, file_id, dataframe):
+        self.file_id = file_id
         self.dataframe = dataframe
 
 

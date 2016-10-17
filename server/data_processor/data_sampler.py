@@ -156,7 +156,7 @@ def _write_sampled_data_to_files(sampled_data, activity_type):
 
     for k, v in sampled_data.items():
         for sampled_data_item in v:
-            file_name = sampled_data_item.file_id + '_' + CONFIG.SAMPLED_DATA_RESULT[k]
+            file_name = CONFIG.FILE_NAME_SUFFIX + sampled_data_item.file_id + '_' + CONFIG.SAMPLED_DATA_RESULT[k]
             _write_sampled_dataframe_to_csv(activity_type, file_name, sampled_data_item.dataframe)
 
     print('Sampled data stored!')

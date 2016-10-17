@@ -14,12 +14,12 @@ def read_all_windowed_data(activity_type):
 def read_smartphone_windowed_data(activity_type):
     file_names = get_file_names_in_windowed_directory_by_activity(activity_type)
     file_name_per_sensor = {
-        'sp_accelerometer': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_accelerometer']) >= 0],
-        'sp_barometer': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_barometer']) >= 0],
-        'sp_gravity': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_gravity']) >= 0],
-        'sp_gyroscope': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_gyroscope']) >= 0],
-        'sp_linear_accelerometer': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_linear_accelerometer']) >= 0],
-        'sp_magnetic': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sp_magnetic']) >= 0]
+        'sp_accelerometer': _get_file_name_by_sensor_and_suffix(file_names, 'sp_accelerometer'),
+        'sp_barometer': _get_file_name_by_sensor_and_suffix(file_names, 'sp_barometer'),
+        'sp_gravity': _get_file_name_by_sensor_and_suffix(file_names, 'sp_gravity'),
+        'sp_gyroscope': _get_file_name_by_sensor_and_suffix(file_names, 'sp_gyroscope'),
+        'sp_linear_accelerometer': _get_file_name_by_sensor_and_suffix(file_names, 'sp_linear_accelerometer'),
+        'sp_magnetic': _get_file_name_by_sensor_and_suffix(file_names, 'sp_magnetic'),
     }
 
     return read_windowed_data_by_activity_and_source(activity_type, file_name_per_sensor)
@@ -28,12 +28,12 @@ def read_smartphone_windowed_data(activity_type):
 def read_smartwatch_windowed_data(activity_type):
     file_names = get_file_names_in_windowed_directory_by_activity(activity_type)
     file_name_per_sensor = {
-        'sw_accelerometer': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_accelerometer']) >= 0],
-        'sw_gyroscope': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_gyroscope']) >= 0],
-        'sw_light': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_light']) >= 0],
-        'sw_pressure': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_pressure']) >= 0],
-        'sw_magnetic': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_magnetic']) >= 0],
-        'sw_ultraviolet': [file_name for file_name in file_names if file_name.find(CONFIG.WINDOWED_DATA_RESULT['sw_ultraviolet']) >= 0]
+        'sw_accelerometer': _get_file_name_by_sensor_and_suffix(file_names, 'sw_accelerometer'),
+        'sw_gyroscope': _get_file_name_by_sensor_and_suffix(file_names, 'sw_gyroscope'),
+        'sw_light': _get_file_name_by_sensor_and_suffix(file_names, 'sw_light'),
+        'sw_pressure': _get_file_name_by_sensor_and_suffix(file_names, 'sw_pressure'),
+        'sw_magnetic': _get_file_name_by_sensor_and_suffix(file_names, 'sw_magnetic'),
+        'sw_ultraviolet': _get_file_name_by_sensor_and_suffix(file_names, 'sw_ultraviolet')
     }
 
     return read_windowed_data_by_activity_and_source(activity_type, file_name_per_sensor)
@@ -41,7 +41,7 @@ def read_smartwatch_windowed_data(activity_type):
 
 def get_file_names_in_windowed_directory_by_activity(activity_type):
     windowed_activity_dir = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type)
-    return os.listdir(windowed_activity_dir)
+    return [file_name for file_name in os.listdir(windowed_activity_dir) if CONFIG.FILE_NAME_SUFFIX in file_name]
 
 
 def read_windowed_data_by_activity_and_source(activity_type, file_name_per_sensor):
@@ -50,21 +50,26 @@ def read_windowed_data_by_activity_and_source(activity_type, file_name_per_senso
         for k, v in file_name_per_sensor.items():
             data_per_sensor = []
             for file_name in v:
+                file_id = file_name.split('_')[3]
                 file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, file_name)
-                data_per_sensor.append(DataItem(file_name, read_csv_data(file_path)))
+                data_per_sensor.append(DataItem(file_id, read_csv_data(file_path)))
 
             result[k] = data_per_sensor
-
 
         return result
 
     except:
         return None
 
+
+def _get_file_name_by_sensor_and_suffix(file_names, file_key):
+    return [file_name for file_name in file_names if CONFIG.WINDOWED_DATA_RESULT[file_key] in file_name]
+
+
 def read_csv_data(file_path):
     return pd.read_csv(file_path)
 
 
 if __name__ == '__main__':
-    pprint.pprint(read_smartphone_windowed_data('going_downstairs'))
-    pprint.pprint(read_smartwatch_windowed_data('going_downstairs'))
+    pprint.pprint(read_smartphone_windowed_data('testing'))
+    pprint.pprint(read_smartwatch_windowed_data('testing'))

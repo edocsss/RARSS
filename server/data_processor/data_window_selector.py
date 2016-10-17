@@ -58,7 +58,7 @@ def _store_windowed_data_to_files(windowed_data, activity_type):
 
     for k, v in windowed_data.items():
         for windowed_data_item in v:
-            file_name = windowed_data_item.file_id + '_' + CONFIG.WINDOWED_DATA_RESULT[k]
+            file_name = CONFIG.FILE_NAME_SUFFIX + windowed_data_item.file_id + '_' + CONFIG.WINDOWED_DATA_RESULT[k]
             _write_windowed_dataframe_to_csv(activity_type, file_name, windowed_data_item.dataframe)
 
     print('Windowed data stored!')

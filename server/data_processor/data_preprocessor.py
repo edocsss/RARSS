@@ -11,31 +11,31 @@ import time
 
 def preprocess_data(activity_type):
     raw_data = raw_data_reader.read_all_raw_data(activity_type)
-    # data_sampler.sample_data(raw_data, activity_type)
-    # data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
-    # data_combiner.combine_data_by_source(activity_type)
-    # feature_generator.generate_feature(activity_type)
+    data_sampler.sample_data(raw_data, activity_type)
+    data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
+    data_combiner.combine_data_by_source(activity_type)
+    feature_generator.generate_feature(activity_type)
     data_combiner.combine_data_sources_into_one(activity_type)
 
 
 if __name__ == '__main__':
     start = time.time()
     activities = [
-        # 'brushing',
-        # 'eating',
-        # 'folding',
-        # 'going_downstairs',
-        # 'going_upstairs',
-        # 'lying',
+        'brushing',
+        'eating',
+        'folding',
+        'going_downstairs',
+        'going_upstairs',
+        'lying',
         'reading',
-        # 'running',
-        # 'sitting',
-        # 'standing',
-        # 'sweeping_the_floor',
+        'running',
+        'sitting',
+        'standing',
+        'sweeping_the_floor',
         # 'testing',
-        # 'typing',
-        # 'walking',
-        # 'writing'
+        'typing',
+        'walking',
+        'writing'
     ]
 
     threads = []
@@ -48,5 +48,5 @@ if __name__ == '__main__':
     for t in threads:
         t.join()
 
-    # data_combiner.combine_all_data_into_one_complete_dataset()
+    data_combiner.combine_all_data_into_one_complete_dataset()
     print('Timer: {}'.format(time.time() - start))

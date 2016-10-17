@@ -50,8 +50,9 @@ def read_raw_data_by_activity_and_source(activity_type, file_name_per_sensor):
         for k, v in file_name_per_sensor.items():
             data_per_sensor = []
             for file_name in v:
+                file_id = file_name.split('_')[0]
                 file_path = os.path.join(CONFIG.RAW_DATA_DIR, activity_type, file_name)
-                data_per_sensor.append(DataItem(file_name, read_csv_data(file_path)))
+                data_per_sensor.append(DataItem(file_id, read_csv_data(file_path)))
 
             result[k] = data_per_sensor
 

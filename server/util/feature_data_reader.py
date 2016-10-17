@@ -14,12 +14,12 @@ def read_all_windowed_data(activity_type):
 
 
 def read_smartphone_features_data(activity_type):
-    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FEATURES_DATA_RESULT['sp'])
+    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.FEATURES_DATA_RESULT['sp'])
     return read_csv_data(file_path)
 
 
 def read_smartwatch_features_data(activity_type):
-    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FEATURES_DATA_RESULT['sw'])
+    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.FEATURES_DATA_RESULT['sw'])
     return read_csv_data(file_path)
 
 
