@@ -1,6 +1,7 @@
 import os
 import math
 
+# DIRECTORY PATH CONFIGURATIONS
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(ROOT_DIR, 'data')
 RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
@@ -69,6 +70,46 @@ FEATURES_DATA_RESULT = {
     'sw': 'features_smartwatch_combined.csv'
 }
 
+
+
+# DATA SELECTION CONFIGURATIONS
+FULL_SUBJECT_LIST = [
+    'edwin',
+    'richsen'
+]
+
+TRAINING_DATA_SOURCE_SUBJECT = [
+    'edwin'
+]
+
+TESTING_DATA_SOURCE_SUBJECT = [
+
+]
+
+SENSOR_SOURCES = {
+    'sp': ['sp_accelerometer'],
+    'sw': ['sw_accelerometer'],
+    'sp_full': [
+        'sp_accelerometer',
+        'sp_barometer',
+        'sp_gravity',
+        'sp_gyroscope',
+        'sp_linear_accelerometer',
+        'sp_magnetic'
+    ],
+    'sw_full': [
+        'sw_accelerometer',
+        'sw_gyroscope',
+        'sw_light',
+        'sw_pressure',
+        'sw_magnetic',
+        'sw_ultraviolet'
+    ]
+}
+
+
+
+# DATA PREPROCESSING CONFIGURATIONS
 SAMPLING_FREQUENCY = 10 # in Hz
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5
@@ -80,7 +121,7 @@ FILE_NAME_SUFFIX = '{}_{}_{}_'.format(SAMPLING_FREQUENCY, WINDOW_SIZE, WINDOW_OV
 
 
 
-
+# MODEL BUILDING CONFIGURATIONS
 TRAIN_SIZE = 0.7
 TEST_SIZE = 1.0 - TRAIN_SIZE
 

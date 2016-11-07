@@ -41,6 +41,10 @@ div#raw-data-visualizer-initial-circular-loading {
     margin-top: 100px;
 }
 
+.graph-data-file-id {
+    margin-top: 40px;
+}
+
 
 
 @media (min-width: 1920px) {

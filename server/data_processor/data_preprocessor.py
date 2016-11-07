@@ -1,21 +1,17 @@
-import math
-
 from data_processor import data_sampler
 from data_processor import data_window_selector
 from data_processor import feature_generator
 from data_processor import data_combiner
-from util import raw_data_reader
 import threading
 import time
 
 
 def preprocess_data(activity_type):
-    raw_data = raw_data_reader.read_all_raw_data(activity_type)
-    data_sampler.sample_data(raw_data, activity_type)
+    data_sampler.sample_data(activity_type)
     data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
-    data_combiner.combine_data_by_source(activity_type)
+    data_combiner.combine_data_by_device_source(activity_type)
     feature_generator.generate_feature(activity_type)
-    data_combiner.combine_data_sources_into_one(activity_type)
+    data_combiner.combine_sp_sw_into_one(activity_type)
 
 
 if __name__ == '__main__':
@@ -32,6 +28,7 @@ if __name__ == '__main__':
         'sitting',
         'standing',
         'sweeping_the_floor',
+        'food_preparation',
         # 'testing',
         'typing',
         'walking',

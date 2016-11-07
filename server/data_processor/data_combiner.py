@@ -23,19 +23,19 @@ def combine_all_data_into_one_complete_dataset():
     _write_full_dataset_dataframe_to_csv(result_df)
 
 
-def combine_data_sources_into_one(activity_type):
+def combine_sp_sw_into_one(activity_type):
     merged_df = _merge_smartphone_and_smartwatch_data(activity_type)
     _create_combined_data_directory()
     _create_combined_activity_directory(activity_type)
     _write_combined_dataframe_to_csv(activity_type, merged_df, source='sp_sw')
 
 
-def combine_data_by_source(activity_type):
-    merged_smartphone_dfs = _merge_smartphone_sensor_data(activity_type)
-    merged_smartwatch_dfs = _merge_smartwatch_sensor_data(activity_type)
+def combine_data_by_device_source(activity_type):
+    merged_smartphone_dfs = _merge_smartphone_multiple_sensors_into_one(activity_type)
+    merged_smartwatch_dfs = _merge_smartwatch_multiple_sensors_into_one(activity_type)
 
-    combined_smartphone_dfs = _combine_multiple_data_source_into_one(merged_smartphone_dfs)
-    combined_smartwatch_dfs = _combine_multiple_data_source_into_one(merged_smartwatch_dfs)
+    combined_smartphone_dfs = _combine_multiple_data_collections_into_one(merged_smartphone_dfs)
+    combined_smartwatch_dfs = _combine_multiple_data_collections_into_one(merged_smartwatch_dfs)
 
     combined_smartphone_dfs = _drop_irrelevant_columns(combined_smartphone_dfs)
     combined_smartwatch_dfs = _drop_irrelevant_columns(combined_smartwatch_dfs)
@@ -55,19 +55,19 @@ def _merge_smartphone_and_smartwatch_data(activity_type):
     return merged_df
 
 
-def _merge_smartphone_sensor_data(activity_type):
+def _merge_smartphone_multiple_sensors_into_one(activity_type):
     windowed_smartphone_data = windowed_data_reader.read_smartphone_windowed_data(activity_type)
-    combined_smartphone_data = _merge_sensory_data_to_one(windowed_smartphone_data)
+    combined_smartphone_data = _merge_multiple_sensor_sources_into_one(windowed_smartphone_data)
     return combined_smartphone_data
 
 
-def _merge_smartwatch_sensor_data(activity_type):
+def _merge_smartwatch_multiple_sensors_into_one(activity_type):
     windowed_smartwatch_data = windowed_data_reader.read_smartwatch_windowed_data(activity_type)
-    combined_smartwatch_data = _merge_sensory_data_to_one(windowed_smartwatch_data)
+    combined_smartwatch_data = _merge_multiple_sensor_sources_into_one(windowed_smartwatch_data)
     return combined_smartwatch_data
 
 
-def _merge_sensory_data_to_one(windowed_data):
+def _merge_multiple_sensor_sources_into_one(windowed_data):
     first_key = list(windowed_data.keys())[0]
     n_experiment = len(windowed_data[first_key])
     combined_df_result = []
@@ -83,7 +83,7 @@ def _merge_sensory_data_to_one(windowed_data):
     return combined_df_result
 
 
-def _combine_multiple_data_source_into_one(merged_dfs):
+def _combine_multiple_data_collections_into_one(merged_dfs):
     combined_df = merged_dfs[0]
     for i in range(1, len(merged_dfs)):
         combined_df = combined_df.append(merged_dfs[i])
@@ -92,7 +92,7 @@ def _combine_multiple_data_source_into_one(merged_dfs):
 
 
 def _drop_irrelevant_columns(df):
-    return df.drop([
+    cols_to_drop = [
         'Unnamed: 0',
         'Unnamed: 0.1',
         'Unnamed: 0_r',
@@ -102,7 +102,9 @@ def _drop_irrelevant_columns(df):
         'Unnamed: 0_y',
         'Unnamed: 0.1_y',
         'timestamp_r'
-    ], axis=1)
+    ]
+
+    return df.drop([c for c in cols_to_drop if c in df.columns], axis=1)
 
 
 def _create_combined_data_directory():
@@ -128,6 +130,4 @@ def _write_full_dataset_dataframe_to_csv(df):
 
 
 if __name__ == '__main__':
-    combine_data_by_source('reading')
-    # combine_data_sources_into_one('brushing')
-    # combine_all_data_into_one_complete_dataset()
+    combine_data_by_device_source('reading')

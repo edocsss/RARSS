@@ -3,6 +3,7 @@ from classifier import data_util
 from sklearn.metrics import accuracy_score, f1_score
 import numpy as np
 import matplotlib.pyplot as plt
+import config as CONFIG
 
 
 def run_cv(C=10, kernel='rbf', data_source='', activities=None):
@@ -15,11 +16,6 @@ def run_cv(C=10, kernel='rbf', data_source='', activities=None):
         X_test = data[1]
         Y_train = data[2]
         Y_test = data[3]
-
-        print('Train data distribution:')
-        print(data_util.get_data_distribution(Y_train))
-        print('Test data distribution:')
-        print(data_util.get_data_distribution(Y_test))
 
         model = SVC(C=C, kernel=kernel)
         model.fit(X_train, Y_train)
@@ -41,6 +37,9 @@ def run_cv(C=10, kernel='rbf', data_source='', activities=None):
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
+    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
 
@@ -54,12 +53,12 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [10]
+    C = [100]
     activities = None
 
     for c in C:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             C=c,
-            data_source='sp',
+            data_source='',
             activities=activities
         )

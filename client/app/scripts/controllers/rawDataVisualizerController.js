@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('FYPClient').controller('RawDataVisualizerController', [
-    'RawDataFactory',
+    'DataFactory',
     'ChartFactory',
     '$mdToast',
-    function (RawDataFactory, ChartFactory, $mdToast) {
+    function (DataFactory, ChartFactory, $mdToast) {
         var vm = this;
 
-        vm.NUMBER_OF_GRAPH_COLUMNS = 1;
+        vm.NUMBER_OF_GRAPH_COLUMNS = 2;
+        vm.LIST_OF_SUBJECTS = [];
         vm.DATA_SOURCES = ['Smartphone', 'Smartwatch'];
         vm.ACTIVITY_TYPES = [
             'Walking',
@@ -29,32 +30,45 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
 
         vm.activityType = 'standing';
         vm.dataSource = 'smartphone';
+        vm.dataSubject = 'edwin';
 
         vm.chartColors = ['#2196F3', '#FF4081', '#FF5722'];
         vm.isLoadingData = true;
         vm.initialLoad = false;
-        vm.rawData = [];
+        vm.graphData = [];
+        vm.graphDataKeys = [];
 
-        vm.getNumberOfGraphRows = function () {
-            return Math.ceil(vm.rawData.length / vm.NUMBER_OF_GRAPH_COLUMNS);
+        vm.getNumberOfGraphRows = function (fileId) {
+            return Math.ceil(vm.graphData.get(fileId).length / vm.NUMBER_OF_GRAPH_COLUMNS);
         };
 
         vm.getGraphCardWidth = function () {
             return 100 / vm.NUMBER_OF_GRAPH_COLUMNS;
         };
 
+        vm.getListOfSubjects = function () {
+            vm.isLoadingData = true;
+            DataFactory.getListOfSubjects().then(function onSuccess (response) {
+                vm.LIST_OF_SUBJECTS = response.data.data;
+            }, function onError () {
+                $mdToast.show($mdToast.simple().textContent('Cannot load list of subjects!').position('bottom').hideDelay(2000));
+            });
+        };
+
         vm.loadRawData = function () {
             var toastMessage;
             vm.isLoadingData = true;
 
-            RawDataFactory.loadRawDataByActivityAndSource(
+            DataFactory.loadRawDataByActivityAndSource(
                 vm.activityType,
-                vm.dataSource
+                vm.dataSource,
+                vm.dataSubject
             ).then(
                 function onSuccess (response) {
                     vm.isLoadingData = false;
                     vm.initialLoad = true;
-                    vm.rawData = convertRawDataObjectToArray(response.data.data);
+                    vm.graphData = convertRawDataObjectToSortedMap(response.data.data);
+                    vm.graphDataKeys = Array.from(vm.graphData.keys());
                     toastMessage = 'Raw data is successfully retrieved!';
                 },
                 function onError () {
@@ -67,41 +81,45 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
         };
 
         // Init
+        vm.getListOfSubjects();
         vm.loadRawData();
 
-        vm.getRawDataByRowAndCol = function (row, col) {
+        vm.getRawDataByRowAndCol = function (fileId, row, col) {
             var index = vm.NUMBER_OF_GRAPH_COLUMNS * row + col;
-            return vm.rawData[index];
+            return vm.graphData.get(fileId)[index];
         };
 
-        function convertRawDataObjectToArray (rawData) {
-            var result = [];
+        function convertRawDataObjectToSortedMap(rawData) {
+            var result = {};
             var data = null;
             var processedData = null;
             var series = null;
             var points = null;
 
-            for (var k in rawData) {
-                series = [];
-                points = [];
-                processedData = getGraphDatasetFormat(k, rawData[k]);
+            for (var fileId in rawData) {
+                result[fileId] = [];
+                for (var k in rawData[fileId]) {
+                    series = [];
+                    points = [];
+                    processedData = getGraphDatasetFormat(k, rawData[fileId][k]);
 
-                for (var i in processedData.datasets) {
-                    points.push(processedData.datasets[i].data);
-                    series.push(processedData.datasets[i].label);
+                    for (var i in processedData.datasets) {
+                        points.push(processedData.datasets[i].data);
+                        series.push(processedData.datasets[i].label);
+                    }
+
+                    data = {
+                        graphName: k,
+                        labels: processedData.labels,
+                        series: series,
+                        data: points
+                    };
+
+                    result[fileId].push(data);
                 }
-
-                data = {
-                    graphName: k,
-                    labels: processedData.labels,
-                    series: series,
-                    data: points
-                };
-
-                result.push(data);
             }
-
-            return result;
+            
+            return convertGraphDataObjectToSortedMap(result);
         }
 
         function getGraphDatasetFormat (graphName, graphData) {
@@ -123,6 +141,24 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
             } else if (dataType.indexOf('light') >= 0) {
                 return ChartFactory.buildLightDatasetFormat(fullData);
             }
+        }
+
+        function convertGraphDataObjectToSortedMap(data) {
+            var keys = [];
+            var sortedMap = new Map();
+            console.log(data);
+            
+            for (var k in data) {
+                keys.push(k);
+            }
+
+            keys.sort();
+            for (var i in keys) {
+                console.log(i);
+                sortedMap.set(keys[i], data[keys[i]]);
+            }
+            
+            return sortedMap;
         }
     }
 ]);

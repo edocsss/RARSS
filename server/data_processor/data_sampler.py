@@ -2,9 +2,11 @@ import os
 import pandas as pd
 import config as CONFIG
 from models.data_item import DataItem
+from util import raw_data_reader
 
 
-def sample_data(raw_data, activity_type):
+def sample_data(activity_type):
+    raw_data = raw_data_reader.read_all_raw_data(activity_type, CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
     sampled_data = _sample_data_by_frequency(raw_data, activity_type)
     # post_processed_sampled_data = _post_process_sampled_data_for_weird_sw_timestamp(sampled_data)
     # post_processed_sampled_data = _post_process_to_unify_timestamps(post_processed_sampled_data)

@@ -35,14 +35,22 @@ def load_training_and_testing_data(source=''):
     return X_train_norm, X_test_norm, Y_train, Y_test
 
 
-def load_kfolds_training_and_testing_data(k=5, source='', activities=None):
+def load_kfolds_training_and_testing_data(k=5, source='', activities=None, onehot=False):
     full_data = load_data()
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
     Y = full_data['activity']
-    Y_encoded = _map_activity_to_int_encoding(Y).values.astype('float64')
+
+    Y_encoded = _map_activity_to_int_encoding(Y)
+    Y_encoded = pd.DataFrame(data=Y_encoded.values, columns=['label'])
+
+    if onehot:
+        Y_encoded = Y_encoded.apply(_binarize_label, axis=1)
+        Y_encoded = Y_encoded.drop('label', axis=1)
+
+    Y_encoded = Y_encoded.values.astype('float64')
 
     kfold_indices = KFold(len(X), n_folds=k)
     kfolds_data = []
@@ -52,6 +60,9 @@ def load_kfolds_training_and_testing_data(k=5, source='', activities=None):
         X_test = X[test_indices]
         Y_train = Y_encoded[train_indices]
         Y_test = Y_encoded[test_indices]
+
+        if onehot:
+            Y_test = unbinarize_label(Y_test)
 
         _train_minmax_scaler(X_train, force=True)
         X_train_norm = _normalize_minmax_X(X_train)
@@ -84,6 +95,28 @@ def _filter_data_by_activity(df, activities):
 def _map_activity_to_int_encoding(Y):
     Y_encoded = Y.apply(lambda row: ENCODING.ACTIVITY_TO_INT_MAPPING[row])
     return Y_encoded
+
+
+def _binarize_label(row):
+    binary_label = ENCODING.INT_TO_BINARY_MAPPING[str(row['label'])]
+    for i, c in enumerate(binary_label):
+        row['label_{}'.format(i)] = c
+
+    return row
+
+
+def unbinarize_label(Y):
+    Y = pd.DataFrame(data=Y, columns=['label_{}'.format(i) for i in range(len(ENCODING.INT_TO_BINARY_MAPPING))])
+    return Y.apply(_convert_binary_label_to_int, axis=1)['label'].values
+
+
+def _convert_binary_label_to_int(row):
+    bin = ''
+    for i in range (0, len(ENCODING.INT_TO_BINARY_MAPPING['0'])):
+        bin += str(int(row['label_{}'.format(i)]))
+
+    row['label'] = float(ENCODING.BINARY_TO_INT_MAPPING[bin])
+    return row
 
 
 def _normalize_minmax_X(X):
