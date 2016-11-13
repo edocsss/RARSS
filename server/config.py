@@ -1,6 +1,41 @@
 import os
 import math
 
+
+# DATA SELECTION CONFIGURATIONS
+FULL_SUBJECT_LIST = [
+    'edwin',
+    'richsen'
+]
+
+PREPROCESS_DATA_SOURCE_SUBJECT = ['edwin', 'richsen']
+TRAINING_DATA_SOURCE_SUBJECT = ['edwin']
+TESTING_DATA_SOURCE_SUBJECT = ['richsen']
+KFOLD_DATA_SOURCE_SUBJECT = ['edwin']
+
+SENSOR_SOURCES = {
+    'sp': ['sp_accelerometer'],
+    'sw': ['sw_accelerometer'],
+    'sp_full': [
+        'sp_accelerometer',
+        'sp_barometer',
+        'sp_gravity',
+        'sp_gyroscope',
+        'sp_linear_accelerometer',
+        'sp_magnetic'
+    ],
+    'sw_full': [
+        'sw_accelerometer',
+        'sw_gyroscope',
+        'sw_light',
+        'sw_pressure',
+        'sw_magnetic',
+        'sw_ultraviolet'
+    ]
+}
+
+
+
 # DIRECTORY PATH CONFIGURATIONS
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(ROOT_DIR, 'data')
@@ -68,43 +103,6 @@ COMBINED_DATA_RESULT = {
 FEATURES_DATA_RESULT = {
     'sp': 'features_smartphone_combined.csv',
     'sw': 'features_smartwatch_combined.csv'
-}
-
-
-
-# DATA SELECTION CONFIGURATIONS
-FULL_SUBJECT_LIST = [
-    'edwin',
-    'richsen'
-]
-
-TRAINING_DATA_SOURCE_SUBJECT = [
-    'edwin'
-]
-
-TESTING_DATA_SOURCE_SUBJECT = [
-
-]
-
-SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer'],
-    'sw': ['sw_accelerometer'],
-    'sp_full': [
-        'sp_accelerometer',
-        'sp_barometer',
-        'sp_gravity',
-        'sp_gyroscope',
-        'sp_linear_accelerometer',
-        'sp_magnetic'
-    ],
-    'sw_full': [
-        'sw_accelerometer',
-        'sw_gyroscope',
-        'sw_light',
-        'sw_pressure',
-        'sw_magnetic',
-        'sw_ultraviolet'
-    ]
 }
 
 

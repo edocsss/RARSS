@@ -1,64 +1,48 @@
 from sklearn.svm import SVC
-from classifier import data_util
-from sklearn.metrics import accuracy_score, f1_score
-import numpy as np
-import matplotlib.pyplot as plt
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+
 import config as CONFIG
+from classifier.util import data_util
+from classifier.util import activity_encoding
 
 
-def run_cv(C=10, kernel='rbf', data_source='', activities=None):
-    kfold_data = data_util.load_kfolds_training_and_testing_data(k=5, source=data_source, activities=activities)
+def run_test(C=10, kernel='sigmoid', data_source=''):
+    X_train, Y_train = data_util.load_training_data(data_source)
+    X_test, Y_test = data_util.load_testing_data(data_source)
+
     accuracy_results = []
     fscore_results = []
 
-    for i, data in enumerate(kfold_data):
-        X_train = data[0]
-        X_test = data[1]
-        Y_train = data[2]
-        Y_test = data[3]
+    model = SVC(C=C, kernel=kernel)
+    model.fit(X_train, Y_train)
+    predictions = model.predict(X_test)
 
-        model = SVC(C=C, kernel=kernel)
-        model.fit(X_train, Y_train)
+    accuracy = accuracy_score(Y_test, predictions)
+    accuracy_results.append(accuracy)
 
-        predictions = model.predict(X_test)
-        accuracy = accuracy_score(Y_test, predictions)
-        accuracy_results.append(accuracy)
+    fscore = f1_score(Y_test, predictions, average='weighted')
+    fscore_results.append(fscore)
 
-        fscore = f1_score(Y_test, predictions, average='weighted')
-        fscore_results.append(fscore)
-        print('k = {}, accuracy = {}'.format(i + 1, accuracy))
-        print('k = {}, fscore = {}'.format(i + 1, fscore))
-        print()
-        print()
+    print('accuracy = {}'.format(accuracy))
+    print('fscore = {}'.format(fscore))
+    print()
+    print()
 
-    accuracy_mean = np.mean(accuracy_results)
-    accuracy_std_dev = np.std(accuracy_results)
-
-    fscore_mean = np.mean(fscore_results)
-    fscore_std_dev = np.std(fscore_results)
-
+    print('Cost: {}'.format(C))
     print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
     print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
-
     print('Accuracy: {}'.format(accuracy_results))
-    print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
-
     print('F1 Score: {}'.format(fscore_results))
-    print('F1 Mean: {}, F1 Standard deviation: {}'.format(fscore_mean, fscore_std_dev))
-
-    return accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev
+    print()
+    print()
+    print()
+    print()
 
 
 if __name__ == '__main__':
-    x = []
-    y = []
-
-    C = [100]
-    activities = None
-
+    C = [100, 200, 300, 500, 1000]
     for c in C:
-        accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
+        run_test(
             C=c,
-            data_source='',
-            activities=activities
+            data_source=''
         )

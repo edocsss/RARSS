@@ -15,12 +15,12 @@ def read_all_combined_data(activity_type):
 
 
 def _read_smartphone_combined_data(activity_type):
-    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.COMBINED_DATA_RESULT['sp'])
+    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['sp'])
     return _read_csv_data(file_path)
 
 
 def _read_smartwatch_combined_data(activity_type):
-    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.COMBINED_DATA_RESULT['sw'])
+    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['sw'])
     return _read_csv_data(file_path)
 
 

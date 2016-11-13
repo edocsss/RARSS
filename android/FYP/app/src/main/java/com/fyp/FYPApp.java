@@ -39,7 +39,7 @@ public class FYPApp extends Application {
 
     private void initializeFileId() {
         if (SharedPreferencesController.getInstance().getInt(SharedPreferencesKey.FILE_ID_KEY) == 0) {
-            SharedPreferencesController.getInstance().setInt(SharedPreferencesKey.FILE_ID_KEY, 10);
+            SharedPreferencesController.getInstance().setInt(SharedPreferencesKey.FILE_ID_KEY, 70);
         }
     }
 }

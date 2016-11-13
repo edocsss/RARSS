@@ -234,13 +234,23 @@ def _create_features_activity_directory(activity_type):
 
 def _write_smartphone_features_to_file(smartphone_features, activity_type):
     print('Writing smartphone features to file..')
-    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.FEATURES_DATA_RESULT['sp'])
+    file_path = os.path.join(
+        CONFIG.FEATURES_DATA_DIR,
+        activity_type,
+        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.FEATURES_DATA_RESULT['sp']
+    )
+
     smartphone_features.to_csv(file_path)
 
 
 def _write_smartwatch_features_to_file(smartwatch_features, activity_type):
     print('Writing smartwatch features to file..')
-    file_path = os.path.join(CONFIG.FEATURES_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.FEATURES_DATA_RESULT['sw'])
+    file_path = os.path.join(
+        CONFIG.FEATURES_DATA_DIR,
+        activity_type,
+        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.FEATURES_DATA_RESULT['sw']
+    )
+
     smartwatch_features.to_csv(file_path)
 
 

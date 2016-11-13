@@ -10,9 +10,13 @@ def combine_all_data_into_one_complete_dataset():
     combined_dfs = []
 
     for activity in activities:
-        file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity, CONFIG.FILE_NAME_SUFFIX + CONFIG.COMBINED_DATA_RESULT['sp_sw'])
-        df = pd.read_csv(file_path)
+        file_path = os.path.join(
+            CONFIG.COMBINED_DATA_DIR,
+            activity,
+            CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['sp_sw']
+        )
 
+        df = pd.read_csv(file_path)
         activity_df = pd.DataFrame(data=[[activity]] * len(df), columns=['activity'])
         df = df.join(activity_df)
         combined_dfs.append(df)
@@ -120,12 +124,21 @@ def _create_combined_activity_directory(activity_type):
 
 
 def _write_combined_dataframe_to_csv(activity_type, dataframe, source='sp'):
-    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, activity_type, CONFIG.FILE_NAME_SUFFIX + CONFIG.COMBINED_DATA_RESULT[source])
+    file_path = os.path.join(
+        CONFIG.COMBINED_DATA_DIR,
+        activity_type,
+        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT[source]
+    )
+
     dataframe.to_csv(file_path)
 
 
 def _write_full_dataset_dataframe_to_csv(df):
-    file_path = os.path.join(CONFIG.COMBINED_DATA_DIR, CONFIG.FILE_NAME_SUFFIX + CONFIG.COMBINED_DATA_RESULT['full'])
+    file_path = os.path.join(
+        CONFIG.COMBINED_DATA_DIR,
+        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['full']
+    )
+
     df.to_csv(file_path)
 
 

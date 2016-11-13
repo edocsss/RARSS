@@ -4,7 +4,7 @@ import os
 if __name__ == '__main__':
     PERSON_NAME = 'richsen'
     ID_LIST = [
-        10, 11, 14, 16
+        77
     ]
 
     for dir_name in os.listdir('.'):

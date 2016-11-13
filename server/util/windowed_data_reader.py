@@ -47,7 +47,7 @@ def read_windowed_data_by_activity_and_source(activity_type, file_name_per_senso
         for k, v in file_name_per_sensor.items():
             data_per_sensor = []
             for file_name in v:
-                if text_util.check_list_element_in_string(file_name, CONFIG.TRAINING_DATA_SOURCE_SUBJECT):
+                if text_util.check_list_element_in_string(file_name, CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT):
                     file_id = file_name.split('_')[3]
                     file_path = os.path.join(CONFIG.WINDOWED_DATA_DIR, activity_type, file_name)
                     data_per_sensor.append(DataItem(file_id, read_csv_data(file_path)))

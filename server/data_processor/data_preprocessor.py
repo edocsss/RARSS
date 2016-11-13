@@ -4,6 +4,7 @@ from data_processor import feature_generator
 from data_processor import data_combiner
 import threading
 import time
+import config as CONFIG
 
 
 def preprocess_data(activity_type):
@@ -15,6 +16,16 @@ def preprocess_data(activity_type):
 
 
 if __name__ == '__main__':
+    print('Data preprocessing configuration:')
+    print('Subject: {}'.format(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT))
+    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+    print('Outlier Removal Size: {}'.format(CONFIG.OUTLIER_REMOVAL_SIZE))
+    print('Window Overlap Size: {}'.format(CONFIG.WINDOW_OVERLAP))
+    print()
+    print()
+    print()
+
     start = time.time()
     activities = [
         'brushing',
