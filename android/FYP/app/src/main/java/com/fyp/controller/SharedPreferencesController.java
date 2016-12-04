@@ -3,23 +3,26 @@ package com.fyp.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.fyp.FYPApp;
-
 public class SharedPreferencesController {
     private final String SHARED_PREFERENCES_NAME = "FYPApp";
     private SharedPreferences sharedPreferences;
     private static SharedPreferencesController instance = null;
+    private static Context context;
 
-    public SharedPreferencesController(Context context) {
+    public SharedPreferencesController() {
         this.sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
     public static SharedPreferencesController getInstance() {
         if (instance == null) {
-            instance = new SharedPreferencesController(FYPApp.getContext());
+            instance = new SharedPreferencesController();
         }
 
         return instance;
+    }
+
+    public static void init(Context c) {
+        context = c;
     }
 
     public void setLong(String key, long value) {

@@ -2,15 +2,19 @@
     <string name="app_name">FYP</string>
     <string name="sensor_details_header">Sensor Details</string>
     <string name="sensor_details_menu_item">Sensor Details</string>
-    <string name="sensor_reading_header">Sensor Reading</string>
+    <string name="sensor_reading_header">Activity Recorder</string>
     <string name="start_recording_button">Start Recording</string>
     <string name="stop_recording_button">Stop Recording</string>
     <string name="save_timer">Save Timer</string>
+    <string name="save_url">Save URL</string>
     <string name="save_server_address">Save Address</string>
     <string name="send_data">Send Data</string>
     <string name="in_seconds">In seconds</string>
+    <string name="server_url">Server URL</string>
 
     <string name="activity_prompt">Select activity type!</string>
+    <string name="file_id">File ID</string>
+    <string name="save_file_id">Save File ID</string>
     <string-array name="activity_arrays">
         <item>Standing</item>
         <item>Sitting</item>

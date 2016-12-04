@@ -17,10 +17,12 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.fyp.R;
-import com.fyp.constant.FileNames;
 import com.fyp.constant.SharedPreferencesKey;
+import com.fyp.constant.URL;
+import com.fyp.controller.FileIdController;
 import com.fyp.controller.SensorController;
 import com.fyp.controller.SharedPreferencesController;
+import com.fyp.controller.UrlController;
 import com.fyp.service.AccelerometerReaderService;
 import com.fyp.service.BarometerReaderService;
 import com.fyp.service.GravityReaderService;
@@ -28,13 +30,11 @@ import com.fyp.service.GyroscopeReaderService;
 import com.fyp.service.LinearAccelerometerReaderService;
 import com.fyp.service.MagneticReaderService;
 import com.fyp.util.AudioUtil;
-import com.fyp.util.FileUtil;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SensorReadingActivity extends AppCompatActivity implements OnItemSelectedListener {
-    private final String TAG = "SensorReadingActivity";
+public class RecorderActivity extends AppCompatActivity implements OnItemSelectedListener {
+    private final String TAG = "RecorderActivity";
     private final long DEFAULT_TIMER = 1000 * 60 * 2;
     private final String DEFAULT_ACTIVITY_TYPE = "standing";
 
@@ -44,21 +44,28 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
 
     private Button startRecordingButton;
     private EditText timerEditText;
+    private EditText urlEditText;
+    private EditText fileIdEditText;
     private Spinner activityTypeSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sensor_reading);
+        setContentView(R.layout.activity_recorder);
 
         this.setupReference();
         this.setupActivityTypeSpinnerListener();
+
         this.loadTimerPreferences();
+        this.loadURLPreferences();
+        this.loadFileIdPreferences();
     }
 
     private void setupReference() {
         this.startRecordingButton = (Button) this.findViewById(R.id.start_recording_button);
         this.timerEditText = (EditText) this.findViewById(R.id.timer_edittext);
+        this.urlEditText = (EditText) this.findViewById(R.id.url_edittext);
+        this.fileIdEditText = (EditText) this.findViewById(R.id.file_id_edittext);
         this.activityTypeSpinner = (Spinner) this.findViewById(R.id.activity_type_spinner);
     }
 
@@ -70,6 +77,16 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
         this.timer = SharedPreferencesController.getInstance().getLong(SharedPreferencesKey.TIMER_KEY);
         if (this.timer == 0) this.timer = DEFAULT_TIMER;
         this.timerEditText.setText("" + this.timer / 1000);
+    }
+
+    private void loadURLPreferences() {
+        String ngrokId = UrlController.getInstance().getNgrokId();
+        this.urlEditText.setText(ngrokId);
+    }
+
+    private void loadFileIdPreferences() {
+        long fileId = SharedPreferencesController.getInstance().getInt(SharedPreferencesKey.FILE_ID_KEY);
+        this.fileIdEditText.setText("" + fileId);
     }
 
     private class Timer extends AsyncTask<Void, Void, Void> {
@@ -182,18 +199,34 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
         }
     }
 
+    public void saveURL(View v) {
+        String url = this.urlEditText.getText().toString();
+        UrlController.getInstance().setServerAddress(url);
+        SharedPreferencesController.getInstance().setString(SharedPreferencesKey.SERVER_URL_KEY, URL.SERVER_ADDRESS);
+    }
+
+    public void saveFileId(View v) {
+        String fileIdString = this.fileIdEditText.getText().toString();
+        try {
+            int fileId = Integer.parseInt(fileIdString);
+            FileIdController.getInstance().setFileId(fileId);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void sendFileToServer(View view) {
         final Response.Listener<JSONObject> onSuccess = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(SensorReadingActivity.this, "Sent to server!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecorderActivity.this, "Sent to server!", Toast.LENGTH_SHORT).show();
             }
         };
 
         final Response.ErrorListener onError = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(SensorReadingActivity.this, "Cannot send to server!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecorderActivity.this, "Cannot send to server!", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -201,26 +234,7 @@ public class SensorReadingActivity extends AppCompatActivity implements OnItemSe
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accelerometerResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.ACCELEROMETER_RESULT);
-                String barometerResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.BAROMETER_RESULT);
-                String gravityResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.GRAVITY_RESULT);
-                String gyroscopeResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.GYROSCOPE_RESULT);
-                String linearAccelerometerResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.LINEAR_ACCELEROMETER_RESULT);
-                String magneticResultFileContent = FileUtil.readFile(SensorReadingActivity.this, FileNames.MAGNETIC_RESULT);
-
-                JSONObject sensoryData = new JSONObject();
-                try {
-                    sensoryData.put("accelerometer", accelerometerResultFileContent);
-                    sensoryData.put("barometer", barometerResultFileContent);
-                    sensoryData.put("gravity", gravityResultFileContent);
-                    sensoryData.put("gyroscope", gyroscopeResultFileContent);
-                    sensoryData.put("linearAccelerometer", linearAccelerometerResultFileContent);
-                    sensoryData.put("magnetic", magneticResultFileContent);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                SensorController.getInstance().sendSensoryData(activityType, sensoryData, onSuccess, onError);
+                SensorController.getInstance().sendSensoryData(RecorderActivity.this, activityType, onSuccess, onError);
                 progressDialog.dismiss();
             }
         }).start();

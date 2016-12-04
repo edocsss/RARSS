@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.fyp.activity.SensorReadingActivity">
+    tools:context="com.fyp.activity.RecorderActivity">
 
     <LinearLayout
         android:id="@+id/sensor_reading_container"
@@ -56,11 +56,55 @@
 
             <Button
                 android:id="@+id/save_timer"
-                android:layout_width="wrap_content"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="@string/save_timer"
                 android:layout_weight="3"
                 android:onClick="saveTimer"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/url_edittext"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:hint="@string/server_url"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/save_url"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="@string/save_url"
+                android:layout_weight="3"
+                android:onClick="saveURL"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/file_id_edittext"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/file_id"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/save_file_id"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="@string/save_file_id"
+                android:layout_weight="3"
+                android:onClick="saveFileId"/>
 
         </LinearLayout>
 
@@ -81,8 +125,21 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_sm">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_xl">
+
+            <Button
+                android:id="@+id/send_data_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/send_data"
+                android:onClick="sendFileToServer"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/start_recording_button"
@@ -99,19 +156,6 @@
                 android:text="@string/stop_recording_button"
                 android:layout_weight="1"
                 android:onClick="stopSensorRecording"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/send_data_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/send_data"
-                android:onClick="sendFileToServer"/>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.fyp.controller;
 
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.util.Log;
@@ -7,8 +8,10 @@ import android.util.Log;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.fyp.FYPApp;
+import com.fyp.constant.FileNames;
 import com.fyp.constant.URL;
 import com.fyp.http.HttpManager;
+import com.fyp.util.FileUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,9 +25,9 @@ public class SensorController {
     private SensorManager sensorManager;
     private static SensorController instance = null;
 
-    public SensorController(SensorManager sensorManager) {
+    private SensorController(SensorManager s) {
         this.availableSensors = new ArrayList<>();
-        this.sensorManager = sensorManager;
+        this.sensorManager = s;
     }
 
     public static SensorController getInstance() {
@@ -36,21 +39,37 @@ public class SensorController {
     }
 
     public List<Sensor> getAvailableSensors() {
-        return availableSensors;
+        return this.availableSensors;
     }
 
     public void detectAllAvailableSensors() {
         Log.i(TAG, "Retrieving all available sensors on this device...");
-        this.availableSensors = this.sensorManager.getSensorList(Sensor.TYPE_ALL);
+        this.availableSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
         Log.i(TAG, "All available sensors are retrieved!");
     }
 
-    public void sendSensoryData(String activityType, JSONObject sensoryData, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+    public void sendSensoryData(Context c, String activityType, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
         JSONObject jsonObject = new JSONObject();
+        JSONObject sensoryData = new JSONObject();
+
         try {
+            String accelerometerResultFileContent = FileUtil.readFile(c, FileNames.ACCELEROMETER_RESULT);
+            String barometerResultFileContent = FileUtil.readFile(c, FileNames.BAROMETER_RESULT);
+            String gravityResultFileContent = FileUtil.readFile(c, FileNames.GRAVITY_RESULT);
+            String gyroscopeResultFileContent = FileUtil.readFile(c, FileNames.GYROSCOPE_RESULT);
+            String linearAccelerometerResultFileContent = FileUtil.readFile(c, FileNames.LINEAR_ACCELEROMETER_RESULT);
+            String magneticResultFileContent = FileUtil.readFile(c, FileNames.MAGNETIC_RESULT);
+
+            sensoryData.put("accelerometer", accelerometerResultFileContent);
+            sensoryData.put("barometer", barometerResultFileContent);
+            sensoryData.put("gravity", gravityResultFileContent);
+            sensoryData.put("gyroscope", gyroscopeResultFileContent);
+            sensoryData.put("linearAccelerometer", linearAccelerometerResultFileContent);
+            sensoryData.put("magnetic", magneticResultFileContent);
+            
             jsonObject.put("activityType", activityType);
             jsonObject.put("sensoryData", sensoryData);
-            jsonObject.put("fileId", FYPApp.getNextFileIdAndIncrement());
+            jsonObject.put("fileId", FileIdController.getInstance().getNextFileIdAndIncrement());
         } catch (JSONException e) {
             e.printStackTrace();
         }

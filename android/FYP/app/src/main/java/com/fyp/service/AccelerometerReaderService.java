@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -27,6 +28,13 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
     private Sensor accelerometerSensor;
     private List<AccelerometerReading> accelerometerReadings;
     private Handler handler;
+    private final IBinder binder = new AccelerometerReaderBinder();
+
+    public class AccelerometerReaderBinder extends Binder {
+        public AccelerometerReaderService getService() {
+            return AccelerometerReaderService.this;
+        }
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -41,7 +49,7 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return this.binder;
     }
 
     @Override
@@ -72,6 +80,14 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
         }
 
         return sb.toString();
+    }
+
+    public List<AccelerometerReading> getAccelerometerReadings() {
+        return this.accelerometerReadings;
+    }
+
+    public void clearAccelerometerReadings() {
+        this.accelerometerReadings.clear();
     }
 
     @Override
