@@ -1,0 +1,2 @@
+SERVER_PORT_NUMBER = 5000
+MONGODB_URI = 'mongodb://localhost:27017/'

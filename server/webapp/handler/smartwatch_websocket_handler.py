@@ -1,17 +1,19 @@
 from tornado.websocket import WebSocketHandler
+from webapp.util.logger import web_logger as LOGGER
+
 
 class SmartwatchWebsocketHandler(WebSocketHandler):
     clients = []
 
     def open(self):
-        print("WebSocket opened!")
+        LOGGER.info("WebSocket opened!")
         SmartwatchWebsocketHandler.clients.append(self)
 
     def on_message(self, message):
-        print(message)
+        LOGGER.info(message)
 
     def on_close(self):
-        print("WebSocket closed!")
+        LOGGER.info("WebSocket closed!")
         SmartwatchWebsocketHandler.clients.remove(self)
 
     def check_origin(self, origin):
@@ -19,6 +21,6 @@ class SmartwatchWebsocketHandler(WebSocketHandler):
 
     @classmethod
     def broadcast(cls, message):
-        print("Writing message: {}".format(message))
+        LOGGER.info("Writing message: {}".format(message))
         for c in cls.clients:
             c.write_message(message)
