@@ -4,7 +4,7 @@ from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandl
 from webapp.util.logger import web_logger as LOGGER
 
 
-class SmartphoneHandler(BaseHandler):
+class SmartphoneRecorderHandler(BaseHandler):
     def post(self):
         f = json_decode(self.request.body)
         activity_type = f['activityType']

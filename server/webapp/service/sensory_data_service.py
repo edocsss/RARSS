@@ -1,6 +1,5 @@
 import os
 import config as CONFIG
-import time
 
 class SensoryDataService:
     def handle_smartphone_sensory_data(self, activity_type, sensory_data, file_id):

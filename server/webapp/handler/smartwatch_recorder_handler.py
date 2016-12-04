@@ -4,7 +4,7 @@ from data_processor import data_preprocessor
 from webapp.util.logger import web_logger as LOGGER
 
 
-class SmartwatchHandler(BaseHandler):
+class SmartwatchRecorderHandler(BaseHandler):
     def post(self):
         d = json_decode(self.request.body)
         activity_type = d['activityType']

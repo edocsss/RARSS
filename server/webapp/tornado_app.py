@@ -1,9 +1,9 @@
 import tornado.ioloop as ioloop
 import tornado.web as web
-from webapp.handler.smartphone_handler import SmartphoneHandler
+from webapp.handler.smartphone_recorder_handler import SmartphoneRecorderHandler
 from webapp.handler.smartwatch_notifier_handler import SmartwatchNotifierHandler
 from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandler
-from webapp.handler.smartwatch_handler import SmartwatchHandler
+from webapp.handler.smartwatch_recorder_handler import SmartwatchRecorderHandler
 from webapp.handler.client_raw_data_handler import ClientRawDataHandler
 from webapp.util.logger import web_logger as LOGGER
 from webapp.service.raw_data_service import RawDataService
@@ -18,10 +18,10 @@ if __name__ == '__main__':
     }
 
     app = web.Application([
-        (r"/", SmartphoneHandler),
+        (r"/", SmartphoneRecorderHandler),
         (r"/smartwatch/notify", SmartwatchNotifierHandler),
         (r"/smartwatch/ws", SmartwatchWebsocketHandler),
-        (r"/smartwatch/upload", SmartwatchHandler),
+        (r"/smartwatch/upload", SmartwatchRecorderHandler),
         (r"/client/raw", ClientRawDataHandler)
     ], debug=True, **services)
 
