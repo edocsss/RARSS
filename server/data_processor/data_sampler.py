@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import config as CONFIG
-import copy
+import pprint
 from models.data_item import DataItem
 
 
@@ -10,9 +10,9 @@ def sample_data(raw_data):
     return sampled_data
 
 
-def _sample_data_by_frequency(raw_data):
+def _sample_data_by_frequency(raw_data, real_time_mode=False):
     raw_data_standardized_timestamp = _standardize_timestamp(raw_data)
-    trimmed_data = _trim_data(raw_data_standardized_timestamp)
+    trimmed_data = _trim_data(raw_data_standardized_timestamp, real_time_mode=real_time_mode)
 
     sampled_data = {}
     for k, v in trimmed_data.items():
@@ -75,15 +75,18 @@ def _get_earliest_ending_timestamp(data_items):
     return min(last_row_timestamps)
 
 
-def _trim_data(raw_data_standardized_timestamp):
+def _trim_data(raw_data_standardized_timestamp, real_time_mode=False):
     data = raw_data_standardized_timestamp
     first_key = list(data.keys())[0]
     n_experiment = len(data[first_key])
 
     for i in range(0, n_experiment):
         data_items = [v[i] for k, v in data.items()]
-        starting_timestamp = _get_latest_starting_timestamp(data_items) + CONFIG.OUTLIER_REMOVAL_SIZE
-        ending_timestamp = _get_earliest_ending_timestamp(data_items) - CONFIG.OUTLIER_REMOVAL_SIZE
+
+        starting_timestamp = _get_latest_starting_timestamp(data_items)
+        starting_timestamp = starting_timestamp + CONFIG.OUTLIER_REMOVAL_SIZE if real_time_mode else starting_timestamp
+        ending_timestamp = _get_earliest_ending_timestamp(data_items)
+        ending_timestamp = ending_timestamp - CONFIG.OUTLIER_REMOVAL_SIZE if real_time_mode else ending_timestamp
 
         for k, v in data.items():
             dataframe = v[i].dataframe

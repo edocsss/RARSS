@@ -20,6 +20,7 @@ from webapp.service.real_time_monitoring_service import RealTimeMonitoringServic
 from webapp.service.sensory_data_service import SensoryDataService
 from webapp.worker.activity_recognizer_worker import ActivityRecognizerWorker
 
+
 if __name__ == '__main__':
     services = {
         'raw_data_service': RawDataService(),
@@ -43,9 +44,17 @@ if __name__ == '__main__':
     worker_thread = threading.Thread(target=activity_recognizer_worker.start)
     worker_thread.start()
 
-    signal.signal(signal.SIGQUIT, activity_recognizer_worker.stop)
-    signal.signal(signal.SIGTERM, activity_recognizer_worker.stop)
-    signal.signal(signal.SIGINT, activity_recognizer_worker.stop)
+    def kill_activity_recognizer_worker(signum, handler):
+        activity_recognizer_worker.stop()
+        worker_thread.join()
+
+        io_loop = ioloop.IOLoop.instance()
+        io_loop.stop()
+        LOGGER.info('Shutting down server!')
+
+    signal.signal(signal.SIGQUIT, kill_activity_recognizer_worker)
+    signal.signal(signal.SIGTERM, kill_activity_recognizer_worker)
+    signal.signal(signal.SIGINT, kill_activity_recognizer_worker)
 
     LOGGER.info("Starting server at port {}...".format(CONFIG.SERVER_PORT_NUMBER))
     app.listen(CONFIG.SERVER_PORT_NUMBER)

@@ -146,7 +146,6 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
         function convertGraphDataObjectToSortedMap(data) {
             var keys = [];
             var sortedMap = new Map();
-            console.log(data);
             
             for (var k in data) {
                 keys.push(k);
@@ -154,7 +153,6 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
 
             keys.sort();
             for (var i in keys) {
-                console.log(i);
                 sortedMap.set(keys[i], data[keys[i]]);
             }
             

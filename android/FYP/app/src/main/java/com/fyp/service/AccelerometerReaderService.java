@@ -74,11 +74,12 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
         FileUtil.writeFile(this, FileNames.ACCELEROMETER_RESULT, this.convertAccelerometerReadingToCSV().getBytes());
     }
 
-    public String convertAccelerometerReadingToCSV() {
+    public synchronized String convertAccelerometerReadingToCSV() {
+        ArrayList<AccelerometerReading> accelerometerReadings = (ArrayList<AccelerometerReading>) this.accelerometerReadings.clone();
         StringBuilder sb = new StringBuilder();
         sb.append("timestamp,ax,ay,az\n");
 
-        for (AccelerometerReading ar: this.accelerometerReadings) {
+        for (AccelerometerReading ar: accelerometerReadings) {
             sb.append(ar.toString());
             sb.append("\n");
         }

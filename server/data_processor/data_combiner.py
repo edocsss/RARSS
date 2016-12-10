@@ -23,17 +23,16 @@ def combine_all_data_into_one_complete_dataset():
 
     result_df = pd.DataFrame(data=None, columns=combined_dfs[0].columns)
     result_df = result_df.append(combined_dfs, ignore_index=True)
-
-    try:
-        result_df = drop_irrelevant_columns_from_combined_dfs(result_df)
-    except:
-        print('Columns Unnamed: 0, Unnamed: 0.1, Unnamed: 0.2 not found!')
-
+    result_df = drop_irrelevant_columns_from_combined_dfs(result_df)
     _write_full_dataset_dataframe_to_csv(result_df)
 
 
 def drop_irrelevant_columns_from_combined_dfs(df):
-    df.drop(['Unnamed: 0', 'Unnamed: 0.1', 'Unnamed: 0.2'], axis=1, inplace=True)
+    try:
+        df.drop(['Unnamed: 0', 'Unnamed: 0.1', 'Unnamed: 0.2'], axis=1, inplace=True)
+    except:
+        print('Columns Unnamed: 0, Unnamed: 0.1, Unnamed: 0.2 not found!')
+
     return df
 
 

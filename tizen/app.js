@@ -1,9 +1,9 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://8cdd86da.ngrok.io';
+	var SERVER_URL = 'http://eccc338a.ngrok.io';
 	var DATA_RECORDING_UPLOAD_URL = SERVER_URL + '/smartwatch/recording';
 	var DATA_MONITORING_UPLOAD_URL = SERVER_URL + '/smartwatch/monitoring';
-	var WEBSOCKET_URL = 'ws://8cdd86da.ngrok.io/smartwatch/ws';
+	var WEBSOCKET_URL = 'ws://eccc338a.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
@@ -91,6 +91,8 @@
 	};
 	
 	document.getElementById('setup_websocket_data').onclick = function () {
+		socket.onclose = function () {};
+		socket.close();
 		setupWebsocket();
 	};
 	

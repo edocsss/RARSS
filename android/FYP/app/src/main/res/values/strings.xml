@@ -10,7 +10,7 @@
     <string name="save_server_address">Save Address</string>
     <string name="send_data">Send Data</string>
     <string name="in_seconds">In seconds</string>
-    <string name="server_url">Server URL</string>
+    <string name="server_url">Tunnel ID</string>
 
     <string name="activity_prompt">Select activity type!</string>
     <string name="file_id">File ID</string>

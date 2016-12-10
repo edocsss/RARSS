@@ -80,8 +80,8 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
     }
 
     private void loadURLPreferences() {
-        String ngrokId = UrlController.getInstance().getNgrokId();
-        this.urlEditText.setText(ngrokId);
+        String tunnelId = UrlController.getInstance().getTunnelId();
+        this.urlEditText.setText(tunnelId);
     }
 
     private void loadFileIdPreferences() {

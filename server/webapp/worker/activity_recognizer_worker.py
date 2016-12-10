@@ -23,8 +23,12 @@ class ActivityRecognizerWorker():
     def start(self):
         LOGGER.info('Starting activity recognizer worker..')
         while self._working:
-            self._process_next_uuid()
-            time.sleep(1)
+            try:
+                self._process_next_uuid()
+                time.sleep(1)
+
+            except:
+                print('Exception during processing the next UUID!')
 
     def stop(self):
         LOGGER.info('Stopping activity recognizer worker..')
@@ -35,13 +39,12 @@ class ActivityRecognizerWorker():
         next_uuid = self._work_queue_db.get_next_uuid()
         if next_uuid is None:
             LOGGER.info('No UUID yet..')
-            time.sleep(0.5)
             return
 
         LOGGER.info('Processing UUID: {}'.format(next_uuid))
         raw_accelerometer_data = self._get_raw_accelerometer_data_by_uuid(next_uuid)
         predicted_activity = self._get_activity_prediction(raw_accelerometer_data)
-        current_datetime = str(datetime.now())
+        current_datetime = str(datetime.fromtimestamp(self._get_first_sp_timestamp(raw_accelerometer_data) / 1e3))
 
         self._store_activity_history(current_datetime, next_uuid, predicted_activity)
         self._notify_web_client(current_datetime, next_uuid, predicted_activity)
@@ -63,6 +66,8 @@ class ActivityRecognizerWorker():
 
     def _convert_accelerometer_data_to_df_and_clean(self, accelerometer_data):
         df = pd.DataFrame(accelerometer_data)
+        df['timestamp'] = df['timestamp'].apply(int)
+        df.sort_values(by='timestamp', ascending=True, inplace=True)
         df.drop(['_id', 'uuid'], inplace=True, axis=1)
         return df
 
@@ -71,6 +76,11 @@ class ActivityRecognizerWorker():
         processed_data_arrays = processed_data.values.astype('float64')
         predicted_activity = rf_predict.predict_activity(processed_data_arrays)
         return predicted_activity
+
+    def _get_first_sp_timestamp(self, raw_accelerometer_data):
+        sp_accelerometer_df = raw_accelerometer_data['sp_accelerometer'][0].dataframe
+        first_timestamp = sp_accelerometer_df['timestamp'][0]
+        return first_timestamp
 
     def _store_activity_history(self, current_datetime, next_uuid, predicted_activity):
         activity_history = {

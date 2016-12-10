@@ -8,15 +8,11 @@
 </Reference>
 <Reference URI="app.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>yriY3W1P/4qPyhg47PsV/Wd69v6k00sxitFsHG2S9W8=</DigestValue>
-</Reference>
-<Reference URI="app_webworker.js">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>uADUNKHX7SCw02h8d/qr0LHJFXo8Ug1ueKdRmJF/F48=</DigestValue>
+<DigestValue>C8uKGZEJUUf0TnwLb42H6eu2/w/ZdUM+Zx2poQE8DNk=</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>A1yOT/dXdDFq7gh858vV7SB4wbXIQiA0Q+MEbSatteE=</DigestValue>
+<DigestValue>U4kMeBdS/TZ2Wg/qfG+TdrWaIxV52GsfhpBxNRSEkrk=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1063,11 +1059,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-ka3bPL/apnseskEwXXdd8L20xZKiDFMhDgzlPoKnwkzwdOzcRpYHljek7VmEK5emiA67Heb3+xCI
-MqgJKNuk8HNsDJuK/xm7g1BR0BzmfaCCzitM/rbL++pLZAYo6w/jFbIJsBUAjpA+qW4UN6Vmh/qM
-oyU1w6PMik4O+tJBxDlP8DUKzK44ZT5GHUSM0YYTE/pGbRaIny74aBDvZLLmGVa9BwzX6gUAmdnF
-sTkGQPIRY+/Pvs0bWfTTrH7g8LOOo2y1RcRyt8pNqlBlH5XZjfJ612KZJYm+5M2vHk6yLbRVrkUs
-WyZ9wVv01NhAqDlvtOQ0Ur6FMkCkdn0UMHSZnA==
+nbyTHO1l6jrWG09+rwMuibBXNdExmzSVB30jXC6zG19r7c71ootQ0oXVkKPFw8gPJ0pr1/FsaRM3
+x1nvOipQ1utVcD7ZAjQI5/X2e+SrJh77RxD0Af3m+jA7RXpdIYreX6Q5c+QFMUS3fOvzsbG/cN+J
+CmjKAxzmsdXONPD5A5ZrnfH7ABhzSPQBexTspGSEjEVxi04V+rFaf9r96yTkaXDWOF58nelwWF1s
+1jvfxvAMFbvEQJsj31InnRxFY7+bHUG1YGJDpu/ej9SpVKSHfi84QK5FbfkRTIJKqpWUVNx/1pFi
+QDbCHhPdKX0FLpvnF+KTETQd9YHrYrGzgb6y7Q==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

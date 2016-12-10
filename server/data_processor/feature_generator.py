@@ -141,22 +141,26 @@ def _generate_accelerometer_feature_per_window(df, column_prefix):
     result += accelerometer_related_data.mean().tolist()
     result += accelerometer_related_data.var().tolist()
 
-    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'ay'))
-    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'az'))
-    result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'az'))
-    result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'acc_magnitude'))
-    result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'acc_magnitude'))
-    result.append(_calculate_covariance(accelerometer_related_data, 'az', 'acc_magnitude'))
+    try:
+        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'ay'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'az'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'az'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'acc_magnitude'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'acc_magnitude'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'az', 'acc_magnitude'))
 
-    result.append(_calculate_energy(accelerometer_related_data['ax']))
-    result.append(_calculate_energy(accelerometer_related_data['ay']))
-    result.append(_calculate_energy(accelerometer_related_data['az']))
-    result.append(_calculate_energy(accelerometer_related_data['acc_magnitude']))
+        result.append(_calculate_energy(accelerometer_related_data['ax']))
+        result.append(_calculate_energy(accelerometer_related_data['ay']))
+        result.append(_calculate_energy(accelerometer_related_data['az']))
+        result.append(_calculate_energy(accelerometer_related_data['acc_magnitude']))
 
-    result.append(_calculate_entropy(accelerometer_related_data['ax']))
-    result.append(_calculate_entropy(accelerometer_related_data['ay']))
-    result.append(_calculate_entropy(accelerometer_related_data['az']))
-    result.append(_calculate_entropy(accelerometer_related_data['acc_magnitude']))
+        result.append(_calculate_entropy(accelerometer_related_data['ax']))
+        result.append(_calculate_entropy(accelerometer_related_data['ay']))
+        result.append(_calculate_entropy(accelerometer_related_data['az']))
+        result.append(_calculate_entropy(accelerometer_related_data['acc_magnitude']))
+
+    except:
+        print('Feature generation exception!')
 
     result_df = pd.DataFrame(data=[result], columns=result_cols)
     return result_df

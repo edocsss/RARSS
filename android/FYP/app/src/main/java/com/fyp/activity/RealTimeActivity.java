@@ -33,7 +33,9 @@ public class RealTimeActivity extends AppCompatActivity {
 
     private EditText intervalEditText;
     private Button startMonitoringButton;
+    private final long NGROK_MAX_REQUEST_INTERVAL = (60 * 1000) / 20; // 20 connections per 60s
     private long timer;
+    private long sleepTimer;
     private boolean stopTimer = false;
 
     @Override
@@ -51,6 +53,7 @@ public class RealTimeActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        this.stopActivityMonitoring();
     }
 
     @Override
@@ -88,7 +91,17 @@ public class RealTimeActivity extends AppCompatActivity {
     private void loadRealTimeIntervalPreferences() {
         this.timer = SharedPreferencesController.getInstance().getLong(SharedPreferencesKey.REAL_TIME_TIMER_KEY);
         if (this.timer == 0) this.timer = TimerConfig.DEFAULT_REAL_TIME_INTERVAL;
+
+        this.setupSleepTimer();
         this.intervalEditText.setText("" + this.timer / 1000);
+    }
+
+    private void setupSleepTimer() {
+        if (this.timer >= this.NGROK_MAX_REQUEST_INTERVAL) {
+            this.sleepTimer = 0;
+        } else {
+            this.sleepTimer = (this.NGROK_MAX_REQUEST_INTERVAL - this.timer) + 100;
+        }
     }
 
     private class ActivityMonitoringTimer extends AsyncTask<Void, Void, Void> {
@@ -102,6 +115,13 @@ public class RealTimeActivity extends AppCompatActivity {
                 if (diff >= timer) {
                     String accelerometerReadingsString = accelerometerReaderService.convertAccelerometerReadingToCSV();
                     accelerometerReaderService.clearAccelerometerReadings();
+
+                    // Preventing NGROK TUNNEL 60s = max 20 connections violation
+                    try {
+                        Thread.sleep(sleepTimer);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                     handler.post(new RealTimeMonitoringDataHandler(accelerometerReadingsString));
                     start = System.currentTimeMillis();
@@ -152,6 +172,7 @@ public class RealTimeActivity extends AppCompatActivity {
             this.timer = TimerConfig.DEFAULT_REAL_TIME_INTERVAL;
         } finally {
             long timerInSecond = this.timer / 1000;
+            this.setupSleepTimer();
             Toast.makeText(this, "Interval: " + timerInSecond + "s", Toast.LENGTH_SHORT).show();
         }
     }
