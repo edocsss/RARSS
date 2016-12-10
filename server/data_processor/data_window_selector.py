@@ -1,14 +1,13 @@
 import os
-import config as CONFIG
+
 import pandas as pd
-from util import sampled_data_reader
+
+import config as CONFIG
 from models.data_item import DataItem
 
 
-def divide_and_store_sampled_data_to_windows(activity_type):
-    sampled_data = sampled_data_reader.read_all_sampled_data(activity_type)
+def divide_sampled_data_to_windows(sampled_data):
     windowed_data = {}
-
     for k, v in sampled_data.items():
         result = []
         for sampled_data_item in v:
@@ -20,7 +19,7 @@ def divide_and_store_sampled_data_to_windows(activity_type):
 
         windowed_data[k] = result
 
-    _store_windowed_data_to_files(windowed_data, activity_type)
+    return windowed_data
 
 
 def _divide_dataframe_to_windows(df):
@@ -51,7 +50,7 @@ def _create_windowed_activity_directory(activity_type):
         os.mkdir(dir_path)
 
 
-def _store_windowed_data_to_files(windowed_data, activity_type):
+def store_windowed_data_to_files(windowed_data, activity_type):
     print('Writing windowed data to files..')
     _create_windowed_data_directory()
     _create_windowed_activity_directory(activity_type)

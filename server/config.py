@@ -1,17 +1,27 @@
 import os
-import math
-
 
 # DATA SELECTION CONFIGURATIONS
 FULL_SUBJECT_LIST = [
     'edwin',
-    'richsen'
+    'richsen',
+    'lauren',
+    'shelina'
 ]
 
-PREPROCESS_DATA_SOURCE_SUBJECT = ['edwin', 'richsen']
-TRAINING_DATA_SOURCE_SUBJECT = ['edwin']
-TESTING_DATA_SOURCE_SUBJECT = ['richsen']
+# Select whose data to pre-process
+PREPROCESS_DATA_SOURCE_SUBJECT = 'shelina'
+
+# Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
+TRAINING_DATA_SOURCE_SUBJECT = ['edwin', 'shelina', 'richsen']
+
+# Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
+TESTING_DATA_SOURCE_SUBJECT = ['lauren']
+
+# Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = ['edwin']
+
+# Select whose data to use for the REAL TIME MONITORING MODEL BUILDING --> the dta for the subject/s must have been pre-processed
+REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = ['edwin']
 
 SENSOR_SOURCES = {
     'sp': ['sp_accelerometer'],
@@ -34,7 +44,7 @@ SENSOR_SOURCES = {
     ]
 }
 
-
+######################################################################################
 
 # DIRECTORY PATH CONFIGURATIONS
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -105,7 +115,7 @@ FEATURES_DATA_RESULT = {
     'sw': 'features_smartwatch_combined.csv'
 }
 
-
+######################################################################################
 
 # DATA PREPROCESSING CONFIGURATIONS
 SAMPLING_FREQUENCY = 10 # in Hz
@@ -117,18 +127,16 @@ SAMPLING_INTERVAL = int(1000 / SAMPLING_FREQUENCY)
 N_ROWS_PER_WINDOW = int(WINDOW_SIZE / SAMPLING_INTERVAL)
 FILE_NAME_SUFFIX = '{}_{}_{}_'.format(SAMPLING_FREQUENCY, WINDOW_SIZE, WINDOW_OVERLAP)
 
-
+######################################################################################
 
 # MODEL BUILDING CONFIGURATIONS
-TRAIN_SIZE = 0.7
+TRAIN_SIZE = 0.8
 TEST_SIZE = 1.0 - TRAIN_SIZE
 
 CLASSIFIER_DIR = os.path.join(ROOT_DIR, 'classifier')
-CLASSIFIER_MODEL_DIR = os.path.join(CLASSIFIER_DIR, 'model')
-CLASSIFIER_MODEL_NAMES = {
-    'minmax_scaler': 'minmax_scaler.p'
+MODEL_DIR = os.path.join(CLASSIFIER_DIR, 'model')
+MODEL_NAMES = {
+    'minmax_scaler': 'minmax_scaler.p',
+    'real_time_monitoring_minmax_scaler': 'real_time_monitoring_minmax_scaler.p',
+    'real_time_monitoring_model': 'real_time_monitoring_model.p'
 }
-
-# THRESHOLD_WEIRD_TIMESTAMP_DETECTION = 10
-# SENSOR_SAMPLING_FREQUENCY = 250 # by observation in the reading logs
-# N_SAMPLE_WEIRD_TIMESTAMP_REPLACEMENT = math.ceil(SENSOR_SAMPLING_FREQUENCY / SAMPLING_INTERVAL)

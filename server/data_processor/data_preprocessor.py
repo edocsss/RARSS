@@ -1,18 +1,51 @@
+import threading
+import time
+
+import config as CONFIG
+from data_processor import data_combiner
 from data_processor import data_sampler
 from data_processor import data_window_selector
 from data_processor import feature_generator
-from data_processor import data_combiner
-import threading
-import time
-import config as CONFIG
+from data_processor.util import raw_data_reader
 
 
-def preprocess_data(activity_type):
-    data_sampler.sample_data(activity_type)
-    data_window_selector.divide_and_store_sampled_data_to_windows(activity_type)
-    data_combiner.combine_data_by_device_source(activity_type)
-    feature_generator.generate_feature(activity_type)
-    data_combiner.combine_sp_sw_into_one(activity_type)
+def preprocess_data_for_manual_testing(activity_type):
+    raw_data = raw_data_reader.read_all_raw_data(activity_type)
+
+    print('Data sampling started for {}!'.format(activity_type))
+    sampled_data = data_sampler.sample_data(raw_data)
+    data_sampler.write_sampled_data_to_files(sampled_data, activity_type)
+    print('Data sampling done for {}!'.format(activity_type))
+    print()
+
+    print('Data windowing started for {}!'.format(activity_type))
+    windowed_data = data_window_selector.divide_sampled_data_to_windows(sampled_data)
+    data_window_selector.store_windowed_data_to_files(windowed_data, activity_type)
+    print('Data windowing done for {}!'.format(activity_type))
+    print()
+
+    combined_smartphone_dfs, combined_smartwatch_dfs = data_combiner.combine_data_by_device_source(windowed_data)
+    data_combiner.store_combined_data_by_device_source(combined_smartphone_dfs, combined_smartwatch_dfs, activity_type)
+
+    print('Features generation started for {}!'.format(activity_type))
+    smartphone_features, smartwatch_features = feature_generator.generate_feature(combined_smartphone_dfs, combined_smartwatch_dfs)
+    feature_generator.store_features_df(smartphone_features, smartwatch_features, activity_type)
+    print('Features generation done for {}!'.format(activity_type))
+    print()
+    print()
+
+    combined_features_df = data_combiner.combine_sp_sw_into_one(smartphone_features, smartwatch_features)
+    data_combiner.store_combined_features(combined_features_df, activity_type)
+
+
+def preprocess_data_for_real_time_monitoring(raw_data):
+    sampled_data = data_sampler.sample_data(raw_data)
+    windowed_data = data_window_selector.divide_sampled_data_to_windows(sampled_data)
+    combined_smartphone_dfs, combined_smartwatch_dfs = data_combiner.combine_data_by_device_source(windowed_data)
+    smartphone_features, smartwatch_features = feature_generator.generate_feature(combined_smartphone_dfs, combined_smartwatch_dfs)
+    combined_features_df = data_combiner.combine_sp_sw_into_one(smartphone_features, smartwatch_features)
+    combined_features_df = data_combiner.drop_irrelevant_columns_from_combined_dfs(combined_features_df)
+    return combined_features_df
 
 
 if __name__ == '__main__':
@@ -49,10 +82,10 @@ if __name__ == '__main__':
     threads = []
     for activity in activities:
         print('Full pre-processing: {}'.format(activity))
-        t = threading.Thread(target=preprocess_data, args=(activity,))
+        t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity,))
         t.start()
         threads.append(t)
-
+    #
     for t in threads:
         t.join()
 

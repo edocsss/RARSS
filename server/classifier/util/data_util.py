@@ -14,21 +14,36 @@ def _load_data(subject):
     file_path = os.path.join(
         CONFIG.COMBINED_DATA_DIR,
         CONFIG.FILE_NAME_SUFFIX +
-        '_'.join(subject) +
+        subject +
         '_' +
         CONFIG.COMBINED_DATA_RESULT['full']
     )
 
     df = pd.read_csv(file_path)
     df = df[df.activity != 'testing']
-    df.drop('Unnamed: 0', axis=1, inplace=True)
-    df = df.iloc[np.random.permutation(len(df))]
-
+    df = _drop_irrelevant_columns(df)
     return df
 
 
-def load_training_data(source='', onehot=False, activities=None):
-    full_data = _load_data(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
+def _drop_irrelevant_columns(df):
+    df.drop('Unnamed: 0', axis=1, inplace=True)
+    df.drop('Unnamed: 0.1', axis=1, inplace=True)
+    return df
+
+
+def _load_data_by_multiple_subjects(subjects):
+    dfs = []
+    for subject in subjects:
+        df = _load_data(subject)
+        dfs.append(df)
+
+    result_df = pd.concat(dfs)
+    result_df = result_df.iloc[np.random.permutation(len(result_df))]
+    return result_df
+
+
+def load_training_data(subjects, scaler_name, source='', onehot=False):
+    full_data = _load_data_by_multiple_subjects(subjects)
     full_data = _filter_features_by_source(full_data, source)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
@@ -41,17 +56,16 @@ def load_training_data(source='', onehot=False, activities=None):
         Y_encoded = Y_encoded.apply(_binarize_label, axis=1)
         Y_encoded = Y_encoded.drop('label', axis=1)
 
-    _train_minmax_scaler(X, force=True)
-    X_norm = _normalize_minmax_X(X)
+    _train_minmax_scaler(X, scaler_name, force=True)
+    X_norm = _normalize_X(X, scaler_name)
 
     Y_encoded = Y_encoded.values.astype('float64')
     return X_norm, Y_encoded
 
 
-def load_testing_data(source='', onehot=False, activities=None):
-    full_data = _load_data(CONFIG.TESTING_DATA_SOURCE_SUBJECT)
+def load_testing_data(subjects, scaler_name, source='', onehot=False):
+    full_data = _load_data_by_multiple_subjects(subjects)
     full_data = _filter_features_by_source(full_data, source)
-    full_data = _filter_data_by_activity(full_data, activities)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
     Y = full_data['activity']
@@ -63,15 +77,13 @@ def load_testing_data(source='', onehot=False, activities=None):
         Y_encoded = Y_encoded.apply(_binarize_label, axis=1)
         Y_encoded = Y_encoded.drop('label', axis=1)
 
-    # _train_minmax_scaler(X, force=True)
-    X_norm = _normalize_minmax_X(X)
-
+    X_norm = _normalize_X(X, scaler_name)
     Y_encoded = Y_encoded.values.astype('float64')
     return X_norm, Y_encoded
 
 
 def load_kfolds_training_and_testing_data(k=5, source='', activities=None, onehot=False):
-    full_data = _load_data(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
+    full_data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
 
@@ -99,9 +111,9 @@ def load_kfolds_training_and_testing_data(k=5, source='', activities=None, oneho
         if onehot:
             Y_test = unbinarize_label(Y_test)
 
-        _train_minmax_scaler(X_train, force=True)
-        X_train_norm = _normalize_minmax_X(X_train)
-        X_test_norm = _normalize_minmax_X(X_test)
+        _train_minmax_scaler(X_train, CONFIG.MODEL_NAMES['minmax_scaler'], force=True)
+        X_train_norm = _normalize_X(X_train, CONFIG.MODEL_NAMES['minmax_scaler'])
+        X_test_norm = _normalize_X(X_test, CONFIG.MODEL_NAMES['minmax_scaler'])
 
         kfolds_data.append((
             X_train_norm,
@@ -154,33 +166,33 @@ def _convert_binary_label_to_int(row):
     return row
 
 
-def _normalize_minmax_X(X):
-    file_path = os.path.join(CONFIG.CLASSIFIER_MODEL_DIR, CONFIG.CLASSIFIER_MODEL_NAMES['minmax_scaler'])
+def _normalize_X(X, scaler_name):
+    file_path = os.path.join(CONFIG.MODEL_DIR, scaler_name)
     f = open(file_path, 'rb')
-    minmax_scaler = pickle.load(f)
+    scaler = pickle.load(f)
     f.close()
 
-    return minmax_scaler.transform(X)
+    return scaler.transform(X)
 
 
-def _train_minmax_scaler(X_train, force=False):
-    if _check_if_minmax_scaler_exists() and not force:
+def _train_minmax_scaler(X_train, scaler_name, force=False):
+    if _check_if_scaler_exists(scaler_name) and not force:
         return
 
     minmax_scaler = MinMaxScaler()
     minmax_scaler.fit(X_train)
-    _store_minmax_scaler(minmax_scaler)
+    _store_scaler(minmax_scaler, scaler_name)
 
 
-def _check_if_minmax_scaler_exists():
-    file_path = os.path.join(CONFIG.CLASSIFIER_MODEL_DIR, CONFIG.CLASSIFIER_MODEL_NAMES['minmax_scaler'])
+def _check_if_scaler_exists(scaler_name):
+    file_path = os.path.join(CONFIG.MODEL_DIR, CONFIG.MODEL_NAMES['minmax_scaler'])
     return os.path.isfile(file_path)
 
 
-def _store_minmax_scaler(minmax_scaler):
-    file_path = os.path.join(CONFIG.CLASSIFIER_MODEL_DIR, CONFIG.CLASSIFIER_MODEL_NAMES['minmax_scaler'])
+def _store_scaler(scaler, scaler_name):
+    file_path = os.path.join(CONFIG.MODEL_DIR, scaler_name)
     f = open(file_path, 'wb')
-    pickle.dump(minmax_scaler, f)
+    pickle.dump(scaler, f)
     f.close()
 
 
@@ -191,6 +203,6 @@ def get_data_distribution(Y):
 
 
 if __name__ == '__main__':
-    data = _load_data(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
+    data = _load_data_by_multiple_subjects(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
     print(len(data))
     print(get_data_distribution(data['activity']))

@@ -1,0 +1,1 @@
+mongod --config ./mongod.cfg

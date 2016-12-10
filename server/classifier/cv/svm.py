@@ -26,10 +26,10 @@ def run_cv(C=10, kernel='rbf', data_source='', activities=None):
 
         fscore = f1_score(Y_test, predictions, average='weighted')
         fscore_results.append(fscore)
-        print('k = {}, accuracy = {}'.format(i + 1, accuracy))
-        print('k = {}, fscore = {}'.format(i + 1, fscore))
-        print()
-        print()
+        # print('k = {}, accuracy = {}'.format(i + 1, accuracy))
+        # print('k = {}, fscore = {}'.format(i + 1, fscore))
+        # print()
+        # print()
 
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)
@@ -56,12 +56,12 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [1150, 1175]
+    C = [12500, 13625]
     activities = None
 
     for c in C:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             C=c,
-            data_source='sw',
+            data_source='',
             activities=activities
         )

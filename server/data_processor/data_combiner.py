@@ -1,8 +1,8 @@
 import os
-import config as CONFIG
+
 import pandas as pd
-from util import windowed_data_reader
-from util import feature_data_reader
+
+import config as CONFIG
 
 
 def combine_all_data_into_one_complete_dataset():
@@ -13,7 +13,7 @@ def combine_all_data_into_one_complete_dataset():
         file_path = os.path.join(
             CONFIG.COMBINED_DATA_DIR,
             activity,
-            CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['sp_sw']
+            CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.COMBINED_DATA_RESULT['sp_sw']
         )
 
         df = pd.read_csv(file_path)
@@ -23,50 +23,47 @@ def combine_all_data_into_one_complete_dataset():
 
     result_df = pd.DataFrame(data=None, columns=combined_dfs[0].columns)
     result_df = result_df.append(combined_dfs, ignore_index=True)
-    result_df.drop(['Unnamed: 0', 'Unnamed: 0.1', 'Unnamed: 0.2'], axis=1, inplace=True)
+
+    try:
+        result_df = drop_irrelevant_columns_from_combined_dfs(result_df)
+    except:
+        print('Columns Unnamed: 0, Unnamed: 0.1, Unnamed: 0.2 not found!')
+
     _write_full_dataset_dataframe_to_csv(result_df)
 
 
-def combine_sp_sw_into_one(activity_type):
-    merged_df = _merge_smartphone_and_smartwatch_data(activity_type)
-    _create_combined_data_directory()
-    _create_combined_activity_directory(activity_type)
-    _write_combined_dataframe_to_csv(activity_type, merged_df, source='sp_sw')
+def drop_irrelevant_columns_from_combined_dfs(df):
+    df.drop(['Unnamed: 0', 'Unnamed: 0.1', 'Unnamed: 0.2'], axis=1, inplace=True)
+    return df
 
 
-def combine_data_by_device_source(activity_type):
-    merged_smartphone_dfs = _merge_smartphone_multiple_sensors_into_one(activity_type)
-    merged_smartwatch_dfs = _merge_smartwatch_multiple_sensors_into_one(activity_type)
+def combine_sp_sw_into_one(smartphone_features, smartwatch_features):
+    combined_features_df = pd.concat([smartphone_features, smartwatch_features], axis=1)
+    return combined_features_df
+
+
+def combine_data_by_device_source(windowed_data):
+    windowed_smartphone_data = { k: v for k, v in windowed_data.items() if 'sp' in k }
+    windowed_smartwatch_data = { k: v for k, v in windowed_data.items() if 'sw' in k }
+
+    merged_smartphone_dfs = _merge_smartphone_multiple_sensors_into_one(windowed_smartphone_data)
+    merged_smartwatch_dfs = _merge_smartwatch_multiple_sensors_into_one(windowed_smartwatch_data)
 
     combined_smartphone_dfs = _combine_multiple_data_collections_into_one(merged_smartphone_dfs)
     combined_smartwatch_dfs = _combine_multiple_data_collections_into_one(merged_smartwatch_dfs)
 
-    combined_smartphone_dfs = _drop_irrelevant_columns(combined_smartphone_dfs)
-    combined_smartwatch_dfs = _drop_irrelevant_columns(combined_smartwatch_dfs)
+    combined_smartphone_dfs = drop_irrelevant_columns_from_combined_dfs(combined_smartphone_dfs)
+    combined_smartwatch_dfs = drop_irrelevant_columns_from_combined_dfs(combined_smartwatch_dfs)
 
-    _create_combined_data_directory()
-    _create_combined_activity_directory(activity_type)
-
-    _write_combined_dataframe_to_csv(activity_type, combined_smartphone_dfs, source='sp')
-    _write_combined_dataframe_to_csv(activity_type, combined_smartwatch_dfs, source='sw')
+    return combined_smartphone_dfs, combined_smartwatch_dfs
 
 
-def _merge_smartphone_and_smartwatch_data(activity_type):
-    features_smartphone_data = feature_data_reader.read_smartphone_features_data(activity_type)
-    features_smartwatch_data = feature_data_reader.read_smartwatch_features_data(activity_type)
-
-    merged_df = pd.concat([features_smartphone_data, features_smartwatch_data], axis=1)
-    return merged_df
-
-
-def _merge_smartphone_multiple_sensors_into_one(activity_type):
-    windowed_smartphone_data = windowed_data_reader.read_smartphone_windowed_data(activity_type)
+def _merge_smartphone_multiple_sensors_into_one(windowed_smartphone_data):
     combined_smartphone_data = _merge_multiple_sensor_sources_into_one(windowed_smartphone_data)
     return combined_smartphone_data
 
 
-def _merge_smartwatch_multiple_sensors_into_one(activity_type):
-    windowed_smartwatch_data = windowed_data_reader.read_smartwatch_windowed_data(activity_type)
+def _merge_smartwatch_multiple_sensors_into_one(windowed_smartwatch_data):
     combined_smartwatch_data = _merge_multiple_sensor_sources_into_one(windowed_smartwatch_data)
     return combined_smartwatch_data
 
@@ -95,20 +92,18 @@ def _combine_multiple_data_collections_into_one(merged_dfs):
     return combined_df
 
 
-def _drop_irrelevant_columns(df):
-    cols_to_drop = [
-        'Unnamed: 0',
-        'Unnamed: 0.1',
-        'Unnamed: 0_r',
-        'Unnamed: 0.1_r',
-        'Unnamed: 0_x',
-        'Unnamed: 0.1_x',
-        'Unnamed: 0_y',
-        'Unnamed: 0.1_y',
-        'timestamp_r'
-    ]
+def store_combined_data_by_device_source(combined_smartphone_dfs, combined_smartwatch_dfs, activity_type):
+    _create_combined_data_directory()
+    _create_combined_activity_directory(activity_type)
 
-    return df.drop([c for c in cols_to_drop if c in df.columns], axis=1)
+    _write_combined_dataframe_to_csv(activity_type, combined_smartphone_dfs, source='sp')
+    _write_combined_dataframe_to_csv(activity_type, combined_smartwatch_dfs, source='sw')
+
+
+def store_combined_features(combined_features_df, activity_type):
+    _create_combined_data_directory()
+    _create_combined_activity_directory(activity_type)
+    _write_combined_dataframe_to_csv(activity_type, combined_features_df, source='sp_sw')
 
 
 def _create_combined_data_directory():
@@ -127,7 +122,7 @@ def _write_combined_dataframe_to_csv(activity_type, dataframe, source='sp'):
     file_path = os.path.join(
         CONFIG.COMBINED_DATA_DIR,
         activity_type,
-        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT[source]
+        CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.COMBINED_DATA_RESULT[source]
     )
 
     dataframe.to_csv(file_path)
@@ -136,11 +131,7 @@ def _write_combined_dataframe_to_csv(activity_type, dataframe, source='sp'):
 def _write_full_dataset_dataframe_to_csv(df):
     file_path = os.path.join(
         CONFIG.COMBINED_DATA_DIR,
-        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.COMBINED_DATA_RESULT['full']
+        CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.COMBINED_DATA_RESULT['full']
     )
 
     df.to_csv(file_path)
-
-
-if __name__ == '__main__':
-    combine_data_by_device_source('reading')

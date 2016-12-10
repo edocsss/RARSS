@@ -34,10 +34,10 @@ def run_cv(n_estimators=50, data_source='', activities=None):
             labels=int_labels
         )
 
-        print('k = {}, accuracy = {}'.format(i + 1, accuracy))
-        print('k = {}, fscore = {}'.format(i + 1, fscore))
-        print()
-        print()
+        # print('k = {}, accuracy = {}'.format(i + 1, accuracy))
+        # print('k = {}, fscore = {}'.format(i + 1, fscore))
+        # print()
+        # print()
 
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)
@@ -60,7 +60,7 @@ def run_cv(n_estimators=50, data_source='', activities=None):
 
 
 if __name__ == '__main__':
-    n_estimators = [50, 100, 200, 300, 500]
+    n_estimators = [70, 72, 75, 77, 80]
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,

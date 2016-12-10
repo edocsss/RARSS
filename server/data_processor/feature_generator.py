@@ -1,29 +1,20 @@
-import os
-import config as CONFIG
-import pandas as pd
 import math
+import os
+
 import numpy as np
-from util import combined_data_reader
+import pandas as pd
+
+import config as CONFIG
 
 
-def generate_feature(activity_type):
-    print('Generating features for {}..'.format(activity_type))
-    combined_data = combined_data_reader.read_all_combined_data(activity_type)
-    smartphone_df = combined_data['sp']
-    smartwatch_df = combined_data['sw']
-
+def generate_feature(smartphone_df, smartwatch_df):
     smartphone_df = _include_additional_data(smartphone_df)
     smartwatch_df = _include_additional_data(smartwatch_df)
 
     smartphone_features = _generate_smartphone_features(smartphone_df)
     smartwatch_features = _generate_smartwatch_features(smartwatch_df)
 
-    _create_features_directory()
-    _create_features_activity_directory(activity_type)
-
-    _write_smartphone_features_to_file(smartphone_features, activity_type)
-    _write_smartwatch_features_to_file(smartwatch_features, activity_type)
-    print('Features generated for {}..'.format(activity_type))
+    return smartphone_features, smartwatch_features
 
 
 def _include_additional_data(df):
@@ -220,6 +211,14 @@ def _calculate_fft(vector):
     return np.absolute(fft_vector)
 
 
+def store_features_df(smartphone_features, smartwatch_features, activity_type):
+    _create_features_directory()
+    _create_features_activity_directory(activity_type)
+
+    _write_smartphone_features_to_file(smartphone_features, activity_type)
+    _write_smartwatch_features_to_file(smartwatch_features, activity_type)
+
+
 def _create_features_directory():
     dir_path = os.path.join(CONFIG.FEATURES_DATA_DIR)
     if not os.path.isdir(dir_path):
@@ -237,7 +236,7 @@ def _write_smartphone_features_to_file(smartphone_features, activity_type):
     file_path = os.path.join(
         CONFIG.FEATURES_DATA_DIR,
         activity_type,
-        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.FEATURES_DATA_RESULT['sp']
+        CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.FEATURES_DATA_RESULT['sp']
     )
 
     smartphone_features.to_csv(file_path)
@@ -248,29 +247,7 @@ def _write_smartwatch_features_to_file(smartwatch_features, activity_type):
     file_path = os.path.join(
         CONFIG.FEATURES_DATA_DIR,
         activity_type,
-        CONFIG.FILE_NAME_SUFFIX + '_'.join(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT) + '_' + CONFIG.FEATURES_DATA_RESULT['sw']
+        CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.FEATURES_DATA_RESULT['sw']
     )
 
     smartwatch_features.to_csv(file_path)
-
-
-if __name__ == '__main__':
-    activities = [
-        'brushing',
-        'eating',
-        'folding',
-        'going_downstairs',
-        'going_upstairs',
-        'lying',
-        'reading',
-        'running',
-        'sitting',
-        'standing',
-        'sweeping_the_floor',
-        # 'testing',
-        'typing',
-        'walking',
-        'writing'
-    ]
-
-    generate_feature('reading')
