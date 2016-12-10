@@ -2,4 +2,5 @@ server/data/db
 android/FYP/volley
 tizen_key
 .idea
-.DS_Store
+**/.DS_Store
+**/__pycache__
