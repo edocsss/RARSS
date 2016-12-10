@@ -32,7 +32,9 @@ public class UrlController {
 
     public void setServerAddress(String ngrokId) {
         URL.SERVER_ADDRESS = "http://" + ngrokId + ".ngrok.io";
-        URL.SEND_SENSORY_DATA_ADDRESS = URL.SERVER_ADDRESS;
-        URL.NOTIFY_SMARTWATCH_ADDRESS = URL.SERVER_ADDRESS + "/smartwatch/notify";
+        URL.SEND_SENSORY_DATA_RECORDING_ADDRESS = URL.SERVER_ADDRESS + "/smartphone/recording";
+        URL.SEND_SENSORY_DATA_MONITORING_ADDRESS = URL.SERVER_ADDRESS + "/smartphone/monitoring";
+        URL.NOTIFY_SMARTWATCH_RECORDING_ADDRESS = URL.SERVER_ADDRESS + "/smartwatch/recording/notify";
+        URL.NOTIFY_SMARTWATCH_MONITORING_ADDRESS = URL.SERVER_ADDRESS + "/smartwatch/monitoring/notify";
     }
 }

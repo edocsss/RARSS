@@ -25,7 +25,7 @@ public class BarometerReaderService extends Service implements SensorEventListen
 
     private SensorManager sensorManager;
     private Sensor barometerSensor;
-    private List<BarometerReading> barometerReadings;
+    private ArrayList<BarometerReading> barometerReadings;
     private Handler handler;
 
     @Override

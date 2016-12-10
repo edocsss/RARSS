@@ -1,12 +1,12 @@
 package com.fyp.task;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class SensorReadingHandler<T> implements Runnable {
     private T reading;
-    private List<T> readings;
+    private ArrayList<T> readings;
 
-    public SensorReadingHandler(T reading, List<T> readings) {
+    public SensorReadingHandler(T reading, ArrayList<T> readings) {
         this.reading = reading;
         this.readings = readings;
     }

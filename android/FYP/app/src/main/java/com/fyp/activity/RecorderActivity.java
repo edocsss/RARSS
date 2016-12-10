@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.fyp.R;
 import com.fyp.constant.SharedPreferencesKey;
+import com.fyp.constant.TimerConfig;
 import com.fyp.constant.URL;
 import com.fyp.controller.FileIdController;
 import com.fyp.controller.SensorController;
@@ -35,7 +36,6 @@ import org.json.JSONObject;
 
 public class RecorderActivity extends AppCompatActivity implements OnItemSelectedListener {
     private final String TAG = "RecorderActivity";
-    private final long DEFAULT_TIMER = 1000 * 60 * 2;
     private final String DEFAULT_ACTIVITY_TYPE = "standing";
 
     private long timer;
@@ -75,7 +75,7 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
 
     private void loadTimerPreferences() {
         this.timer = SharedPreferencesController.getInstance().getLong(SharedPreferencesKey.TIMER_KEY);
-        if (this.timer == 0) this.timer = DEFAULT_TIMER;
+        if (this.timer == 0) this.timer = TimerConfig.DEFAULT_RECORDING_TIMER;
         this.timerEditText.setText("" + this.timer / 1000);
     }
 
@@ -140,12 +140,8 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
         this.startService(magneticReaderServiceIntent);
 
         Toast.makeText(this, "Start sensor recording!", Toast.LENGTH_SHORT).show();
-        this.startSensorRecordingRingtone();
+        AudioUtil.playStartRecordingRingtone(this);
         this.startRecordingButton.setEnabled(false);
-    }
-
-    private void startSensorRecordingRingtone() {
-        AudioUtil.play(this, R.raw.beep);
     }
 
     public void stopSensorRecording(View view) {
@@ -170,21 +166,10 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
         this.stopService(magneticReaderServiceIntent);
 
         Toast.makeText(this, "Stop sensor recording!", Toast.LENGTH_SHORT).show();
-        this.stopTimer = true;
-        this.stopSensorRecordingRingtone();
-        this.startRecordingButton.setEnabled(true);
-    }
+        AudioUtil.playStopRecordingRingtone(this);
 
-    private void stopSensorRecordingRingtone() {
-        try {
-            AudioUtil.play(this, R.raw.beep);
-            Thread.sleep(500);
-            AudioUtil.play(this, R.raw.beep);
-            Thread.sleep(500);
-            AudioUtil.play(this, R.raw.beep);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        this.stopTimer = true;
+        this.startRecordingButton.setEnabled(true);
     }
 
     public void saveTimer(View view) {
@@ -192,7 +177,7 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
             this.timer = Long.parseLong(this.timerEditText.getText().toString()) * 1000;
             SharedPreferencesController.getInstance().setLong(SharedPreferencesKey.TIMER_KEY, this.timer);
         } catch (NumberFormatException e) {
-            this.timer = DEFAULT_TIMER;
+            this.timer = TimerConfig.DEFAULT_RECORDING_TIMER;
         } finally {
             long timerInSecond = this.timer / 1000;
             Toast.makeText(this, "Timer: " + timerInSecond + "s", Toast.LENGTH_SHORT).show();
@@ -238,6 +223,11 @@ public class RecorderActivity extends AppCompatActivity implements OnItemSelecte
                 progressDialog.dismiss();
             }
         }).start();
+    }
+
+    public void openRealTimeActivity(View v) {
+        Intent intent = new Intent(this, RealTimeActivity.class);
+        this.startActivity(intent);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class GravityReaderService extends Service implements SensorEventListener
 
     private SensorManager sensorManager;
     private Sensor gravitySensor;
-    private List<GravityReading> gravityReadings;
+    private ArrayList<GravityReading> gravityReadings;
     private Handler handler;
 
     @Override

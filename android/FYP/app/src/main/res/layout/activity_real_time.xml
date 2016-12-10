@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_real_time"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,4 +10,83 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.fyp.activity.RealTimeActivity">
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/real_time_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_xs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/real_time_container"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!--
+            DUMMY LAYOUT TO PREVENT EDITTEXT FROM GETTING THE FOCUS WHEN THE ACTIVITY STARTS!!
+            THIS IS A HACK!!!
+            http://stackoverflow.com/questions/1555109/stop-edittext-from-gaining-focus-at-activity-startup
+        -->
+        <View
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_sm">
+
+            <EditText
+                android:id="@+id/real_time_interval_edittext"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="@string/in_seconds"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/save_timer"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/save_interval"
+                android:layout_weight="3"
+                android:onClick="saveInterval"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_sm">
+
+            <Button
+                android:id="@+id/start_real_time_monitoring_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_real_time_monitoring_button"
+                android:layout_weight="1"
+                android:onClick="onStartMonitoringClick"/>
+
+            <Button
+                android:id="@+id/stop_real_time_monitoring_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_real_time_monitoring_button"
+                android:layout_weight="1"
+                android:onClick="onStopMonitoringClick"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

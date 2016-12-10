@@ -25,7 +25,7 @@ public class MagneticReaderService extends Service implements SensorEventListene
 
     private SensorManager sensorManager;
     private Sensor magneticSensor;
-    private List<MagneticReading> magneticReadings;
+    private ArrayList<MagneticReading> magneticReadings;
     private Handler handler;
 
     @Override

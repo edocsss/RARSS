@@ -1,8 +1,9 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://79abf999.ngrok.io';
-	var DATA_UPLOAD_URL = SERVER_URL + '/smartwatch/upload';
-	var WEBSOCKET_URL = 'ws://79abf999.ngrok.io/smartwatch/ws';
+	var SERVER_URL = 'http://8cdd86da.ngrok.io';
+	var DATA_RECORDING_UPLOAD_URL = SERVER_URL + '/smartwatch/recording';
+	var DATA_MONITORING_UPLOAD_URL = SERVER_URL + '/smartwatch/monitoring';
+	var WEBSOCKET_URL = 'ws://8cdd86da.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
@@ -13,13 +14,14 @@
 	
 	var activityType = '';
 	var startRecording = false;
+	var realTime = false;
 	var sensorReadings = {
-			accelerometer: { data: [] },
-			gyroscope: { data: [] },
-			light: { data: [] },
-			pressure: { data: [] },
-			magnetic: { date: 0, data: [] },
-			uv: { date: 0, data: [] }
+		accelerometer: { data: [] },
+		gyroscope: { data: [] },
+		light: { data: [] },
+		pressure: { data: [] },
+		magnetic: { data: [] },
+		uv: { data: [] }
 	};
 	
 	var lightSensor;
@@ -67,7 +69,9 @@
 			
 			if (startRecording) {
 				sensorReadings.accelerometer.data.push({ ax: ax, ay: ay, az: az, timestamp: getCurrentTimestamp() });
-				sensorReadings.gyroscope.data.push({ gx: gx, gy: gy, gz: gz, timestamp: getCurrentTimestamp() });
+				if (!realTime) {
+					sensorReadings.gyroscope.data.push({ gx: gx, gy: gy, gz: gz, timestamp: getCurrentTimestamp() });
+				}
 			}
 			
 			prevTimestamp = getCurrentTimestamp();
@@ -83,7 +87,7 @@
 	};
 	
 	document.getElementById('send_data_button').onclick = function () {
-		sendSensoryDataToServer();
+		sendSensoryDataRecordingToServer();
 	};
 	
 	document.getElementById('setup_websocket_data').onclick = function () {
@@ -177,10 +181,12 @@
 		console.log('Starting all sensors!');
 		startRecording = true;
 		
-		setupLightSensor();
-		setupMagneticSensor();
-		setupPressureSensor();
-		setupUVSensor();
+		if (!realTime) {
+			setupLightSensor();
+			setupMagneticSensor();
+			setupPressureSensor();
+			setupUVSensor();
+		}
 		
 		tizen.power.request("SCREEN", "SCREEN_NORMAL");
 		tizen.power.request("CPU", "CPU_AWAKE");
@@ -232,26 +238,44 @@
 		return data;
 	}
 	
-	function sendSensoryDataToServer(fileId) {
+	function sendSensoryDataRecordingToServer(fileId) {
 		var sensorData = loadSensoryDataFromLocalStorage();
-		sendData({
+		sendDataForActivityRecording({
 			activityType: activityType,
 			sensoryData: sensorData,
 			fileId: fileId
 		});
 	}
 	
-	function sendData(data) {
+	function sendSensoryDataMonitoringToServer(uuid) {
+		var data = { uuid: uuid };
+		for (var key in sensorReadings) {
+			data['sw_' + key] = sensorReadings[key].data;
+			sensorReadings[key].data = [];
+		}
+		
+		sendDataForMonitoring(data);
+	}
+	
+	function sendData(url, data) {
 		console.log("Sending data to server..");
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', DATA_UPLOAD_URL);
+		xhr.open('POST', url);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.onerror = function () {
-			console.log('XHR ERror!');
+			console.log('XHR Error!');
 		};
 		
 		xhr.send(JSON.stringify(data));
 		console.log("Data sent to server!");
+	}
+	
+	function sendDataForActivityRecording(data) {
+		sendData(DATA_RECORDING_UPLOAD_URL, data);
+	}
+	
+	function sendDataForMonitoring(data) {
+		sendData(DATA_MONITORING_UPLOAD_URL, data);
 	}
 	
 	var MAX_WS_RETRY = 10;
@@ -286,12 +310,33 @@
 			var message = e.data;
 			if (message.indexOf('start_recording') > -1) {
 				activityType = message.split(' ')[1];
+				realTime = false;
 				setupAllSensors();
 			} else if (message === 'stop_recording') {
 				stopAndUnsetAllSensors();
-			} else if (message.indexOf('send_data') > -1) {
+			} else if (message.indexOf('send_data_recording') > -1) {
 				var fileId = message.split(' ')[1];
-				sendSensoryDataToServer(fileId);
+				sendSensoryDataRecordingToServer(fileId);
+			} else if (message.indexOf('start_monitoring') > -1) {
+				sensorReadings = {
+					accelerometer: { data: [] },
+					gyroscope: { data: [] },
+					light: { data: [] },
+					pressure: { data: [] },
+					magnetic: { data: [] },
+					uv: { data: [] }
+				};
+				
+				console.log('START_MONITORING');
+				realTime = true;
+				setupAllSensors();
+			} else if (message.indexOf('stop_monitoring') > -1) {
+				console.log('STOP_MONITORING');
+				stopAndUnsetAllSensors();
+			} else if (message.indexOf('send_data_monitoring') > -1) {
+				console.log('SEND_DATA_MONITORING');
+				var uuid = message.split(' ')[1];
+				sendSensoryDataMonitoringToServer(uuid);
 			}
 		};
 	}

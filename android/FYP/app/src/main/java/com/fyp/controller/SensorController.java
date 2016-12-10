@@ -74,13 +74,13 @@ public class SensorController {
             e.printStackTrace();
         }
 
-        HttpManager.getInstance().sendPostRequest(jsonObject, URL.SEND_SENSORY_DATA_ADDRESS, onSuccess, onError);
+        HttpManager.getInstance().sendPostRequest(jsonObject, URL.SEND_SENSORY_DATA_RECORDING_ADDRESS, onSuccess, onError);
     }
 
-    public void startSmartwatchSensorRecording(String activityType) {
+    private void notifySmartwatchSensorRecording(boolean start, String activityType) {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("start", true);
+            jsonObject.put("start", start);
             jsonObject.put("activityType", activityType);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class SensorController {
 
         HttpManager.getInstance().sendPostRequest(
                 jsonObject,
-                URL.NOTIFY_SMARTWATCH_ADDRESS,
+                URL.NOTIFY_SMARTWATCH_RECORDING_ADDRESS,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -104,29 +104,11 @@ public class SensorController {
         );
     }
 
+    public void startSmartwatchSensorRecording(String activityType) {
+        notifySmartwatchSensorRecording(true, activityType);
+    }
+
     public void stopSmartwatchSensorRecording() {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("start", false);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        HttpManager.getInstance().sendPostRequest(
-                jsonObject,
-                URL.NOTIFY_SMARTWATCH_ADDRESS,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }
-        );
+        notifySmartwatchSensorRecording(false, null);
     }
 }

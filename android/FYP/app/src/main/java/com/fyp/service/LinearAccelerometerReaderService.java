@@ -25,7 +25,7 @@ public class LinearAccelerometerReaderService extends Service implements SensorE
 
     private SensorManager sensorManager;
     private Sensor linearAccelerometerSensor;
-    private List<AccelerometerReading> linearAccelerometerReadings;
+    private ArrayList<AccelerometerReading> linearAccelerometerReadings;
     private Handler handler;
 
     @Override

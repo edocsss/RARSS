@@ -10,11 +10,4 @@ public abstract class SensorReading {
     public long getTimestamp() {
         return timestamp;
     }
-
-    @Override
-    public String toString() {
-        return "SensorReading{" +
-                "timestamp=" + timestamp +
-                '}';
-    }
 }

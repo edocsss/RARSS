@@ -25,7 +25,7 @@ public class GyroscopeReaderService extends Service implements SensorEventListen
 
     private SensorManager sensorManager;
     private Sensor gyroscopeSensor;
-    private List<GyroscopeReading> gyroscopeReadings;
+    private ArrayList<GyroscopeReading> gyroscopeReadings;
     private Handler handler;
 
     @Override

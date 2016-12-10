@@ -13,22 +13,20 @@ import android.util.Log;
 
 import com.fyp.FYPApp;
 import com.fyp.constant.FileNames;
-import com.fyp.task.SensorReadingHandler;
 import com.fyp.model.AccelerometerReading;
+import com.fyp.task.SensorReadingHandler;
 import com.fyp.util.FileUtil;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class AccelerometerReaderService extends Service implements SensorEventListener {
     private final String TAG = "AccelerometerReaderServ";
-
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
-    private List<AccelerometerReading> accelerometerReadings;
+    private ArrayList<AccelerometerReading> accelerometerReadings;
     private Handler handler;
     private final IBinder binder = new AccelerometerReaderBinder();
+    private boolean storeReadings = true;
 
     public class AccelerometerReaderBinder extends Binder {
         public AccelerometerReaderService getService() {
@@ -38,17 +36,16 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        this.sensorManager = FYPApp.getSensorManager();
-        this.accelerometerSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        this.accelerometerReadings = new ArrayList<>();
-        this.handler = new Handler();
-
+        this.setupService();
         this.startListeningAccelerometer();
         return START_STICKY;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
+        this.setupService();
+        this.startListeningAccelerometer();
+        this.storeReadings = false;
         return this.binder;
     }
 
@@ -57,20 +54,27 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
         this.stopListeningAccelerometer();
     }
 
+    private void setupService() {
+        this.sensorManager = FYPApp.getSensorManager();
+        this.accelerometerSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        this.accelerometerReadings = new ArrayList<>();
+        this.handler = new Handler();
+    }
+
     private void startListeningAccelerometer() {
         this.sensorManager.registerListener(this, this.accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     private void stopListeningAccelerometer() {
         this.sensorManager.unregisterListener(this);
-        this.storeAccelerometerReadingsToFile();
+        if (this.storeReadings) this.storeAccelerometerReadingsToFile();
     }
 
     private void storeAccelerometerReadingsToFile() {
         FileUtil.writeFile(this, FileNames.ACCELEROMETER_RESULT, this.convertAccelerometerReadingToCSV().getBytes());
     }
 
-    private String convertAccelerometerReadingToCSV() {
+    public String convertAccelerometerReadingToCSV() {
         StringBuilder sb = new StringBuilder();
         sb.append("timestamp,ax,ay,az\n");
 
@@ -80,10 +84,6 @@ public class AccelerometerReaderService extends Service implements SensorEventLi
         }
 
         return sb.toString();
-    }
-
-    public List<AccelerometerReading> getAccelerometerReadings() {
-        return this.accelerometerReadings;
     }
 
     public void clearAccelerometerReadings() {
