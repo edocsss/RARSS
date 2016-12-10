@@ -1,29 +1,51 @@
+import signal
+import threading
+
 import tornado.ioloop as ioloop
 import tornado.web as web
-from webapp.handler.smartphone_recorder_handler import SmartphoneRecorderHandler
-from webapp.handler.smartwatch_notifier_handler import SmartwatchNotifierHandler
-from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandler
-from webapp.handler.smartwatch_recorder_handler import SmartwatchRecorderHandler
-from webapp.handler.client_raw_data_handler import ClientRawDataHandler
-from webapp.util.logger import web_logger as LOGGER
-from webapp.service.raw_data_service import RawDataService
-from webapp.service.sensory_data_service import SensoryDataService
-import webapp.web_config as CONFIG
 
+import webapp.web_config as CONFIG
+from util.logger import web_logger as LOGGER
+from webapp.handler.client_raw_data_handler import ClientRawDataHandler
+from webapp.handler.client_websocket_handler import ClientWebsocketHandler
+from webapp.handler.smartphone_monitoring_handler import SmartphoneMonitoringHandler
+from webapp.handler.smartphone_recording_handler import SmartphoneRecordingHandler
+from webapp.handler.smartwatch_monitoring_handler import SmartwatchMonitoringHandler
+from webapp.handler.smartwatch_monitoring_notifier_handler import SmartwatchMonitoringNotifierHandler
+from webapp.handler.smartwatch_recording_handler import SmartwatchRecordingHandler
+from webapp.handler.smartwatch_recording_notifier_handler import SmartwatchRecordingNotifierHandler
+from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandler
+from webapp.service.raw_data_service import RawDataService
+from webapp.service.real_time_monitoring_service import RealTimeMonitoringService
+from webapp.service.sensory_data_service import SensoryDataService
+from webapp.worker.activity_recognizer_worker import ActivityRecognizerWorker
 
 if __name__ == '__main__':
     services = {
         'raw_data_service': RawDataService(),
-        'sensory_data_service': SensoryDataService()
+        'sensory_data_service': SensoryDataService(),
+        'real_time_monitoring_service': RealTimeMonitoringService()
     }
 
     app = web.Application([
-        (r"/", SmartphoneRecorderHandler),
-        (r"/smartwatch/notify", SmartwatchNotifierHandler),
+        (r"/smartphone/recording", SmartphoneRecordingHandler),
+        (r"/smartphone/monitoring", SmartphoneMonitoringHandler),
+        (r"/smartwatch/recording/notify", SmartwatchRecordingNotifierHandler),
+        (r"/smartwatch/monitoring/notify", SmartwatchMonitoringNotifierHandler),
         (r"/smartwatch/ws", SmartwatchWebsocketHandler),
-        (r"/smartwatch/upload", SmartwatchRecorderHandler),
-        (r"/client/raw", ClientRawDataHandler)
+        (r"/smartwatch/recording", SmartwatchRecordingHandler),
+        (r"/smartwatch/monitoring", SmartwatchMonitoringHandler),
+        (r"/client/raw", ClientRawDataHandler),
+        (r"/client/ws", ClientWebsocketHandler)
     ], debug=True, **services)
+
+    activity_recognizer_worker = ActivityRecognizerWorker()
+    worker_thread = threading.Thread(target=activity_recognizer_worker.start)
+    worker_thread.start()
+
+    signal.signal(signal.SIGQUIT, activity_recognizer_worker.stop)
+    signal.signal(signal.SIGTERM, activity_recognizer_worker.stop)
+    signal.signal(signal.SIGINT, activity_recognizer_worker.stop)
 
     LOGGER.info("Starting server at port {}...".format(CONFIG.SERVER_PORT_NUMBER))
     app.listen(CONFIG.SERVER_PORT_NUMBER)

@@ -1,14 +1,10 @@
-from util import raw_data_reader
-import config as CONFIG
 import pprint
-from webapp.db.raw_sensory_data_db import RawSensoryDataDb
+
+import config as CONFIG
+from data_processor.util import raw_data_reader
 
 
 class RawDataService():
-    def __init__(self):
-        self._db = RawSensoryDataDb()
-
-
     def get_raw_data_by_activity_and_source(self, activity_type, data_source, data_subject):
         if data_source == 'smartphone':
             raw_data = raw_data_reader.read_smartphone_raw_data(activity_type, [data_subject], CONFIG.SENSOR_SOURCES['sp_full'])

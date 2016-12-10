@@ -1,10 +1,10 @@
 from tornado.escape import json_decode, json_encode
+
+from util.logger import web_logger as LOGGER
 from webapp.handler.base_handler import BaseHandler
-from data_processor import data_preprocessor
-from webapp.util.logger import web_logger as LOGGER
 
 
-class SmartwatchRecorderHandler(BaseHandler):
+class SmartwatchRecordingHandler(BaseHandler):
     def post(self):
         d = json_decode(self.request.body)
         activity_type = d['activityType']

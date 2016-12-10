@@ -4,12 +4,10 @@ import webapp.web_config as CONFIG
 
 class ActivityHistoryDb(BaseDb):
     def __init__(self):
-        BaseDb.__init__(self, CONFIG.ACTIVITY_HISTORY_COLLECTION)
-
+        BaseDb.__init__(self)
 
     def insert_activity_history(self, activity_history):
-        pass
-
+        self._db[CONFIG.ACTIVITY_HISTORY_COLLECTION].insert_one(activity_history)
 
     def get_activity_history_by_time(self, start_time):
         pass
