@@ -1,5 +1,6 @@
 server/data/db
 android/FYP/volley
+server/classifier/model
 tizen_key
 .idea
 **/.DS_Store

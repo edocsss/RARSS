@@ -5,23 +5,26 @@ FULL_SUBJECT_LIST = [
     'edwin',
     'richsen',
     'lauren',
-    'shelina'
+    'shelina',
+    'mellita',
+    'nikolas',
+    'samuel'
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'shelina'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'samuel'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
-TRAINING_DATA_SOURCE_SUBJECT = ['edwin', 'shelina', 'richsen']
+TRAINING_DATA_SOURCE_SUBJECT = ['edwin', 'lauren', 'shelina', 'mellita', 'nikolas', 'samuel']
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = ['lauren']
+TESTING_DATA_SOURCE_SUBJECT = ['richsen']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
-KFOLD_DATA_SOURCE_SUBJECT = ['edwin']
+KFOLD_DATA_SOURCE_SUBJECT = ['edwin', 'richsen', 'lauren', 'shelina', 'mellita', 'nikolas', 'samuel']
 
 # Select whose data to use for the REAL TIME MONITORING MODEL BUILDING --> the dta for the subject/s must have been pre-processed
-REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = ['edwin']
+REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = ['edwin', 'richsen', 'lauren', 'shelina', 'mellita', 'nikolas']
 
 SENSOR_SOURCES = {
     'sp': ['sp_accelerometer'],
@@ -121,7 +124,7 @@ FEATURES_DATA_RESULT = {
 SAMPLING_FREQUENCY = 10 # in Hz
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5
-OUTLIER_REMOVAL_SIZE = 5000
+OUTLIER_REMOVAL_SIZE = 7000
 
 SAMPLING_INTERVAL = int(1000 / SAMPLING_FREQUENCY)
 N_ROWS_PER_WINDOW = int(WINDOW_SIZE / SAMPLING_INTERVAL)
@@ -138,5 +141,6 @@ MODEL_DIR = os.path.join(CLASSIFIER_DIR, 'model')
 MODEL_NAMES = {
     'minmax_scaler': 'minmax_scaler.p',
     'real_time_monitoring_minmax_scaler': 'real_time_monitoring_minmax_scaler.p',
-    'real_time_monitoring_model': 'real_time_monitoring_model.p'
+    'real_time_monitoring_rf_model': 'real_time_monitoring_rf_model.p',
+    'real_time_monitoring_svm_model': 'real_time_monitoring_svm_model.p'
 }

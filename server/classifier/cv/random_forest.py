@@ -1,13 +1,19 @@
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+from sklearn.metrics import accuracy_score, f1_score
 
 import config as CONFIG
-from classifier.util import data_util, activity_encoding
+from classifier.util import data_util
 
 
-def run_cv(n_estimators=50, data_source='', activities=None):
-    kfold_data = data_util.load_kfolds_training_and_testing_data(k=5, source=data_source, activities=activities)
+def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False):
+    kfold_data = data_util.load_kfolds_training_and_testing_data(
+        k=5,
+        source=data_source,
+        activities=activities,
+        permutate_xyz=permutate_xyz
+    )
+
     accuracy_results = []
     fscore_results = []
 
@@ -27,27 +33,21 @@ def run_cv(n_estimators=50, data_source='', activities=None):
         fscore = f1_score(Y_test, predictions, average='weighted')
         fscore_results.append(fscore)
 
-        int_labels = [i for i in range(len(activity_encoding.ACTIVITY_TO_INT_MAPPING.keys()))]
-        cm = confusion_matrix(
-            Y_test,
-            predictions,
-            labels=int_labels
-        )
-
-        # print('k = {}, accuracy = {}'.format(i + 1, accuracy))
-        # print('k = {}, fscore = {}'.format(i + 1, fscore))
-        # print()
-        # print()
-
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)
 
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
+    print('Data Source: {}'.format(data_source))
     print('Number of Estimators: {}'.format(n_estimators))
     print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
     print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+    print('Training Source: {}'.format(CONFIG.KFOLD_DATA_SOURCE_SUBJECT))
+    print('Activities: {}'.format(activities))
+    print('Permutate XYZ: {}'.format(permutate_xyz))
+    print()
+
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
     print('F1 Score: {}'.format(fscore_results))
@@ -60,9 +60,27 @@ def run_cv(n_estimators=50, data_source='', activities=None):
 
 
 if __name__ == '__main__':
-    n_estimators = [70, 72, 75, 77, 80]
+    n_estimators = [10, 30, 50, 75, 100, 300, 500, 1000]
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
-            data_source=''
+            data_source='',
+            permutate_xyz=True,
+            activities=[
+                'brushing',
+                'eating',
+                'folding',
+                'going_downstairs',
+                'going_upstairs',
+                'lying',
+                'reading',
+                'running',
+                'sitting',
+                'standing',
+                'sweeping_the_floor',
+                'food_preparation',
+                'typing',
+                'walking',
+                'writing'
+            ]
         )

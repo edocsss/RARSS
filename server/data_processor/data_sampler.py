@@ -5,8 +5,8 @@ import pprint
 from models.data_item import DataItem
 
 
-def sample_data(raw_data):
-    sampled_data = _sample_data_by_frequency(raw_data)
+def sample_data(raw_data, real_time_mode=False):
+    sampled_data = _sample_data_by_frequency(raw_data, real_time_mode)
     return sampled_data
 
 
@@ -84,9 +84,9 @@ def _trim_data(raw_data_standardized_timestamp, real_time_mode=False):
         data_items = [v[i] for k, v in data.items()]
 
         starting_timestamp = _get_latest_starting_timestamp(data_items)
-        starting_timestamp = starting_timestamp + CONFIG.OUTLIER_REMOVAL_SIZE if real_time_mode else starting_timestamp
+        starting_timestamp = starting_timestamp + CONFIG.OUTLIER_REMOVAL_SIZE if not real_time_mode else starting_timestamp
         ending_timestamp = _get_earliest_ending_timestamp(data_items)
-        ending_timestamp = ending_timestamp - CONFIG.OUTLIER_REMOVAL_SIZE if real_time_mode else ending_timestamp
+        ending_timestamp = ending_timestamp - CONFIG.OUTLIER_REMOVAL_SIZE if not real_time_mode else ending_timestamp
 
         for k, v in data.items():
             dataframe = v[i].dataframe

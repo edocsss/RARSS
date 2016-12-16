@@ -39,7 +39,8 @@ def preprocess_data_for_manual_testing(activity_type):
 
 
 def preprocess_data_for_real_time_monitoring(raw_data):
-    combined_smartphone_dfs, combined_smartwatch_dfs = data_combiner.combine_data_by_device_source(raw_data)
+    sampled_data = data_sampler.sample_data(raw_data, real_time_mode=True)
+    combined_smartphone_dfs, combined_smartwatch_dfs = data_combiner.combine_data_by_device_source(sampled_data)
     smartphone_features, smartwatch_features = feature_generator.generate_feature(combined_smartphone_dfs, combined_smartwatch_dfs)
     combined_features_df = data_combiner.combine_sp_sw_into_one(smartphone_features, smartwatch_features)
     combined_features_df = data_combiner.drop_irrelevant_columns_from_combined_dfs(combined_features_df)

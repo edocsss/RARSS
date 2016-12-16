@@ -6,7 +6,15 @@ import config as CONFIG
 from classifier.util import data_util
 
 
-def run_cv(C=10, kernel='rbf', data_source='', activities=None):
+def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activities=None):
+    print('SVM Configuration:')
+    print('C: {}'.format(C))
+    print('Kernel: {}'.format(kernel))
+    print('Gamma: {}'.format(gamma))
+    print('Degree: {}'.format(degree))
+    print('Data source: {}'.format(data_source))
+    print()
+
     kfold_data = data_util.load_kfolds_training_and_testing_data(k=5, source=data_source, activities=activities)
     accuracy_results = []
     fscore_results = []
@@ -17,7 +25,7 @@ def run_cv(C=10, kernel='rbf', data_source='', activities=None):
         Y_train = data[2]
         Y_test = data[3]
 
-        model = SVC(C=C, kernel=kernel)
+        model = SVC(C=C, kernel=kernel, gamma=gamma, degree=degree)
         model.fit(X_train, Y_train)
 
         predictions = model.predict(X_test)
@@ -44,6 +52,12 @@ def run_cv(C=10, kernel='rbf', data_source='', activities=None):
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
     print('F1 Score: {}'.format(fscore_results))
     print('F1 Mean: {}, F1 Standard deviation: {}'.format(fscore_mean, fscore_std_dev))
+    print('Training Source: {}'.format(CONFIG.KFOLD_DATA_SOURCE_SUBJECT))
+    print('Activities: {}'.format(activities))
+    print()
+    print()
+    print()
+    print()
     print()
     print()
     print()
@@ -56,12 +70,36 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [12500, 13625]
-    activities = None
+    C = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
+    kernel = ['rbf']
+    gamma = [0.1, 0.5, 1, 5]
+    degree = [1]
 
     for c in C:
-        accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
-            C=c,
-            data_source='',
-            activities=activities
-        )
+        for k in kernel:
+            for g in gamma:
+                for d in degree:
+                    accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
+                        C=c,
+                        kernel=k,
+                        gamma=g,
+                        degree=d,
+                        data_source='sw',
+                        activities=[
+                            'brushing',
+                            # 'eating',
+                            'folding',
+                            'going_downstairs',
+                            'going_upstairs',
+                            'lying',
+                            'reading',
+                            'running',
+                            'sitting',
+                            'standing',
+                            'sweeping_the_floor',
+                            'food_preparation',
+                            'typing',
+                            'walking',
+                            'writing'
+                        ]
+                    )

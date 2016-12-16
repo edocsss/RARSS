@@ -1,9 +1,9 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://eccc338a.ngrok.io';
+	var SERVER_URL = 'http://a3e69045.ngrok.io';
 	var DATA_RECORDING_UPLOAD_URL = SERVER_URL + '/smartwatch/recording';
 	var DATA_MONITORING_UPLOAD_URL = SERVER_URL + '/smartwatch/monitoring';
-	var WEBSOCKET_URL = 'ws://eccc338a.ngrok.io/smartwatch/ws';
+	var WEBSOCKET_URL = 'ws://a3e69045.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
@@ -11,6 +11,7 @@
 	var PRESSURE_LOCALSTORAGE_KEY = 'pressure';
 	var MAGNETIC_LOCALSTORAGE_KEY = 'magnetic';
 	var ULTRAVIOLET_LOCALSTORAGE_KEY = 'ultraviolet';
+	var SERVER_URL_KEY = 'tunnelId';
 	
 	var activityType = '';
 	var startRecording = false;
@@ -30,7 +31,9 @@
 	var uvSensor;
 	
 	var socket;
+	
 	setupWebsocket();
+	loadServerURLPreferences();
 	
 	window.addEventListener( 'tizenhwkey', function( ev ) {
 		if (ev.keyName === "back") {
@@ -95,6 +98,28 @@
 		socket.close();
 		setupWebsocket();
 	};
+	
+	document.getElementById('save_url_button').onclick = function () {
+		var tunnelId = document.getElementById('url_textbox').value;
+		localStorage.setItem(SERVER_URL_KEY, tunnelId);
+		setupServerURL(tunnelId);
+		console.log(tunnelId);
+	};
+	
+	function loadServerURLPreferences() {
+		var tunnelId = localStorage.getItem(SERVER_URL_KEY);
+		if (!!tunnelId) {
+			setupServerURL(tunnelId);
+			document.getElementById('url_textbox').value = tunnelId;
+		}
+	}
+	
+	function setupServerURL(tunnelId) {
+		SERVER_URL = 'http://' + tunnelId + '.ngrok.io';
+		DATA_RECORDING_UPLOAD_URL = SERVER_URL + '/smartwatch/recording';
+		DATA_MONITORING_UPLOAD_URL = SERVER_URL + '/smartwatch/monitoring';
+		WEBSOCKET_URL = 'ws://' + tunnelId + '.ngrok.io/smartwatch/ws';
+	}
 	
 	function setupLightSensor() {
 		var prevLightReading = getCurrentTimestamp();

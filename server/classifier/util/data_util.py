@@ -1,7 +1,7 @@
+import copy
 import os
 import pickle
 
-import numpy as np
 import pandas as pd
 from sklearn.cross_validation import KFold
 from sklearn.preprocessing import MinMaxScaler
@@ -38,13 +38,17 @@ def _load_data_by_multiple_subjects(subjects):
         dfs.append(df)
 
     result_df = pd.concat(dfs)
-    result_df = result_df.iloc[np.random.permutation(len(result_df))]
+    # result_df = result_df.iloc[np.random.permutation(len(result_df))]
     return result_df
 
 
-def load_training_data(subjects, scaler_name, source='', onehot=False):
+def load_training_data(subjects, scaler_name, source='', onehot=False, permutate_xyz=False, activities=None):
     full_data = _load_data_by_multiple_subjects(subjects)
     full_data = _filter_features_by_source(full_data, source)
+    full_data = _filter_data_by_activity(full_data, activities)
+
+    if permutate_xyz:
+        full_data = _permutate_xyz_data(full_data)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
     Y = full_data['activity']
@@ -63,9 +67,13 @@ def load_training_data(subjects, scaler_name, source='', onehot=False):
     return X_norm, Y_encoded
 
 
-def load_testing_data(subjects, scaler_name, source='', onehot=False):
+def load_testing_data(subjects, scaler_name, source='', onehot=False, permutate_xyz=False, activities=None):
     full_data = _load_data_by_multiple_subjects(subjects)
     full_data = _filter_features_by_source(full_data, source)
+    full_data = _filter_data_by_activity(full_data, activities)
+
+    if permutate_xyz:
+        full_data = _permutate_xyz_data(full_data)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
     Y = full_data['activity']
@@ -82,10 +90,13 @@ def load_testing_data(subjects, scaler_name, source='', onehot=False):
     return X_norm, Y_encoded
 
 
-def load_kfolds_training_and_testing_data(k=5, source='', activities=None, onehot=False):
+def load_kfolds_training_and_testing_data(k=5, source='', activities=None, permutate_xyz=False, onehot=False):
     full_data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
+
+    if permutate_xyz:
+        full_data = _permutate_xyz_data(full_data)
 
     X = full_data.drop('activity', axis=1).values.astype('float64')
     Y = full_data['activity']
@@ -139,6 +150,37 @@ def _filter_data_by_activity(df, activities):
     return df[df['activity'].isin(activities)]
 
 
+def _permutate_xyz_data(full_data):
+    features = ['mean', 'var', 'energy', 'entropy']
+    axes = ['x', 'y', 'z']
+    dfs = []
+
+    for axis1 in axes:
+        for axis2 in [a for a in axes if a != axis1]:
+            for axis3 in [a for a in axes if a != axis1 and a != axis2]:
+                renamed_df = _rename_full_data_accelerometer_columns(full_data, features, [axis1, axis2, axis3])
+                dfs.append(renamed_df)
+
+    return pd.concat(dfs)
+
+
+def _rename_full_data_accelerometer_columns(full_data, features, axes_order):
+    full_data_copy = copy.deepcopy(full_data)
+
+    for f in features:
+        full_data_copy = full_data_copy.rename(columns={
+            'sp_{}_ax'.format(f): 'sp_{}_a{}'.format(f, axes_order[0]),
+            'sp_{}_ay'.format(f): 'sp_{}_a{}'.format(f, axes_order[1]),
+            'sp_{}_az'.format(f): 'sp_{}_a{}'.format(f, axes_order[2]),
+
+            'sw_{}_ax'.format(f): 'sw_{}_a{}'.format(f, axes_order[0]),
+            'sw_{}_ay'.format(f): 'sw_{}_a{}'.format(f, axes_order[1]),
+            'sw_{}_az'.format(f): 'sw_{}_a{}'.format(f, axes_order[2])
+        })
+
+    return full_data_copy
+
+
 def _map_activity_to_int_encoding(Y):
     Y_encoded = Y.apply(lambda row: ENCODING.ACTIVITY_TO_INT_MAPPING[row])
     return Y_encoded
@@ -185,7 +227,7 @@ def _train_minmax_scaler(X_train, scaler_name, force=False):
 
 
 def _check_if_scaler_exists(scaler_name):
-    file_path = os.path.join(CONFIG.MODEL_DIR, CONFIG.MODEL_NAMES['minmax_scaler'])
+    file_path = os.path.join(CONFIG.MODEL_DIR, scaler_name)
     return os.path.isfile(file_path)
 
 
@@ -203,6 +245,9 @@ def get_data_distribution(Y):
 
 
 if __name__ == '__main__':
-    data = _load_data_by_multiple_subjects(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
+    data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
+    # data = _filter_data_by_activity(data, ['standing'])
+    data = _permutate_xyz_data(data)
+
     print(len(data))
     print(get_data_distribution(data['activity']))

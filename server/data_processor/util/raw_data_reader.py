@@ -4,14 +4,14 @@ import config as CONFIG
 from models.data_item import DataItem
 
 
-def read_all_raw_data(activity_type):
-    smartphone_data = read_smartphone_raw_data(activity_type)
-    smartwatch_data = read_smartwatch_raw_data(activity_type)
+def read_all_raw_data(activity_type, data_subject=CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT):
+    smartphone_data = read_smartphone_raw_data(activity_type, data_subject)
+    smartwatch_data = read_smartwatch_raw_data(activity_type, data_subject)
     return {**smartphone_data, **smartwatch_data}
 
 
-def read_smartphone_raw_data(activity_type, sensor_keys_considered=CONFIG.SENSOR_SOURCES['sp']):
-    file_names = _get_file_names_in_raw_directory_by_activity(activity_type)
+def read_smartphone_raw_data(activity_type, data_subject, sensor_keys_considered=CONFIG.SENSOR_SOURCES['sp']):
+    file_names = _get_file_names_in_raw_directory_by_activity(activity_type, data_subject)
     file_name_per_sensor = {
         sensor_key: _get_file_name_by_sensor_and_suffix(
             file_names,
@@ -22,8 +22,8 @@ def read_smartphone_raw_data(activity_type, sensor_keys_considered=CONFIG.SENSOR
     return _read_raw_data_by_activity_and_source(activity_type, file_name_per_sensor)
 
 
-def read_smartwatch_raw_data(activity_type, sensor_keys_considered=CONFIG.SENSOR_SOURCES['sw']):
-    file_names = _get_file_names_in_raw_directory_by_activity(activity_type)
+def read_smartwatch_raw_data(activity_type, data_subject, sensor_keys_considered=CONFIG.SENSOR_SOURCES['sw']):
+    file_names = _get_file_names_in_raw_directory_by_activity(activity_type, data_subject)
     file_name_per_sensor = {
         sensor_key: _get_file_name_by_sensor_and_suffix(
             file_names,
@@ -34,10 +34,10 @@ def read_smartwatch_raw_data(activity_type, sensor_keys_considered=CONFIG.SENSOR
     return _read_raw_data_by_activity_and_source(activity_type, file_name_per_sensor)
 
 
-def _get_file_names_in_raw_directory_by_activity(activity_type):
+def _get_file_names_in_raw_directory_by_activity(activity_type, data_subject=CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT):
     raw_activity_dir = os.path.join(CONFIG.RAW_DATA_DIR, activity_type)
     all_file_names = os.listdir(raw_activity_dir)
-    return [file_name for file_name in all_file_names if CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT in file_name]
+    return [file_name for file_name in all_file_names if data_subject in file_name]
 
 
 def _get_file_name_by_sensor_and_suffix(file_names, sensor_key):

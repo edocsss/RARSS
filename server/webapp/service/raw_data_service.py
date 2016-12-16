@@ -7,9 +7,9 @@ from data_processor.util import raw_data_reader
 class RawDataService():
     def get_raw_data_by_activity_and_source(self, activity_type, data_source, data_subject):
         if data_source == 'smartphone':
-            raw_data = raw_data_reader.read_smartphone_raw_data(activity_type, [data_subject], CONFIG.SENSOR_SOURCES['sp_full'])
+            raw_data = raw_data_reader.read_smartphone_raw_data(activity_type, data_subject, CONFIG.SENSOR_SOURCES['sp_full'])
         else:
-            raw_data = raw_data_reader.read_smartwatch_raw_data(activity_type, [data_subject], CONFIG.SENSOR_SOURCES['sw_full'])
+            raw_data = raw_data_reader.read_smartwatch_raw_data(activity_type, data_subject, CONFIG.SENSOR_SOURCES['sw_full'])
 
         result = self._convert_raw_data_format_to_dict_by_file_id(raw_data)
         return result
@@ -29,5 +29,4 @@ class RawDataService():
                         k: values
                     }
 
-        pprint.pprint(result.keys())
         return result
