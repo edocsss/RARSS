@@ -18,7 +18,7 @@ Please note that the documentation here will only discuss the steps needed using
 
 
 # Running the Web Server
-1. Run the MongoDB server
+1. Run the MongoDB server (use the ```<path_to_server_root_dir>/run_mongod.sh``` script)
 2. Simply run ```<path_to_server_root_dir>/webapp/tornado.py``` from the IDE
 3. This will run the Web Server at the port specified in ```<path_to_server_root_dir>/webapp/web_config.py```
 
@@ -30,6 +30,10 @@ One issue with using Tizen Smartwatch is that the documention is not very good a
 This section here will briefly discuss how the Smartphone and Smartwatch interact with each other so that when the activity recording is stopped, both devices can send the raw sensory data to the server correctly.
 
 ### Start Activity Recording
+**IMPORTANT NOTE: MAKE SURE YOU CLOSE AND RE-OPEN THE SMARTWATCH APPLICATION BEFORE ANY RECORDING SESSION!!!**
+
+The reason for doing this is because the timestamp recorded by the Smartwatch may not be correct (jumping timestamp) for the second recording session if the application is not closed. I have no idea why and decided to just close and re-open instead of investigating the root cause and spent too much time.
+
 1. When the ```Start Recording``` button found in the Smartphone application, the Smartphone will send an HTTP request to the server and the server will notify the Smartwatch with sufficient information about the activity. The information sent is only the ```activity type``` being recorded.
 2. The Smartphone will start recording the sensor readings.
 3. The Smartwatch will receive this information via WebSocket, store the ```activity type``` locally, and start recording the sensor readings.
@@ -49,6 +53,7 @@ This section here will briefly discuss how the Smartphone and Smartwatch interac
 
 # Pre-processing Raw Data for Model Building
 There are multiple important files for doing the data pre-processing:
+
 1. ```<path_to_server_root_dir>/config.py```: includes **all** configuration needed for the pre-processing (sampling frequency, window size, whose data to use, folder names, file names, etc.)
 2. ```<path_to_server_root_dir>/data_processor/data_sampler.py```: contains code for doing the data sampling based on the sampling frequency
 3. ```<path_to_server_root_dir>/data_processor/data_window_selector.py```: contains code for doing the window segmentation based on the window size
@@ -56,12 +61,16 @@ There are multiple important files for doing the data pre-processing:
 5. ```<path_to_server_root_dir>/data_processor/data_combiner.py```: contains code for combining dataframe from different sensors and different device source
 6. ```<path_to_server_root_dir>/data_processor/data_preprocessor.py```: the main trigger for the data pre-processing pipeline
 
-In order to generate the combined and pre-processed data, the only thing you need to do is run the ```<path_to_server_root_dir>/data_processor/data_preprocessor.py```. This will take quite some time depending on how many activities you would like to pre-process and the configurations used. You can also specify the activities you would like to pre-process in the same Python file.
+In order to generate the combined and pre-processed data, the only thing you need to do is run the ```<path_to_server_root_dir>/data_processor/data_preprocessor.py```. 
+
+This will take quite some time depending on how many activities you would like to pre-process and the configurations used. You can also specify the activities you would like to pre-process in the same Python file.
+
+**Please take note that configurations such as the window size, sampling frequency, which test subject's data to preprocess, etc. can be found in ```<path_to_server_root_dir>/config.py```! Always check for the current configuration used before running the preprocessor!**
 
 ### Configuration
-Please change the data pre-processing configurations in ```<path_to_server_root_dir>/config.py``` accordignly!
+Please change the data pre-processing configurations in ```<path_to_server_root_dir>/config.py``` accordingly!
 
-### Features
+### Data Features
 At the moment, we are only using the ```Accelerometer``` data from both Smartphone and Smartwatch. The features generated for the Smartphone and Smartwatch are the same. The features considered are:
 1. Mean
 2. Variance
@@ -70,6 +79,89 @@ At the moment, we are only using the ```Accelerometer``` data from both Smartpho
 5. Entropy
 
 For features other than the ```covariance```, they are applied to all 3-axes (x, y, and z) and the accelerometer magnitude (calculated in the server using the usual vector magnitude formula). In addition, the formula used for the ```Energy``` and ```Entropy``` can be found in Prof. Tan's and Dr. Wang's paper: **Non Intrusive Robust Human Activity Recognition for Diverse Age Groups**.
+
+
+
+# Data Pre-processing Steps and Logics
+This section will discuss the main ideas used in the data pre-processing and the different steps involved. Please read the code to better understand the logic details!
+
+### Raw Data
+The raw data read from the file system is returned in this format:
+```
+{
+  'sp_accelerometer': [<DataItemObject_ForRecordingSession1>, <DataItemObject_ForRecordingSession2>, ...],
+  'sw_accelerometer': [<DataItemObject_ForRecordingSession1>, <DataItemObject_ForRecordingSession2>, ...],
+  'sp_<other_sensors>': [...],
+  'sw_<other_sensors>': [...]
+}
+```
+
+So, the `data sampling` and `data windowing` process are actually performed on **each** `DataItemObject` first before they are combined in later stages. 
+
+### Data Sampling
+One important thing to note here: although I mentioned that the sampling is done for each `DataItemObject`, it is **not fully** independent from other `DataItemObject` of the **same recording session**. This is because of the **timestamp synchronization** problem between the Smartphone and Smartwatch data.
+
+For an Activity Recording session (raw data files with the same File ID), the starting and ending timestamp for each CSV file may not be the same. Thus, before the data sampling starts, the timestamps need to be normalized for each DataFrame. 
+
+1. Subtract each row's timestamp with the first row's timestamp. Thus, the first timestamp of all `DataFrame` will always be 0.
+2. Compare the ending timestamp (after subtracted with the first row's timestamp) and find the **earliest ending timestamp**.
+3. Remove the outliers from the data by adding the starting timestamp with a constant (configurable) and the ending timestamp with a constant as well. Rows with timestamps that do not fall into the new timestamp interval will be discarded!
+
+Now that the DataFrames have been normalized in terms of the timestamp, we can perform the data sampling. The idea of data sampling is to sample the data at a fixed timestamp interval depending on the sampling frequency. For example, if we have this data:
+```
+Timestamp (s) | Data
+    1         |  31
+    2         |  33
+    4         |  35
+    6         |  40
+```
+
+After timestamp normalization:
+```
+Timestamp (s) | Data
+    0         |  31
+    1         |  33
+    3         |  35
+    5         |  40
+```
+
+After sampling with the frequency of 0.25 Hz (1 data point per 4 seconds):
+```
+Timestamp (s) | Data
+    0         |  31
+    4         |  35 (use the last data although in the interval of [0, 4] there are 2 data points (33 and 35)
+    8         |  40
+```
+
+After sampling with the frequency of 2 Hz (2 data points per second):
+```
+Timestamp (s) | Data
+    0         |  31
+    0.5       |  31
+    1         |  33
+    1.5       |  33
+    2         |  33
+    2.5       |  33
+    3         |  35
+    3.5       |  35
+    4         |  35
+    4.5       |  35
+    5         |  40
+    5.5       |  40
+    6         |  40
+```
+
+Once data sampling is done, the result is still organized in the same manner as before it is sampled (similar to the one discussed in the `Raw Data` section but the data is now sampled).
+
+### Data Windowing
+
+### Combine Windowed Data by the Device Source
+
+### Generate Features
+
+### Combine Features Generated for Each Activity
+
+### Combine All Activities into One Full Dataset (per subject)
 
 
 
@@ -85,7 +177,14 @@ After features are generated and before building the model, there are some addit
 ### Model Configuration
 Each model Python file will have a `__main__` part in which you can change the parameters related to each model. If you would like to change more general configurations like the `training size`, `testing size`, or `whose data to use for training and/or testing`, you can change those in ```<path_to_server_root_dir>/config.py```.
 
-### Model Validation
-There are 4 models we are currently using: SVM, Random Forest, Naive Bayes, and Multi-Layer Perceptron (MLP). MLP training will take quite some time to finish while the other 3 models will finish almost instantly for the same amount of data.
+### Model Validation (K-Fold)
+There are 4 models we are currently using: SVM, Random Forest, Naive Bayes, and Multi-Layer Perceptron (MLP). Model Validation using the K-Fold CV can be easily done by running the corresponding Python file. For example, if you would like to test SVM model, run  ```<path_to_server_root_dir>/classifier/cv/svm.py```.
 
-Model Validation using the K-Fold CV can be easily done by running the corresponding Python file. For example, if you would like to test SVM model, run  ```<path_to_server_root_dir>/classifier/cv/svm.py```.
+Each model building Python script will have different possible parameters that you can play around with. In addition, the Python script also allows testing different parameter values (similar to Grid search, but not an exhaustive parameter search).
+
+### Model Validation (Leave-One-Out)
+
+
+
+
+# Real Time Monitoring
