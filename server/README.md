@@ -41,8 +41,10 @@ The reason for doing this is because the timestamp recorded by the Smartwatch ma
 **PLEASE NOTE THAT THERE IS NO DELAY BETWEEN PRESSING THE START RECORDING BUTTON AND THE SENSOR READINGS RECORDING!!**
 
 ### Stop Activity Recording
-1. When the ```Stop Recording``` button found in the Smartphone application OR the timer has ended, the Smartphone will stop recording the sensor readings immediately.
-2. The Smartphone will bundle all the readings and send it to the server via HTTP.
+1. When the ```Stop Recording``` button found in the Smartphone application is pressed **OR** the timer has ended, the Smartphone will stop recording the sensor readings immediately.
+   - This will also notify the server and the server will notify the Smartwatch.
+   - The Smartwatch will then stop recording the sensor readings as well (basically, it is the same mechanism as the `Start Activity Recording` section).
+2. After pressing on the `Send Data` button in the Smartphone application, the application will bundle all the sensor readings and send it to the server via HTTP.
 3. Once the server receives the data, the server re-formats the data and store the data to ```<path_to_server_root_dir>/data/raw```.
 4. In order to differentiate between one recording session and another, **the Smartphone also keeps track a unique ID which will be incremented every time it sends data to the server**!!
 5. The server will now **notify the Smartwatch** to send its data to the server. The notification includes the same **unique ID** the Smartphone used just now!
@@ -71,7 +73,8 @@ This will take quite some time depending on how many activities you would like t
 Please change the data pre-processing configurations in ```<path_to_server_root_dir>/config.py``` accordingly!
 
 ### Data Features
-At the moment, we are only using the ```Accelerometer``` data from both Smartphone and Smartwatch. The features generated for the Smartphone and Smartwatch are the same. The features considered are:
+At the moment, we are only using the ```Accelerometer``` data (although data from other sensors are still recorded for just in case purpose) from both Smartphone and Smartwatch. The features generated for the Smartphone and Smartwatch are the same. The features considered are:
+
 1. Mean
 2. Variance
 3. Covariance (all combinations between x-axis, y-axis, z-axis, and magnitude)
