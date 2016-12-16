@@ -1,4 +1,4 @@
-# NTU Computer Science Final Year Project (August 2016 - May 2017): Human Activity Recognition System
+# Final Year Project: Human Activity Recognition System
 This repository contains all the code related to my Final Year Project which is about recognizing human activities using Smartphone and Smartwatch. Raw data collected can be found in this repository as well.
 
 # Steps to Reproduce My Work
