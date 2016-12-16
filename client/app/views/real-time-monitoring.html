@@ -1,0 +1,13 @@
+<md-content flex="100" layout="column" layout-fill md-theme="{{ realTimeMonitoringController.currentTheme }}" md-theme-watch id="real-time-monitoring-container" layout-align="center center">
+    <h1 class="text-center" id="real-time-monitoring-header">I'm currently...</h1>
+
+    <div id="real-time-monitoring-activity-container" layout="column" layout-align="center center">
+        <div flex="80" layout="row" layout-align="center center">
+            <h1 id="real-time-monitoring-activity-header"><b>{{ realTimeMonitoringController.activityType }}!</b></h1>
+        </div>
+
+        <div id="real-time-monitoring-datetime-container">
+            <h4 id="real-time-monitoring-activity-datetime"><span class="font-bolder">Last Updated: </span>{{ realTimeMonitoringController.lastActivityDatetime }}</h4>
+        </div>
+    </div>
+</md-content>

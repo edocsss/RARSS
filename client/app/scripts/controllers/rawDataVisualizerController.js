@@ -4,7 +4,9 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
     'DataFactory',
     'ChartFactory',
     '$mdToast',
-    function (DataFactory, ChartFactory, $mdToast) {
+    '$timeout',
+    function (DataFactory, ChartFactory, $mdToast, $timeout) {
+        const TIME_TO_SIDENAV_FULLY_CLOSED = 175;
         var vm = this;
 
         vm.NUMBER_OF_GRAPH_COLUMNS = 2;
@@ -25,7 +27,8 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
             'Eating',
             'Food Preparation',
             'Folding',
-            'Sweeping the Floor'
+            'Sweeping the Floor',
+            'Testing'
         ];
 
         vm.activityType = 'standing';
@@ -81,8 +84,10 @@ angular.module('FYPClient').controller('RawDataVisualizerController', [
         };
 
         // Init
-        vm.getListOfSubjects();
-        vm.loadRawData();
+        $timeout(function () {
+            vm.getListOfSubjects();
+            vm.loadRawData();
+        }, TIME_TO_SIDENAV_FULLY_CLOSED);
 
         vm.getRawDataByRowAndCol = function (fileId, row, col) {
             var index = vm.NUMBER_OF_GRAPH_COLUMNS * row + col;

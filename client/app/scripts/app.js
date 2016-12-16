@@ -4,26 +4,29 @@ angular.module('FYPClient', [
     'ngMaterial',
     'ui.router',
     'ngMessages',
-    'chart.js'
+    'ngAnimate',
+    'chart.js',
+    'angular-websocket'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+    // Main Theme
     $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('pink');
 
     $stateProvider
-        // .state('home', {
-        //     url: '/',
-        //     templateUrl: 'views/home.html',
-        //     controller: 'HomeController',
-        //     controllerAs: 'homeController'
-        // })
         .state('rawDataVisualizer', {
             url: '/rawDataVisualizer',
             templateUrl: 'views/raw-data-visualizer.html',
             controller: 'RawDataVisualizerController',
             controllerAs: 'rawDataVisualizerController'
+        })
+        .state('realTimeMonitoring', {
+            url: '/',
+            templateUrl: 'views/real-time-monitoring.html',
+            controller: 'RealTimeMonitoringController',
+            controllerAs: 'realTimeMonitoringController'
         });
 
-    $urlRouterProvider.otherwise('/rawDataVisualizer');
+    $urlRouterProvider.otherwise('/');
 }).run(function () {
     // Chart.js configuration
     Chart.defaults.global.elements.point.radius = 0;

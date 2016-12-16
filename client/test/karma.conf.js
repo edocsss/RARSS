@@ -28,6 +28,7 @@ module.exports = function(config) {
       'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
+      'bower_components/angular-websocket/dist/angular-websocket.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

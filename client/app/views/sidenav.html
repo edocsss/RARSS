@@ -14,6 +14,11 @@
                 <md-icon md-svg-icon="images/icons/ic_multiline_chart_black_36px.svg" class="sidenav-list-icon"></md-icon>
                 <p>Raw Data Visualizer</p>
             </md-list-item>
+
+            <md-list-item ng-click="sidenavController.openPage('realTimeMonitoring')" ng-class="{ 'sidenav-active': sidenavController.getActiveState() === 'realTimeMonitoring' }">
+                <md-icon md-svg-icon="images/icons/ic_airplay_black_36px.svg" class="sidenav-list-icon"></md-icon>
+                <p>Real Time Monitoring</p>
+            </md-list-item>
         </md-list>
     </md-content>
 </md-sidenav>

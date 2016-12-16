@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="FYPClient" ng-cloak>
+  <body ng-app="FYPClient" ng-cloak layout-fill>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <toolbar></toolbar>
     <sidenav></sidenav>
-    <div ui-view></div>
+    <div ui-view layout-fill></div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -31,35 +31,39 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/angular-websocket/dist/angular-websocket.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
 
-        <!-- CONSTANTS -->
-        <script src="scripts/constants/elementId.js"></script>
-        <script src="scripts/constants/url.js"></script>
+    <!-- CONSTANTS -->
+    <script src="scripts/constants/elementId.js"></script>
+    <script src="scripts/constants/url.js"></script>
 
-        <!-- FILTERS -->
-        <script src="scripts/filters/range.js"></script>
-        <script src="scripts/filters/capitalizeEachWord.js"></script>
+    <!-- FILTERS -->
+    <script src="scripts/filters/range.js"></script>
+    <script src="scripts/filters/capitalizeEachWord.js"></script>
 
-        <!-- FACTORIES -->
-        <script src="scripts/factories/dataFactory.js"></script>
-        <script src="scripts/factories/chartFactory.js"></script>
+    <!-- FACTORIES -->
+    <script src="scripts/factories/dataFactory.js"></script>
+    <script src="scripts/factories/chartFactory.js"></script>
+    <script src="scripts/factories/websocketFactory.js"></script>
 
-        <!-- CONTROLLERS -->
-        <script src="scripts/controllers/toolbarController.js"></script>
-        <script src="scripts/controllers/sidenavController.js"></script>
-        <script src="scripts/controllers/rawDataVisualizerController.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="scripts/controllers/toolbarController.js"></script>
+    <script src="scripts/controllers/sidenavController.js"></script>
+    <script src="scripts/controllers/rawDataVisualizerController.js"></script>
+    <script src="scripts/controllers/realTimeMonitoringController.js"></script>
 
-        <!-- DIRECTIVES -->
-        <script src="scripts/directives/toolbar.js"></script>
-        <script src="scripts/directives/sidenav.js"></script>
-        <!-- endbuild -->
+    <!-- DIRECTIVES -->
+    <script src="scripts/directives/toolbar.js"></script>
+    <script src="scripts/directives/sidenav.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

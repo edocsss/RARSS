@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.font-bolder {
+    font-weight: bolder;
+}
+
 .sidenav-active {
     background-color: #DDDDDD;
 }
@@ -45,10 +49,45 @@ div#raw-data-visualizer-initial-circular-loading {
     margin-top: 40px;
 }
 
+#real-time-monitoring-container {
+    margin-top: -64px;
+    background-color: transparent;
+}
+
+#real-time-monitoring-header {
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
+#real-time-monitoring-activity-header {
+    color: #FFFFFF;
+    font-size: 5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#real-time-monitoring-datetime-container {
+    position: fixed;
+    bottom: 10px;
+}
+
+#real-time-monitoring-activity-datetime {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
 
 
 @media (min-width: 1920px) {
     md-toast .md-toast-content {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 959px) {
+    #real-time-monitoring-container {
+        margin-top: -48px;
     }
 }
