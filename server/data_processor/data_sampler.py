@@ -1,7 +1,8 @@
 import os
+
 import pandas as pd
+
 import config as CONFIG
-import pprint
 from models.data_item import DataItem
 
 
@@ -56,6 +57,14 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
     return sampled_data
 
 
+# Standardize the timestamp so that it always starts at time '0'
+# This is mainly to synchronize the Smartphone and Smartwatch timestamp
+# In addition, as the timestamp is standardized for each recording session data, for different sensors, and for different devices,
+# it is much easier to combine the raw data in later stages
+#
+# Although the timestamp is standardized, it is possible that the Smartwatch starts later due to the WebSocket latency
+# This problem cannot really be solved since we cannot ask the Smartwatch to tell Smartphone when it starts recording (again, due to latency)
+# So, although there is latency, the outliers have been removed and hence the difference should not be huge and not going to affect the data
 def _standardize_timestamp(raw_data):
     for k, v in raw_data.items():
         for raw_data_item in v:
@@ -75,6 +84,8 @@ def _get_earliest_ending_timestamp(data_items):
     return min(last_row_timestamps)
 
 
+# Trim the starting and ending of the dataframe for each recording session
+# This is mainly to remove the outliers (which are usually at the beginning and the end of the data)
 def _trim_data(raw_data_standardized_timestamp, real_time_mode=False):
     data = raw_data_standardized_timestamp
     first_key = list(data.keys())[0]
@@ -84,9 +95,10 @@ def _trim_data(raw_data_standardized_timestamp, real_time_mode=False):
         data_items = [v[i] for k, v in data.items()]
 
         starting_timestamp = _get_latest_starting_timestamp(data_items)
-        starting_timestamp = starting_timestamp + CONFIG.OUTLIER_REMOVAL_SIZE if not real_time_mode else starting_timestamp
+        starting_timestamp = starting_timestamp + CONFIG.STARTING_OUTLIER_REMOVAL_SIZE if not real_time_mode else starting_timestamp
+
         ending_timestamp = _get_earliest_ending_timestamp(data_items)
-        ending_timestamp = ending_timestamp - CONFIG.OUTLIER_REMOVAL_SIZE if not real_time_mode else ending_timestamp
+        ending_timestamp = ending_timestamp - CONFIG.ENDING_OUTLIER_REMOVAL_SIZE if not real_time_mode else ending_timestamp
 
         for k, v in data.items():
             dataframe = v[i].dataframe

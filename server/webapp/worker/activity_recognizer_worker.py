@@ -1,8 +1,6 @@
 import time
 from datetime import datetime
-
 import pandas as pd
-
 from classifier.real_time_monitoring import activity_predictor
 from data_processor import data_preprocessor
 from models.data_item import DataItem
@@ -51,7 +49,6 @@ class ActivityRecognizerWorker():
         self._store_activity_history(current_datetime, next_uuid, predicted_activity)
         self._notify_web_client(current_datetime, next_uuid, predicted_activity)
 
-
     def _get_raw_accelerometer_data_by_uuid(self, uuid):
         sp_accelerometer_data = self._raw_sensory_data_db.get_sp_raw_accelerometer_data_by_uuid(uuid)
         sw_accelerometer_data = self._raw_sensory_data_db.get_sw_raw_accelerometer_data_by_uuid(uuid)
@@ -61,11 +58,13 @@ class ActivityRecognizerWorker():
             'sw_accelerometer': self._convert_accelerometer_data_to_data_processor_format(uuid, sw_accelerometer_data)
         }
 
+    # Normalize the data format to the format used in the data pre-processing pipeline
     def _convert_accelerometer_data_to_data_processor_format(self, uuid, accelerometer_data):
         df = self._convert_accelerometer_data_to_df_and_clean(accelerometer_data)
         data_item = DataItem(uuid, df)
         return [data_item]
 
+    # Convert the accelerometer data from dict() type to a Pandas DataFrame
     def _convert_accelerometer_data_to_df_and_clean(self, accelerometer_data):
         df = pd.DataFrame(accelerometer_data)
         df['timestamp'] = df['timestamp'].apply(int)
@@ -79,6 +78,7 @@ class ActivityRecognizerWorker():
         predicted_activity = activity_predictor.predict_activity(processed_data_arrays, model_name=CONFIG.MODEL_NAMES['real_time_monitoring_rf_model'])
         return predicted_activity
 
+    # Get the activity timestamp (use the Smartphone data instead of the Smartwatch)
     def _get_first_sp_timestamp(self, raw_accelerometer_data):
         sp_accelerometer_df = raw_accelerometer_data['sp_accelerometer'][0].dataframe
         first_timestamp = sp_accelerometer_df['timestamp'][0]

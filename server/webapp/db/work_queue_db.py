@@ -3,6 +3,11 @@ import webapp.web_config as CONFIG
 import pymongo
 
 
+"""
+Handles DB actions related to the Work Queue collections (for Real Time Monitoring flow).
+"""
+
+
 class WorkQueueDb(BaseDb):
     def __init__(self):
         BaseDb.__init__(self)
@@ -24,8 +29,3 @@ class WorkQueueDb(BaseDb):
 
         self.remove_by_object_id(next_uuid_doc['_id'])
         return next_uuid_doc['uuid']
-
-
-if __name__ == '__main__':
-    db = WorkQueueDb()
-    print(db.get_next_uuid())

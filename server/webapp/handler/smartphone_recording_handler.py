@@ -5,6 +5,11 @@ from webapp.handler.base_handler import BaseHandler
 from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandler
 
 
+"""
+Handles the raw data sent from the Smartphone application for the Activity Recording.
+"""
+
+
 class SmartphoneRecordingHandler(BaseHandler):
     def post(self):
         f = json_decode(self.request.body)

@@ -1,9 +1,7 @@
 import math
 import os
-
 import numpy as np
 import pandas as pd
-
 import config as CONFIG
 
 
@@ -100,7 +98,6 @@ def _generate_smartwatch_features(smartwatch_df):
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
         one_window_df = smartwatch_df[i : i + CONFIG.N_ROWS_PER_WINDOW]
         accelerometer_features = _generate_accelerometer_feature_per_window(one_window_df, 'sw_')
-
         one_window_features = pd.concat([
             accelerometer_features
         ])

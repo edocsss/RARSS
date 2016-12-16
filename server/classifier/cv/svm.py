@@ -34,10 +34,6 @@ def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activitie
 
         fscore = f1_score(Y_test, predictions, average='weighted')
         fscore_results.append(fscore)
-        # print('k = {}, accuracy = {}'.format(i + 1, accuracy))
-        # print('k = {}, fscore = {}'.format(i + 1, fscore))
-        # print()
-        # print()
 
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)

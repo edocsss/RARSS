@@ -3,6 +3,7 @@ import os
 import pickle
 
 import pandas as pd
+import numpy as np
 from sklearn.cross_validation import KFold
 from sklearn.preprocessing import MinMaxScaler
 
@@ -38,7 +39,7 @@ def _load_data_by_multiple_subjects(subjects):
         dfs.append(df)
 
     result_df = pd.concat(dfs)
-    # result_df = result_df.iloc[np.random.permutation(len(result_df))]
+    result_df = result_df.iloc[np.random.permutation(len(result_df))]
     return result_df
 
 
@@ -136,6 +137,8 @@ def load_kfolds_training_and_testing_data(k=5, source='', activities=None, permu
     return kfolds_data
 
 
+# Only select features related to the given source parameter
+# Empty string means use all features (Smartphone and Smartwatch)
 def _filter_features_by_source(df, source):
     if len(source) <= 0:
         return df
@@ -208,6 +211,8 @@ def _convert_binary_label_to_int(row):
     return row
 
 
+# Normalizer model is stored based on the given name
+# This is to differentiate the model used for Activity Recording and Real Time Monitoring
 def _normalize_X(X, scaler_name):
     file_path = os.path.join(CONFIG.MODEL_DIR, scaler_name)
     f = open(file_path, 'rb')
@@ -242,12 +247,3 @@ def get_data_distribution(Y):
     df = pd.DataFrame(data=Y, columns=['activity'])
     counts = df['activity'].value_counts()
     return counts
-
-
-if __name__ == '__main__':
-    data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
-    # data = _filter_data_by_activity(data, ['standing'])
-    data = _permutate_xyz_data(data)
-
-    print(len(data))
-    print(get_data_distribution(data['activity']))

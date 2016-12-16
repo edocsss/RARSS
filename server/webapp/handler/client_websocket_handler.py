@@ -1,6 +1,10 @@
 from tornado.websocket import WebSocketHandler
-
 from util.logger import web_logger as LOGGER
+
+
+"""
+Handles WebSocket connection and communication with the AngularJS web application.
+"""
 
 
 class ClientWebsocketHandler(WebSocketHandler):

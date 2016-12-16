@@ -1,3 +1,9 @@
+"""
+This script contains only data conversion methods as needed by the data_preprocessor.py script!
+Essentially, this is used for converting data from a JSON like object (including dict in Python) to CSV format.
+"""
+
+
 def convert_smartwatch_accelerometer_data_to_csv(accelerometer_data):
     result_list = []
     result_list.append('{},{},{},{}'.format('timestamp', 'ax', 'ay', 'az'))

@@ -3,6 +3,11 @@ from tornado.websocket import WebSocketHandler
 from util.logger import web_logger as LOGGER
 
 
+"""
+Handles WebSocket connection and communication with the Smartwatch application.
+"""
+
+
 class SmartwatchWebsocketHandler(WebSocketHandler):
     clients = []
 

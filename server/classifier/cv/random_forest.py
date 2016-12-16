@@ -65,7 +65,7 @@ if __name__ == '__main__':
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
             data_source='',
-            permutate_xyz=True,
+            permutate_xyz=False,
             activities=[
                 'brushing',
                 'eating',

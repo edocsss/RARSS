@@ -2,6 +2,11 @@ from webapp.db.base_db import BaseDb
 import webapp.web_config as CONFIG
 
 
+"""
+Handles DB actions related to the Raw Sensory Data collections (both Smartphone and Smartwatch).
+"""
+
+
 class RawSensoryDataDb(BaseDb):
     def __init__(self):
         BaseDb.__init__(self)

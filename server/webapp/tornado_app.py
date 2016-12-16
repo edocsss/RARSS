@@ -22,12 +22,14 @@ from webapp.worker.activity_recognizer_worker import ActivityRecognizerWorker
 
 
 if __name__ == '__main__':
+    # Instantiate a single object of each service to be injected to the HTTP request handlers
     services = {
         'raw_data_service': RawDataService(),
         'sensory_data_service': SensoryDataService(),
         'real_time_monitoring_service': RealTimeMonitoringService()
     }
 
+    # Create a Tornado application and configure the routing rules
     app = web.Application([
         (r"/smartphone/recording", SmartphoneRecordingHandler),
         (r"/smartphone/monitoring", SmartphoneMonitoringHandler),
@@ -40,10 +42,12 @@ if __name__ == '__main__':
         (r"/client/ws", ClientWebsocketHandler)
     ], debug=True, **services)
 
+    # Run a single worker
     activity_recognizer_worker = ActivityRecognizerWorker()
     worker_thread = threading.Thread(target=activity_recognizer_worker.start)
     worker_thread.start()
 
+    # Kill the worker when the server is shut down
     def kill_activity_recognizer_worker(signum, handler):
         activity_recognizer_worker.stop()
         worker_thread.join()
@@ -52,10 +56,12 @@ if __name__ == '__main__':
         io_loop.stop()
         LOGGER.info('Shutting down server!')
 
+    # Register OS signal listeners
     signal.signal(signal.SIGQUIT, kill_activity_recognizer_worker)
     signal.signal(signal.SIGTERM, kill_activity_recognizer_worker)
     signal.signal(signal.SIGINT, kill_activity_recognizer_worker)
 
+    # Start server
     LOGGER.info("Starting server at port {}...".format(CONFIG.SERVER_PORT_NUMBER))
     app.listen(CONFIG.SERVER_PORT_NUMBER)
     ioloop.IOLoop.current().start()

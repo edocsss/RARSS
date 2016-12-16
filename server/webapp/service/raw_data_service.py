@@ -1,7 +1,10 @@
-import pprint
-
 import config as CONFIG
 from data_processor.util import raw_data_reader
+
+
+"""
+Provides services related to raw data as needed by the AngularJS web application.
+"""
 
 
 class RawDataService():
@@ -14,7 +17,7 @@ class RawDataService():
         result = self._convert_raw_data_format_to_dict_by_file_id(raw_data)
         return result
 
-
+    # Convert the dictionary format organized by sensor type to dictionary format organized by the File ID
     def _convert_raw_data_format_to_dict_by_file_id(self, raw_data):
         result = {}
         for k, v in raw_data.items():

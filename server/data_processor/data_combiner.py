@@ -1,10 +1,9 @@
 import os
-
 import pandas as pd
-
 import config as CONFIG
 
 
+# Combine data for different activities into one dataframe
 def combine_all_data_into_one_complete_dataset():
     activities = [activity_name for activity_name in os.listdir(CONFIG.COMBINED_DATA_DIR) if os.path.isdir(os.path.join(CONFIG.COMBINED_DATA_DIR, activity_name))]
     combined_dfs = []
@@ -36,11 +35,15 @@ def drop_irrelevant_columns_from_combined_dfs(df):
     return df
 
 
+# Smartphone features and smartwatch features have been generated, now need to combine the two device sources into one
+# Basically, each row needs to be concatenated with the same row index from the other device
 def combine_sp_sw_into_one(smartphone_features, smartwatch_features):
     combined_features_df = pd.concat([smartphone_features, smartwatch_features], axis=1)
     return combined_features_df
 
 
+# The windowed_data is still organized by the sensor type and the originating device
+# This method will combine data from the SAME DEVICE but from different sensor into one dataframe
 def combine_data_by_device_source(windowed_data):
     windowed_smartphone_data = { k: v for k, v in windowed_data.items() if 'sp' in k }
     windowed_smartwatch_data = { k: v for k, v in windowed_data.items() if 'sw' in k }

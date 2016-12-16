@@ -2,6 +2,13 @@ import os
 import config as CONFIG
 from webapp.util import smartwatch_data_converter
 
+
+"""
+Provides services related to the Activity Recording flow as needed by the Smartphone and Smartwatch.
+Mostly it is related to storing raw data sent from the Smartphone and Smartwatch to the file system.
+"""
+
+
 class SensoryDataService:
     def handle_smartphone_sensory_data(self, activity_type, sensory_data, file_id):
         accelerometer_data = sensory_data['accelerometer']
@@ -21,7 +28,6 @@ class SensoryDataService:
         self._store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_linear_accelerometer'], linear_accelerometer_data)
         self._store_smartphone_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sp_magnetic'], magnetic_data)
 
-
     def handle_smartwatch_sensory_data(self, activity_type, sensory_data, file_id):
         accelerometer_data = smartwatch_data_converter.convert_smartwatch_accelerometer_data_to_csv(sensory_data['accelerometer']['data'])
         gyroscope_data = smartwatch_data_converter.convert_smartwatch_gyroscope_data_to_csv(sensory_data['gyroscope']['data'])
@@ -40,24 +46,20 @@ class SensoryDataService:
         self._store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_magnetic'], magnetic_data)
         self._store_smartwatch_file(activity_type, file_id + '_' + CONFIG.RAW_DATA_RESULT['sw_ultraviolet'], uv_data)
 
-
     def _store_smartphone_file(self, activity_type, file_name, file_content):
         f = open(os.path.join(CONFIG.RAW_DATA_DIR, activity_type, file_name), 'w')
         f.write(file_content)
         f.close()
-
 
     def _store_smartwatch_file(self, activity_type, file_name, file_content):
         f = open(os.path.join(CONFIG.RAW_DATA_DIR, activity_type, file_name), 'w')
         f.write(file_content)
         f.close()
 
-
     def _create_raw_data_directory(self):
         dir_path = os.path.join(CONFIG.RAW_DATA_DIR)
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
-
 
     def _create_raw_activity_directory(self, activity_type):
         dir_path = os.path.join(CONFIG.RAW_DATA_DIR, activity_type)

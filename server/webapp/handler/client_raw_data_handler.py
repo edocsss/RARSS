@@ -3,6 +3,11 @@ from webapp.handler.base_handler import BaseHandler
 import config as CONFIG
 
 
+"""
+Handles HTTP request for getting the raw data needed by the AngularJS web application.
+"""
+
+
 class ClientRawDataHandler(BaseHandler):
     def post(self):
         f = json_decode(self.request.body)

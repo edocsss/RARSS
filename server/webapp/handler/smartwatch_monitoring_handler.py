@@ -4,6 +4,11 @@ from util.logger import web_logger as LOGGER
 from webapp.handler.base_handler import BaseHandler
 
 
+"""
+Handles the raw data sent from the Smartwatch application for the Real Time Monitoring flow.
+"""
+
+
 class SmartwatchMonitoringHandler(BaseHandler):
     def post(self):
         f = json_decode(self.request.body)

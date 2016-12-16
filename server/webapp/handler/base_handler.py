@@ -2,6 +2,12 @@ from tornado.web import RequestHandler
 from tornado.escape import json_decode, json_encode
 
 
+"""
+Parent class for all HTTP Request Handlers.
+Contains common configurations like CORS related headers.
+"""
+
+
 class BaseHandler(RequestHandler):
     def set_default_headers(self):
         self.set_header('Access-Control-Allow-Origin', '*')

@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     data_source = ''
     permutate_xyz = True
-    n_estimators = [5000, 10000]
+    n_estimators = [500, 1000, 2000]
 
     for n in n_estimators:
         f1 = []

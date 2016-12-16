@@ -4,6 +4,11 @@ from util.logger import web_logger as LOGGER
 from webapp import web_config as CONFIG
 
 
+"""
+Base database class for any databases used in this project.
+"""
+
+
 class BaseDb():
     def __init__(self):
         LOGGER.info('Connecting to MongoDB...')

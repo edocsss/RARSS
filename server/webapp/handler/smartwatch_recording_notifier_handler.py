@@ -5,6 +5,11 @@ from util.logger import web_logger as LOGGER
 from webapp.handler.smartwatch_websocket_handler import SmartwatchWebsocketHandler
 
 
+"""
+Handles HTTP request from Smartphone for notifying the Smartwatch to either start or stop the Activity Recording.
+"""
+
+
 class SmartwatchRecordingNotifierHandler(RequestHandler):
     def post(self):
         d = json_decode(self.request.body)
