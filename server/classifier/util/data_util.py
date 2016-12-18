@@ -253,5 +253,5 @@ def get_data_distribution(Y):
 
 
 if __name__ == '__main__':
-    data = _load_data_by_multiple_subjects(CONFIG.TESTING_DATA_SOURCE_SUBJECT)
+    data = _load_data_by_multiple_subjects(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
     print(get_data_distribution(data['activity']))

@@ -13,21 +13,22 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'nikolas'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'elmo'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
+    # 'richsen',
     'edwin',
-    'richsen',
     'lauren',
     'shelina',
     'mellita',
     'nikolas',
-    'samuel'
+    'samuel',
+    'elmo'
 ]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = ['elmo']
+TESTING_DATA_SOURCE_SUBJECT = ['shelina']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = [
