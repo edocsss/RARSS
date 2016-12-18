@@ -285,7 +285,9 @@ There are 4 models we are currently using: SVM, Random Forest, Naive Bayes, and 
 Each model building Python script will have different possible parameters that you can play around with. In addition, the Python script also allows testing different parameter values (similar to Grid search, but not an exhaustive parameter search).
 
 ### Model Validation (Leave-One-Out)
+The LOO configuration (training and testing dataset) can be found in `<path_to_server_root_dir>/config.py`. Other things inside the script are mostly the same as K-Fold CV. 
 
+One additional parameter is the `permutate_xyz`. This is basically trying to augment the dataset with all possible permutations of the accelerometer's XYZ axes. This apparently does not work well but it is left there just in case we would need that in the future.
 
 
 
