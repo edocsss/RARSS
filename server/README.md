@@ -157,6 +157,55 @@ Timestamp (s) | Data
 Once data sampling is done, the result is still organized in the same manner as before it is sampled (similar to the one discussed in the `Raw Data` section but the data is now sampled).
 
 ### Data Windowing
+Once the original raw data has been sampled at a fixed interval, it is divided into data frames of fixed window size. In addition, depending on the given configuration, frames may overlap with the previous and next frame. These configurations can be found in the `config.py` file.
+
+For example, if we have this sampled data:
+```
+Timestamp (s) | Data
+    0         |  31
+    0.5       |  31
+    1         |  33
+    1.5       |  33
+    2         |  33
+    2.5       |  33
+    3         |  35
+    3.5       |  35
+    4         |  35
+    4.5       |  35
+    5         |  40
+    5.5       |  40
+    6         |  40
+```
+
+We would like to perform Data Windowing with `window size = 2s` and `half overlapping`. The resulting windows would be:
+**Window 1**:
+```
+Timestamp (s) | Data
+    0         |  31
+    0.5       |  31
+    1         |  33
+    1.5       |  33
+```
+
+**Window 2**:
+```
+Timestamp (s) | Data
+    1         |  33
+    1.5       |  33
+    2         |  33
+    2.5       |  33
+```
+
+**Window 3**:
+```
+Timestamp (s) | Data
+    2         |  33
+    2.5       |  33
+    3         |  35
+    3.5       |  35
+```
+
+and so on. Each data window/frame will be used for feature generation in later stage. This means each data window/frame will generate one set of features.
 
 ### Combine Windowed Data by the Device Source
 
