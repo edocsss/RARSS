@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
     C = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
     kernel = ['rbf']
-    gamma = [0.1, 0.5, 1, 5]
+    gamma = [0.5, 1, 5, 10]
     degree = [1]
 
     for c in C:
@@ -80,10 +80,10 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='sw',
+                        data_source='',
                         activities=[
                             'brushing',
-                            # 'eating',
+                            'eating',
                             'folding',
                             'going_downstairs',
                             'going_upstairs',

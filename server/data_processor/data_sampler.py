@@ -18,6 +18,7 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
     sampled_data = {}
     for k, v in trimmed_data.items():
         sampled_data_list = []
+
         for item in v:
             raw_data_item = item['data_item']
             starting_timestamp = item['starting_timestamp']
@@ -34,9 +35,12 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
                 df_within_time_boundary = dataframe[(dataframe.timestamp >= lower_bound) & (dataframe.timestamp <= upper_bound)]
                 timestamps_within_boundary = [int(series['timestamp']) for index, series in df_within_time_boundary.iterrows()]
 
+                # When there is no row for the given timestamp boundary, then use the last value
                 if len(timestamps_within_boundary) == 0:
                     sample_series = prev_series
                     prev_series.set_value('timestamp', upper_bound)
+
+                # If there is at least 1 row, then take the latest data as the sampled data
                 else:
                     largest_timestamp_within_boundary = max(timestamps_within_boundary)
                     sample_series = dataframe[dataframe.timestamp == largest_timestamp_within_boundary].iloc[0]
@@ -100,6 +104,7 @@ def _trim_data(raw_data_standardized_timestamp, real_time_mode=False):
         ending_timestamp = _get_earliest_ending_timestamp(data_items)
         ending_timestamp = ending_timestamp - CONFIG.ENDING_OUTLIER_REMOVAL_SIZE if not real_time_mode else ending_timestamp
 
+        # Include the starting and ending timestamp information for sampling later
         for k, v in data.items():
             dataframe = v[i].dataframe
             v[i].dataframe = dataframe[(dataframe.timestamp >= starting_timestamp) & (dataframe.timestamp <= ending_timestamp)]

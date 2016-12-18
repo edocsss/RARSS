@@ -96,6 +96,9 @@ def load_kfolds_training_and_testing_data(k=5, source='', activities=None, permu
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
 
+    import pprint
+    pprint.pprint(full_data.columns)
+
     if permutate_xyz:
         full_data = _permutate_xyz_data(full_data)
 
@@ -247,3 +250,8 @@ def get_data_distribution(Y):
     df = pd.DataFrame(data=Y, columns=['activity'])
     counts = df['activity'].value_counts()
     return counts
+
+
+if __name__ == '__main__':
+    data = _load_data_by_multiple_subjects(CONFIG.TESTING_DATA_SOURCE_SUBJECT)
+    print(get_data_distribution(data['activity']))

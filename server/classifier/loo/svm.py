@@ -6,9 +6,10 @@ from classifier.util import data_util
 import numpy as np
 
 
-def run_test(C=10, kernel='poly', degree=3, gamma='auto', data_source='', permutate_xyz=False, activities=None):
+def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None):
     print('Data Source: {}'.format(data_source))
     print('Cost: {}'.format(C))
+    print('Gamma: {}'.format(gamma))
     print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
     print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
     print('Training Subjects: {}'.format(CONFIG.TRAINING_DATA_SOURCE_SUBJECT))
@@ -61,9 +62,10 @@ if __name__ == '__main__':
     accuracy = []
     f1 = []
 
-    C = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
-    gamma = [0.1, 0.5, 1]
-    permutate_xyz = True
+    C = [5000]
+    gamma = ['auto']
+    degree = [1]
+    permutate_xyz = False
     data_source = ''
 
     activities = [
@@ -86,25 +88,28 @@ if __name__ == '__main__':
 
     for c in C:
         for g in gamma:
-            for i in range(1):
-                a, f = run_test(
-                    C=c,
-                    gamma=g,
-                    data_source=data_source,
-                    activities=activities,
-                    kernel='rbf',
-                    degree=1,
-                    permutate_xyz=permutate_xyz
-                )
+            for d in degree:
+                accuracy = []
+                f1 = []
+                for i in range(1):
+                    a, f = run_test(
+                        C=c,
+                        gamma=g,
+                        data_source=data_source,
+                        activities=activities,
+                        kernel='rbf',
+                        degree=d,
+                        permutate_xyz=permutate_xyz
+                    )
 
-                accuracy.append(a)
-                f1.append(f)
+                    accuracy.append(a)
+                    f1.append(f)
 
-            print()
-            print()
-            print()
-            print()
-            print('Accuracy: {}'.format(accuracy))
-            print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(np.mean(accuracy), np.std(accuracy)))
-            print('F1 Score: {}'.format(f1))
-            print('F1 Mean: {}, F1 Standard deviation: {}'.format(np.mean(f1), np.std(f1)))
+                print('Accuracy: {}'.format(accuracy))
+                print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(np.mean(accuracy), np.std(accuracy)))
+                print('F1 Score: {}'.format(f1))
+                print('F1 Mean: {}, F1 Standard deviation: {}'.format(np.mean(f1), np.std(f1)))
+                print()
+                print()
+                print()
+                print()

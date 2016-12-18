@@ -14,6 +14,7 @@
     "angular-ui-router": "^0.3.1",
     "angular-material": "^1.1.1",
     "angular-chart.js": "^1.0.3",
-    "angular-websocket": "^2.0.0"
+    "angular-websocket": "^2.0.0",
+    "angular-material-data-table": "^0.10.10"
   }
 }

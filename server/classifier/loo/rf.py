@@ -7,6 +7,7 @@ import config as CONFIG
 from classifier.util import activity_encoding, plot_util
 from classifier.util import data_util
 import matplotlib.pyplot as plt
+import pprint
 
 
 def run_test(n_estimators=50, data_source='', activities=None, permutate_xyz=False):
@@ -42,15 +43,16 @@ def run_test(n_estimators=50, data_source='', activities=None, permutate_xyz=Fal
     fscore = f1_score(Y_test, predictions, average='weighted')
     fscore_results.append(fscore)
 
-    # int_labels = [i for i in range(len(activity_encoding.ACTIVITY_TO_INT_MAPPING.keys()))]
     # cm = confusion_matrix(
     #     Y_test,
-    #     predictions,
-    #     labels=int_labels
+    #     predictions
     # )
     #
     # plt.figure()
-    # plot_util.plot_confusion_matrix(cm, activity_encoding.ACTIVITY_TO_INT_MAPPING.keys())
+    # plot_util.plot_confusion_matrix(
+    #     cm,
+    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    # )
     # plt.show()
 
     return accuracy, fscore
@@ -64,7 +66,7 @@ if __name__ == '__main__':
         'walking',
         'running',
         'brushing',
-        # 'eating',
+        'eating',
         'writing',
         'reading',
         'typing',
@@ -76,8 +78,8 @@ if __name__ == '__main__':
     ]
 
     data_source = ''
-    permutate_xyz = True
-    n_estimators = [500, 1000, 2000]
+    permutate_xyz = False
+    n_estimators = [500]
 
     for n in n_estimators:
         f1 = []

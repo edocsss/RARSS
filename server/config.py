@@ -8,27 +8,54 @@ FULL_SUBJECT_LIST = [
     'shelina',
     'mellita',
     'nikolas',
-    'samuel'
+    'samuel',
+    'elmo'
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'samuel'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'nikolas'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
-TRAINING_DATA_SOURCE_SUBJECT = ['richsen', 'lauren', 'shelina', 'mellita', 'nikolas', 'samuel']
+TRAINING_DATA_SOURCE_SUBJECT = [
+    'edwin',
+    'richsen',
+    'lauren',
+    'shelina',
+    'mellita',
+    'nikolas',
+    'samuel'
+]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = ['edwin']
+TESTING_DATA_SOURCE_SUBJECT = ['elmo']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
-KFOLD_DATA_SOURCE_SUBJECT = ['edwin', 'richsen', 'lauren', 'shelina', 'mellita', 'nikolas', 'samuel']
+KFOLD_DATA_SOURCE_SUBJECT = [
+    'edwin',
+    'richsen',
+    'lauren',
+    'shelina',
+    'mellita',
+    'nikolas',
+    'samuel',
+    'elmo'
+]
 
 # Select whose data to use for the REAL TIME MONITORING MODEL BUILDING --> the dta for the subject/s must have been pre-processed
-REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = ['edwin', 'richsen', 'lauren', 'shelina', 'mellita', 'nikolas', 'samuel']
+REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
+    'edwin',
+    'richsen',
+    'lauren',
+    'shelina',
+    'mellita',
+    'nikolas',
+    'samuel',
+    'elmo'
+]
 
 SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer'],
-    'sw': ['sw_accelerometer'],
+    'sp': ['sp_accelerometer'], # Change this to include other sensors in the data pre-processing
+    'sw': ['sw_accelerometer'], # Change this to include other sensors in the data pre-processing
     'sp_full': [
         'sp_accelerometer',
         'sp_barometer',

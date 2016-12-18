@@ -78,6 +78,18 @@ div#raw-data-visualizer-initial-circular-loading {
     font-weight: 400;
 }
 
+#activity-history-list-table th {
+    font-size: 1em;
+}
+
+#activity-history-list-table td {
+    font-size: 1em;
+}
+
+.activity-history-table-cell {
+    text-transform: capitalize;
+}
+
 
 
 @media (min-width: 1920px) {

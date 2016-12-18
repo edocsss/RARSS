@@ -1,3 +1,4 @@
+import pprint
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
@@ -17,6 +18,15 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
     accuracy_results = []
     fscore_results = []
 
+    print('Data Source: {}'.format(data_source))
+    print('Number of Estimators: {}'.format(n_estimators))
+    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+    print('Training Source: {}'.format(CONFIG.KFOLD_DATA_SOURCE_SUBJECT))
+    print('Activities: {}'.format(activities))
+    print('Permutate XYZ: {}'.format(permutate_xyz))
+    print()
+
     for i, data in enumerate(kfold_data):
         X_train = data[0]
         X_test = data[1]
@@ -25,6 +35,8 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
         model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1)
         model.fit(X_train, Y_train)
+
+        pprint.pprint(model.feature_importances_)
         predictions = model.predict(X_test)
 
         accuracy = accuracy_score(Y_test, predictions)
@@ -39,14 +51,6 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
-    print('Data Source: {}'.format(data_source))
-    print('Number of Estimators: {}'.format(n_estimators))
-    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
-    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
-    print('Training Source: {}'.format(CONFIG.KFOLD_DATA_SOURCE_SUBJECT))
-    print('Activities: {}'.format(activities))
-    print('Permutate XYZ: {}'.format(permutate_xyz))
-    print()
 
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
@@ -60,7 +64,8 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [10, 30, 50, 75, 100, 300, 500, 1000]
+    print('start')
+    n_estimators = [100, 300, 500, 1000, 2000, 3000]
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
@@ -68,7 +73,7 @@ if __name__ == '__main__':
             permutate_xyz=False,
             activities=[
                 'brushing',
-                'eating',
+                # 'eating',
                 'folding',
                 'going_downstairs',
                 'going_upstairs',

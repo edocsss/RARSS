@@ -19,6 +19,11 @@
                 <md-icon md-svg-icon="images/icons/ic_airplay_black_36px.svg" class="sidenav-list-icon"></md-icon>
                 <p>Real Time Monitoring</p>
             </md-list-item>
+
+            <md-list-item ng-click="sidenavController.openPage('activityHistoryList')" ng-class="{ 'sidenav-active': sidenavController.getActiveState() === 'activityHistoryList' }">
+                <md-icon md-svg-icon="images/icons/ic_history_black_36px.svg" class="sidenav-list-icon"></md-icon>
+                <p>Activity History List</p>
+            </md-list-item>
         </md-list>
     </md-content>
 </md-sidenav>

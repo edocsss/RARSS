@@ -3,11 +3,11 @@
 
     <div id="real-time-monitoring-activity-container" layout="column" layout-align="center center">
         <div flex="80" layout="row" layout-align="center center">
-            <h1 id="real-time-monitoring-activity-header"><b>{{ realTimeMonitoringController.activityType }}!</b></h1>
+            <h1 id="real-time-monitoring-activity-header"><b>{{ realTimeMonitoringController.activityHistoryList[0].activity }}!</b></h1>
         </div>
 
         <div id="real-time-monitoring-datetime-container">
-            <h4 id="real-time-monitoring-activity-datetime"><span class="font-bolder">Last Updated: </span>{{ realTimeMonitoringController.lastActivityDatetime }}</h4>
+            <h4 id="real-time-monitoring-activity-datetime"><span class="font-bolder">Last Updated: </span>{{ realTimeMonitoringController.activityHistoryList[0].datetime }}</h4>
         </div>
     </div>
 </md-content>

@@ -38,7 +38,7 @@ if __name__ == '__main__':
         (r"/smartwatch/ws", SmartwatchWebsocketHandler),
         (r"/smartwatch/recording", SmartwatchRecordingHandler),
         (r"/smartwatch/monitoring", SmartwatchMonitoringHandler),
-        (r"/client/raw", ClientRawDataHandler),
+        (r"/client/raw" , ClientRawDataHandler),
         (r"/client/ws", ClientWebsocketHandler)
     ], debug=True, **services)
 

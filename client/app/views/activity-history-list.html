@@ -1,0 +1,38 @@
+<md-content flex="70" flex-offset="15"  layout="column" layout-align="center center">
+    <h1 class="text-center" id="activity-history-list-header">Activity History</h1>
+
+    <div flex layout-fill layout="column">
+        <md-card>
+            <md-table-container id="activity-history-list-table">
+                <table md-table multiple md-progress="promise">
+                    <thead md-head md-order="activityHistoryListController.query.order">
+                        <tr md-row>
+                            <th md-column><b>Date</b></th>
+                            <th md-column><b>Time</b></th>
+                            <th md-column><b>Activity</b></th>
+                        </tr>
+                    </thead>
+
+                    <tbody md-body>
+                        <tr 
+                            md-row 
+                            ng-repeat="activityHistoryItem in activityHistoryListController.activityHistoryList | 
+                                       orderBy: activityHistoryListController.query.order | 
+                                       limitTo: activityHistoryListController.query.limit: (activityHistoryListController.query.page - 1) * activityHistoryListController.query.limit">
+                            <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.datetime.split(' ')[0].toLowerCase() }}</td>
+                            <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.datetime.split(' ')[1].toLowerCase() }}</td>
+                            <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.activity.toLowerCase() }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination 
+                md-limit="activityHistoryListController.query.limit"
+                md-limit-options="[10, 15, 20]"
+                md-page="activityHistoryListController.query.page" 
+                md-total="{{ activityHistoryListController.activityHistoryList.length }}">
+            </md-table-pagination>
+        </md-card>
+    </div>
+</md-content>
