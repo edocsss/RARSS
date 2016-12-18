@@ -208,13 +208,63 @@ Timestamp (s) | Data
 and so on. Each data window/frame will be used for feature generation in later stage. This means each data window/frame will generate one set of features.
 
 ### Combine Windowed Data by the Device Source
+At this point, for **an activity**, the raw data for **each sensor type** and **device source** has been divided into frames/windows. This step will combine the data windows from **different sensor type** by **the device source** into one combined dataset.
+
+For example, if initially we have:
+
+`sp_accelerometer`:
+```
+timestamp | ax | ay | az
+...       | .. | .. | ..
+```
+
+`sp_gyrometer`:
+```
+timestamp | gx | gy | gz
+...       | .. | .. | ..
+```
+
+`combined_smartphone`:
+```
+timestamp | ax | ay | az | gx | gy | gz
+...       | .. | .. | .. | .. | .. | ..
+```
+
+The results of this step would be **1 combined dataset for Smartphone** and **1 combined dataset for Smartwatch**. Thus, each row of the **Smartphone dataset** will now have the raw data of the Smartphone sensors that you would like to consider in the feature generation (configurable in the `config.py`). The same logic applies for the Smartwatch.
 
 ### Generate Features
+Once the raw data has been combined into one dataset for each device, we now need to generate features. As mentioned earlier, at the moment, only **accelerometer** data is used in this phase. The list of features generated can be seen from previous sections.
+
+Please note that each data window/frame will generate **one data record of feature**!
 
 ### Combine Features Generated for Each Activity
+This phase is similar to the previous phase of combining multiple datasets. At this phase, we have already generated two feature datasets, 1 for Smartphone and 1 for Smartwatch. We need to combine these two datasets into **one single dataset** and this will be the final combined dataset for **an activity**.
+
+For example:
+
+`sp_features`:
+```
+index | sp_mean_ax | sp_mean_ay| ...
+1     |    ....    |    ....   | ...
+2     |    ....    |    ....   | ...
+```
+
+`sw_features`:
+```
+index | sw_mean_ax | sw_mean_ay| ...
+1     |    ....    |    ....   | ...
+2     |    ....    |    ....   | ...
+```
+
+`combined_dataset_for_each_activity`:
+```
+index | sp_mean_ax | sp_mean_ay| sw_mean_ax | sw_mean_ay | ...
+1     |    ....    |    ....   |    ....    |    ....    | ...
+2     |    ....    |    ....   |    ....    |    ....    | ...
+```
 
 ### Combine All Activities into One Full Dataset (per subject)
-
+At this point, each subject will already have **one combined dataset for each activity**. The last thing to do is to combine those datasets into **one huge dataset** for **each subject**! We just need to append the rows of each activity's combined dataset altogether.
 
 
 # Model K-Fold Cross Validation
