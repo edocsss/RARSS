@@ -15,7 +15,13 @@ def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activitie
     print('Data source: {}'.format(data_source))
     print()
 
-    kfold_data = data_util.load_kfolds_training_and_testing_data(k=5, source=data_source, activities=activities)
+    kfold_data = data_util.load_kfolds_training_and_testing_data(
+        scaler_name=data_source + '_kfold_svm_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        k=5,
+        source=data_source,
+        activities=activities
+    )
+
     accuracy_results = []
     fscore_results = []
 
@@ -66,10 +72,10 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
-    kernel = ['rbf']
-    gamma = [0.5, 1, 5, 10]
-    degree = [1]
+    C = [1, 5, 10, 50, 100, 1000, 5000]
+    kernel = ['poly']
+    gamma = ['auto', 0.1, 0.5, 1]
+    degree = [3, 5, 7, 9]
 
     for c in C:
         for k in kernel:
@@ -80,10 +86,10 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='',
+                        data_source='sp',
                         activities=[
                             'brushing',
-                            'eating',
+                            # 'eating',
                             'folding',
                             'going_downstairs',
                             'going_upstairs',

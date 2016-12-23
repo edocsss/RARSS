@@ -9,6 +9,7 @@ from classifier.util import data_util
 
 def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False):
     kfold_data = data_util.load_kfolds_training_and_testing_data(
+        scaler_name=data_source + '_kfold_rf_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         k=5,
         source=data_source,
         activities=activities,
@@ -35,8 +36,6 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
         model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1)
         model.fit(X_train, Y_train)
-
-        pprint.pprint(model.feature_importances_)
         predictions = model.predict(X_test)
 
         accuracy = accuracy_score(Y_test, predictions)
@@ -64,12 +63,11 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    print('start')
-    n_estimators = [100, 300, 500, 1000, 2000, 3000]
+    n_estimators = [1000]
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
-            data_source='',
+            data_source='sw',
             permutate_xyz=False,
             activities=[
                 'brushing',

@@ -62,8 +62,8 @@ if __name__ == '__main__':
     accuracy = []
     f1 = []
 
-    C = [5000]
-    gamma = ['auto']
+    C = [1]
+    gamma = [1]
     degree = [1]
     permutate_xyz = False
     data_source = ''

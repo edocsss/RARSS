@@ -13,7 +13,7 @@ import pprint
 def run_test(n_estimators=50, data_source='', activities=None, permutate_xyz=False):
     X_train, Y_train = data_util.load_training_data(
         CONFIG.TRAINING_DATA_SOURCE_SUBJECT,
-        CONFIG.MODEL_NAMES['minmax_scaler'],
+        '_'.join(CONFIG.TESTING_DATA_SOURCE_SUBJECT) + '_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz

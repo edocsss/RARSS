@@ -91,13 +91,10 @@ def load_testing_data(subjects, scaler_name, source='', onehot=False, permutate_
     return X_norm, Y_encoded
 
 
-def load_kfolds_training_and_testing_data(k=5, source='', activities=None, permutate_xyz=False, onehot=False):
+def load_kfolds_training_and_testing_data(scaler_name, k=5, source='', activities=None, permutate_xyz=False, onehot=False):
     full_data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
-
-    import pprint
-    pprint.pprint(full_data.columns)
 
     if permutate_xyz:
         full_data = _permutate_xyz_data(full_data)
@@ -126,9 +123,9 @@ def load_kfolds_training_and_testing_data(k=5, source='', activities=None, permu
         if onehot:
             Y_test = unbinarize_label(Y_test)
 
-        _train_minmax_scaler(X_train, CONFIG.MODEL_NAMES['minmax_scaler'], force=True)
-        X_train_norm = _normalize_X(X_train, CONFIG.MODEL_NAMES['minmax_scaler'])
-        X_test_norm = _normalize_X(X_test, CONFIG.MODEL_NAMES['minmax_scaler'])
+        _train_minmax_scaler(X_train, scaler_name, force=True)
+        X_train_norm = _normalize_X(X_train, scaler_name)
+        X_test_norm = _normalize_X(X_test, scaler_name)
 
         kfolds_data.append((
             X_train_norm,
@@ -253,5 +250,5 @@ def get_data_distribution(Y):
 
 
 if __name__ == '__main__':
-    data = _load_data_by_multiple_subjects(CONFIG.TRAINING_DATA_SOURCE_SUBJECT)
+    data = _load_data_by_multiple_subjects(['andri'])
     print(get_data_distribution(data['activity']))

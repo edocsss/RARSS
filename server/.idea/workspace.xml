@@ -23,11 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tornado_app.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="-2017">
+              <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_preprocessor.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_processor/data_preprocessor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="72" column="19" lean-forward="true" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -42,31 +52,24 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>0\.84</find>
+      <find>\.84</find>
+      <find>Accuracy Mean: 0\.82</find>
+      <find>Accuracy Mean: 0\.87</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/util/logger.py" />
-        <option value="$PROJECT_DIR$/classifier/loo/loo_results/mlp_iter.log" />
-        <option value="$PROJECT_DIR$/classifier/loo/loo_results/mlp_alpha.log" />
-        <option value="$PROJECT_DIR$/classifier/loo/loo_results/mlp_layer.log" />
-        <option value="$PROJECT_DIR$/classifier/loo/mlp.py" />
-        <option value="$PROJECT_DIR$/classifier/loo/loo_results/mlp_0.01_2000_1_100.log" />
-        <option value="$PROJECT_DIR$/classifier/loo/loo_results/mlp_neurons.log" />
-        <option value="$PROJECT_DIR$/data_processor/util/raw_data_reader.py" />
-        <option value="$PROJECT_DIR$/classifier/real_time_monitoring/rf_predict.py" />
-        <option value="$PROJECT_DIR$/classifier/real_time_monitoring/svm_predict.py" />
-        <option value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
-        <option value="$PROJECT_DIR$/data/raw/going_upstairs/2031mellita_raw_accelerometer_watch.csv" />
         <option value="$PROJECT_DIR$/data/raw/walking/2026mellita_raw_accelerometer_watch.csv" />
         <option value="$PROJECT_DIR$/data/raw/plot.py" />
         <option value="$PROJECT_DIR$/data/raw/folding/881lauren_raw_accelerometer_watch.csv" />
         <option value="$PROJECT_DIR$/data/raw/food_preparation/883lauren_raw_accelerometer_watch.csv" />
         <option value="$PROJECT_DIR$/classifier/real_time_monitoring/svm_training.py" />
         <option value="$PROJECT_DIR$/classifier/real_time_monitoring/rf_training.py" />
-        <option value="$PROJECT_DIR$/data/raw/rename_file.py" />
         <option value="$PROJECT_DIR$/classifier/util/test.csv" />
-        <option value="$PROJECT_DIR$/classifier/loo/svm.py" />
-        <option value="$PROJECT_DIR$/classifier/cv/random_forest.py" />
         <option value="$PROJECT_DIR$/webapp/worker/activity_recognizer_worker.py" />
         <option value="$PROJECT_DIR$/webapp/util/smartwatch_data_converter.py" />
         <option value="$PROJECT_DIR$/webapp/handler/base_handler.py" />
@@ -89,20 +92,34 @@
         <option value="$PROJECT_DIR$/models/data_item.py" />
         <option value="$PROJECT_DIR$/data_processor/feature_generator.py" />
         <option value="$PROJECT_DIR$/data_processor/data_combiner.py" />
-        <option value="$PROJECT_DIR$/classifier/cv/svm.py" />
         <option value="$PROJECT_DIR$/classifier/real_time_monitoring/activity_predictor.py" />
         <option value="$PROJECT_DIR$/data_processor/data_sampler.py" />
-        <option value="$PROJECT_DIR$/classifier/loo/rf.py" />
-        <option value="$PROJECT_DIR$/classifier/util/data_util.py" />
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/webapp/tornado_app.py" />
+        <option value="$PROJECT_DIR$/data/raw/going_upstairs/4013monica_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/folding/57richsen_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/folding/57richsen_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/data/raw/lying/40richsen_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/data/raw/lying/40richsen_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/reading/56richsen_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/reading/56richsen_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/data/raw/running/16richsen_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/running/16richsen_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/data/raw/walking/41richsen_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/data/raw/walking/41richsen_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/classifier/loo/svm.py" />
+        <option value="$PROJECT_DIR$/data/raw/food_preparation/7016andri_raw_accelerometer_phone.csv" />
+        <option value="$PROJECT_DIR$/classifier/util/data_util.py" />
+        <option value="$PROJECT_DIR$/classifier/cv/random_forest.py" />
+        <option value="$PROJECT_DIR$/classifier/cv/svm.py" />
+        <option value="$PROJECT_DIR$/classifier/loo/rf.py" />
+        <option value="$PROJECT_DIR$/data/raw/rename_file.py" />
+        <option value="$PROJECT_DIR$/config.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -141,39 +158,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classifier" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classifier" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loo" />
+              <option name="myItemId" value="data_processor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -185,18 +170,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
-    <property name="SearchEverywhereHistoryKey" value="real&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/service/real_time_monitoring_service.py&#10;prep&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;renam&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;rena&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;pre&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;rec&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;worker&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;data_com&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_combiner.py&#10;web_con&#9;null&#9;null&#10;preproce&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;prepr&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;smartwatch&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/handler/smartwatch_handler.py&#10;data_sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;feature&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;data_wind&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_window_selector.py&#10;conf&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py" />
-    <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="rename&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;config&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py&#10;data_ut&#9;null&#9;null&#10;ren&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;real&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/service/real_time_monitoring_service.py&#10;prep&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;renam&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;rena&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;pre&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;rec&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;worker&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;data_com&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_combiner.py&#10;web_con&#9;null&#9;null&#10;preproce&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;prepr&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;smartwatch&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/handler/smartwatch_handler.py&#10;data_sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;feature&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;data_wind&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_window_selector.py&#10;conf&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/util" />
-      <recent name="$PROJECT_DIR$/data_processor" />
-      <recent name="$PROJECT_DIR$/classifier/loo" />
-      <recent name="$PROJECT_DIR$/data/raw/standing" />
-      <recent name="$PROJECT_DIR$/classifier/cv" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data/raw/testing" />
       <recent name="$PROJECT_DIR$/data/combined/walking" />
@@ -204,8 +182,32 @@
       <recent name="$PROJECT_DIR$/data/combined/sweeping_the_floor" />
       <recent name="$PROJECT_DIR$/data/combined/standing" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/raw/food_preparation" />
+      <recent name="$PROJECT_DIR$/util" />
+      <recent name="$PROJECT_DIR$/data_processor" />
+      <recent name="$PROJECT_DIR$/classifier/loo" />
+      <recent name="$PROJECT_DIR$/data/raw/standing" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.tornado_app">
+  <component name="RunManager" selected="Python.data_preprocessor">
+    <configuration default="false" name="svm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classifier/cv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifier/cv/svm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="rf" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,57 +225,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="data_preprocessor" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="data_util" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classifier/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifier/util/data_util.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="config" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/config.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="tornado_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -287,6 +238,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="server" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webapp/tornado_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="rename_file" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/raw" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/raw/rename_file.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="data_preprocessor" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -426,19 +411,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.rf" />
-      <item index="1" class="java.lang.String" itemvalue="Python.data_preprocessor" />
-      <item index="2" class="java.lang.String" itemvalue="Python.data_util" />
-      <item index="3" class="java.lang.String" itemvalue="Python.config" />
-      <item index="4" class="java.lang.String" itemvalue="Python.tornado_app" />
+      <item index="0" class="java.lang.String" itemvalue="Python.svm" />
+      <item index="1" class="java.lang.String" itemvalue="Python.rf" />
+      <item index="2" class="java.lang.String" itemvalue="Python.tornado_app" />
+      <item index="3" class="java.lang.String" itemvalue="Python.rename_file" />
+      <item index="4" class="java.lang.String" itemvalue="Python.data_preprocessor" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tornado_app" />
-        <item index="1" class="java.lang.String" itemvalue="Python.rf" />
-        <item index="2" class="java.lang.String" itemvalue="Python.config" />
-        <item index="3" class="java.lang.String" itemvalue="Python.data_util" />
-        <item index="4" class="java.lang.String" itemvalue="Python.data_preprocessor" />
+        <item index="0" class="java.lang.String" itemvalue="Python.data_preprocessor" />
+        <item index="1" class="java.lang.String" itemvalue="Python.rename_file" />
+        <item index="2" class="java.lang.String" itemvalue="Python.tornado_app" />
+        <item index="3" class="java.lang.String" itemvalue="Python.rf" />
+        <item index="4" class="java.lang.String" itemvalue="Python.svm" />
       </list>
     </recent_temporary>
   </component>
@@ -468,15 +453,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20703125" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2970297" sideWeight="0.5018431" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30493706" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5312085" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22801474" sideWeight="0.5237624" order="2" side_tool="true" content_ui="tabs" />
@@ -542,253 +527,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classifier/loo/svm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/mongod.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/web_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/worker/activity_recognizer_worker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="62" column="61" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/base_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="57" lean-forward="false" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/client_raw_data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="86" lean-forward="false" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartphone_recording_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="84" lean-forward="false" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartphone_monitoring_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartwatch_monitoring_notifier_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="114" lean-forward="false" selection-start-line="8" selection-start-column="114" selection-end-line="8" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartwatch_monitoring_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartwatch_recording_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="84" lean-forward="false" selection-start-line="7" selection-start-column="84" selection-end-line="7" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartwatch_recording_notifier_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="112" lean-forward="false" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/client_websocket_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/handler/smartwatch_websocket_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/db/work_queue_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/db/raw_sensory_data_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="96" lean-forward="false" selection-start-line="5" selection-start-column="96" selection-end-line="5" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/db/base_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/db/activity_history_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="63" lean-forward="false" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/service/raw_data_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/util/smartwatch_data_converter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/service/sensory_data_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/service/real_time_monitoring_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/data_item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/feature_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2565">
-          <caret line="171" column="35" lean-forward="false" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/data_window_selector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/data_combiner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/mlp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="58" column="40" lean-forward="false" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/nb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/random_forest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/svm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/real_time_monitoring/activity_predictor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/real_time_monitoring/rf_training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_processor/data_sampler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="70" column="32" lean-forward="false" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/data_preprocessor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/util/data_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="255" column="78" lean-forward="false" selection-start-line="255" selection-start-column="78" selection-end-line="255" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/plat-darwin/IN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6570">
@@ -876,27 +611,318 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
+    <entry file="file://$PROJECT_DIR$/data/raw/walking/8403_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/walking/8403_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11604">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/6001inge_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15270">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/food_preparation/4008monica_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11775">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/8401monica_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7440">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/6001inge_raw_magnetic_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60645">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/6001inge_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11880">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/1475754621edwin_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7125">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/1475754621edwin_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9450">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/3017elmo_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5700">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/3017elmo_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7425">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/8401monica_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5625">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/4012monica_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6015">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_downstairs/4012monica_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7440">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_upstairs/8402monica_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5730">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/going_upstairs/4013monica_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/folding/57richsen_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11805">
+          <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/folding/57richsen_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="999" column="71" lean-forward="false" selection-start-line="999" selection-start-column="71" selection-end-line="999" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/lying/40richsen_raw_accelerometer_watch.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
-          <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <caret line="780" column="0" lean-forward="false" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/lying/40richsen_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14700">
+          <caret line="980" column="34" lean-forward="true" selection-start-line="980" selection-start-column="34" selection-end-line="980" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/reading/56richsen_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14550">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/reading/56richsen_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="786" column="48" lean-forward="true" selection-start-line="786" selection-start-column="48" selection-end-line="786" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/running/16richsen_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="1000" column="70" lean-forward="false" selection-start-line="1000" selection-start-column="70" selection-end-line="1000" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/running/16richsen_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="789" column="0" lean-forward="true" selection-start-line="789" selection-start-column="0" selection-end-line="789" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/sitting/37richsen_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11325">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/walking/41richsen_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="1001" column="0" lean-forward="false" selection-start-line="1001" selection-start-column="0" selection-end-line="1001" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/walking/41richsen_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="781" column="0" lean-forward="false" selection-start-line="781" selection-start-column="0" selection-end-line="781" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/loo/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#52#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/food_preparation/7016andri_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="805" column="43" lean-forward="false" selection-start-line="805" selection-start-column="43" selection-end-line="805" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/food_preparation/7016andri_raw_accelerometer_phone.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/cv/random_forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/util/data_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/cv/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/walking/9518vina_raw_accelerometer_watch.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="809" column="29" lean-forward="false" selection-start-line="809" selection-start-column="29" selection-end-line="809" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classifier/loo/rf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="106" column="39" lean-forward="false" selection-start-line="106" selection-start-column="39" selection-end-line="106" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="230">
+          <caret line="87" column="22" lean-forward="false" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/rename_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2017">
+          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processor/data_preprocessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="72" column="19" lean-forward="true" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
           <folding />
         </state>
       </provider>
