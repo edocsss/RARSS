@@ -5,6 +5,10 @@ import config as CONFIG
 from classifier.util import data_util
 import numpy as np
 
+from sklearn.metrics import confusion_matrix
+from classifier.util import activity_encoding, plot_util
+import matplotlib.pyplot as plt
+
 
 def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None):
     print('Data Source: {}'.format(data_source))
@@ -47,13 +51,17 @@ def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permuta
     fscore = f1_score(Y_test, predictions, average='weighted')
     fscore_results.append(fscore)
 
-    print('Permutate XYZ: {}'.format(permutate_xyz))
-    print('Accuracy: {}'.format(accuracy_results))
-    print('F1 Score: {}'.format(fscore_results))
-    print()
-    print()
-    print()
-    print()
+    cm = confusion_matrix(
+        Y_test,
+        predictions
+    )
+
+    plt.figure()
+    plot_util.plot_confusion_matrix(
+        cm,
+        [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    )
+    plt.show()
 
     return accuracy, fscore
 
@@ -63,7 +71,7 @@ if __name__ == '__main__':
     f1 = []
 
     C = [1]
-    gamma = [1]
+    gamma = [0.15]
     degree = [1]
     permutate_xyz = False
     data_source = ''

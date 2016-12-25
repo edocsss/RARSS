@@ -2,9 +2,9 @@ import os
 
 
 if __name__ == '__main__':
-    PERSON_NAME = 'vina'
+    PERSON_NAME = 'edwin'
     ID_LIST = [
-        13000
+        90001, 90002
     ]
 
     for dir_name in os.listdir('.'):

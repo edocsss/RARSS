@@ -5,7 +5,7 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.cross_validation import KFold
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 import classifier.util.activity_encoding as ENCODING
 import config as CONFIG
