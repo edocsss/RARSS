@@ -48,6 +48,9 @@ def load_training_data(subjects, scaler_name, source='', onehot=False, permutate
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
 
+    import pprint
+    pprint.pprint(full_data.columns[22])
+
     if permutate_xyz:
         full_data = _permutate_xyz_data(full_data)
 
