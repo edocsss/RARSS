@@ -29,9 +29,9 @@ TRAINING_DATA_SOURCE_SUBJECT = [
     'nikolas',
     'samuel',
     'elmo',
-    'monica', # Problem --> causing sitting/lying issue
+    'monica',
     'inge', # Problem --> causing sitting/lying issue
-    'andri',
+    'andri', # Problem --> causing sitting/lying issue
     'arianto',
     'orlin'
 ]
