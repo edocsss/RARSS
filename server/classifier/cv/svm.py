@@ -72,10 +72,10 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [1, 10, 50, 100, 1000, 5000]
-    kernel = ['rbf']
+    C = [10, 100, 1000, 5000]
+    kernel = ['poly']
     gamma = ['auto', 0.1, 0.5, 1]
-    degree = [1]
+    degree = [5, 7, 9]
 
     for c in C:
         for k in kernel:
@@ -86,7 +86,7 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='sw',
+                        data_source='sp',
                         activities=[
                             'brushing',
                             # 'eating',

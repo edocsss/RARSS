@@ -21,7 +21,8 @@ def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permuta
 
     X_train, Y_train = data_util.load_training_data(
         CONFIG.TRAINING_DATA_SOURCE_SUBJECT,
-        CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(CONFIG.TRAINING_DATA_SOURCE_SUBJECT) + '_svmloo_' + CONFIG.MODEL_NAMES[
+            'minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -29,7 +30,8 @@ def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permuta
 
     X_test, Y_test = data_util.load_testing_data(
         CONFIG.TESTING_DATA_SOURCE_SUBJECT,
-        CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(CONFIG.TRAINING_DATA_SOURCE_SUBJECT) + '_svmloo_' + CONFIG.MODEL_NAMES[
+            'minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -51,17 +53,17 @@ def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permuta
     fscore = f1_score(Y_test, predictions, average='weighted')
     fscore_results.append(fscore)
 
-    cm = confusion_matrix(
-        Y_test,
-        predictions
-    )
-
-    plt.figure()
-    plot_util.plot_confusion_matrix(
-        cm,
-        [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
-    )
-    plt.show()
+    # cm = confusion_matrix(
+    #     Y_test,
+    #     predictions
+    # )
+    #
+    # plt.figure()
+    # plot_util.plot_confusion_matrix(
+    #     cm,
+    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    # )
+    # plt.show()
 
     return accuracy, fscore
 
@@ -71,7 +73,7 @@ if __name__ == '__main__':
     f1 = []
 
     C = [1]
-    gamma = [0.15]
+    gamma = [0.5]
     degree = [1]
     permutate_xyz = False
     data_source = ''
