@@ -35,7 +35,6 @@ def run_test(n_estimators=50, data_source='', activities=None, permutate_xyz=Fal
 
     model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1)
     model.fit(X_train, Y_train)
-    print(model.feature_importances_)
     predictions = model.predict(X_test)
 
     accuracy = accuracy_score(Y_test, predictions)
