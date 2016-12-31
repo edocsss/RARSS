@@ -1,4 +1,9 @@
 server/data/db
+server/data/sampled
+server/data/features
+server/data/windowed
+server/data/combined
+
 android/FYP/volley
 server/classifier/model
 tizen_key
