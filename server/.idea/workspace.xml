@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/data_processor/feature_generator.py" line="223" />
+    <bookmark url="file://$PROJECT_DIR$/data_processor/feature_generator.py" line="235" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d742f661-cd39-4c2a-b6d5-47cdf3f661be" name="Default" comment="" />
@@ -23,11 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config.py">
+      <file leaf-file-name="tornado_app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="60">
+              <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rename_file.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/raw/rename_file.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -53,6 +63,7 @@
       <find>0\.96</find>
       <find>sitting</find>
       <find>0\.964</find>
+      <find>,,</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -66,7 +77,6 @@
         <option value="$PROJECT_DIR$/webapp/handler/client_raw_data_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/client_websocket_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/smartphone_monitoring_handler.py" />
-        <option value="$PROJECT_DIR$/webapp/handler/smartphone_recording_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/smartwatch_monitoring_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/smartwatch_monitoring_notifier_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/smartwatch_recording_notifier_handler.py" />
@@ -99,16 +109,17 @@
         <option value="$PROJECT_DIR$/classifier/cv/knn.py" />
         <option value="$PROJECT_DIR$/classifier/loo/knn.py" />
         <option value="$PROJECT_DIR$/data/raw/going_upstairs/4013monica_raw_accelerometer_phone.csv" />
-        <option value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
-        <option value="$PROJECT_DIR$/data_processor/feature_generator.py" />
-        <option value="$PROJECT_DIR$/classifier/loo/svm.py" />
-        <option value="$PROJECT_DIR$/data/raw/rename_file.py" />
         <option value="$PROJECT_DIR$/data/raw/sitting/100001edwin_raw_accelerometer_watch.csv" />
+        <option value="$PROJECT_DIR$/classifier/util/data_util.py" />
+        <option value="$PROJECT_DIR$/data_processor/feature_generator.py" />
         <option value="$PROJECT_DIR$/classifier/cv/random_forest.py" />
         <option value="$PROJECT_DIR$/classifier/cv/svm.py" />
         <option value="$PROJECT_DIR$/classifier/loo/rf.py" />
-        <option value="$PROJECT_DIR$/classifier/util/data_util.py" />
+        <option value="$PROJECT_DIR$/webapp/handler/smartphone_recording_handler.py" />
+        <option value="$PROJECT_DIR$/classifier/loo/svm.py" />
         <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
+        <option value="$PROJECT_DIR$/data/raw/rename_file.py" />
       </list>
     </option>
   </component>
@@ -153,19 +164,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="writing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
-    <property name="SearchEverywhereHistoryKey" value="random&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/cv/random_forest.py&#10;prep&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;rename&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;data_&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/util/data_util.py&#10;rf.py&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/loo/rf.py&#10;prepr&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;config&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py&#10;re&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;feat&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;plot&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/plot.py&#10;data_ut&#9;null&#9;null&#10;ren&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;real&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/service/real_time_monitoring_service.py&#10;renam&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;rena&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;pre&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;rec&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;worker&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;data_com&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_combiner.py&#10;web_con&#9;null&#9;null&#10;preproce&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;smartwatch&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/handler/smartwatch_handler.py&#10;data_sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;feature&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;data_wind&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_window_selector.py&#10;conf&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py" />
+    <property name="SearchEverywhereHistoryKey" value="rename&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;tornado&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/tornado_app.py&#10;random&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/cv/random_forest.py&#10;feat&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;preproce&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;config&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py&#10;prepr&#9;null&#9;null&#10;feature&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/feature_generator.py&#10;prep&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;data_&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/util/data_util.py&#10;rf.py&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/classifier/loo/rf.py&#10;re&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;plot&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/plot.py&#10;data_ut&#9;null&#9;null&#10;ren&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;real&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/service/real_time_monitoring_service.py&#10;renam&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;rena&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data/raw/rename_file.py&#10;pre&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_preprocessor.py&#10;rec&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;worker&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/worker/activity_recognizer_worker.py&#10;sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;data_com&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_combiner.py&#10;web_con&#9;null&#9;null&#10;smartwatch&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/webapp/handler/smartwatch_handler.py&#10;data_sampler&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_sampler.py&#10;data_wind&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/data_processor/data_window_selector.py&#10;conf&#9;FILE&#9;file:///Users/edocsss/AEC/programming/FYP/server/config.py" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
   </component>
@@ -185,7 +250,7 @@
       <recent name="$PROJECT_DIR$/data/combined/standing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rf">
+  <component name="RunManager" selected="Python.rename_file">
     <configuration default="false" name="rf" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -203,57 +268,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="rename_file" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/raw" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/raw/rename_file.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="data_preprocessor" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processor/data_preprocessor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="random_forest" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classifier/cv" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="server" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifier/cv/random_forest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="svm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -267,6 +281,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="server" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifier/cv/svm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="svm (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classifier/loo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifier/loo/svm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="tornado_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webapp/tornado_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="rename_file" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/raw" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="server" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/raw/rename_file.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -407,18 +472,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.rf" />
-      <item index="1" class="java.lang.String" itemvalue="Python.rename_file" />
-      <item index="2" class="java.lang.String" itemvalue="Python.data_preprocessor" />
-      <item index="3" class="java.lang.String" itemvalue="Python.random_forest" />
-      <item index="4" class="java.lang.String" itemvalue="Python.svm" />
+      <item index="1" class="java.lang.String" itemvalue="Python.svm" />
+      <item index="2" class="java.lang.String" itemvalue="Python.svm (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.tornado_app" />
+      <item index="4" class="java.lang.String" itemvalue="Python.rename_file" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.rf" />
-        <item index="1" class="java.lang.String" itemvalue="Python.svm" />
-        <item index="2" class="java.lang.String" itemvalue="Python.random_forest" />
-        <item index="3" class="java.lang.String" itemvalue="Python.data_preprocessor" />
-        <item index="4" class="java.lang.String" itemvalue="Python.rename_file" />
+        <item index="0" class="java.lang.String" itemvalue="Python.rename_file" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tornado_app" />
+        <item index="2" class="java.lang.String" itemvalue="Python.svm (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.rf" />
+        <item index="4" class="java.lang.String" itemvalue="Python.svm" />
       </list>
     </recent_temporary>
   </component>
@@ -451,24 +516,24 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21796875" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21796875" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2970297" sideWeight="0.5018431" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43957505" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22801474" sideWeight="0.5237624" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42574257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1380" y="21" width="1720" height="880" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3930943" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32277226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42574257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -484,12 +549,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data_processor/data_preprocessor.py</url>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -497,167 +556,31 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="104" />
+      <option name="time" value="106" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_nikolas_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_monica_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_mellita_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_inge_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_elmo_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_andri_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2333">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_edwin_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4943">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_elmo_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_andri_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_edwin_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_richsen_features_smartphone_combined.csv" />
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_samuel_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2333">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_lauren_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_vina_features_smartwatch_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_vina_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_andri_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_edwin_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3870">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_vina_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_shelina_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_samuel_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_samuel_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_lauren_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_vina_features_smartwatch_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/sitting/10_2000_0.5_vina_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_andri_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_edwin_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_vina_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_shelina_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_samuel_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_richsen_features_smartphone_combined.csv" />
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_nikolas_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2333">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_monica_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_mellita_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_lauren_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2333">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_inge_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_elmo_features_smartphone_combined.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2318">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_nikolas_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_monica_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_mellita_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_lauren_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_inge_features_smartphone_combined.csv" />
+    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_elmo_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/raw/plot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -722,37 +645,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_edwin_combined_full.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="377" lean-forward="false" selection-start-line="1" selection-start-column="377" selection-end-line="1" selection-end-column="379" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/feature_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_shelina_combined_full.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_andri_combined_full.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="401" lean-forward="true" selection-start-line="7" selection-start-column="401" selection-end-line="7" selection-end-column="401" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_edwin_combined_full.csv" />
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_andri_combined_full.csv" />
     <entry file="file://$PROJECT_DIR$/classifier/loo/knn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -760,20 +654,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_arianto_combined_full.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="1538" column="19" lean-forward="true" selection-start-line="1538" selection-start-column="0" selection-end-line="1539" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_arianto_combined_full.csv" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/preprocessing/data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -781,76 +662,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/loo/svm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/raw/rename_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/raw/sitting/100001edwin_raw_accelerometer_watch.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="964" column="7" lean-forward="false" selection-start-line="964" selection-start-column="7" selection-end-line="964" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_mellita_combined_full.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="626" lean-forward="false" selection-start-line="8" selection-start-column="626" selection-end-line="8" selection-end-column="626" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_processor/data_preprocessor.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pandas/io/parsers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+        <state relative-caret-position="143">
+          <caret line="561" column="0" lean-forward="false" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/random_forest.py">
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_nikolas_combined_full.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/cv/svm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="89" column="29" lean-forward="true" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="296" lean-forward="false" selection-start-line="0" selection-start-column="296" selection-end-line="0" selection-end-column="321" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classifier/util/data_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="278">
+          <caret line="134" column="10" lean-forward="false" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/combined/10_2000_0.5_shelina_combined_full.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="367" lean-forward="false" selection-start-line="1" selection-start-column="366" selection-end-line="1" selection-end-column="367" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processor/feature_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="175" column="0" lean-forward="true" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/cv/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="83" column="25" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/cv/random_forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classifier/loo/rf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        <state relative-caret-position="245">
+          <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/handler/smartphone_recording_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processor/data_preprocessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="true" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="270">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/loo/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/raw/rename_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>

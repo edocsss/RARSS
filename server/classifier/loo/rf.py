@@ -81,8 +81,8 @@ if __name__ == '__main__':
     data_source = ''
     permutate_xyz = False
     n_estimators = [500]
-    n_experiments = 1
-    show_confusion = True
+    n_experiments = 3
+    show_confusion = False
 
     for n in n_estimators:
         f1 = []

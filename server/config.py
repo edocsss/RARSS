@@ -3,8 +3,6 @@ import os
 # DATA SELECTION CONFIGURATIONS
 FULL_SUBJECT_LIST = [
     'edwin',
-    # 'richsen',
-    # 'lauren',
     'shelina',
     'mellita',
     'nikolas',
@@ -13,7 +11,6 @@ FULL_SUBJECT_LIST = [
     'monica',
     'inge',
     'andri',
-    # 'vina',
     'arianto',
     'orlin',
     # 'valerie'
@@ -24,20 +21,20 @@ PREPROCESS_DATA_SOURCE_SUBJECT = 'orlin'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
+    'edwin',
     'shelina',
     'mellita',
     'nikolas',
     'samuel',
     'elmo',
-    'monica',
+    'monica', # Problem --> causing sitting/lying issue
     'inge', # Problem --> causing sitting/lying issue
-    'andri', # Problem --> causing sitting/lying issue
     'arianto',
     'orlin'
 ]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = ['edwin']
+TESTING_DATA_SOURCE_SUBJECT = ['andri']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = [

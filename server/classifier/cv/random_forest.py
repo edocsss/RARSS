@@ -67,7 +67,7 @@ if __name__ == '__main__':
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
-            data_source='sw',
+            data_source='',
             permutate_xyz=False,
             activities=[
                 'brushing',
