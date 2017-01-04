@@ -29,6 +29,7 @@ TRAINING_DATA_SOURCE_SUBJECT = [
     'elmo',
     'monica', # Problem --> causing sitting/lying issue
     'inge', # Problem --> causing sitting/lying issue
+    'andri',
     'arianto',
     'orlin'
 ]
@@ -61,7 +62,9 @@ REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
     'elmo',
     'monica',
     'inge',
-    'andri'
+    'andri',
+    'arianto',
+    'orlin'
 ]
 
 SENSOR_SOURCES = {
