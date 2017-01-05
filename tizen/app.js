@@ -1,9 +1,9 @@
 (function () {
 	var SENSOR_INTERVAL = 200; // in ms
-	var SERVER_URL = 'http://1a3e5c36.ngrok.io';
+	var SERVER_URL = 'http://01441106.ngrok.io';
 	var DATA_RECORDING_UPLOAD_URL = SERVER_URL + '/smartwatch/recording';
 	var DATA_MONITORING_UPLOAD_URL = SERVER_URL + '/smartwatch/monitoring';
-	var WEBSOCKET_URL = 'ws://1a3e5c36.ngrok.io/smartwatch/ws';
+	var WEBSOCKET_URL = 'ws://01441106.ngrok.io/smartwatch/ws';
 	
 	var ACCELEROMETER_LOCALSTORAGE_KEY = 'accelerometer';
 	var GYROSCOPE_LOCALSTORAGE_KEY = 'gyroscope';
