@@ -27,15 +27,14 @@ TRAINING_DATA_SOURCE_SUBJECT = [
     'nikolas',
     'samuel',
     'elmo',
-    'monica', # Problem --> causing sitting/lying issue
-    'inge', # Problem --> causing sitting/lying issue
+    'inge',
     'andri',
     'arianto',
     'orlin'
 ]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = ['andri']
+TESTING_DATA_SOURCE_SUBJECT = ['monica']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = [
