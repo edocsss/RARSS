@@ -67,7 +67,6 @@ if __name__ == '__main__':
         'walking',
         'running',
         'brushing',
-        # 'eating',
         'writing',
         'reading',
         'typing',

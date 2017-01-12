@@ -4,6 +4,7 @@ from sklearn.svm import SVC
 import config as CONFIG
 from classifier.util import data_util
 import numpy as np
+import time
 
 from sklearn.metrics import confusion_matrix
 from classifier.util import activity_encoding, plot_util
@@ -43,7 +44,7 @@ def run_test(C=10, kernel='rbf', degree=1, gamma='auto', data_source='', permuta
     accuracy_results = []
     fscore_results = []
 
-    model = SVC(C=C, kernel=kernel, gamma=gamma, degree=degree)
+    model = SVC(C=C, kernel=kernel, gamma=gamma, degree=degree, random_state=int(time.time()))
     model.fit(X_train, Y_train)
     predictions = model.predict(X_test)
 
@@ -85,7 +86,6 @@ if __name__ == '__main__':
         'walking',
         'running',
         'brushing',
-        # 'eating',
         'writing',
         'reading',
         'typing',

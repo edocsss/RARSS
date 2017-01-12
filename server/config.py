@@ -13,7 +13,9 @@ FULL_SUBJECT_LIST = [
     'andri',
     'arianto',
     'orlin',
-    # 'valerie'
+    'valerie',
+    'nathania',
+    'albert'
 ]
 
 # Select whose data to pre-process

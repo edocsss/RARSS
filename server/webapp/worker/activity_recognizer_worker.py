@@ -26,7 +26,7 @@ class ActivityRecognizerWorker():
                 self._process_next_uuid()
                 time.sleep(1)
 
-            except Exception as e:
+            except FileExistsError as e:
                 print(e)
                 print('Exception during processing the next UUID!')
 
