@@ -5,40 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d742f661-cd39-4c2a-b6d5-47cdf3f661be" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_accelerometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_barometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_gravity_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_gyroscope_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_linear_accelerometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90001edwin_raw_magnetic_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_accelerometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_barometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_gravity_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_gyroscope_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_linear_accelerometer_phone.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/raw/testing/90002edwin_raw_magnetic_phone.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/csort.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/csort.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/csort.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/csort.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/jterms.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/jterms.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/jterms.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/jterms.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/misc.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/misc.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/misc.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/misc.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/pdf_index.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/pdf_index.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/pdf_index.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/pdf_index.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs_ext.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs_ext.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs_ext.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/refs_ext.MYI" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/terms.MYD" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/terms.MYD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/FYP.Data/rdb/terms.MYI" afterPath="$PROJECT_DIR$/../docs/FYP.Data/rdb/terms.MYI" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/report/final/final_report.docx" afterPath="$PROJECT_DIR$/../docs/report/final/final_report.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classifier/loo/knn.py" afterPath="$PROJECT_DIR$/classifier/loo/knn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classifier/loo/rf.py" afterPath="$PROJECT_DIR$/classifier/loo/rf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classifier/loo/svm.py" afterPath="$PROJECT_DIR$/classifier/loo/svm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/raw/rename_file.py" afterPath="$PROJECT_DIR$/data/raw/rename_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/worker/activity_recognizer_worker.py" afterPath="$PROJECT_DIR$/webapp/worker/activity_recognizer_worker.py" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,41 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rename_file.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/raw/rename_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tornado_app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knn.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classifier/loo/knn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+            <state relative-caret-position="439">
+              <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -121,6 +60,7 @@
       <find>,,</find>
       <find>mtrand</find>
       <find>random_state</find>
+      <find>37613</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classifier/util/test.csv" />
         <option value="$PROJECT_DIR$/webapp/util/smartwatch_data_converter.py" />
         <option value="$PROJECT_DIR$/webapp/handler/base_handler.py" />
         <option value="$PROJECT_DIR$/webapp/handler/client_raw_data_handler.py" />
@@ -180,12 +119,14 @@
         <option value="$PROJECT_DIR$/classifier/loo/rf.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/data/raw/rename_file.py" />
+        <option value="$PROJECT_DIR$/data/raw/sweeping_the_floor/250042james_raw_accelerometer_watch.csv" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="1280" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -242,56 +183,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="raw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classifier" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classifier" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -584,16 +475,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18984374" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.253125" sideWeight="0.47623762" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2970297" sideWeight="0.5018431" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32277226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29614875" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1268151" sideWeight="0.49815693" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22801474" sideWeight="0.5237624" order="2" side_tool="true" content_ui="tabs" />
@@ -632,7 +523,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_samuel_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_richsen_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_nikolas_features_smartphone_combined.csv" />
     <entry file="file://$PROJECT_DIR$/data/features/lying/10_2000_0.5_monica_features_smartphone_combined.csv" />
@@ -884,24 +774,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/loo/knn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,15 +792,15 @@
         <state relative-caret-position="305">
           <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
+    <entry file="file://$PROJECT_DIR$/data/raw/sweeping_the_floor/250042james_raw_accelerometer_watch.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state relative-caret-position="300">
+          <caret line="20" column="68" lean-forward="true" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -935,6 +809,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/tornado_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/loo/knn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
           <folding />
         </state>
       </provider>
