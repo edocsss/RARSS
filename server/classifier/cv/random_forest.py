@@ -1,7 +1,7 @@
-import pprint
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
+import time
 
 import config as CONFIG
 from classifier.util import data_util
@@ -34,7 +34,7 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
         Y_train = data[2]
         Y_test = data[3]
 
-        model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1)
+        model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1, random_state=int(time.time()))
         model.fit(X_train, Y_train)
         predictions = model.predict(X_test)
 
@@ -67,11 +67,10 @@ if __name__ == '__main__':
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,
-            data_source='',
+            data_source='sw',
             permutate_xyz=False,
             activities=[
                 'brushing',
-                # 'eating',
                 'folding',
                 'going_downstairs',
                 'going_upstairs',
