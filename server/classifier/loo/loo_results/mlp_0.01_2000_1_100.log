@@ -1,10 +1,0 @@
-Configuration:
-max_epoch = 2000, alpha = 0.01, n_hidden_layer = 1, n_neuron_hidden_layer = 100
-  32/2616 [..............................] - ETA: 0s
-
-Sampling Frequency: 10
-Window Size: 2000
-Accuracy: 0.6353211009174312
-F1 Score: 0.6018328461043767
-
-==================================================================

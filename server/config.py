@@ -20,7 +20,7 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'edwin'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'james'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
@@ -28,7 +28,6 @@ TRAINING_DATA_SOURCE_SUBJECT = [
     'shelina',
     'mellita',
     'nikolas',
-    'samuel',
     'elmo',
     'monica',
     'inge',
@@ -42,7 +41,7 @@ TRAINING_DATA_SOURCE_SUBJECT = [
 ]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
-TESTING_DATA_SOURCE_SUBJECT = []
+TESTING_DATA_SOURCE_SUBJECT = ['samuel']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = [
@@ -166,7 +165,7 @@ COMBINED_DATA_RESULT = {
     'sp': 'combined_smartphone.csv',
     'sw': 'combined_smartwatch.csv',
     'sp_sw': 'combined_sp_sw.csv',
-    'full': 'combined_full.csv'
+    'full': 'combined_full_[{}].csv'.format('+'.join(SENSOR_SOURCES['sp'] + SENSOR_SOURCES['sw']))
 }
 
 FEATURES_DATA_RESULT = {
