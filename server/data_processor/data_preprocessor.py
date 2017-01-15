@@ -62,7 +62,6 @@ if __name__ == '__main__':
     start = time.time()
     activities = [
         'brushing',
-        # 'eating',
         'folding',
         'going_downstairs',
         'going_upstairs',
