@@ -17,15 +17,21 @@ def generate_feature(smartphone_df, smartwatch_df):
 
 def _include_additional_data(df):
     df['acc_magnitude'] = df.apply(
-        _calculate_accelerometer_magnitude,
+        _calculate_magnitude,
         axis=1,
         args=(['ax', 'ay', 'az'],)
+    )
+
+    df['gyro_magnitude'] = df.apply(
+        _calculate_magnitude,
+        axis=1,
+        args=(['gx', 'gx', 'gz'],)
     )
 
     return df
 
 
-def _calculate_accelerometer_magnitude(row, fields):
+def _calculate_magnitude(row, fields):
     return math.sqrt(sum([math.pow(row[f], 2) for f in fields]))
 
 
@@ -53,15 +59,41 @@ def _generate_smartphone_features(smartphone_df):
         'sp_entropy_ax',
         'sp_entropy_ay',
         'sp_entropy_az',
-        'sp_entropy_acc_magnitude'
+        'sp_entropy_acc_magnitude',
+
+        'sp_mean_gx',
+        'sp_mean_gy',
+        'sp_mean_gz',
+        'sp_mean_gyro_magnitude',
+        'sp_var_gx',
+        'sp_var_gy',
+        'sp_var_gz',
+        'sp_var_gyro_magnitude',
+        'sp_cov_g_xy',
+        'sp_cov_g_xz',
+        'sp_cov_g_yz',
+        'sp_cov_g_xmag',
+        'sp_cov_g_ymag',
+        'sp_cov_g_zmag',
+        'sp_energy_gx',
+        'sp_energy_gy',
+        'sp_energy_gz',
+        'sp_energy_gyro_magnitude',
+        'sp_entropy_gx',
+        'sp_entropy_gy',
+        'sp_entropy_gz',
+        'sp_entropy_gyro_magnitude'
     ])
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
         one_window_df = smartphone_df[i : i + CONFIG.N_ROWS_PER_WINDOW]
         accelerometer_features = _generate_accelerometer_feature_per_window(one_window_df, 'sp_')
+        gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sp_')
+
         one_window_features = pd.concat([
-            accelerometer_features
-        ])
+            accelerometer_features,
+            gyroscope_features
+        ], axis=1)
 
         result_df = result_df.append(one_window_features, ignore_index=True)
 
@@ -92,15 +124,41 @@ def _generate_smartwatch_features(smartwatch_df):
         'sw_entropy_ax',
         'sw_entropy_ay',
         'sw_entropy_az',
-        'sw_entropy_acc_magnitude'
+        'sw_entropy_acc_magnitude',
+
+        'sw_mean_gx',
+        'sw_mean_gy',
+        'sw_mean_gz',
+        'sw_mean_gyro_magnitude',
+        'sw_var_gx',
+        'sw_var_gy',
+        'sw_var_gz',
+        'sw_var_gyro_magnitude',
+        'sw_cov_g_xy',
+        'sw_cov_g_xz',
+        'sw_cov_g_yz',
+        'sw_cov_g_xmag',
+        'sw_cov_g_ymag',
+        'sw_cov_g_zmag',
+        'sw_energy_gx',
+        'sw_energy_gy',
+        'sw_energy_gz',
+        'sw_energy_gyro_magnitude',
+        'sw_entropy_gx',
+        'sw_entropy_gy',
+        'sw_entropy_gz',
+        'sw_entropy_gyro_magnitude'
     ])
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
         one_window_df = smartwatch_df[i : i + CONFIG.N_ROWS_PER_WINDOW]
         accelerometer_features = _generate_accelerometer_feature_per_window(one_window_df, 'sw_')
+        gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sw_')
+
         one_window_features = pd.concat([
-            accelerometer_features
-        ])
+            accelerometer_features,
+            gyroscope_features
+        ], axis=1)
 
         result_df = result_df.append(one_window_features, ignore_index=True)
 
@@ -155,6 +213,62 @@ def _generate_accelerometer_feature_per_window(df, column_prefix):
         result.append(_calculate_entropy(accelerometer_related_data['ay']))
         result.append(_calculate_entropy(accelerometer_related_data['az']))
         result.append(_calculate_entropy(accelerometer_related_data['acc_magnitude']))
+
+    except:
+        print('Feature generation exception!')
+
+    result_df = pd.DataFrame(data=[result], columns=result_cols)
+    return result_df
+
+
+def _generate_gyroscope_feature_per_window(df, column_prefix):
+    accelerometer_related_data = df[['gx', 'gy', 'gz', 'gyro_magnitude']]
+    result = []
+    result_cols = [
+        column_prefix + 'mean_gx',
+        column_prefix + 'mean_gy',
+        column_prefix + 'mean_gz',
+        column_prefix + 'mean_gyro_magnitude',
+        column_prefix + 'var_gx',
+        column_prefix + 'var_gy',
+        column_prefix + 'var_gz',
+        column_prefix + 'var_gyro_magnitude',
+        column_prefix + 'cov_g_xy',
+        column_prefix + 'cov_g_xz',
+        column_prefix + 'cov_g_yz',
+        column_prefix + 'cov_g_xmag',
+        column_prefix + 'cov_g_ymag',
+        column_prefix + 'cov_g_zmag',
+        column_prefix + 'energy_gx',
+        column_prefix + 'energy_gy',
+        column_prefix + 'energy_gz',
+        column_prefix + 'energy_gyro_magnitude',
+        column_prefix + 'entropy_gx',
+        column_prefix + 'entropy_gy',
+        column_prefix + 'entropy_gz',
+        column_prefix + 'entropy_gyro_magnitude'
+    ]
+
+    result += accelerometer_related_data.mean().tolist()
+    result += accelerometer_related_data.var().tolist()
+
+    try:
+        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gy'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gz'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'gy', 'gz'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gyro_magnitude'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'gy', 'gyro_magnitude'))
+        result.append(_calculate_covariance(accelerometer_related_data, 'gz', 'gyro_magnitude'))
+
+        result.append(_calculate_energy(accelerometer_related_data['gx']))
+        result.append(_calculate_energy(accelerometer_related_data['gy']))
+        result.append(_calculate_energy(accelerometer_related_data['gz']))
+        result.append(_calculate_energy(accelerometer_related_data['gyro_magnitude']))
+
+        result.append(_calculate_entropy(accelerometer_related_data['gx']))
+        result.append(_calculate_entropy(accelerometer_related_data['gy']))
+        result.append(_calculate_entropy(accelerometer_related_data['gz']))
+        result.append(_calculate_entropy(accelerometer_related_data['gyro_magnitude']))
 
     except:
         print('Feature generation exception!')

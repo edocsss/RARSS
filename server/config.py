@@ -20,7 +20,7 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'nathania'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'edwin'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
@@ -82,8 +82,8 @@ REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
 ]
 
 SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer'], # Change this to include other sensors in the data pre-processing
-    'sw': ['sw_accelerometer'], # Change this to include other sensors in the data pre-processing
+    'sp': ['sp_accelerometer', 'sp_gyroscope'], # Change this to include other sensors in the data pre-processing
+    'sw': ['sw_accelerometer', 'sw_gyroscope'], # Change this to include other sensors in the data pre-processing
     'sp_full': [
         'sp_accelerometer',
         'sp_barometer',
