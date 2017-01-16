@@ -6,6 +6,7 @@ server/data/combined
 
 android/FYP/volley
 server/classifier/model
+docs/report
 tizen_key
 .idea
 **/.DS_Store
