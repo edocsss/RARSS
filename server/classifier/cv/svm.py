@@ -86,7 +86,7 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='',
+                        data_source='sw',
                         activities=[
                             'brushing',
                             'folding',
