@@ -113,3 +113,8 @@ if __name__ == '__main__':
         print()
         print()
         print()
+
+
+    for i in range (0, 5):
+        print('\a')
+        time.sleep(0.5)
