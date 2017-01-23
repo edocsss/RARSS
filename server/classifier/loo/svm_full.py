@@ -12,14 +12,6 @@ import matplotlib.pyplot as plt
 
 
 def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None):
-    print('Data Source: {}'.format(data_source))
-    print('Cost: {}'.format(C))
-    print('Gamma: {}'.format(gamma))
-    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
-    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
-    print('Training Subjects: {}'.format(training_subjects))
-    print('Testing Subjects: {}'.format(test_subjects))
-
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
         data_source + '_' + ''.join(training_subjects) + '_svmloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
@@ -87,6 +79,14 @@ if __name__ == '__main__':
 
         accuracy = []
         f1 = []
+
+        print('Data Source: {}'.format(data_source))
+        print('Cost: {}'.format(C))
+        print('Gamma: {}'.format(gamma))
+        print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+        print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+        print('Training Subjects: {}'.format(training_subjects))
+        print('Testing Subjects: {}'.format(test_subject))
 
         for i in range(3):
             a, f = run_test(
