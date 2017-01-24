@@ -29,6 +29,25 @@ def _load_data(subject):
 def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0', axis=1, inplace=True)
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
+
+    # Set 1
+    # df.drop('sp_dir_baro', axis=1, inplace=True)
+    # df.drop('sp_range_baro', axis=1, inplace=True)
+    # df.drop('sw_dir_baro', axis=1, inplace=True)
+    # df.drop('sw_range_baro', axis=1, inplace=True)
+
+
+    # Set 2
+    # NO DROP!
+
+    # Set 3
+    # df.drop('sp_regression_baro', axis=1, inplace=True)
+    # df.drop('sw_regression_baro', axis=1, inplace=True)
+
+    # Set 4
+    # df.drop('sp_dir_baro', axis=1, inplace=True)
+    # df.drop('sw_dir_baro', axis=1, inplace=True)
+
     return df
 
 
