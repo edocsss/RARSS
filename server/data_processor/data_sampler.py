@@ -179,6 +179,6 @@ def _calculate_magnitude(row, fields):
 
 def _zero_mean_cols(df):
     zero_mean_df = df - df.mean()
-    zero_mean_df = zero_mean_df.rename(columns=lambda c: 'zero_mean_' + c)
-    zero_mean_df.drop('zero_mean_timestamp', axis=1, inplace=True)
+    zero_mean_df = zero_mean_df.rename(columns=lambda c: c + '_zero_mean')
+    zero_mean_df.drop('timestamp_zero_mean', axis=1, inplace=True)
     return pd.concat([df, zero_mean_df], axis=1)
