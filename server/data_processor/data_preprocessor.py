@@ -62,19 +62,19 @@ if __name__ == '__main__':
     start = time.time()
     activities = [
         'brushing',
-        'folding',
-        'going_downstairs',
-        'going_upstairs',
-        'lying',
-        'reading',
-        'running',
-        'sitting',
-        'standing',
-        'sweeping_the_floor',
-        'food_preparation',
-        'typing',
-        'walking',
-        'writing'
+        # 'folding',
+        # 'going_downstairs',
+        # 'going_upstairs',
+        # 'lying',
+        # 'reading',
+        # 'running',
+        # 'sitting',
+        # 'standing',
+        # 'sweeping_the_floor',
+        # 'food_preparation',
+        # 'typing',
+        # 'walking',
+        # 'writing'
     ]
 
     threads = []

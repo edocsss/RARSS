@@ -6,27 +6,10 @@ import config as CONFIG
 
 
 def generate_feature(smartphone_df, smartwatch_df):
-    smartphone_df = _include_additional_data(smartphone_df)
-    smartwatch_df = _include_additional_data(smartwatch_df)
-
     smartphone_features = _generate_smartphone_features(smartphone_df)
     smartwatch_features = _generate_smartwatch_features(smartwatch_df)
 
     return smartphone_features, smartwatch_features
-
-
-def _include_additional_data(df):
-    df['acc_magnitude'] = df.apply(
-        _calculate_accelerometer_magnitude,
-        axis=1,
-        args=(['ax', 'ay', 'az'],)
-    )
-
-    return df
-
-
-def _calculate_accelerometer_magnitude(row, fields):
-    return math.sqrt(sum([math.pow(row[f], 2) for f in fields]))
 
 
 def _generate_smartphone_features(smartphone_df):
