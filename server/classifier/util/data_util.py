@@ -48,6 +48,13 @@ def _drop_irrelevant_columns(df):
     # df.drop('sp_dir_baro', axis=1, inplace=True)
     # df.drop('sw_dir_baro', axis=1, inplace=True)
 
+
+
+    # ZERO MEAN ONLY!!
+    # for col_name in df.columns:
+    #     if 'zero_mean' not in col_name and ('sp' in col_name or 'sw' in col_name):
+    #         df.drop(col_name, axis=1, inplace=True)
+
     return df
 
 
