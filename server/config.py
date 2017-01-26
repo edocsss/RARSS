@@ -82,8 +82,8 @@ REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
 ]
 
 SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer', 'sp_gyroscope'], # Change this to include other sensors in the data pre-processing
-    'sw': ['sw_accelerometer', 'sw_gyroscope'], # Change this to include other sensors in the data pre-processing
+    'sp': ['sp_accelerometer', 'sp_gyroscope', 'sp_barometer'], # Change this to include other sensors in the data pre-processing
+    'sw': ['sw_accelerometer', 'sw_gyroscope', 'sw_pressure'], # Change this to include other sensors in the data pre-processing
     'sp_full': [
         'sp_accelerometer',
         'sp_barometer',
