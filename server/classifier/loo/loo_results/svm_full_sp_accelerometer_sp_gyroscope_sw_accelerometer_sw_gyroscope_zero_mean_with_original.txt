@@ -1,0 +1,380 @@
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['edwin']
+X_train size: 33712
+X_test size: 4711
+
+X_train size: 33712
+X_test size: 4711
+
+X_train size: 33712
+X_test size: 4711
+
+
+Accuracy: [0.80216514540437278, 0.80216514540437278, 0.80216514540437278]
+Accuracy Mean: 0.8021651454043729, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.79504230349776894, 0.79504230349776894, 0.79504230349776894]
+F1 Mean: 0.795042303497769, F1 Standard deviation: 1.1102230246251565e-16
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['shelina']
+X_train size: 36056
+X_test size: 2367
+
+X_train size: 36056
+X_test size: 2367
+
+X_train size: 36056
+X_test size: 2367
+
+
+Accuracy: [0.79298690325306298, 0.79298690325306298, 0.79298690325306298]
+Accuracy Mean: 0.792986903253063, Accuracy Standard deviation: 0.0
+F1 Score: [0.7767604474208496, 0.7767604474208496, 0.7767604474208496]
+F1 Mean: 0.7767604474208496, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['mellita']
+X_train size: 36010
+X_test size: 2413
+
+X_train size: 36010
+X_test size: 2413
+
+X_train size: 36010
+X_test size: 2413
+
+
+Accuracy: [0.84583506009117282, 0.84583506009117282, 0.84583506009117282]
+Accuracy Mean: 0.8458350600911727, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.83816416241121328, 0.83816416241121328, 0.83816416241121328]
+F1 Mean: 0.8381641624112133, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['nikolas']
+X_train size: 36023
+X_test size: 2400
+
+X_train size: 36023
+X_test size: 2400
+
+X_train size: 36023
+X_test size: 2400
+
+
+Accuracy: [0.84291666666666665, 0.84250000000000003, 0.84291666666666665]
+Accuracy Mean: 0.8427777777777777, Accuracy Standard deviation: 0.0001964185503295749
+F1 Score: [0.81981508473790632, 0.81928725113883161, 0.81981508473790632]
+F1 Mean: 0.8196391402048814, F1 Standard deviation: 0.0002488231448292201
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['samuel']
+X_train size: 36018
+X_test size: 2405
+
+X_train size: 36018
+X_test size: 2405
+
+X_train size: 36018
+X_test size: 2405
+
+
+Accuracy: [0.76798336798336797, 0.76798336798336797, 0.76798336798336797]
+Accuracy Mean: 0.767983367983368, Accuracy Standard deviation: 0.0
+F1 Score: [0.74247057927612237, 0.74247057927612237, 0.74247057927612237]
+F1 Mean: 0.7424705792761225, F1 Standard deviation: 1.1102230246251565e-16
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['elmo']
+X_train size: 36016
+X_test size: 2407
+
+X_train size: 36016
+X_test size: 2407
+
+X_train size: 36016
+X_test size: 2407
+
+
+Accuracy: [0.6738678853344412, 0.6738678853344412, 0.6738678853344412]
+Accuracy Mean: 0.6738678853344412, Accuracy Standard deviation: 0.0
+F1 Score: [0.64141536830591639, 0.64141536830591639, 0.64137309438157941]
+F1 Mean: 0.641401276997804, F1 Standard deviation: 1.9928119044029167e-05
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['monica']
+X_train size: 36032
+X_test size: 2391
+
+X_train size: 36032
+X_test size: 2391
+
+X_train size: 36032
+X_test size: 2391
+
+
+Accuracy: [0.81639481388540358, 0.8168130489335006, 0.8168130489335006]
+Accuracy Mean: 0.8166736372508016, Accuracy Standard deviation: 0.00019715789242618763
+F1 Score: [0.79557858924172498, 0.79600570694307549, 0.79600570694307549]
+F1 Mean: 0.7958633343759587, F1 Standard deviation: 0.0002013452153265042
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['inge']
+X_train size: 35991
+X_test size: 2432
+
+X_train size: 35991
+X_test size: 2432
+
+X_train size: 35991
+X_test size: 2432
+
+
+Accuracy: [0.71875, 0.71916118421052633, 0.71916118421052633]
+Accuracy Mean: 0.7190241228070176, Accuracy Standard deviation: 0.0001938340957200021
+F1 Score: [0.68250940326987464, 0.68319749740085256, 0.68319749740085256]
+F1 Mean: 0.6829681326905265, F1 Standard deviation: 0.0003243706840727693
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['andri']
+X_train size: 36012
+X_test size: 2411
+
+X_train size: 36012
+X_test size: 2411
+
+X_train size: 36012
+X_test size: 2411
+
+
+Accuracy: [0.73413521360431355, 0.73413521360431355, 0.73413521360431355]
+Accuracy Mean: 0.7341352136043136, Accuracy Standard deviation: 0.0
+F1 Score: [0.70034062699149469, 0.70034062699149469, 0.70034062699149469]
+F1 Mean: 0.7003406269914946, F1 Standard deviation: 1.1102230246251565e-16
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['arianto']
+X_train size: 36018
+X_test size: 2405
+
+X_train size: 36018
+X_test size: 2405
+
+X_train size: 36018
+X_test size: 2405
+
+
+Accuracy: [0.88232848232848238, 0.88232848232848238, 0.88232848232848238]
+Accuracy Mean: 0.8823284823284824, Accuracy Standard deviation: 0.0
+F1 Score: [0.87779487442179605, 0.87779487442179605, 0.87779487442179605]
+F1 Mean: 0.877794874421796, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['orlin']
+X_train size: 35986
+X_test size: 2437
+
+X_train size: 35986
+X_test size: 2437
+
+X_train size: 35986
+X_test size: 2437
+
+
+Accuracy: [0.87361510053344271, 0.87361510053344271, 0.87361510053344271]
+Accuracy Mean: 0.8736151005334426, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.85691017744477449, 0.85691017744477449, 0.85691017744477449]
+F1 Mean: 0.8569101774447745, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'nathania', 'albert', 'james']
+Testing Subjects: ['valerie']
+X_train size: 36000
+X_test size: 2423
+
+X_train size: 36000
+X_test size: 2423
+
+X_train size: 36000
+X_test size: 2423
+
+
+Accuracy: [0.87164671894345858, 0.87164671894345858, 0.87164671894345858]
+Accuracy Mean: 0.8716467189434586, Accuracy Standard deviation: 0.0
+F1 Score: [0.85682996281200918, 0.85682996281200918, 0.85682996281200918]
+F1 Mean: 0.8568299628120092, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
+Testing Subjects: ['nathania']
+X_train size: 36003
+X_test size: 2420
+
+X_train size: 36003
+X_test size: 2420
+
+X_train size: 36003
+X_test size: 2420
+
+
+Accuracy: [0.71446280991735533, 0.71446280991735533, 0.71446280991735533]
+Accuracy Mean: 0.7144628099173552, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.68932364882699293, 0.68932364882699293, 0.68932364882699293]
+F1 Mean: 0.6893236488269929, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'james']
+Testing Subjects: ['albert']
+X_train size: 36013
+X_test size: 2410
+
+X_train size: 36013
+X_test size: 2410
+
+X_train size: 36013
+X_test size: 2410
+
+
+Accuracy: [0.86141078838174279, 0.86141078838174279, 0.86141078838174279]
+Accuracy Mean: 0.8614107883817428, Accuracy Standard deviation: 0.0
+F1 Score: [0.85312150706028667, 0.85312150706028667, 0.85312150706028667]
+F1 Mean: 0.8531215070602866, F1 Standard deviation: 1.1102230246251565e-16
+
+
+
+
+Data Source: 
+Cost: 1
+Gamma: auto
+Sampling Frequency: 10
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert']
+Testing Subjects: ['james']
+X_train size: 36032
+X_test size: 2391
+
+X_train size: 36032
+X_test size: 2391
+
+X_train size: 36032
+X_test size: 2391
+
+
+Accuracy: [0.79966541196152241, 0.79966541196152241, 0.79966541196152241]
+Accuracy Mean: 0.7996654119615224, Accuracy Standard deviation: 0.0
+F1 Score: [0.78830047371053713, 0.78830692396544499, 0.78830692396544499]
+F1 Mean: 0.7883047738804757, F1 Standard deviation: 3.0406793238215216e-06
+
+
+
+
+
+
+
+
+
