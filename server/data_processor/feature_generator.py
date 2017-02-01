@@ -105,7 +105,19 @@ def _generate_smartphone_features(smartphone_df):
         'sp_entropy_gx_zero_mean',
         'sp_entropy_gy_zero_mean',
         'sp_entropy_gz_zero_mean',
-        'sp_entropy_gyro_magnitude_zero_mean'
+        'sp_entropy_gyro_magnitude_zero_mean',
+
+        'sp_mean_baro',
+        'sp_var_baro',
+        'sp_regression_baro',
+        'sp_dir_baro',
+        'sp_range_baro',
+
+        'sp_mean_baro_zero_mean',
+        'sp_var_baro_zero_mean',
+        'sp_regression_baro_zero_mean',
+        'sp_dir_baro_zero_mean',
+        'sp_range_baro_zero_mean'
     ])
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -117,11 +129,16 @@ def _generate_smartphone_features(smartphone_df):
         gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sp_', column_type='')
         zero_mean_gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sp_', column_type='_zero_mean')
 
+        barometer_features = _generate_barometer_feature_per_window(one_window_df, 'sp_', column_type='')
+        zero_mean_barometer_features = _generate_barometer_feature_per_window(one_window_df, 'sp_', column_type='_zero_mean')
+
         one_window_features = pd.concat([
             accelerometer_features,
             zero_mean_accelerometer_features,
             gyroscope_features,
-            zero_mean_gyroscope_features
+            zero_mean_gyroscope_features,
+            barometer_features,
+            zero_mean_barometer_features
         ], axis=1)
 
         result_df = result_df.append(one_window_features, ignore_index=True)
@@ -222,7 +239,19 @@ def _generate_smartwatch_features(smartwatch_df):
         'sw_entropy_gx_zero_mean',
         'sw_entropy_gy_zero_mean',
         'sw_entropy_gz_zero_mean',
-        'sw_entropy_gyro_magnitude_zero_mean'
+        'sw_entropy_gyro_magnitude_zero_mean',
+
+        'sw_mean_baro',
+        'sw_var_baro',
+        'sw_regression_baro',
+        'sw_dir_baro',
+        'sw_range_baro',
+
+        'sw_mean_baro_zero_mean',
+        'sw_var_baro_zero_mean',
+        'sw_regression_baro_zero_mean',
+        'sw_dir_baro_zero_mean',
+        'sw_range_baro_zero_mean'
     ])
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -234,11 +263,16 @@ def _generate_smartwatch_features(smartwatch_df):
         gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sw_', column_type='')
         zero_mean_gyroscope_features = _generate_gyroscope_feature_per_window(one_window_df, 'sw_', column_type='_zero_mean')
 
+        barometer_features = _generate_barometer_feature_per_window(one_window_df, 'sw_', column_type='')
+        zero_mean_barometer_features = _generate_barometer_feature_per_window(one_window_df, 'sw_', column_type='_zero_mean')
+
         one_window_features = pd.concat([
             accelerometer_features,
             zero_mean_accelerometer_features,
             gyroscope_features,
-            zero_mean_gyroscope_features
+            zero_mean_gyroscope_features,
+            barometer_features,
+            zero_mean_barometer_features
         ], axis=1)
 
         result_df = result_df.append(one_window_features, ignore_index=True)
@@ -353,6 +387,36 @@ def _generate_gyroscope_feature_per_window(df, column_prefix, column_type=''):
 
     except:
         print('Feature generation exception!')
+
+    result_df = pd.DataFrame(data=[result], columns=result_cols)
+    return result_df
+
+
+def _generate_barometer_feature_per_window(df, column_prefix, column_type=''):
+    barometer_related_data = df[['pressure' + column_type]]
+    result = []
+    result_cols = [
+        column_prefix + 'mean_baro' + column_type,
+        column_prefix + 'var_baro' + column_type,
+        column_prefix + 'regression_baro' + column_type,
+        column_prefix + 'dir_baro' + column_type,
+        column_prefix + 'range_baro' + column_type
+    ]
+
+    result += barometer_related_data.mean().tolist()
+    result += barometer_related_data.var().tolist()
+
+    try:
+        x = [i for i in range (0, len(barometer_related_data.values))]
+        y = [data[0] for data in barometer_related_data.values.tolist()]
+
+        result.append(np.polyfit(x, y, 1)[0])
+        result.append(y[-1] - y[0])
+        result.append(math.fabs(max(y) - min(y)))
+
+    except Exception as e:
+        print('Feature generation exception!')
+        print(e)
 
     result_df = pd.DataFrame(data=[result], columns=result_cols)
     return result_df
