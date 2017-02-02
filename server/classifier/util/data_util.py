@@ -29,6 +29,12 @@ def _load_data(subject):
 def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0', axis=1, inplace=True)
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
+
+    # Remove gyroscope related columns
+    for col_name in df.columns:
+        if 'gx' in col_name or 'gy' in col_name or 'gz' in col_name or 'gyro_magnitude' in col_name:
+            df.drop(col_name, axis=1, inplace=True)
+
     return df
 
 

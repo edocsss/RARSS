@@ -42,47 +42,59 @@ def _generate_smartphone_features(smartphone_df):
         'sp_mean_ay',
         'sp_mean_az',
         'sp_mean_acc_magnitude',
-        'sp_var_ax',
-        'sp_var_ay',
-        'sp_var_az',
-        'sp_var_acc_magnitude',
-        'sp_cov_a_xy',
-        'sp_cov_a_xz',
-        'sp_cov_a_yz',
-        'sp_cov_a_xmag',
-        'sp_cov_a_ymag',
-        'sp_cov_a_zmag',
-        'sp_energy_ax',
-        'sp_energy_ay',
-        'sp_energy_az',
-        'sp_energy_acc_magnitude',
-        'sp_entropy_ax',
-        'sp_entropy_ay',
-        'sp_entropy_az',
-        'sp_entropy_acc_magnitude',
+        'sp_std_ax',
+        'sp_std_ay',
+        'sp_std_az',
+        'sp_std_acc_magnitude',
+        'sp_min_ax',
+        'sp_min_ay',
+        'sp_min_az',
+        'sp_min_acc_magnitude',
+        'sp_max_ax',
+        'sp_max_ay',
+        'sp_max_az',
+        'sp_max_acc_magnitude',
+        'sp_semi_quartile_ax',
+        'sp_semi_quartile_ay',
+        'sp_semi_quartile_az',
+        'sp_semi_quartile_acc_magnitude',
+        'sp_median_ax',
+        'sp_median_ay',
+        'sp_median_az',
+        'sp_median_acc_magnitude',
+        'sp_sum_10_fft_ax',
+        'sp_sum_10_fft_ay',
+        'sp_sum_10_fft_az',
+        'sp_sum_10_fft_acc_magnitude',
 
         'sp_mean_gx',
         'sp_mean_gy',
         'sp_mean_gz',
         'sp_mean_gyro_magnitude',
-        'sp_var_gx',
-        'sp_var_gy',
-        'sp_var_gz',
-        'sp_var_gyro_magnitude',
-        'sp_cov_g_xy',
-        'sp_cov_g_xz',
-        'sp_cov_g_yz',
-        'sp_cov_g_xmag',
-        'sp_cov_g_ymag',
-        'sp_cov_g_zmag',
-        'sp_energy_gx',
-        'sp_energy_gy',
-        'sp_energy_gz',
-        'sp_energy_gyro_magnitude',
-        'sp_entropy_gx',
-        'sp_entropy_gy',
-        'sp_entropy_gz',
-        'sp_entropy_gyro_magnitude'
+        'sp_std_gx',
+        'sp_std_gy',
+        'sp_std_gz',
+        'sp_std_gyro_magnitude',
+        'sp_min_gx',
+        'sp_min_gy',
+        'sp_min_gz',
+        'sp_min_gyro_magnitude',
+        'sp_max_gx',
+        'sp_max_gy',
+        'sp_max_gz',
+        'sp_max_gyro_magnitude',
+        'sp_semi_quartile_gx',
+        'sp_semi_quartile_gy',
+        'sp_semi_quartile_gz',
+        'sp_semi_quartile_gyro_magnitude',
+        'sp_median_gx',
+        'sp_median_gy',
+        'sp_median_gz',
+        'sp_median_gyro_magnitude',
+        'sp_sum_10_fft_gx',
+        'sp_sum_10_fft_gy',
+        'sp_sum_10_fft_gz',
+        'sp_sum_10_fft_gyro_magnitude'
     ])
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -107,47 +119,59 @@ def _generate_smartwatch_features(smartwatch_df):
         'sw_mean_ay',
         'sw_mean_az',
         'sw_mean_acc_magnitude',
-        'sw_var_ax',
-        'sw_var_ay',
-        'sw_var_az',
-        'sw_var_acc_magnitude',
-        'sw_cov_a_xy',
-        'sw_cov_a_xz',
-        'sw_cov_a_yz',
-        'sw_cov_a_xmag',
-        'sw_cov_a_ymag',
-        'sw_cov_a_zmag',
-        'sw_energy_ax',
-        'sw_energy_ay',
-        'sw_energy_az',
-        'sw_energy_acc_magnitude',
-        'sw_entropy_ax',
-        'sw_entropy_ay',
-        'sw_entropy_az',
-        'sw_entropy_acc_magnitude',
+        'sw_std_ax',
+        'sw_std_ay',
+        'sw_std_az',
+        'sw_std_acc_magnitude',
+        'sw_min_ax',
+        'sw_min_ay',
+        'sw_min_az',
+        'sw_min_acc_magnitude',
+        'sw_max_ax',
+        'sw_max_ay',
+        'sw_max_az',
+        'sw_max_acc_magnitude',
+        'sw_median_ax',
+        'sw_median_ay',
+        'sw_median_az',
+        'sw_median_acc_magnitude',
+        'sw_semi_quartile_ax',
+        'sw_semi_quartile_ay',
+        'sw_semi_quartile_az',
+        'sw_semi_quartile_acc_magnitude',
+        'sw_sum_10_fft_ax',
+        'sw_sum_10_fft_ay',
+        'sw_sum_10_fft_az',
+        'sw_sum_10_fft_acc_magnitude',
 
         'sw_mean_gx',
         'sw_mean_gy',
         'sw_mean_gz',
         'sw_mean_gyro_magnitude',
-        'sw_var_gx',
-        'sw_var_gy',
-        'sw_var_gz',
-        'sw_var_gyro_magnitude',
-        'sw_cov_g_xy',
-        'sw_cov_g_xz',
-        'sw_cov_g_yz',
-        'sw_cov_g_xmag',
-        'sw_cov_g_ymag',
-        'sw_cov_g_zmag',
-        'sw_energy_gx',
-        'sw_energy_gy',
-        'sw_energy_gz',
-        'sw_energy_gyro_magnitude',
-        'sw_entropy_gx',
-        'sw_entropy_gy',
-        'sw_entropy_gz',
-        'sw_entropy_gyro_magnitude'
+        'sw_std_gx',
+        'sw_std_gy',
+        'sw_std_gz',
+        'sw_std_gyro_magnitude',
+        'sw_min_gx',
+        'sw_min_gy',
+        'sw_min_gz',
+        'sw_min_gyro_magnitude',
+        'sw_max_gx',
+        'sw_max_gy',
+        'sw_max_gz',
+        'sw_max_gyro_magnitude',
+        'sw_median_gx',
+        'sw_median_gy',
+        'sw_median_gz',
+        'sw_median_gyro_magnitude',
+        'sw_semi_quartile_gx',
+        'sw_semi_quartile_gy',
+        'sw_semi_quartile_gz',
+        'sw_semi_quartile_gyro_magnitude',
+        'sw_sum_10_fft_gx',
+        'sw_sum_10_fft_gy',
+        'sw_sum_10_fft_gz',
+        'sw_sum_10_fft_gyro_magnitude'
     ])
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -173,102 +197,110 @@ def _generate_accelerometer_feature_per_window(df, column_prefix):
         column_prefix + 'mean_ay',
         column_prefix + 'mean_az',
         column_prefix + 'mean_acc_magnitude',
-        column_prefix + 'var_ax',
-        column_prefix + 'var_ay',
-        column_prefix + 'var_az',
-        column_prefix + 'var_acc_magnitude',
-        column_prefix + 'cov_a_xy',
-        column_prefix + 'cov_a_xz',
-        column_prefix + 'cov_a_yz',
-        column_prefix + 'cov_a_xmag',
-        column_prefix + 'cov_a_ymag',
-        column_prefix + 'cov_a_zmag',
-        column_prefix + 'energy_ax',
-        column_prefix + 'energy_ay',
-        column_prefix + 'energy_az',
-        column_prefix + 'energy_acc_magnitude',
-        column_prefix + 'entropy_ax',
-        column_prefix + 'entropy_ay',
-        column_prefix + 'entropy_az',
-        column_prefix + 'entropy_acc_magnitude'
+        column_prefix + 'std_ax',
+        column_prefix + 'std_ay',
+        column_prefix + 'std_az',
+        column_prefix + 'std_acc_magnitude',
+        column_prefix + 'min_ax',
+        column_prefix + 'min_ay',
+        column_prefix + 'min_az',
+        column_prefix + 'min_acc_magnitude',
+        column_prefix + 'max_ax',
+        column_prefix + 'max_ay',
+        column_prefix + 'max_az',
+        column_prefix + 'max_acc_magnitude',
+        column_prefix + 'median_ax',
+        column_prefix + 'median_ay',
+        column_prefix + 'median_az',
+        column_prefix + 'median_acc_magnitude',
+        column_prefix + 'semi_quartile_ax',
+        column_prefix + 'semi_quartile_ay',
+        column_prefix + 'semi_quartile_az',
+        column_prefix + 'semi_quartile_acc_magnitude',
+        column_prefix + 'sum_10_fft_ax',
+        column_prefix + 'sum_10_fft_ay',
+        column_prefix + 'sum_10_fft_az',
+        column_prefix + 'sum_10_fft_acc_magnitude',
     ]
 
     result += accelerometer_related_data.mean().tolist()
-    result += accelerometer_related_data.var().tolist()
+    result += accelerometer_related_data.std().tolist()
+    result += accelerometer_related_data.min().tolist()
+    result += accelerometer_related_data.max().tolist()
+    result += accelerometer_related_data.median().tolist()
 
     try:
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'ay'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'az'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'az'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'acc_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'acc_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'az', 'acc_magnitude'))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['ax']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['ay']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['az']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['acc_magnitude']))
 
-        result.append(_calculate_energy(accelerometer_related_data['ax']))
-        result.append(_calculate_energy(accelerometer_related_data['ay']))
-        result.append(_calculate_energy(accelerometer_related_data['az']))
-        result.append(_calculate_energy(accelerometer_related_data['acc_magnitude']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['ax']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['ay']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['az']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['acc_magnitude']))
 
-        result.append(_calculate_entropy(accelerometer_related_data['ax']))
-        result.append(_calculate_entropy(accelerometer_related_data['ay']))
-        result.append(_calculate_entropy(accelerometer_related_data['az']))
-        result.append(_calculate_entropy(accelerometer_related_data['acc_magnitude']))
-
-    except:
+    except Exception as e:
         print('Feature generation exception!')
+        print(e)
+        print()
+        print()
 
     result_df = pd.DataFrame(data=[result], columns=result_cols)
     return result_df
 
 
 def _generate_gyroscope_feature_per_window(df, column_prefix):
-    accelerometer_related_data = df[['gx', 'gy', 'gz', 'gyro_magnitude']]
+    gyroscope_related_data = df[['gx', 'gy', 'gz', 'gyro_magnitude']]
     result = []
     result_cols = [
         column_prefix + 'mean_gx',
         column_prefix + 'mean_gy',
         column_prefix + 'mean_gz',
         column_prefix + 'mean_gyro_magnitude',
-        column_prefix + 'var_gx',
-        column_prefix + 'var_gy',
-        column_prefix + 'var_gz',
-        column_prefix + 'var_gyro_magnitude',
-        column_prefix + 'cov_g_xy',
-        column_prefix + 'cov_g_xz',
-        column_prefix + 'cov_g_yz',
-        column_prefix + 'cov_g_xmag',
-        column_prefix + 'cov_g_ymag',
-        column_prefix + 'cov_g_zmag',
-        column_prefix + 'energy_gx',
-        column_prefix + 'energy_gy',
-        column_prefix + 'energy_gz',
-        column_prefix + 'energy_gyro_magnitude',
-        column_prefix + 'entropy_gx',
-        column_prefix + 'entropy_gy',
-        column_prefix + 'entropy_gz',
-        column_prefix + 'entropy_gyro_magnitude'
+        column_prefix + 'std_gx',
+        column_prefix + 'std_gy',
+        column_prefix + 'std_gz',
+        column_prefix + 'std_gyro_magnitude',
+        column_prefix + 'min_gx',
+        column_prefix + 'min_gy',
+        column_prefix + 'min_gz',
+        column_prefix + 'min_gyro_magnitude',
+        column_prefix + 'max_gx',
+        column_prefix + 'max_gy',
+        column_prefix + 'max_gz',
+        column_prefix + 'max_gyro_magnitude',
+        column_prefix + 'median_gx',
+        column_prefix + 'median_gy',
+        column_prefix + 'median_gz',
+        column_prefix + 'median_gyro_magnitude',
+        column_prefix + 'semi_quartile_gx',
+        column_prefix + 'semi_quartile_gy',
+        column_prefix + 'semi_quartile_gz',
+        column_prefix + 'semi_quartile_gyro_magnitude',
+        column_prefix + 'sum_10_fft_gx',
+        column_prefix + 'sum_10_fft_gy',
+        column_prefix + 'sum_10_fft_gz',
+        column_prefix + 'sum_10_fft_gyro_magnitude'
     ]
 
-    result += accelerometer_related_data.mean().tolist()
-    result += accelerometer_related_data.var().tolist()
+    result += gyroscope_related_data.mean().tolist()
+    result += gyroscope_related_data.std().tolist()
+    result += gyroscope_related_data.min().tolist()
+    result += gyroscope_related_data.max().tolist()
+    result += gyroscope_related_data.median().tolist()
+
 
     try:
-        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gy'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gz'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'gy', 'gz'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'gx', 'gyro_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'gy', 'gyro_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'gz', 'gyro_magnitude'))
+        result.append(_calculate_semi_quartile(gyroscope_related_data['gx']))
+        result.append(_calculate_semi_quartile(gyroscope_related_data['gy']))
+        result.append(_calculate_semi_quartile(gyroscope_related_data['gz']))
+        result.append(_calculate_semi_quartile(gyroscope_related_data['gyro_magnitude']))
 
-        result.append(_calculate_energy(accelerometer_related_data['gx']))
-        result.append(_calculate_energy(accelerometer_related_data['gy']))
-        result.append(_calculate_energy(accelerometer_related_data['gz']))
-        result.append(_calculate_energy(accelerometer_related_data['gyro_magnitude']))
-
-        result.append(_calculate_entropy(accelerometer_related_data['gx']))
-        result.append(_calculate_entropy(accelerometer_related_data['gy']))
-        result.append(_calculate_entropy(accelerometer_related_data['gz']))
-        result.append(_calculate_entropy(accelerometer_related_data['gyro_magnitude']))
+        result.append(_calculate_sum_first_10_fft(gyroscope_related_data['gx']))
+        result.append(_calculate_sum_first_10_fft(gyroscope_related_data['gy']))
+        result.append(_calculate_sum_first_10_fft(gyroscope_related_data['gz']))
+        result.append(_calculate_sum_first_10_fft(gyroscope_related_data['gyro_magnitude']))
 
     except:
         print('Feature generation exception!')
@@ -277,43 +309,16 @@ def _generate_gyroscope_feature_per_window(df, column_prefix):
     return result_df
 
 
-def _calculate_covariance(df, col1, col2):
-    relevant_df = df[[col1, col2]]
-    mean_col1 = relevant_df[col1].mean()
-    mean_col2 = relevant_df[col2].mean()
-
-    total = 0
-    for i, row in relevant_df.iterrows():
-        total += (row[col1] - mean_col1) * (row[col2] - mean_col2)
-
-    return total / (len(relevant_df) - 1)
+def _calculate_semi_quartile(series):
+    first_quartile = series.quantile(0.25)
+    third_quartile = series.quantile(0.75)
+    return (first_quartile + third_quartile) / 2
 
 
-def _calculate_energy(series):
+def _calculate_sum_first_10_fft(series):
     values = series.tolist()
-    N = len(values)
-
     fft = _calculate_fft(values)
-    total = sum(fft[1:])
-    return math.sqrt(total / (N - 1))
-
-
-def _calculate_entropy(series):
-    values = series.tolist()
-    N = len(values)
-    fft = _calculate_fft(values)
-
-    terms = [(-_calculate_O(fft, l) * math.log(_calculate_O(fft, l))) for l in range(1, N)]
-    return sum(terms)
-
-
-def _calculate_O(fft, l):
-    nom = math.fabs(fft[l])
-    if nom == 0:
-        return 1
-
-    denom = sum([math.fabs(fft_value) for fft_value in fft[1:]])
-    return nom / denom
+    return sum(fft[:10])
 
 
 # For details about FFT, take a look at Prof. Tan's and Dr. Wang's paper
@@ -324,6 +329,9 @@ def _calculate_O(fft, l):
 def _calculate_fft(vector):
     fft_vector = np.fft.fft(vector)
     return np.absolute(fft_vector)
+
+
+
 
 
 def store_features_df(smartphone_features, smartwatch_features, activity_type):
