@@ -9,7 +9,7 @@ from data_processor import feature_generator
 from data_processor.util import raw_data_reader
 
 
-def preprocess_data_for_manual_testing(activity_type):
+def preprocess_data_for_manual_testing(activity_type, data_subject=CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT):
     raw_data = raw_data_reader.read_all_raw_data(activity_type)
 
     print('Data sampling started for {}!'.format(activity_type))
@@ -48,18 +48,6 @@ def preprocess_data_for_real_time_monitoring(raw_data):
 
 
 if __name__ == '__main__':
-    print('Data preprocessing configuration:')
-    print('Subject: {}'.format(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT))
-    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
-    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
-    print('Window Overlap Size: {}'.format(CONFIG.WINDOW_OVERLAP))
-    print('Starting Outlier Removal Size: {}'.format(CONFIG.STARTING_OUTLIER_REMOVAL_SIZE))
-    print('Ending Outlier Removal Size: {}'.format(CONFIG.ENDING_OUTLIER_REMOVAL_SIZE))
-    print()
-    print()
-    print()
-
-    start = time.time()
     activities = [
         'brushing',
         'folding',
@@ -77,15 +65,29 @@ if __name__ == '__main__':
         'writing'
     ]
 
-    threads = []
-    for activity in activities:
-        print('Full pre-processing: {}'.format(activity))
-        t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity,))
-        t.start()
-        threads.append(t)
+    for subject in CONFIG.FULL_SUBJECT_LIST:
+        print('Data preprocessing configuration:')
+        print('Subject: {}'.format(subject))
+        print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+        print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+        print('Window Overlap Size: {}'.format(CONFIG.WINDOW_OVERLAP))
+        print('Starting Outlier Removal Size: {}'.format(CONFIG.STARTING_OUTLIER_REMOVAL_SIZE))
+        print('Ending Outlier Removal Size: {}'.format(CONFIG.ENDING_OUTLIER_REMOVAL_SIZE))
+        print()
+        print()
+        print()
 
-    for t in threads:
-        t.join()
+        start = time.time()
+        threads = []
 
-    data_combiner.combine_all_data_into_one_complete_dataset()
-    print('Timer: {}'.format(time.time() - start))
+        for activity in activities:
+            print('Full pre-processing: {}'.format(activity))
+            t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity, subject,))
+            t.start()
+            threads.append(t)
+
+        for t in threads:
+            t.join()
+
+        data_combiner.combine_all_data_into_one_complete_dataset()
+        print('Timer: {}'.format(time.time() - start))
