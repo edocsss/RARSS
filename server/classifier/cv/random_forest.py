@@ -50,7 +50,6 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
-
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
     print('F1 Score: {}'.format(fscore_results))
@@ -63,9 +62,9 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [500, 1000]
+    n_estimators = [1, 5, 10, 20, 30, 50, 75, 100, 200, 300, 500, 1000]
     for n in n_estimators:
-        accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
+        run_cv(
             n_estimators=n,
             data_source='sw',
             permutate_xyz=False,
