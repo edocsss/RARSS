@@ -176,7 +176,7 @@ FEATURES_DATA_RESULT = {
 ######################################################################################
 
 # DATA PREPROCESSING CONFIGURATIONS
-SAMPLING_FREQUENCY = 20 # in Hz
+SAMPLING_FREQUENCY = 50 # in Hz
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5
 STARTING_OUTLIER_REMOVAL_SIZE = 7000

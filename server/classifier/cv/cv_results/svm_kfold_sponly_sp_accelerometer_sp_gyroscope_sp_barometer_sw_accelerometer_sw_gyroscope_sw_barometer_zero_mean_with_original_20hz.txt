@@ -1,0 +1,582 @@
+SVM Configuration:
+C: 1
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 1
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.5545897537205321, 0.55827736072698542, 0.56341367048597391, 0.56091136573159484, 0.55959436322929013]
+Accuracy Mean: 0.5593573027788752, Accuracy Standard deviation: 0.00292647320686549
+F1 Score: [0.52237661321081019, 0.52915134613838688, 0.53500515098235568, 0.53672582475379416, 0.52750270011146272]
+F1 Mean: 0.5301523270393619, F1 Standard deviation: 0.005200864997056457
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 1
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.66930067167127616, 0.66205715790859998, 0.67812458843671808, 0.67680758593441326, 0.67153957592519431]
+Accuracy Mean: 0.6715659159752403, Accuracy Standard deviation: 0.005762634708926446
+F1 Score: [0.66261241851277974, 0.65227454460643053, 0.67039860977882559, 0.66752302605156155, 0.6628351677488088]
+F1 Mean: 0.6631287533396812, F1 Standard deviation: 0.006169717768095392
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 1
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.73172659028052156, 0.73554589753720534, 0.74344791255103382, 0.74107730804688532, 0.73936520479388912]
+Accuracy Mean: 0.738232582641907, Accuracy Standard deviation: 0.004150209033004335
+F1 Score: [0.72734404357531635, 0.73189476140059528, 0.73939150213048832, 0.73696645894406199, 0.73522365674683121]
+F1 Mean: 0.7341640845594586, F1 Standard deviation: 0.0041943933172362
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 1
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.76531015408929282, 0.7755827736072699, 0.76293954958514421, 0.77848017911234035, 0.76478335308837087]
+Accuracy Mean: 0.7694192018964837, Accuracy Standard deviation: 0.006331700979509156
+F1 Score: [0.76367174608188026, 0.77408495609338512, 0.76167021867144646, 0.77766733988270154, 0.7632313223206515]
+F1 Mean: 0.768065116610013, F1 Standard deviation: 0.006511576624107851
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 10
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 10
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.65929145265375999, 0.66732516791781904, 0.66732516791781904, 0.6657447649150533, 0.66679836691689709]
+Accuracy Mean: 0.6652969840642697, Accuracy Standard deviation: 0.0030577156561952348
+F1 Score: [0.65102343588324352, 0.6606874527590193, 0.66054939064080931, 0.6573946497014076, 0.65976781394645234]
+F1 Mean: 0.6578845485861865, F1 Standard deviation: 0.003628200982171198
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 10
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 10
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.73422889503490052, 0.75016462531278805, 0.73594099828789672, 0.74924272356117472, 0.75016462531278805]
+Accuracy Mean: 0.7439483735019097, Accuracy Standard deviation: 0.007264984999174887
+F1 Score: [0.73158456550772044, 0.7477278632056954, 0.73365725986209451, 0.74804119818049275, 0.74687768518349362]
+F1 Mean: 0.7415777143878993, F1 Standard deviation: 0.007352377412634246
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 10
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 10
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.81008823916765438, 0.79533781114184121, 0.81403924667456873, 0.80824443566442772, 0.81733175293033056]
+Accuracy Mean: 0.8090082971157646, Accuracy Standard deviation: 0.0075262516045609025
+F1 Score: [0.80895975706212697, 0.79322942442742195, 0.81241272667217346, 0.80714565963282048, 0.81588075525842463]
+F1 Mean: 0.8075256646105935, F1 Standard deviation: 0.007749508676617065
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 10
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 10
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.84512050572896091, 0.84354010272619517, 0.83985249571974185, 0.84222310022389046, 0.84775451073357044]
+Accuracy Mean: 0.8436981430264717, Accuracy Standard deviation: 0.0026633424806563146
+F1 Score: [0.84425174305121209, 0.84216442050455276, 0.83889897295455595, 0.84157336444422826, 0.84688641387366137]
+F1 Mean: 0.8427549829656421, F1 Standard deviation: 0.002680403389704062
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 100
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 100
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.72184907151323585, 0.72277097326484918, 0.73699460028974051, 0.74516001580403002, 0.73725800079020154]
+Accuracy Mean: 0.7328065323324113, Accuracy Standard deviation: 0.009063580219005725
+F1 Score: [0.71940961164371564, 0.72039036317971417, 0.73453171755206803, 0.74420478975373983, 0.73591693378040979]
+F1 Mean: 0.7308906831819295, F1 Standard deviation: 0.00956929970252039
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 100
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 100
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.8079810351639668, 0.79665481364414592, 0.8038983274068221, 0.80534703015935727, 0.80271302515474774]
+Accuracy Mean: 0.8033188463058079, Accuracy Standard deviation: 0.0037672717879691526
+F1 Score: [0.80658348543873448, 0.79489795821142828, 0.80224861452173746, 0.80383109183168377, 0.80147747337494957]
+F1 Mean: 0.8018077246757066, F1 Standard deviation: 0.003871698022377623
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 100
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 100
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.86895825102067692, 0.86579744501514555, 0.87290925852759116, 0.86250493875938361, 0.87409456077966552]
+Accuracy Mean: 0.8688528908204927, Accuracy Standard deviation: 0.004326027465179145
+F1 Score: [0.86798516242977886, 0.86521387371998293, 0.87208052190784746, 0.86182635695568199, 0.87374801145538727]
+F1 Mean: 0.8681707852937357, F1 Standard deviation: 0.004368547696643643
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 100
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 100
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.90636112208613195, 0.90583432108521011, 0.90728302383774528, 0.90425391808244437, 0.90267351507967863]
+Accuracy Mean: 0.9052811800342422, Accuracy Standard deviation: 0.001633083102857899
+F1 Score: [0.90636533934847396, 0.90605244248548211, 0.9075005160040861, 0.90411929151379267, 0.90243381663941458]
+F1 Mean: 0.9052942811982498, F1 Standard deviation: 0.0017973482894551051
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 500
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 500
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.76847096009482418, 0.76320295008560513, 0.77268536810219934, 0.77545107335703933, 0.76636375609113661]
+Accuracy Mean: 0.769234821546161, Accuracy Standard deviation: 0.004376254850718306
+F1 Score: [0.76717343754253919, 0.7619925338453073, 0.77176390930554317, 0.77403762239954088, 0.76477176633835731]
+F1 Mean: 0.7679478538862576, F1 Standard deviation: 0.004422683553769703
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 500
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 500
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.82852627419992098, 0.83458448571052291, 0.83511128671144474, 0.83945739496905047, 0.83089687870406959]
+Accuracy Mean: 0.8337152640590018, Accuracy Standard deviation: 0.003756205656784073
+F1 Score: [0.82697589038247943, 0.83323726937075793, 0.83429602394443803, 0.83821609382511897, 0.82918965038954806]
+F1 Mean: 0.8323829855824686, F1 Standard deviation: 0.003945851910345017
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 500
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 500
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.91018042934281573, 0.90570262083497954, 0.90504411958382724, 0.9075464243382062, 0.90912682734097194]
+Accuracy Mean: 0.9075200842881601, Accuracy Standard deviation: 0.001954140602237992
+F1 Score: [0.91010941280497093, 0.90582053112035577, 0.90487036924342068, 0.90752559464473126, 0.90896275063356669]
+F1 Mean: 0.9074577316894091, F1 Standard deviation: 0.0019326650134891582
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 500
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 500
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.93731068089029368, 0.93744238114052414, 0.94192018964836033, 0.94086658764651654, 0.94007638614513367]
+Accuracy Mean: 0.9395232450941657, Accuracy Standard deviation: 0.00184831342477007
+F1 Score: [0.93746328047763616, 0.93752760059999951, 0.94214230846222891, 0.94089522012897586, 0.9401720884200141]
+F1 Mean: 0.939640099617771, F1 Standard deviation: 0.0018612137090396387
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1000
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 1000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.77755827736072702, 0.7779533781114184, 0.78045568286579747, 0.78045568286579747, 0.78677729487686021]
+Accuracy Mean: 0.7806400632161201, Accuracy Standard deviation: 0.0032999783512952874
+F1 Score: [0.77631952996492792, 0.77640754781425059, 0.77851030588978987, 0.77868709225649702, 0.78578561745128084]
+F1 Mean: 0.7791420186753493, F1 Standard deviation: 0.003469501324289187
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1000
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 1000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.8444620044778085, 0.84973001448702756, 0.8478862109838009, 0.84762281048333987, 0.85394442249440272]
+Accuracy Mean: 0.848729092585276, Accuracy Standard deviation: 0.0031094649415774954
+F1 Score: [0.84320855434770769, 0.84830679460211533, 0.84705063040451078, 0.84665340238228259, 0.85323768165044267]
+F1 Mean: 0.8476914126774118, F1 Standard deviation: 0.0032472721023256617
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1000
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 1000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.92532595811932039, 0.9225602528644804, 0.92335045436586327, 0.92572105887001188, 0.91913604635848811]
+Accuracy Mean: 0.9232187541156328, Accuracy Standard deviation: 0.002358868766204454
+F1 Score: [0.9252012268583617, 0.92257906255322308, 0.92381045139133089, 0.92586800128628721, 0.91924710019583522]/usr/local/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+/usr/local/lib/python3.5/site-packages/sklearn/utils/validation.py:526: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+
+F1 Mean: 0.9233411684570075, F1 Standard deviation: 0.002341244464456564
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 1000
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 1000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.95100750691426317, 0.95179770841564604, 0.9519294086658765, 0.95179770841564604, 0.95232450941656788]
+Accuracy Mean: 0.9517713683656, Accuracy Standard deviation: 0.0004279751563090083
+F1 Score: [0.95106761852808797, 0.95186562557627075, 0.95204991247834037, 0.95192544327658113, 0.95243599192604644]
+F1 Mean: 0.9518689183570654, F1 Standard deviation: 0.00044712831031458564
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 5000
+Kernel: rbf
+Gamma: auto
+Degree: 1
+Data source: sp
+
+Cost: 5000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.80956143816673254, 0.80271302515474774, 0.80692743316212301, 0.8079810351639668, 0.79849861714737258]
+Accuracy Mean: 0.8051363097589885, Accuracy Standard deviation: 0.004020289009000703
+F1 Score: [0.80748129169305394, 0.80068358993696043, 0.80520073883666565, 0.80682225942668007, 0.79707897775363246]
+F1 Mean: 0.8034533715293986, F1 Standard deviation: 0.003973195819339187
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 5000
+Kernel: rbf
+Gamma: 0.1
+Degree: 1
+Data source: sp
+
+Cost: 5000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.88463058079810353, 0.88331357829579871, 0.88686948505202157, 0.8935861978137758, 0.88963519030686156]
+Accuracy Mean: 0.8876070064533124, Accuracy Standard deviation: 0.0036796965068036955
+F1 Score: [0.88427777138610764, 0.88263220600207437, 0.88638559388178684, 0.89335774814325553, 0.88911181103575487]
+F1 Mean: 0.887153026089796, F1 Standard deviation: 0.0037849509982487584
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 5000
+Kernel: rbf
+Gamma: 0.5
+Degree: 1
+Data source: sp
+
+Cost: 5000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.95311471091795075, 0.95166600816541547, 0.95456341367048603, 0.94600289740550503, 0.95469511392071649]
+Accuracy Mean: 0.9520084288160149, Accuracy Standard deviation: 0.0031985541724986765
+F1 Score: [0.95320392640008611, 0.95179995694092401, 0.95458537101250751, 0.9460969123691273, 0.95474167514168207]
+F1 Mean: 0.9520855683728653, F1 Standard deviation: 0.003178056503674169
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+
+SVM Configuration:
+C: 5000
+Kernel: rbf
+Gamma: 1
+Degree: 1
+Data source: sp
+
+Cost: 5000
+Sampling Frequency: 20
+Window Size: 2000
+Accuracy: [0.97313314895298297, 0.96957724219676023, 0.97207954695113918, 0.97326484920321343, 0.97181614645067826]
+Accuracy Mean: 0.9719741867509548, Accuracy Standard deviation: 0.0013259278755330308
+F1 Score: [0.97317220213534805, 0.96960130680154832, 0.97213977368597693, 0.97326957566307359, 0.97182504674302972]
+F1 Mean: 0.9720015810057954, F1 Standard deviation: 0.0013258764722402373
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+
+
+
+
+
+
+
+

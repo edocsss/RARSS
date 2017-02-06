@@ -65,29 +65,28 @@ if __name__ == '__main__':
         'writing'
     ]
 
-    for subject in CONFIG.FULL_SUBJECT_LIST:
-        print('Data preprocessing configuration:')
-        print('Subject: {}'.format(subject))
-        print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
-        print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
-        print('Window Overlap Size: {}'.format(CONFIG.WINDOW_OVERLAP))
-        print('Starting Outlier Removal Size: {}'.format(CONFIG.STARTING_OUTLIER_REMOVAL_SIZE))
-        print('Ending Outlier Removal Size: {}'.format(CONFIG.ENDING_OUTLIER_REMOVAL_SIZE))
-        print()
-        print()
-        print()
+    print('Data preprocessing configuration:')
+    print('Subject: {}'.format(CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT))
+    print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
+    print('Window Size: {}'.format(CONFIG.WINDOW_SIZE))
+    print('Window Overlap Size: {}'.format(CONFIG.WINDOW_OVERLAP))
+    print('Starting Outlier Removal Size: {}'.format(CONFIG.STARTING_OUTLIER_REMOVAL_SIZE))
+    print('Ending Outlier Removal Size: {}'.format(CONFIG.ENDING_OUTLIER_REMOVAL_SIZE))
+    print()
+    print()
+    print()
 
-        start = time.time()
-        threads = []
+    start = time.time()
+    threads = []
 
-        for activity in activities:
-            print('Full pre-processing: {}'.format(activity))
-            t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity, subject,))
-            t.start()
-            threads.append(t)
+    for activity in activities:
+        print('Full pre-processing: {}'.format(activity))
+        t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity,))
+        t.start()
+        threads.append(t)
 
-        for t in threads:
-            t.join()
+    for t in threads:
+        t.join()
 
-        data_combiner.combine_all_data_into_one_complete_dataset()
-        print('Timer: {}'.format(time.time() - start))
+    data_combiner.combine_all_data_into_one_complete_dataset()
+    print('Timer: {}'.format(time.time() - start))

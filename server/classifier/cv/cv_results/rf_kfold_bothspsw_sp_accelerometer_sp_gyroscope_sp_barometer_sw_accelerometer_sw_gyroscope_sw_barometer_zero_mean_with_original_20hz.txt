@@ -1,0 +1,302 @@
+/usr/local/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+Data Source: 
+Number of Estimators: 1
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.90965362834189389, 0.89108389305939684, 0.90583432108521011, 0.89964440932437773, 0.89082049255893592]
+Accuracy Mean: 0.8994073488739629, Accuracy Standard deviation: 0.00760739680137945
+F1 Score: [0.90983463657162722, 0.89117009580404483, 0.9057376044079779, 0.8997556549641792, 0.89099188708317867]
+F1 Mean: 0.8994979757662016, F1 Standard deviation: 0.0075835750159184276
+
+
+
+Data Source: 
+Number of Estimators: 5
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.96062162518108785, 0.96233372843408405, 0.95838272092716981, 0.95574871592256028, 0.96128012643224026]
+Accuracy Mean: 0.9596733833794284, Accuracy Standard deviation: 0.0023506188876410454
+F1 Score: [0.96080360026311329, 0.96243822031588666, 0.95850404579440973, 0.95579648602870237, 0.96134903356572632]
+F1 Mean: 0.9597782771935677, F1 Standard deviation: 0.0023694804042570547
+
+
+
+Data Source: 
+Number of Estimators: 10
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.97313314895298297, 0.97563545370736204, 0.97721585671012778, 0.97089424469906493, 0.97379165020413538]
+Accuracy Mean: 0.9741340708547346, Accuracy Standard deviation: 0.0021618105653821466
+F1 Score: [0.97317495510851548, 0.97568594471502534, 0.97723287618594923, 0.9709371585361567, 0.97384151659128326]
+F1 Mean: 0.9741744902273861, F1 Standard deviation: 0.00215538756213236
+
+
+
+Data Source: 
+Number of Estimators: 20
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98208876596865535, 0.98208876596865535, 0.98353746872119052, 0.98143026471750294, 0.98011326221519823]
+Accuracy Mean: 0.9818517055182404, Accuracy Standard deviation: 0.0011094133906836463
+F1 Score: [0.98207351993882885, 0.98209266169394294, 0.98355139264211644, 0.98143513021181605, 0.9801354777865221]
+F1 Mean: 0.9818576364546452, F1 Standard deviation: 0.001105892812877312
+
+
+
+Data Source: 
+Number of Estimators: 30
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98064006321612007, 0.98538127222441718, 0.98195706571842489, 0.98524957197418672, 0.98301066772026868]
+Accuracy Mean: 0.9832477281706835, Accuracy Standard deviation: 0.0018483134247700502
+F1 Score: [0.98066335861071574, 0.9853975109108053, 0.9819885280754943, 0.98526194167101344, 0.98301274647257275]
+F1 Mean: 0.9832648171481203, F1 Standard deviation: 0.001843742335010358
+
+
+
+Data Source: 
+Number of Estimators: 50
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98511787172395626, 0.98643487422626108, 0.98301066772026868, 0.98630317397603051, 0.9849861714737258]
+Accuracy Mean: 0.9851705518240484, Accuracy Standard deviation: 0.0012315205823849272
+F1 Score: [0.98511918266282072, 0.98644062666912136, 0.98304924773099067, 0.98630797669733494, 0.98499470933923461]
+F1 Mean: 0.9851823486199004, F1 Standard deviation: 0.0012198049071806788
+
+
+
+Data Source: 
+Number of Estimators: 75
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98472277097326488, 0.98564467272487821, 0.98827867772948763, 0.98880547873040958, 0.98485447122349534]
+Accuracy Mean: 0.9864612142763072, Accuracy Standard deviation: 0.0017360471016234773
+F1 Score: [0.98472858620780579, 0.98566065024414062, 0.98827184479103458, 0.98881393347034752, 0.98485829318291795]
+F1 Mean: 0.9864666615792494, F1 Standard deviation: 0.0017335386310267712
+
+
+
+Data Source: 
+Number of Estimators: 100
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98722507572764384, 0.98472277097326488, 0.98788357697879625, 0.98419596997234293, 0.98735677597787441]
+Accuracy Mean: 0.9862768339259844, Accuracy Standard deviation: 0.001509448047611683
+F1 Score: [0.98721358577008944, 0.9847365563588083, 0.98788437622392367, 0.9841872920580147, 0.98736927807382957]
+F1 Mean: 0.9862782176969331, F1 Standard deviation: 0.0015095536493343496
+
+
+
+Data Source: 
+Number of Estimators: 200
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98854207822994866, 0.98603977347556959, 0.98722507572764384, 0.98656657447649154, 0.98643487422626108]
+Accuracy Mean: 0.9869616752271829, Accuracy Standard deviation: 0.0008775625575639494
+F1 Score: [0.98855244720399993, 0.9860563822540398, 0.98723043123135978, 0.98655916563138468, 0.98642461626846978]
+F1 Mean: 0.9869646085178507, F1 Standard deviation: 0.0008800845320879938
+
+
+
+Data Source: 
+Number of Estimators: 300
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+classifier/cv/random_forest.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+
+Permutate XYZ: False
+
+Accuracy: [0.98735677597787441, 0.9849861714737258, 0.98696167522718292, 0.98564467272487821, 0.98854207822994866]
+Accuracy Mean: 0.9866982747267221, Accuracy Standard deviation: 0.0012604752918746694
+F1 Score: [0.98736614159938085, 0.98499091325128585, 0.98694218723552252, 0.98564090568673157, 0.98854272265932253]
+F1 Mean: 0.9866965740864486, F1 Standard deviation: 0.0012602083701726413
+
+
+
+Data Source: 
+Number of Estimators: 500
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98709337547741338, 0.986698274726722, 0.98788357697879625, 0.98788357697879625, 0.98827867772948763]
+Accuracy Mean: 0.9875674963782431, Accuracy Standard deviation: 0.000580677141710732
+F1 Score: [0.98708405327995574, 0.98671011454135282, 0.98790101140782116, 0.98788742124759754, 0.98828122495783954]
+F1 Mean: 0.9875727650869134, F1 Standard deviation: 0.0005816656650300813
+
+
+
+Data Source: 
+Number of Estimators: 1000
+Sampling Frequency: 20
+Window Size: 2000
+Training Source: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Activities: ['brushing', 'folding', 'going_downstairs', 'going_upstairs', 'lying', 'reading', 'running', 'sitting', 'standing', 'sweeping_the_floor', 'food_preparation', 'typing', 'walking', 'writing']
+Permutate XYZ: False
+
+Accuracy: [0.98643487422626108, 0.98722507572764384, 0.98696167522718292, 0.98827867772948763, 0.98590807322533913]
+Accuracy Mean: 0.9869616752271829, Accuracy Standard deviation: 0.0007989332747584647
+F1 Score: [0.98643558462563774, 0.98721779427967593, 0.98696175570564815, 0.98827986199936002, 0.98592217125097559]
+F1 Mean: 0.9869634335722595, F1 Standard deviation: 0.000795051912841843
+
+
+
