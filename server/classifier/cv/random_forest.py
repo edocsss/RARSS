@@ -66,7 +66,7 @@ if __name__ == '__main__':
     for n in n_estimators:
         run_cv(
             n_estimators=n,
-            data_source='sw',
+            data_source='',
             permutate_xyz=False,
             activities=[
                 'brushing',
