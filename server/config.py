@@ -20,7 +20,7 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'shelina'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'james'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
@@ -162,10 +162,10 @@ WINDOWED_DATA_RESULT = {
 }
 
 COMBINED_DATA_RESULT = {
-    'sp': 'combined_smartphone.csv',
-    'sw': 'combined_smartwatch.csv',
-    'sp_sw': 'combined_sp_sw.csv',
-    'full': 'combined_full_[{}].csv'.format('+'.join(SENSOR_SOURCES['sp'] + SENSOR_SOURCES['sw']))
+    'sp': 'benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_smartphone.csv',
+    'sw': 'benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_smartwatch.csv',
+    'sp_sw': 'benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_sp_sw.csv',
+    'full': 'benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_full_[{}].csv'.format('+'.join(SENSOR_SOURCES['sp'] + SENSOR_SOURCES['sw']))
 }
 
 FEATURES_DATA_RESULT = {

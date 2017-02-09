@@ -83,7 +83,7 @@ if __name__ == '__main__':
         t = threading.Thread(target=preprocess_data_for_manual_testing, args=(activity,))
         t.start()
         threads.append(t)
-    #
+
     for t in threads:
         t.join()
 
