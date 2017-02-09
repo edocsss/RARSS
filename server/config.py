@@ -20,7 +20,7 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'nathania'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'shelina'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [

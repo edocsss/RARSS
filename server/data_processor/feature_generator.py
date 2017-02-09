@@ -1,6 +1,6 @@
 import math
 import os
-import numpy as np
+from scipy.stats._binned_statistic import binned_statistic
 import pandas as pd
 import config as CONFIG
 
@@ -36,24 +36,42 @@ def _generate_smartphone_features(smartphone_df):
         'sp_mean_ay',
         'sp_mean_az',
         'sp_mean_acc_magnitude',
-        'sp_var_ax',
-        'sp_var_ay',
-        'sp_var_az',
-        'sp_var_acc_magnitude',
-        'sp_cov_a_xy',
-        'sp_cov_a_xz',
-        'sp_cov_a_yz',
-        'sp_cov_a_xmag',
-        'sp_cov_a_ymag',
-        'sp_cov_a_zmag',
-        'sp_energy_ax',
-        'sp_energy_ay',
-        'sp_energy_az',
-        'sp_energy_acc_magnitude',
-        'sp_entropy_ax',
-        'sp_entropy_ay',
-        'sp_entropy_az',
-        'sp_entropy_acc_magnitude'
+        'sp_std_ax',
+        'sp_std_ay',
+        'sp_std_az',
+        'sp_aad_ax',
+        'sp_aad_ay',
+        'sp_aad_az',
+        'sp_bin_ax_0',
+        'sp_bin_ax_1',
+        'sp_bin_ax_2',
+        'sp_bin_ax_3',
+        'sp_bin_ax_4',
+        'sp_bin_ax_5',
+        'sp_bin_ax_6',
+        'sp_bin_ax_7',
+        'sp_bin_ax_8',
+        'sp_bin_ax_9',
+        'sp_bin_ay_0',
+        'sp_bin_ay_1',
+        'sp_bin_ay_2',
+        'sp_bin_ay_3',
+        'sp_bin_ay_4',
+        'sp_bin_ay_5',
+        'sp_bin_ay_6',
+        'sp_bin_ay_7',
+        'sp_bin_ay_8',
+        'sp_bin_ay_9',
+        'sp_bin_az_0',
+        'sp_bin_az_1',
+        'sp_bin_az_2',
+        'sp_bin_az_3',
+        'sp_bin_az_4',
+        'sp_bin_az_5',
+        'sp_bin_az_6',
+        'sp_bin_az_7',
+        'sp_bin_az_8',
+        'sp_bin_az_9'
     ])
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -75,24 +93,42 @@ def _generate_smartwatch_features(smartwatch_df):
         'sw_mean_ay',
         'sw_mean_az',
         'sw_mean_acc_magnitude',
-        'sw_var_ax',
-        'sw_var_ay',
-        'sw_var_az',
-        'sw_var_acc_magnitude',
-        'sw_cov_a_xy',
-        'sw_cov_a_xz',
-        'sw_cov_a_yz',
-        'sw_cov_a_xmag',
-        'sw_cov_a_ymag',
-        'sw_cov_a_zmag',
-        'sw_energy_ax',
-        'sw_energy_ay',
-        'sw_energy_az',
-        'sw_energy_acc_magnitude',
-        'sw_entropy_ax',
-        'sw_entropy_ay',
-        'sw_entropy_az',
-        'sw_entropy_acc_magnitude'
+        'sw_std_ax',
+        'sw_std_ay',
+        'sw_std_az',
+        'sw_aad_ax',
+        'sw_aad_ay',
+        'sw_aad_az',
+        'sw_bin_ax_0',
+        'sw_bin_ax_1',
+        'sw_bin_ax_2',
+        'sw_bin_ax_3',
+        'sw_bin_ax_4',
+        'sw_bin_ax_5',
+        'sw_bin_ax_6',
+        'sw_bin_ax_7',
+        'sw_bin_ax_8',
+        'sw_bin_ax_9',
+        'sw_bin_ay_0',
+        'sw_bin_ay_1',
+        'sw_bin_ay_2',
+        'sw_bin_ay_3',
+        'sw_bin_ay_4',
+        'sw_bin_ay_5',
+        'sw_bin_ay_6',
+        'sw_bin_ay_7',
+        'sw_bin_ay_8',
+        'sw_bin_ay_9',
+        'sw_bin_az_0',
+        'sw_bin_az_1',
+        'sw_bin_az_2',
+        'sw_bin_az_3',
+        'sw_bin_az_4',
+        'sw_bin_az_5',
+        'sw_bin_az_6',
+        'sw_bin_az_7',
+        'sw_bin_az_8',
+        'sw_bin_az_9'
     ])
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -115,101 +151,79 @@ def _generate_accelerometer_feature_per_window(df, column_prefix):
         column_prefix + 'mean_ay',
         column_prefix + 'mean_az',
         column_prefix + 'mean_acc_magnitude',
-        column_prefix + 'var_ax',
-        column_prefix + 'var_ay',
-        column_prefix + 'var_az',
-        column_prefix + 'var_acc_magnitude',
-        column_prefix + 'cov_a_xy',
-        column_prefix + 'cov_a_xz',
-        column_prefix + 'cov_a_yz',
-        column_prefix + 'cov_a_xmag',
-        column_prefix + 'cov_a_ymag',
-        column_prefix + 'cov_a_zmag',
-        column_prefix + 'energy_ax',
-        column_prefix + 'energy_ay',
-        column_prefix + 'energy_az',
-        column_prefix + 'energy_acc_magnitude',
-        column_prefix + 'entropy_ax',
-        column_prefix + 'entropy_ay',
-        column_prefix + 'entropy_az',
-        column_prefix + 'entropy_acc_magnitude'
+        column_prefix + 'std_ax',
+        column_prefix + 'std_ay',
+        column_prefix + 'std_az',
+        column_prefix + 'aad_ax',
+        column_prefix + 'aad_ay',
+        column_prefix + 'aad_az',
+        column_prefix + 'bin_ax_0',
+        column_prefix + 'bin_ax_1',
+        column_prefix + 'bin_ax_2',
+        column_prefix + 'bin_ax_3',
+        column_prefix + 'bin_ax_4',
+        column_prefix + 'bin_ax_5',
+        column_prefix + 'bin_ax_6',
+        column_prefix + 'bin_ax_7',
+        column_prefix + 'bin_ax_8',
+        column_prefix + 'bin_ax_9',
+        column_prefix + 'bin_ay_0',
+        column_prefix + 'bin_ay_1',
+        column_prefix + 'bin_ay_2',
+        column_prefix + 'bin_ay_3',
+        column_prefix + 'bin_ay_4',
+        column_prefix + 'bin_ay_5',
+        column_prefix + 'bin_ay_6',
+        column_prefix + 'bin_ay_7',
+        column_prefix + 'bin_ay_8',
+        column_prefix + 'bin_ay_9',
+        column_prefix + 'bin_az_0',
+        column_prefix + 'bin_az_1',
+        column_prefix + 'bin_az_2',
+        column_prefix + 'bin_az_3',
+        column_prefix + 'bin_az_4',
+        column_prefix + 'bin_az_5',
+        column_prefix + 'bin_az_6',
+        column_prefix + 'bin_az_7',
+        column_prefix + 'bin_az_8',
+        column_prefix + 'bin_az_9'
     ]
 
     result += accelerometer_related_data.mean().tolist()
-    result += accelerometer_related_data.var().tolist()
+    result += accelerometer_related_data.std().tolist()[0:3] # ignore std acc magnitude
 
     try:
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'ay'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'az'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'az'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ax', 'acc_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'ay', 'acc_magnitude'))
-        result.append(_calculate_covariance(accelerometer_related_data, 'az', 'acc_magnitude'))
+        result.append(_calculate_average_absolute_difference(accelerometer_related_data['ax']))
+        result.append(_calculate_average_absolute_difference(accelerometer_related_data['ay']))
+        result.append(_calculate_average_absolute_difference(accelerometer_related_data['az']))
 
-        result.append(_calculate_energy(accelerometer_related_data['ax']))
-        result.append(_calculate_energy(accelerometer_related_data['ay']))
-        result.append(_calculate_energy(accelerometer_related_data['az']))
-        result.append(_calculate_energy(accelerometer_related_data['acc_magnitude']))
+        result += _calculate_bin_distribution(accelerometer_related_data['ax'])
+        result += _calculate_bin_distribution(accelerometer_related_data['ay'])
+        result += _calculate_bin_distribution(accelerometer_related_data['az'])
 
-        result.append(_calculate_entropy(accelerometer_related_data['ax']))
-        result.append(_calculate_entropy(accelerometer_related_data['ay']))
-        result.append(_calculate_entropy(accelerometer_related_data['az']))
-        result.append(_calculate_entropy(accelerometer_related_data['acc_magnitude']))
-
-    except:
+    except Exception as e:
+        print(e)
         print('Feature generation exception!')
+        print()
+        print()
 
     result_df = pd.DataFrame(data=[result], columns=result_cols)
     return result_df
 
 
-def _calculate_covariance(df, col1, col2):
-    relevant_df = df[[col1, col2]]
-    mean_col1 = relevant_df[col1].mean()
-    mean_col2 = relevant_df[col2].mean()
-
-    total = 0
-    for i, row in relevant_df.iterrows():
-        total += (row[col1] - mean_col1) * (row[col2] - mean_col2)
-
-    return total / (len(relevant_df) - 1)
+def _calculate_average_absolute_difference(series):
+    data = series.tolist()
+    mean = series.mean()
+    absolute_difference = [math.fabs(d - mean) for d in data]
+    return sum(absolute_difference) / len(absolute_difference)
 
 
-def _calculate_energy(series):
-    values = series.tolist()
-    N = len(values)
+def _calculate_bin_distribution(series):
+    data = series.tolist()
+    bin_count, _, _ = binned_statistic(data, data, statistic='count', bins=10)
 
-    fft = _calculate_fft(values)
-    total = sum(fft[1:])
-    return math.sqrt(total / (N - 1))
-
-
-def _calculate_entropy(series):
-    values = series.tolist()
-    N = len(values)
-    fft = _calculate_fft(values)
-
-    terms = [(-_calculate_O(fft, l) * math.log(_calculate_O(fft, l))) for l in range(1, N)]
-    return sum(terms)
-
-
-def _calculate_O(fft, l):
-    nom = math.fabs(fft[l])
-    if nom == 0:
-        return 1
-
-    denom = sum([math.fabs(fft_value) for fft_value in fft[1:]])
-    return nom / denom
-
-
-# For details about FFT, take a look at Prof. Tan's and Dr. Wang's paper
-# Basically, the FFT in NumPy and the one in the paper is slightly different
-# The one in NumPy has already iterated through the K value, we just need to sum them up
-# That's why the NumPy still produces an array of size len(series) after calculating FFT
-# WE NEED TO DISCARD THE FIRST ITEM, SEE EQUATION (6) --> k = 1 to N - 1
-def _calculate_fft(vector):
-    fft_vector = np.fft.fft(vector)
-    return np.absolute(fft_vector)
+    n = len(data)
+    return [item / n for item in bin_count]
 
 
 def store_features_df(smartphone_features, smartwatch_features, activity_type):
