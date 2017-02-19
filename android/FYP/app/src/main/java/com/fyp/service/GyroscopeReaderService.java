@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -22,31 +23,44 @@ import java.util.List;
 
 public class GyroscopeReaderService extends Service implements SensorEventListener {
     private final String TAG = "GyroReaderServ";
-
     private SensorManager sensorManager;
     private Sensor gyroscopeSensor;
     private ArrayList<GyroscopeReading> gyroscopeReadings;
     private Handler handler;
+    private final IBinder binder = new GyroscopeReaderBinder();
+    private boolean storeReadings = true;
+
+    public class GyroscopeReaderBinder extends Binder {
+        public GyroscopeReaderService getService() {
+            return GyroscopeReaderService.this;
+        }
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        this.sensorManager = FYPApp.getSensorManager();
-        this.gyroscopeSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        this.gyroscopeReadings = new ArrayList<>();
-        this.handler = new Handler();
-
+        this.setupService();
         this.startListeningGyroscope();
         return START_STICKY;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        this.setupService();
+        this.startListeningGyroscope();
+        this.storeReadings = false;
+        return this.binder;
     }
 
     @Override
     public void onDestroy() {
         this.stopListeningGyroscope();
+    }
+
+    private void setupService() {
+        this.sensorManager = FYPApp.getSensorManager();
+        this.gyroscopeSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        this.gyroscopeReadings = new ArrayList<>();
+        this.handler = new Handler();
     }
 
     private void startListeningGyroscope() {
@@ -55,23 +69,28 @@ public class GyroscopeReaderService extends Service implements SensorEventListen
 
     private void stopListeningGyroscope() {
         this.sensorManager.unregisterListener(this);
-        this.storeGyroscopeReadingsToFile();
+        if (this.storeReadings) this.storeGyroscopeReadingsToFile();
     }
 
     private void storeGyroscopeReadingsToFile() {
         FileUtil.writeFile(this, FileNames.GYROSCOPE_RESULT, this.convertGyroscopeReadingToCSV().getBytes());
     }
 
-    private String convertGyroscopeReadingToCSV() {
+    public synchronized String convertGyroscopeReadingToCSV() {
+        ArrayList<GyroscopeReading> gyroscopeReadings = (ArrayList<GyroscopeReading>) this.gyroscopeReadings.clone();
         StringBuilder sb = new StringBuilder();
         sb.append("timestamp,gx,gy,gz\n");
 
-        for (GyroscopeReading gr: this.gyroscopeReadings) {
+        for (GyroscopeReading gr: gyroscopeReadings) {
             sb.append(gr.toString());
             sb.append("\n");
         }
 
         return sb.toString();
+    }
+
+    public void clearGyroscopeReadings() {
+        this.gyroscopeReadings.clear();
     }
 
     @Override

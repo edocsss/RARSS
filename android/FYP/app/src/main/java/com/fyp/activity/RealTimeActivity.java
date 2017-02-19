@@ -21,14 +21,22 @@ import com.fyp.constant.TimerConfig;
 import com.fyp.controller.RealTimeMonitoringController;
 import com.fyp.controller.SharedPreferencesController;
 import com.fyp.service.AccelerometerReaderService;
+import com.fyp.service.BarometerReaderService;
+import com.fyp.service.GyroscopeReaderService;
 import com.fyp.task.RealTimeMonitoringDataHandler;
 import com.fyp.util.AudioUtil;
 
 public class RealTimeActivity extends AppCompatActivity {
     private final String TAG = "RealTimeActivity";
     private AccelerometerReaderService accelerometerReaderService;
-    private boolean serviceBound = false;
-    private ServiceConnection serviceConnection;
+    private GyroscopeReaderService gyroscopeReaderService;
+    private BarometerReaderService barometerReaderService;
+    private boolean accelerometerServiceBound = false;
+    private boolean gyroscopeServiceBound = false;
+    private boolean barometerServiceBound = false;
+    private ServiceConnection accelerometerServiceConnection;
+    private ServiceConnection gyroscopeServiceConnection;
+    private ServiceConnection barometerServiceConnection;
     private Handler handler;
 
     private EditText intervalEditText;
@@ -68,17 +76,45 @@ public class RealTimeActivity extends AppCompatActivity {
     }
 
     private void setupServiceConnection() {
-        this.serviceConnection = new ServiceConnection() {
+        this.accelerometerServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                AccelerometerReaderService.AccelerometerReaderBinder binder = (AccelerometerReaderService.AccelerometerReaderBinder) service;
-                RealTimeActivity.this.accelerometerReaderService = binder.getService();
-                RealTimeActivity.this.serviceBound = true;
+                AccelerometerReaderService.AccelerometerReaderBinder accelerometerBinder = (AccelerometerReaderService.AccelerometerReaderBinder) service;
+                RealTimeActivity.this.accelerometerReaderService = accelerometerBinder.getService();
+                RealTimeActivity.this.accelerometerServiceBound = true;
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                RealTimeActivity.this.serviceBound = false;
+                RealTimeActivity.this.accelerometerServiceBound = false;
+            }
+        };
+
+        this.gyroscopeServiceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                GyroscopeReaderService.GyroscopeReaderBinder gyroscopeBinder = (GyroscopeReaderService.GyroscopeReaderBinder) service;
+                RealTimeActivity.this.gyroscopeReaderService= gyroscopeBinder.getService();
+                RealTimeActivity.this.gyroscopeServiceBound = true;
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                RealTimeActivity.this.gyroscopeServiceBound = false;
+            }
+        };
+
+        this.barometerServiceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                BarometerReaderService.BarometerReaderBinder barometerBinder = (BarometerReaderService.BarometerReaderBinder) service;
+                RealTimeActivity.this.barometerReaderService = barometerBinder.getService();
+                RealTimeActivity.this.barometerServiceBound = true;
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                RealTimeActivity.this.accelerometerServiceBound = false;
             }
         };
     }
@@ -114,7 +150,12 @@ public class RealTimeActivity extends AppCompatActivity {
                 diff = System.currentTimeMillis() - start;
                 if (diff >= timer) {
                     String accelerometerReadingsString = accelerometerReaderService.convertAccelerometerReadingToCSV();
+                    String gyroscopeReadingsString = gyroscopeReaderService.convertGyroscopeReadingToCSV();
+                    String barometerReadingsString = barometerReaderService.convertBarometerReadingToCSV();
+
                     accelerometerReaderService.clearAccelerometerReadings();
+                    gyroscopeReaderService.clearGyroscopeReadings();
+                    barometerReaderService.clearBarometerReadings();
 
                     // Preventing NGROK TUNNEL 60s = max 20 connections violation
                     try {
@@ -123,7 +164,7 @@ public class RealTimeActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    handler.post(new RealTimeMonitoringDataHandler(accelerometerReadingsString));
+                    handler.post(new RealTimeMonitoringDataHandler(accelerometerReadingsString, gyroscopeReadingsString, barometerReadingsString));
                     start = System.currentTimeMillis();
                 } else {
                     try {
@@ -139,8 +180,13 @@ public class RealTimeActivity extends AppCompatActivity {
     }
 
     private void startActivityMonitoring() {
-        Intent serviceIntent = new Intent(this, AccelerometerReaderService.class);
-        this.bindService(serviceIntent, this.serviceConnection, Context.BIND_AUTO_CREATE);
+        Intent accelerometerServiceIntent = new Intent(this, AccelerometerReaderService.class);
+        Intent gyroscopeServiceIntent = new Intent(this, GyroscopeReaderService.class);
+        Intent barometerServiceIntent = new Intent(this, BarometerReaderService.class);
+
+        this.bindService(accelerometerServiceIntent, this.accelerometerServiceConnection, Context.BIND_AUTO_CREATE);
+        this.bindService(gyroscopeServiceIntent, this.gyroscopeServiceConnection, Context.BIND_AUTO_CREATE);
+        this.bindService(barometerServiceIntent, this.barometerServiceConnection, Context.BIND_AUTO_CREATE);
 
         RealTimeMonitoringController.getInstance().startSmartwatchSensorMonitoring();
         this.stopTimer = false;
@@ -152,9 +198,15 @@ public class RealTimeActivity extends AppCompatActivity {
     }
 
     private void stopActivityMonitoring() {
-        if (this.serviceBound) {
-            this.unbindService(this.serviceConnection);
-            this.serviceBound = false;
+        if (this.accelerometerServiceBound && this.gyroscopeServiceBound && this.barometerServiceBound) {
+            this.unbindService(this.accelerometerServiceConnection);
+            this.unbindService(this.gyroscopeServiceConnection);
+            this.unbindService(this.barometerServiceConnection);
+
+            this.accelerometerServiceBound = false;
+            this.gyroscopeServiceBound = false;
+            this.barometerServiceBound = false;
+
             this.stopTimer = true;
             RealTimeMonitoringController.getInstance().stopSmartwatchSensorMonitoring();
 

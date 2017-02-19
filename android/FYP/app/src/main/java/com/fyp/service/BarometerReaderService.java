@@ -6,47 +6,59 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
 import com.fyp.FYPApp;
 import com.fyp.constant.FileNames;
-import com.fyp.task.SensorReadingHandler;
 import com.fyp.model.BarometerReading;
+import com.fyp.task.SensorReadingHandler;
 import com.fyp.util.FileUtil;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class BarometerReaderService extends Service implements SensorEventListener {
     private final String TAG = "BaroReaderServ";
-
     private SensorManager sensorManager;
     private Sensor barometerSensor;
     private ArrayList<BarometerReading> barometerReadings;
     private Handler handler;
+    private final IBinder binder = new BarometerReaderBinder();
+    private boolean storeReadings = true;
+
+    public class BarometerReaderBinder extends Binder {
+        public BarometerReaderService getService() {
+            return BarometerReaderService.this;
+        }
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        this.sensorManager = FYPApp.getSensorManager();
-        this.barometerSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        this.barometerReadings = new ArrayList<>();
-        this.handler = new Handler();
-
+        this.setupService();
         this.startListeningBarometer();
         return START_STICKY;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        this.setupService();
+        this.startListeningBarometer();
+        this.storeReadings = false;
+        return this.binder;
     }
 
     @Override
     public void onDestroy() {
         this.stopListeningBarometer();
+    }
+
+    private void setupService() {
+        this.sensorManager = FYPApp.getSensorManager();
+        this.barometerSensor = this.sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+        this.barometerReadings = new ArrayList<>();
+        this.handler = new Handler();
     }
 
     private void startListeningBarometer() {
@@ -55,23 +67,28 @@ public class BarometerReaderService extends Service implements SensorEventListen
 
     private void stopListeningBarometer() {
         this.sensorManager.unregisterListener(this);
-        this.storeBarometerReadingsToFile();
+        if (this.storeReadings) this.storeBarometerReadingsToFile();
     }
 
     private void storeBarometerReadingsToFile() {
         FileUtil.writeFile(this, FileNames.BAROMETER_RESULT, this.convertBarometerReadingToCSV().getBytes());
     }
 
-    private String convertBarometerReadingToCSV() {
+    public synchronized String convertBarometerReadingToCSV() {
+        ArrayList<BarometerReading> barometerReadings = (ArrayList<BarometerReading>) this.barometerReadings.clone();
         StringBuilder sb = new StringBuilder();
         sb.append("timestamp,pressure\n");
 
-        for (BarometerReading br: this.barometerReadings) {
+        for (BarometerReading br: barometerReadings) {
             sb.append(br.toString());
             sb.append("\n");
         }
 
         return sb.toString();
+    }
+
+    public void clearBarometerReadings() {
+        this.barometerReadings.clear();
     }
 
     @Override

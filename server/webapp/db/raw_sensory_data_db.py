@@ -31,3 +31,27 @@ class RawSensoryDataDb(BaseDb):
 
     def get_sw_raw_accelerometer_data_by_uuid(self, uuid):
         return list(self._get_raw_data_by_uuid(CONFIG.SW_RAW_ACCELEROMETER_DATA_COLLECTION, uuid))
+
+    def insert_sp_raw_gyroscope_data(self, uuid, sp_gyroscope_data_list):
+        self._insert_raw_data(CONFIG.SP_RAW_GYROSCOPE_DATA_COLLECTION, uuid, sp_gyroscope_data_list)
+
+    def insert_sw_raw_gyroscope_data(self, uuid, sw_gyroscope_data_list):
+        self._insert_raw_data(CONFIG.SW_RAW_GYROSCOPE_DATA_COLLECTION, uuid, sw_gyroscope_data_list)
+
+    def get_sp_raw_gyroscope_data_by_uuid(self, uuid):
+        return list(self._get_raw_data_by_uuid(CONFIG.SP_RAW_GYROSCOPE_DATA_COLLECTION, uuid))
+
+    def get_sw_raw_gyroscope_data_by_uuid(self, uuid):
+        return list(self._get_raw_data_by_uuid(CONFIG.SW_RAW_GYROSCOPE_DATA_COLLECTION, uuid))
+
+    def insert_sp_raw_barometer_data(self, uuid, sp_barometer_data_list):
+        self._insert_raw_data(CONFIG.SP_RAW_BAROMETER_DATA_COLLECTION, uuid, sp_barometer_data_list)
+
+    def insert_sw_raw_barometer_data(self, uuid, sw_barometer_data_list):
+        self._insert_raw_data(CONFIG.SW_RAW_BAROMETER_DATA_COLLECTION, uuid, sw_barometer_data_list)
+
+    def get_sp_raw_barometer_data_by_uuid(self, uuid):
+        return list(self._get_raw_data_by_uuid(CONFIG.SP_RAW_BAROMETER_DATA_COLLECTION, uuid))
+
+    def get_sw_raw_barometer_data_by_uuid(self, uuid):
+        return list(self._get_raw_data_by_uuid(CONFIG.SW_RAW_BAROMETER_DATA_COLLECTION, uuid))

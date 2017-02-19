@@ -17,7 +17,7 @@ def read_smartphone_raw_data(activity_type, data_subject, sensor_keys_considered
             file_names,
             sensor_key
         ) for sensor_key in sensor_keys_considered
-        }
+    }
 
     return _read_raw_data_by_activity_and_source(activity_type, file_name_per_sensor)
 
@@ -29,7 +29,7 @@ def read_smartwatch_raw_data(activity_type, data_subject, sensor_keys_considered
             file_names,
             sensor_key
         ) for sensor_key in sensor_keys_considered
-        }
+    }
 
     return _read_raw_data_by_activity_and_source(activity_type, file_name_per_sensor)
 
