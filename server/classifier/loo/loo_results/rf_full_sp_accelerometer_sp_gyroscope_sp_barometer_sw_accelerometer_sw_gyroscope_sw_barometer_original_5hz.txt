@@ -1,0 +1,375 @@
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['edwin']
+Permutate XYZ: False
+X_train size: 33674
+X_test size: 4707
+
+X_train size: 33674
+X_test size: 4707
+
+X_train size: 33674
+X_test size: 4707
+
+
+Accuracy: [0.88017845761631608, 0.88209050350541751, 0.88187805396218399]
+Accuracy Mean: 0.8813823383613059, Accuracy Standard deviation: 0.0008556791993198144
+F1 Score: [0.8781752137461516, 0.88050464719431931, 0.88021026929724144]
+F1 Mean: 0.8796300434125707, F1 Standard deviation: 0.0010357160503059457
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['shelina']
+Permutate XYZ: False
+X_train size: 36017
+X_test size: 2364
+
+X_train size: 36017
+X_test size: 2364
+
+X_train size: 36017
+X_test size: 2364
+
+
+Accuracy: [0.90524534686971236, 0.90651438240270732, 0.90397631133671741]
+Accuracy Mean: 0.9052453468697124, Accuracy Standard deviation: 0.0010361631737661756
+F1 Score: [0.90171660089793515, 0.90337157377856481, 0.90003801686741414]
+F1 Mean: 0.901708730514638, F1 Standard deviation: 0.0013609302889739385
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['mellita']
+Permutate XYZ: False
+X_train size: 35972
+X_test size: 2409
+
+X_train size: 35972
+X_test size: 2409
+
+X_train size: 35972
+X_test size: 2409
+
+
+Accuracy: [0.77916147779161482, 0.74138646741386471, 0.77542548775425491]
+Accuracy Mean: 0.7653244776532447, Accuracy Standard deviation: 0.016995306333520695
+F1 Score: [0.72882863241833717, 0.68847242394808328, 0.72542107447958382]
+F1 Mean: 0.7142407102820014, F1 Standard deviation: 0.018273957758088145
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['nikolas']
+Permutate XYZ: False
+X_train size: 35982
+X_test size: 2399
+
+X_train size: 35982
+X_test size: 2399
+
+X_train size: 35982
+X_test size: 2399
+
+
+Accuracy: [0.90704460191746561, 0.90787828261775738, 0.9074614422676115]
+Accuracy Mean: 0.9074614422676115, Accuracy Standard deviation: 0.0003403487206868322
+F1 Score: [0.88600059595845104, 0.88674778744509086, 0.88537533813496205]
+F1 Mean: 0.8860412405128346, F1 Standard deviation: 0.0005610366964046962
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['samuel']
+Permutate XYZ: False
+X_train size: 35980
+X_test size: 2401
+
+X_train size: 35980
+X_test size: 2401
+
+X_train size: 35980
+X_test size: 2401
+
+
+Accuracy: [0.91628488129945851, 0.91211995002082469, 0.91503540191586841]
+Accuracy Mean: 0.914480077745384, Accuracy Standard deviation: 0.0017450791461858007
+F1 Score: [0.91471523635305063, 0.910621443731639, 0.91360915379814545]
+F1 Mean: 0.9129819446276116, F1 Standard deviation: 0.0017291284923302266
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['elmo']
+Permutate XYZ: False
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.89604989604989604, 0.90893970893970899, 0.9064449064449065]
+Accuracy Mean: 0.9038115038115038, Accuracy Standard deviation: 0.005581990454775429
+F1 Score: [0.89374163248372651, 0.90624050330609918, 0.90384273911207058]
+F1 Mean: 0.9012749583006321, F1 Standard deviation: 0.005416060479738846
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['monica']
+Permutate XYZ: False
+X_train size: 35991
+X_test size: 2390
+
+X_train size: 35991
+X_test size: 2390
+
+X_train size: 35991
+X_test size: 2390
+
+
+Accuracy: [0.85941422594142258, 0.8539748953974895, 0.85815899581589961]
+Accuracy Mean: 0.8571827057182705, Accuracy Standard deviation: 0.0023254298466573505
+F1 Score: [0.84636935300050198, 0.84033598186614389, 0.84410632998903645]
+F1 Mean: 0.8436038882852275, F1 Standard deviation: 0.0024886043693231265
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['inge']
+Permutate XYZ: False
+X_train size: 35951
+X_test size: 2430
+
+X_train size: 35951
+X_test size: 2430
+
+X_train size: 35951
+X_test size: 2430
+
+
+Accuracy: [0.73991769547325104, 0.73497942386831272, 0.73168724279835395]
+Accuracy Mean: 0.7355281207133059, Accuracy Standard deviation: 0.003382394514660606
+F1 Score: [0.70885380006398069, 0.70371113264515117, 0.70307483624332756]
+F1 Mean: 0.7052132563174864, F1 Standard deviation: 0.0025873264650789645
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['andri']
+Permutate XYZ: False
+X_train size: 35975
+X_test size: 2406
+
+X_train size: 35975
+X_test size: 2406
+
+X_train size: 35975
+X_test size: 2406
+
+
+Accuracy: [0.81795511221945139, 0.80507065669160427, 0.80590191188694926]
+Accuracy Mean: 0.8096425602660017, Accuracy Standard deviation: 0.005887650141556075
+F1 Score: [0.7911394153358664, 0.76481713554725161, 0.76562174763008184]
+F1 Mean: 0.7738594328377332, F1 Standard deviation: 0.012223207339668784
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['arianto']
+Permutate XYZ: False
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.93846153846153846, 0.93222453222453228, 0.94220374220374226]
+Accuracy Mean: 0.9376299376299376, Accuracy Standard deviation: 0.004116214110857238
+F1 Score: [0.93868038804543807, 0.9323176750523724, 0.94201836655576565]
+F1 Mean: 0.9376721432178586, F1 Standard deviation: 0.004023950971806766
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['orlin']
+Permutate XYZ: False
+X_train size: 35948
+X_test size: 2433
+
+X_train size: 35948
+X_test size: 2433
+
+X_train size: 35948
+X_test size: 2433
+
+
+Accuracy: [0.89313604603370322, 0.90341142622277026, 0.89395807644882863]
+Accuracy Mean: 0.8968351829017673, Accuracy Standard deviation: 0.004662200171851924
+F1 Score: [0.88076817629890336, 0.89351878901400439, 0.88180771615663667]
+F1 Mean: 0.8853648938231814, F1 Standard deviation: 0.005781272401248008
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'nathania', 'albert', 'james']
+Testing Subjects: ['valerie']
+Permutate XYZ: False
+X_train size: 35961
+X_test size: 2420
+
+X_train size: 35961
+X_test size: 2420
+
+X_train size: 35961
+X_test size: 2420
+
+
+Accuracy: [0.92603305785123968, 0.92561983471074383, 0.92520661157024797]
+Accuracy Mean: 0.9256198347107438, Accuracy Standard deviation: 0.0003373952813750832
+F1 Score: [0.92315474977351308, 0.92273642423290159, 0.92233120816908187]
+F1 Mean: 0.9227407940584987, F1 Standard deviation: 0.0003362236508527183
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
+Testing Subjects: ['nathania']
+Permutate XYZ: False
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+
+Accuracy: [0.79759933774834435, 0.80132450331125826, 0.80339403973509937]
+Accuracy Mean: 0.8007726269315674, Accuracy Standard deviation: 0.0023976472402018377
+F1 Score: [0.75182744438868032, 0.75495470829081046, 0.75689498945584943]
+F1 Mean: 0.7545590473784468, F1 Standard deviation: 0.002087648425082931
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'james']
+Testing Subjects: ['albert']
+Permutate XYZ: False
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+
+Accuracy: [0.89659468438538203, 0.89244186046511631, 0.89410299003322258]
+Accuracy Mean: 0.8943798449612403, Accuracy Standard deviation: 0.0017066483950633716
+F1 Score: [0.87122558881614542, 0.8674722749967132, 0.8683772897916916]
+F1 Mean: 0.8690250512015169, F1 Standard deviation: 0.0015992784393446984
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert']
+Testing Subjects: ['james']
+Permutate XYZ: False
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+
+Accuracy: [0.79480737018425462, 0.79857621440536009, 0.79606365159128978]
+Accuracy Mean: 0.7964824120603016, Accuracy Standard deviation: 0.0015668582021666144
+F1 Score: [0.76003575660164147, 0.76714602538956922, 0.76189183552843442]
+F1 Mean: 0.763024539173215, F1 Standard deviation: 0.0030112282897315473
+
+
+
+
+

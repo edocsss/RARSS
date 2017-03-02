@@ -1,0 +1,495 @@
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['edwin']
+Permutate XYZ: False
+X_train size: 33674
+X_test size: 4707
+
+X_train size: 33674
+X_test size: 4707
+
+X_train size: 33674
+X_test size: 4707
+
+
+Accuracy: [0.89313787975355852, 0.89483747609942643, 0.89228808158062456]
+Accuracy Mean: 0.8934211458112031, Accuracy Standard deviation: 0.0010598845370084473
+F1 Score: [0.8891722509320994, 0.89045551848303017, 0.88800054083900715]
+F1 Mean: 0.8892094367513789, F1 Standard deviation: 0.0010025852904798436
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['shelina']
+Permutate XYZ: False
+X_train size: 36017
+X_test size: 2364
+
+X_train size: 36017
+X_test size: 2364
+
+X_train size: 36017
+X_test size: 2364
+
+
+Accuracy: [0.8908629441624365, 0.88663282571912017, 0.88071065989847719]
+Accuracy Mean: 0.886068809926678, Accuracy Standard deviation: 0.004163796689293088
+F1 Score: [0.88999661281410436, 0.88571970654828469, 0.87869256070539148]
+F1 Mean: 0.8848029600225935, F1 Standard deviation: 0.004660165709743176
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['mellita']
+Permutate XYZ: False
+X_train size: 35972
+X_test size: 2409
+
+X_train size: 35972
+X_test size: 2409
+
+X_train size: 35972
+X_test size: 2409
+
+
+Accuracy: [0.78995433789954339, 0.7911996679119967, 0.78953922789539233]
+Accuracy Mean: 0.7902310779023107, Accuracy Standard deviation: 0.0007055513371513377
+F1 Score: [0.74488747872178152, 0.74762190784828997, 0.74308153495990459]
+F1 Mean: 0.7451969738433254, F1 Standard deviation: 0.0018664738437475853
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['nikolas']
+Permutate XYZ: False
+X_train size: 35982
+X_test size: 2399
+
+X_train size: 35982
+X_test size: 2399
+
+X_train size: 35982
+X_test size: 2399
+
+
+Accuracy: [0.88286786160900377, 0.88370154230929554, 0.88786994581075451]
+Accuracy Mean: 0.8848131165763512, Accuracy Standard deviation: 0.002188136132836417
+F1 Score: [0.85846706348319057, 0.85942057813922557, 0.86427731116836581]
+F1 Mean: 0.8607216509302607, F1 Standard deviation: 0.002544187800517083
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['samuel']
+Permutate XYZ: False
+X_train size: 35980
+X_test size: 2401
+
+X_train size: 35980
+X_test size: 2401
+
+X_train size: 35980
+X_test size: 2401
+
+
+Accuracy: [0.89629321116201588, 0.9008746355685131, 0.89712619741774258]
+Accuracy Mean: 0.8980980147160905, Accuracy Standard deviation: 0.001992600318534943
+F1 Score: [0.89178955490237233, 0.8975289587020775, 0.89228149172646021]
+F1 Mean: 0.8938666684436366, F1 Standard deviation: 0.0025974061308064378
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['elmo']
+Permutate XYZ: False
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.88773388773388773, 0.88981288981288986, 0.89147609147609153]
+Accuracy Mean: 0.8896742896742897, Accuracy Standard deviation: 0.0015308885678707456
+F1 Score: [0.88355523680742021, 0.88631445688912514, 0.88768204982062393]
+F1 Mean: 0.8858505811723898, F1 Standard deviation: 0.001716397763130576
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['monica']
+Permutate XYZ: False
+X_train size: 35991
+X_test size: 2390
+
+X_train size: 35991
+X_test size: 2390
+
+X_train size: 35991
+X_test size: 2390
+
+
+Accuracy: [0.81004184100418408, 0.80209205020920504, 0.78870292887029292]
+Accuracy Mean: 0.8002789400278939, Accuracy Standard deviation: 0.008805408154903521
+F1 Score: [0.7957838304247371, 0.78928241407241251, 0.7747581808114421]
+F1 Mean: 0.7866081417695305, F1 Standard deviation: 0.008789512109240732
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['inge']
+Permutate XYZ: False
+X_train size: 35951
+X_test size: 2430
+
+X_train size: 35951
+X_test size: 2430
+
+X_train size: 35951
+X_test size: 2430
+
+
+Accuracy: [0.67818930041152259, 0.69012345679012344, 0.68806584362139922]
+Accuracy Mean: 0.6854595336076817, Accuracy Standard deviation: 0.005209008928956819
+F1 Score: [0.66290738339750432, 0.67198918345152214, 0.67152735001640262]
+F1 Mean: 0.6688079722884764, F1 Standard deviation: 0.004176604240739563
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['andri']
+Permutate XYZ: False
+X_train size: 35975
+X_test size: 2406
+
+X_train size: 35975
+X_test size: 2406
+
+X_train size: 35975
+X_test size: 2406
+
+
+Accuracy: [0.72693266832917702, 0.72651704073150458, 0.72069825436408974]
+Accuracy Mean: 0.7247159878082572, Accuracy Standard deviation: 0.0028460291748648114
+F1 Score: [0.68485434571479331, 0.6835514149252534, 0.67244399810743161]
+F1 Mean: 0.6802832529158261, F1 Standard deviation: 0.00556865298636244
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'orlin', 'valerie', 'nathania', 'albert', 'james']/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+rf_full.py:38: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  model.fit(X_train, Y_train)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+
+Testing Subjects: ['arianto']
+Permutate XYZ: False
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.88316008316008321, 0.87817047817047822, 0.87983367983367988]
+Accuracy Mean: 0.8803880803880805, Accuracy Standard deviation: 0.0020743769296044027
+F1 Score: [0.87995193640774771, 0.87499371062951536, 0.87683057749270166]
+F1 Mean: 0.8772587415099883, F1 Standard deviation: 0.0020467036972094408
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['orlin']
+Permutate XYZ: False
+X_train size: 35948
+X_test size: 2433
+
+X_train size: 35948
+X_test size: 2433
+
+X_train size: 35948
+X_test size: 2433
+
+
+Accuracy: [0.89025893958076452, 0.89066995478832722, 0.88984792437320182]
+Accuracy Mean: 0.8902589395807645, Accuracy Standard deviation: 0.00033559251168424734
+F1 Score: [0.87271849116654454, 0.87383184471027242, 0.87277730566649625]
+F1 Mean: 0.8731092138477711, F1 Standard deviation: 0.0005115410110184885
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'nathania', 'albert', 'james']
+Testing Subjects: ['valerie']
+Permutate XYZ: False
+X_train size: 35961
+X_test size: 2420
+
+X_train size: 35961
+X_test size: 2420
+
+X_train size: 35961
+X_test size: 2420
+
+
+Accuracy: [0.86528925619834707, 0.87396694214876036, 0.86776859504132231]
+Accuracy Mean: 0.8690082644628099, Accuracy Standard deviation: 0.003649487961292527
+F1 Score: [0.86068503447638178, 0.87002599313177709, 0.86335894534481061]
+F1 Mean: 0.8646899909843232, F1 Standard deviation: 0.003927861082175229
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
+Testing Subjects: ['nathania']
+Permutate XYZ: False
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+
+Accuracy: [0.78352649006622521, 0.77814569536423839, 0.77359271523178808]
+Accuracy Mean: 0.778421633554084, Accuracy Standard deviation: 0.004060137684757792
+F1 Score: [0.75494429617406544, 0.75128370458082561, 0.74535341273154887]
+F1 Mean: 0.7505271378288132, F1 Standard deviation: 0.003951839760556465
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'james']
+Testing Subjects: ['albert']
+Permutate XYZ: False
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+
+Accuracy: [0.90905315614617943, 0.91237541528239208, 0.91320598006644516]
+Accuracy Mean: 0.9115448504983389, Accuracy Standard deviation: 0.0017942249995591944
+F1 Score: [0.90887131612036787, 0.91191482126288026, 0.91295490247669764]
+F1 Mean: 0.9112470132866486, F1 Standard deviation: 0.001732704052868357
+
+
+
+
+
+Number of Estimators: 500
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Data Source: 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert']
+Testing Subjects: ['james']
+Permutate XYZ: False
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+
+Accuracy: [0.79187604690117253, 0.79145728643216084, 0.7897822445561139]
+Accuracy Mean: 0.791038525963149, Accuracy Standard deviation: 0.0009046260048028907
+F1 Score: [0.75793380166992741, 0.75778359900608627, 0.75619118708786082]
+F1 Mean: 0.7573028625879582, F1 Standard deviation: 0.0007884613806622628
+
+
+
+
+
