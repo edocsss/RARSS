@@ -15,10 +15,10 @@ X_train size: 33674
 X_test size: 4707
 
 
-Accuracy: [0.78011472275334603, 0.78011472275334603, 0.78011472275334603]
-Accuracy Mean: 0.7801147227533459, Accuracy Standard deviation: 1.1102230246251565e-16
-F1 Score: [0.76736459983559802, 0.76736459983559802, 0.76736459983559802]
-F1 Mean: 0.7673645998355981, F1 Standard deviation: 1.1102230246251565e-16
+Accuracy: [0.80879541108986619, 0.80879541108986619, 0.80879541108986619]
+Accuracy Mean: 0.8087954110898662, Accuracy Standard deviation: 0.0
+F1 Score: [0.79971924673461303, 0.79971924673461303, 0.79971924673461303]
+F1 Mean: 0.7997192467346131, F1 Standard deviation: 1.1102230246251565e-16
 
 
 
@@ -40,10 +40,10 @@ X_train size: 36017
 X_test size: 2364
 
 
-Accuracy: [0.74915397631133673, 0.74915397631133673, 0.74915397631133673]
-Accuracy Mean: 0.7491539763113367, Accuracy Standard deviation: 0.0
-F1 Score: [0.70915886313278476, 0.70911043329780243, 0.70911043329780243]
-F1 Mean: 0.7091265765761299, F1 Standard deviation: 2.2830043151830247e-05
+Accuracy: [0.75169204737732653, 0.75169204737732653, 0.75169204737732653]
+Accuracy Mean: 0.7516920473773266, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.71047955643191862, 0.71054732416048172, 0.71047955643191862]
+F1 Mean: 0.710502145674773, F1 Standard deviation: 3.194601360838256e-05
 
 
 
@@ -65,10 +65,10 @@ X_train size: 35972
 X_test size: 2409
 
 
-Accuracy: [0.81818181818181823, 0.81818181818181823, 0.81818181818181823]
-Accuracy Mean: 0.8181818181818182, Accuracy Standard deviation: 0.0
-F1 Score: [0.80047911774063485, 0.80047911774063485, 0.80047911774063485]
-F1 Mean: 0.8004791177406348, F1 Standard deviation: 0.0
+Accuracy: [0.79618098796180992, 0.79618098796180992, 0.79618098796180992]
+Accuracy Mean: 0.7961809879618099, Accuracy Standard deviation: 0.0
+F1 Score: [0.74605754254622025, 0.74605702822508257, 0.746035612248661]
+F1 Mean: 0.7460500610066546, F1 Standard deviation: 1.0218972134438733e-05
 
 
 
@@ -90,10 +90,10 @@ X_train size: 35982
 X_test size: 2399
 
 
-Accuracy: [0.78616090037515629, 0.7857440600250104, 0.78616090037515629]
-Accuracy Mean: 0.7860219535917743, Accuracy Standard deviation: 0.00019650042550688733
-F1 Score: [0.76014612823383199, 0.75962166700666356, 0.76014612823383199]
-F1 Mean: 0.759971307824776, F1 Standard deviation: 0.00024723339346680864
+Accuracy: [0.77740725302209257, 0.77740725302209257, 0.77740725302209257]
+Accuracy Mean: 0.7774072530220927, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.74902466918998356, 0.74902466918998356, 0.74902466918998356]
+F1 Mean: 0.7490246691899834, F1 Standard deviation: 1.1102230246251565e-16
 
 
 
@@ -115,10 +115,10 @@ X_train size: 35980
 X_test size: 2401
 
 
-Accuracy: [0.77842565597667635, 0.77842565597667635, 0.77842565597667635]
-Accuracy Mean: 0.7784256559766763, Accuracy Standard deviation: 0.0
-F1 Score: [0.75268434559520347, 0.75268434559520347, 0.75268434559520347]
-F1 Mean: 0.7526843455952035, F1 Standard deviation: 0.0
+Accuracy: [0.79508538109121196, 0.79550187421907537, 0.79508538109121196]
+Accuracy Mean: 0.795224212133833, Accuracy Standard deviation: 0.000196336743353206
+F1 Score: [0.76420115903870034, 0.76456957081680499, 0.76420115903870034]
+F1 Mean: 0.7643239629647353, F1 Standard deviation: 0.00017367097771119405
 
 
 
@@ -140,10 +140,10 @@ X_train size: 35976
 X_test size: 2405
 
 
-Accuracy: [0.67193347193347197, 0.67193347193347197, 0.67193347193347197]
-Accuracy Mean: 0.671933471933472, Accuracy Standard deviation: 0.0
-F1 Score: [0.65273119470323171, 0.65273119470323171, 0.65273119470323171]
-F1 Mean: 0.6527311947032317, F1 Standard deviation: 0.0
+Accuracy: [0.62494802494802493, 0.62494802494802493, 0.62494802494802493]
+Accuracy Mean: 0.6249480249480249, Accuracy Standard deviation: 0.0
+F1 Score: [0.61376501027524499, 0.61376501027524499, 0.61376501027524499]
+F1 Mean: 0.613765010275245, F1 Standard deviation: 0.0
 
 
 
@@ -165,10 +165,10 @@ X_train size: 35991
 X_test size: 2390
 
 
-Accuracy: [0.77866108786610877, 0.77907949790794984, 0.77866108786610877]
-Accuracy Mean: 0.7788005578800558, Accuracy Standard deviation: 0.0001972403852682434
-F1 Score: [0.73688888429577293, 0.73735740024899243, 0.73688888429577293]
-F1 Mean: 0.7370450562801795, F1 Standard deviation: 0.00022086053841039463
+Accuracy: [0.79246861924686196, 0.79246861924686196, 0.79246861924686196]
+Accuracy Mean: 0.7924686192468618, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.75574165528710746, 0.75574165528710746, 0.75574165528710746]
+F1 Mean: 0.7557416552871074, F1 Standard deviation: 1.1102230246251565e-16
 
 
 
@@ -190,10 +190,10 @@ X_train size: 35951
 X_test size: 2430
 
 
-Accuracy: [0.73127572016460907, 0.73127572016460907, 0.73127572016460907]
-Accuracy Mean: 0.7312757201646091, Accuracy Standard deviation: 0.0
-F1 Score: [0.69371232909873226, 0.69371232909873226, 0.69371232909873226]
-F1 Mean: 0.6937123290987323, F1 Standard deviation: 0.0
+Accuracy: [0.73374485596707817, 0.73374485596707817, 0.73374485596707817]
+Accuracy Mean: 0.7337448559670782, Accuracy Standard deviation: 0.0
+F1 Score: [0.69100886007395279, 0.69100886007395279, 0.69100886007395279]
+F1 Mean: 0.6910088600739529, F1 Standard deviation: 1.1102230246251565e-16
 
 
 
@@ -215,10 +215,10 @@ X_train size: 35975
 X_test size: 2406
 
 
-Accuracy: [0.67414796342477146, 0.67414796342477146, 0.67414796342477146]
-Accuracy Mean: 0.6741479634247715, Accuracy Standard deviation: 0.0
-F1 Score: [0.6258453361841072, 0.6258453361841072, 0.6258453361841072]
-F1 Mean: 0.6258453361841072, F1 Standard deviation: 0.0
+Accuracy: [0.72651704073150458, 0.72651704073150458, 0.72651704073150458]
+Accuracy Mean: 0.7265170407315046, Accuracy Standard deviation: 0.0
+F1 Score: [0.67935380821702129, 0.67935380821702129, 0.67935380821702129]
+F1 Mean: 0.6793538082170213, F1 Standard deviation: 0.0
 
 
 
@@ -240,10 +240,10 @@ X_train size: 35976
 X_test size: 2405
 
 
-Accuracy: [0.8856548856548857, 0.8856548856548857, 0.8856548856548857]
-Accuracy Mean: 0.8856548856548857, Accuracy Standard deviation: 0.0
-F1 Score: [0.88434555396998993, 0.88434555396998993, 0.88434555396998993]
-F1 Mean: 0.8843455539699899, F1 Standard deviation: 0.0
+Accuracy: [0.87941787941787941, 0.87941787941787941, 0.87941787941787941]
+Accuracy Mean: 0.8794178794178794, Accuracy Standard deviation: 0.0
+F1 Score: [0.87757706278690684, 0.87757706278690684, 0.87757706278690684]
+F1 Mean: 0.8775770627869068, F1 Standard deviation: 0.0
 
 
 
@@ -265,10 +265,10 @@ X_train size: 35948
 X_test size: 2433
 
 
-Accuracy: [0.82655158240854909, 0.82655158240854909, 0.82655158240854909]
-Accuracy Mean: 0.8265515824085491, Accuracy Standard deviation: 0.0
-F1 Score: [0.79052519032469515, 0.79052519032469515, 0.79052519032469515]
-F1 Mean: 0.7905251903246951, F1 Standard deviation: 0.0
+Accuracy: [0.87587340731607066, 0.87587340731607066, 0.87669543773119607]
+Accuracy Mean: 0.8761474174544458, Accuracy Standard deviation: 0.0003875088539178456
+F1 Score: [0.85930660242809742, 0.85930660242809742, 0.86021650010748041]
+F1 Mean: 0.8596099016545584, F1 Standard deviation: 0.0004289298795184089
 
 
 
@@ -290,10 +290,10 @@ X_train size: 35961
 X_test size: 2420
 
 
-Accuracy: [0.88553719008264464, 0.88553719008264464, 0.88553719008264464]
-Accuracy Mean: 0.8855371900826446, Accuracy Standard deviation: 0.0
-F1 Score: [0.8694272213255575, 0.8694272213255575, 0.8694272213255575]
-F1 Mean: 0.8694272213255575, F1 Standard deviation: 0.0
+Accuracy: [0.87768595041322317, 0.87768595041322317, 0.87768595041322317]
+Accuracy Mean: 0.8776859504132232, Accuracy Standard deviation: 0.0
+F1 Score: [0.85837058235209729, 0.85837058235209729, 0.85837058235209729]
+F1 Mean: 0.8583705823520974, F1 Standard deviation: 1.1102230246251565e-16
 
 
 
@@ -302,14 +302,14 @@ Data Source:
 Cost: 1
 Gamma: auto
 Sampling Frequency: 5
-Window Size: 2000
-Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+Window Size: 2000/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
   "This module will be removed in 0.20.", DeprecationWarning)
 /Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/utils/validation.py:526: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
 /Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
   'precision', 'predicted', average, warn_for)
 
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
 Testing Subjects: ['nathania']
 X_train size: 35965
 X_test size: 2416
@@ -321,10 +321,10 @@ X_train size: 35965
 X_test size: 2416
 
 
-Accuracy: [0.69205298013245031, 0.69205298013245031, 0.69205298013245031]
-Accuracy Mean: 0.6920529801324503, Accuracy Standard deviation: 0.0
-F1 Score: [0.70442083731284144, 0.70442083731284144, 0.70442083731284144]
-F1 Mean: 0.7044208373128414, F1 Standard deviation: 0.0
+Accuracy: [0.77483443708609268, 0.77483443708609268, 0.77483443708609268]
+Accuracy Mean: 0.7748344370860926, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.75217298926737552, 0.75217298926737552, 0.75217298926737552]
+F1 Mean: 0.7521729892673755, F1 Standard deviation: 0.0
 
 
 
@@ -346,10 +346,10 @@ X_train size: 35973
 X_test size: 2408
 
 
-Accuracy: [0.87790697674418605, 0.87790697674418605, 0.87790697674418605]
-Accuracy Mean: 0.8779069767441859, Accuracy Standard deviation: 1.1102230246251565e-16
-F1 Score: [0.86915224237456024, 0.86915224237456024, 0.86915224237456024]
-F1 Mean: 0.8691522423745602, F1 Standard deviation: 0.0
+Accuracy: [0.88496677740863783, 0.88496677740863783, 0.88496677740863783]
+Accuracy Mean: 0.8849667774086378, Accuracy Standard deviation: 0.0
+F1 Score: [0.87933405187995328, 0.87933405187995328, 0.87933405187995328]
+F1 Mean: 0.8793340518799533, F1 Standard deviation: 0.0
 
 
 
@@ -371,10 +371,10 @@ X_train size: 35993
 X_test size: 2388
 
 
-Accuracy: [0.85092127303182574, 0.85092127303182574, 0.85092127303182574]
-Accuracy Mean: 0.8509212730318257, Accuracy Standard deviation: 0.0
-F1 Score: [0.84954447834497626, 0.84954447834497626, 0.84954447834497626]
-F1 Mean: 0.8495444783449763, F1 Standard deviation: 0.0
+Accuracy: [0.88484087102177555, 0.88484087102177555, 0.88484087102177555]
+Accuracy Mean: 0.8848408710217756, Accuracy Standard deviation: 0.0
+F1 Score: [0.88355548557439512, 0.88355548557439512, 0.88355548557439512]
+F1 Mean: 0.8835554855743951, F1 Standard deviation: 0.0
 
 
 

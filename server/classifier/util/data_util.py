@@ -52,8 +52,14 @@ def _drop_irrelevant_columns(df):
 
 
     # Accelerometer and Barometer 2 only!
+    # for col_name in df.columns:
+    #     if '_gx' in col_name or '_gy' in col_name or '_gz' in col_name or 'gyro_magnitude' in col_name or 'cov_g' in col_name:
+    #         df.drop(col_name, axis=1, inplace=True)
+    #
+
+    # Acc + Gyro only
     for col_name in df.columns:
-        if '_gx' in col_name or '_gy' in col_name or '_gz' in col_name or 'gyro_magnitude' in col_name or 'cov_g' in col_name:
+        if '_baro' in col_name:
             df.drop(col_name, axis=1, inplace=True)
 
     return df
