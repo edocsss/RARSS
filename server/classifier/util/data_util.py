@@ -36,9 +36,9 @@ def _drop_irrelevant_columns(df):
     #         df.drop(col_name, axis=1, inplace=True)
 
     # ORIGINAL ONLY!!
-    for col_name in df.columns:
-        if 'zero_mean' in col_name:
-            df.drop(col_name, axis=1, inplace=True)
+    # for col_name in df.columns:
+    #     if 'zero_mean' in col_name:
+    #         df.drop(col_name, axis=1, inplace=True)
 
     # Accelerometer only!!
     # for col_name in df.columns:
