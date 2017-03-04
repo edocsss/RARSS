@@ -63,7 +63,7 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [500, 1000]
+    n_estimators = [30, 50, 75, 100, 300, 500, 1000]
     for n in n_estimators:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_estimators=n,

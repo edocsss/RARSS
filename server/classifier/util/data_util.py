@@ -31,9 +31,9 @@ def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
 
     # Remove gyroscope related columns
-    for col_name in df.columns:
-        if 'gx' in col_name or 'gy' in col_name or 'gz' in col_name or 'gyro_magnitude' in col_name:
-            df.drop(col_name, axis=1, inplace=True)
+    # for col_name in df.columns:
+    #     if 'gx' in col_name or 'gy' in col_name or 'gz' in col_name or 'gyro_magnitude' in col_name:
+    #         df.drop(col_name, axis=1, inplace=True)
 
     return df
 
@@ -101,6 +101,8 @@ def load_kfolds_training_and_testing_data(scaler_name, k=5, source='', activitie
     full_data = _load_data_by_multiple_subjects(CONFIG.KFOLD_DATA_SOURCE_SUBJECT)
     full_data = _filter_features_by_source(full_data, source)
     full_data = _filter_data_by_activity(full_data, activities)
+
+    print(len(full_data.columns))
 
     if permutate_xyz:
         full_data = _permutate_xyz_data(full_data)
