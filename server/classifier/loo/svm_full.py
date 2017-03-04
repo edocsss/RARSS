@@ -1,14 +1,11 @@
+import time
+
+import numpy as np
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.svm import SVC
 
 import config as CONFIG
 from classifier.util import data_util
-import numpy as np
-import time
-
-from sklearn.metrics import confusion_matrix
-from classifier.util import activity_encoding, plot_util
-import matplotlib.pyplot as plt
 
 
 def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None):
@@ -113,8 +110,3 @@ if __name__ == '__main__':
         print()
         print()
         print()
-
-
-    for i in range (0, 5):
-        print('\a')
-        time.sleep(0.5)

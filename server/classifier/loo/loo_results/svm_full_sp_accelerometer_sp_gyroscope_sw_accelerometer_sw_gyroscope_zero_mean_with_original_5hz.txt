@@ -304,3 +304,67 @@ Gamma: auto
 Sampling Frequency: 5
 Window Size: 2000
 Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
+Testing Subjects: ['nathania']
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+X_train size: 35965
+X_test size: 2416
+
+Accuracy: [0.68956953642384111, 0.6891556291390728, 0.6891556291390728]
+Accuracy Mean: 0.6892935982339955, Accuracy Standard deviation: 0.00019511776522812283
+F1 Score: [0.66131209869473173, 0.66080055605252164, 0.66080055605252164]
+F1 Mean: 0.6609710702665917, F1 Standard deviation: 0.00024114351411522772
+
+
+
+
+Data Source:
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'james']
+Testing Subjects: ['albert']
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+X_train size: 35973
+X_test size: 2408
+
+
+Accuracy: [0.82931893687707636, 0.82931893687707636, 0.82931893687707636]
+Accuracy Mean: 0.8293189368770765, Accuracy Standard deviation: 1.1102230246251565e-16
+F1 Score: [0.81739371937106053, 0.81739371937106053, 0.81739371937106053]
+F1 Mean: 0.8173937193710605, F1 Standard deviation: 0.0
+
+
+
+
+Data Source:
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert']
+Testing Subjects: ['james']
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+X_train size: 35993
+X_test size: 2388
+
+
+Accuracy: [0.7839195979899497, 0.7839195979899497, 0.7839195979899497]
+Accuracy Mean: 0.7839195979899497, Accuracy Standard deviation: 0.0
+F1 Score: [0.77088635888183044, 0.77088635888183044, 0.77088635888183044]
+F1 Mean: 0.7708863588818304, F1 Standard deviation: 0.0

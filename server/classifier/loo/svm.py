@@ -74,7 +74,7 @@ if __name__ == '__main__':
     f1 = []
 
     C = [1]
-    gamma = [0.1]
+    gamma = ['auto']
     degree = [1]
     permutate_xyz = False
     data_source = ''
