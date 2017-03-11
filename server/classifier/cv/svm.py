@@ -1,9 +1,11 @@
 import numpy as np
-from sklearn.metrics import accuracy_score, f1_score
+import os
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 from sklearn.svm import SVC
 
 import config as CONFIG
-from classifier.util import data_util
+from classifier.util import data_util, plot_util, activity_encoding
+import matplotlib.pyplot as plt
 
 
 def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activities=None):
@@ -24,6 +26,7 @@ def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activitie
 
     accuracy_results = []
     fscore_results = []
+    c_matrix = []
 
     for i, data in enumerate(kfold_data):
         X_train = data[0]
@@ -41,11 +44,34 @@ def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activitie
         fscore = f1_score(Y_test, predictions, average='weighted')
         fscore_results.append(fscore)
 
+        cm = confusion_matrix(Y_test, predictions)
+        c_matrix.append(cm)
+
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)
 
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
+
+    # cmr = c_matrix[0]
+    # for i in range(1, len(c_matrix)):
+    #     cmr += c_matrix[i]
+    #
+    # plt.figure(figsize=(5, 5))
+    # plot_util.plot_confusion_matrix(
+    #     cmr,
+    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+    #      sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    # )
+    #
+    # fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_walk_stairs_acc_svm_{}_{}_{}.png'.format(
+    #     C,
+    #     gamma,
+    #     data_source
+    # ))
+
+    plt.savefig(fig_name)
+    plt.clf()
 
     print('Cost: {}'.format(C))
     print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))

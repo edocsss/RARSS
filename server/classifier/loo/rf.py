@@ -7,7 +7,6 @@ import config as CONFIG
 from classifier.util import activity_encoding, plot_util
 from classifier.util import data_util
 import matplotlib.pyplot as plt
-import pprint
 
 
 def run_test(n_estimators=50, data_source='', activities=None, permutate_xyz=False, show_confusion=False):
