@@ -57,24 +57,24 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
-    # cmr = c_matrix[0]
-    # for i in range(1, len(c_matrix)):
-    #     cmr += c_matrix[i]
-    #
-    # plt.figure(figsize=(7, 7), dpi=100)
-    # plot_util.plot_confusion_matrix(
-    #     cmr,
-    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
-    #      sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
-    # )
-    #
-    # fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_walk_stairs_acc_rf_{}_{}.png'.format(
-    #     n_estimators,
-    #     data_source
-    # ))
-    #
-    # plt.savefig(fig_name)
-    # plt.clf()
+    cmr = c_matrix[0]
+    for i in range(1, len(c_matrix)):
+        cmr += c_matrix[i]
+
+    plt.figure(figsize=(7, 7), dpi=100)
+    plot_util.plot_confusion_matrix(
+        cmr,
+        [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+         sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    )
+
+    fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_stairs_accbaro_rf_{}_{}.png'.format(
+        n_estimators,
+        data_source
+    ))
+
+    plt.savefig(fig_name)
+    plt.clf()
 
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
@@ -88,26 +88,26 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [100, 300, 500, 1000]
+    n_estimators = [300]
     for n in n_estimators:
         run_cv(
             n_estimators=n,
-            data_source='sw',
+            data_source='',
             permutate_xyz=False,
             activities=[
-                'brushing',
-                'folding',
+                # 'brushing',
+                # 'folding',
                 'going_downstairs',
                 'going_upstairs',
-                'lying',
-                'reading',
-                'running',
-                'sitting',
-                'standing',
-                'sweeping_the_floor',
-                'food_preparation',
-                'typing',
-                'walking',
-                'writing'
+                # 'lying',
+                # 'reading',
+                # 'running',
+                # 'sitting',
+                # 'standing',
+                # 'sweeping_the_floor',
+                # 'food_preparation',
+                # 'typing',
+                # 'walking',
+                # 'writing'
             ]
         )

@@ -18,7 +18,7 @@ c_matrix = []
 def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', activities=None, permutate_xyz=False, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -26,7 +26,7 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -57,20 +57,20 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
 
 if __name__ == '__main__':
     activities = [
-        # 'standing',
-        # 'sitting',
-        # 'lying',
+        'standing',
+        'sitting',
+        'lying',
         'walking',
-        # 'running',
-        # 'brushing',
-        # 'writing',
-        # 'reading',
-        # 'typing',
+        'running',
+        'brushing',
+        'writing',
+        'reading',
+        'typing',
         'going_downstairs',
         'going_upstairs',
-        # 'food_preparation',
-        # 'folding',
-        # 'sweeping_the_floor'
+        'food_preparation',
+        'folding',
+        'sweeping_the_floor'
     ]
 
     data_source = ''
@@ -131,7 +131,7 @@ if __name__ == '__main__':
              sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
         )
 
-        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'loo_cm', 'cm_lopo_walk_stairs_rf_accbaro_{}_{}.png'.format(
+        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'cm_lopo_all_rf_accbarogyro_ori_zero_mean_{}_{}.png'.format(
             n_estimators,
             data_source
         ))

@@ -68,7 +68,7 @@ if __name__ == '__main__':
         # 'standing',
         # 'sitting',
         # 'lying',
-        'walking',
+        # 'walking',
         # 'running',
         # 'brushing',
         # 'writing',
@@ -136,7 +136,7 @@ if __name__ == '__main__':
              sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
         )
 
-        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'loo_cm', 'cm_lopo_walk_stairs_svm_accbaro_{}_{}_{}.png'.format(
+        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'loo_cm', 'cm_lopo_stairs_svm_accbaro_{}_{}_{}.png'.format(
             C,
             gamma,
             data_source
