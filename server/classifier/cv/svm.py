@@ -53,25 +53,25 @@ def run_cv(C=10, kernel='rbf', gamma='auto', degree=3, data_source='', activitie
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
-    cmr = c_matrix[0]
-    for i in range(1, len(c_matrix)):
-        cmr += c_matrix[i]
-
-    plt.figure(figsize=(5, 5))
-    plot_util.plot_confusion_matrix(
-        cmr,
-        [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
-         sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
-    )
-
-    fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_stairs_accbaro_svm_{}_{}_{}.png'.format(
-        C,
-        gamma,
-        data_source
-    ))
-
-    plt.savefig(fig_name)
-    plt.clf()
+    # cmr = c_matrix[0]
+    # for i in range(1, len(c_matrix)):
+    #     cmr += c_matrix[i]
+    #
+    # plt.figure(figsize=(5, 5))
+    # plot_util.plot_confusion_matrix(
+    #     cmr,
+    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+    #      sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    # )
+    #
+    # fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_stairs_accbaro_svm_{}_{}_{}.png'.format(
+    #     C,
+    #     gamma,
+    #     data_source
+    # ))
+    #
+    # plt.savefig(fig_name)
+    # plt.clf()
 
     print('Cost: {}'.format(C))
     print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
@@ -98,11 +98,9 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [100, 500, 1000, 5000]
-    C = [500]
+    C = [1, 100, 500, 1000, 5000]
     kernel = ['rbf']
     gamma = ['auto', 0.1, 0.5, 1]
-    gamma = [0.1]
     degree = [1]
 
     for c in C:
@@ -114,21 +112,21 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='',
+                        data_source='sw',
                         activities=[
-                            # 'brushing',
-                            # 'folding',
+                            'brushing',
+                            'folding',
                             'going_downstairs',
                             'going_upstairs',
-                            # 'lying',
-                            # 'reading',
-                            # 'running',
-                            # 'sitting',
-                            # 'standing',
-                            # 'sweeping_the_floor',
-                            # 'food_preparation',
-                            # 'typing',
-                            # 'walking',
-                            # 'writing'
+                            'lying',
+                            'reading',
+                            'running',
+                            'sitting',
+                            'standing',
+                            'sweeping_the_floor',
+                            'food_preparation',
+                            'typing',
+                            'walking',
+                            'writing'
                         ]
                     )

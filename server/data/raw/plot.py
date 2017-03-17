@@ -2,10 +2,8 @@ import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
-'''Typing vs Writing'''
-'''Prove that SP Typing ~ SP Writing'''
-'''Prove that SW Typing != SW Writing'''
 
 def plot(data_source='phone', activity='', axis='ax', ylim=(10, 10), zero_mean=False):
     file_paths = []
@@ -27,12 +25,17 @@ def plot(data_source='phone', activity='', axis='ax', ylim=(10, 10), zero_mean=F
 
     c = ['#000000', '#888888']
     for i, df in enumerate(dfs[2:4]):
-        index = [i for i in range(len(df[axis]))]
-
         if zero_mean:
-            plt.plot(index, df[axis] - df[axis].mean(), c=c[i], linewidth=1.5, label='Subject {}'.format(i))
+            index = [i for i in range(20, len(df[axis]) - 1)]
+            y = df[axis].values.tolist()[20:len(df[axis].values) - 1]
+            mean_y = np.mean(y)
+            y = [item - mean_y for item in y]
         else:
-            plt.plot(index, df[axis], c=c[i], linewidth=2, label='Subject {}'.format(i))
+            index = [i for i in range(len(df[axis]))]
+            y = df[axis]
+            pass
+
+        plt.plot(index, y, c=c[i], linewidth=1.5, label='Subject {}'.format(i))
 
     title = activity.capitalize() + ' - Raw Accelerometer - '
     title += 'SP' if data_source == 'phone' else 'SW'
@@ -51,4 +54,4 @@ def plot(data_source='phone', activity='', axis='ax', ylim=(10, 10), zero_mean=F
 
 
 if __name__ == '__main__':
-    plot(data_source='phone', activity='sitting', axis='ax', ylim=None, zero_mean=True)
+    plot(data_source='phone', activity='sitting', axis='ax', ylim=(-5, 5), zero_mean=True)
