@@ -31,9 +31,9 @@ def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
 
     # ZERO MEAN ONLY!!
-    # for col_name in df.columns:
-    #     if 'zero_mean' not in col_name and ('sp' in col_name or 'sw' in col_name):
-    #         df.drop(col_name, axis=1, inplace=True)
+    for col_name in df.columns:
+        if 'zero_mean' not in col_name and ('sp' in col_name or 'sw' in col_name):
+            df.drop(col_name, axis=1, inplace=True)
 
     # ORIGINAL ONLY!!
     # for col_name in df.columns:

@@ -1,0 +1,486 @@
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['edwin']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 33674
+X_test size: 4707
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 33674
+X_test size: 4707
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 33674
+X_test size: 4707
+
+
+Accuracy: [0.58763543658381134, 0.58763543658381134, 0.58763543658381134]
+Accuracy Mean: 0.5876354365838113, Accuracy Standard deviation: 0.0
+F1 Score: [0.58454207792264823, 0.58454207792264823, 0.58459169925651455]
+F1 Mean: 0.5845586183672703, F1 Standard deviation: 2.3391721112265868e-05
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['shelina']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 36017
+X_test size: 2364
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 36017
+X_test size: 2364
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 36017
+X_test size: 2364
+
+
+Accuracy: [0.55837563451776651, 0.55837563451776651, 0.55837563451776651]
+Accuracy Mean: 0.5583756345177665, Accuracy Standard deviation: 0.0
+F1 Score: [0.5196175564990011, 0.5196175564990011, 0.5196175564990011]
+F1 Mean: 0.5196175564990011, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['mellita']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35972
+X_test size: 2409
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35972
+X_test size: 2409
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35972
+X_test size: 2409
+
+
+Accuracy: [0.56870070568700704, 0.56870070568700704, 0.56828559568285597]
+Accuracy Mean: 0.5685623356856233, Accuracy Standard deviation: 0.00019568473258239582
+F1 Score: [0.53693653491020643, 0.53693653491020643, 0.53650453918314767]
+F1 Mean: 0.5367925363345202, F1 Standard deviation: 0.00020364473869791038
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['nikolas']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35982
+X_test size: 2399
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35982
+X_test size: 2399
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35982
+X_test size: 2399
+
+
+Accuracy: [0.63526469362234261, 0.63526469362234261, 0.63526469362234261]
+Accuracy Mean: 0.6352646936223426, Accuracy Standard deviation: 0.0
+F1 Score: [0.59943944739950372, 0.59943944739950372, 0.59943944739950372]
+F1 Mean: 0.5994394473995037, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['samuel']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35980
+X_test size: 2401
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35980
+X_test size: 2401
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35980
+X_test size: 2401
+
+
+Accuracy: [0.57892544773011245, 0.57892544773011245, 0.57892544773011245]
+Accuracy Mean: 0.5789254477301125, Accuracy Standard deviation: 0.0
+F1 Score: [0.55892430331239584, 0.55892430331239584, 0.5588485460088386]
+F1 Mean: 0.5588990508778767, F1 Standard deviation: 3.5712335379823576e-05
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['elmo']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.4835758835758836, 0.4835758835758836, 0.4835758835758836]
+Accuracy Mean: 0.4835758835758836, Accuracy Standard deviation: 0.0
+F1 Score: [0.44181828119503802, 0.44181828119503802, 0.44181828119503802]
+F1 Mean: 0.441818281195038, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['monica']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35991
+X_test size: 2390
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35991
+X_test size: 2390
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35991
+X_test size: 2390
+
+
+Accuracy: [0.57154811715481169, 0.57154811715481169, 0.57154811715481169]
+Accuracy Mean: 0.5715481171548117, Accuracy Standard deviation: 0.0
+F1 Score: [0.53985015641215928, 0.53985015641215928, 0.53985015641215928]
+F1 Mean: 0.5398501564121593, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['inge']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35951
+X_test size: 2430
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35951
+X_test size: 2430
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35951
+X_test size: 2430
+
+
+Accuracy: [0.5497942386831276, 0.5497942386831276, 0.5497942386831276]
+Accuracy Mean: 0.5497942386831276, Accuracy Standard deviation: 0.0
+F1 Score: [0.52067989890297506, 0.52067989890297506, 0.52067989890297506]
+F1 Mean: 0.5206798989029751, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'arianto', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['andri']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35975
+X_test size: 2406
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35975
+X_test size: 2406
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35975
+X_test size: 2406
+
+
+Accuracy: [0.54613466334164584, 0.5465502909393184, 0.54613466334164584]
+Accuracy Mean: 0.5462732058742034, Accuracy Standard deviation: 0.00019592872850835713
+F1 Score: [0.50730263291745359, 0.50767333690899252, 0.50730263291745359]
+F1 Mean: 0.5074262009146332, F1 Standard deviation: 0.00017475153748673397
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'orlin', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['arianto']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35976
+X_test size: 2405
+
+
+Accuracy: [0.58627858627858631, 0.58669438669438667, 0.58669438669438667]
+Accuracy Mean: 0.5865557865557866, Accuracy Standard deviation: 0.00019601019575508056
+F1 Score: [0.55267817289139265, 0.55311890458376434, 0.55311890458376434]
+F1 Mean: 0.5529719940196404, F1 Standard deviation: 0.00020776291223989575
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'valerie', 'nathania', 'albert', 'james']
+Testing Subjects: ['orlin']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35948
+X_test size: 2433
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35948
+X_test size: 2433
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35948
+X_test size: 2433
+
+
+Accuracy: [0.61446773530620635, 0.61446773530620635, 0.61446773530620635]
+Accuracy Mean: 0.6144677353062064, Accuracy Standard deviation: 0.0
+F1 Score: [0.57474361892664672, 0.57474361892664672, 0.57474361892664672]
+F1 Mean: 0.5747436189266467, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'nathania', 'albert', 'james']
+Testing Subjects: ['valerie']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35961
+X_test size: 2420
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35961
+X_test size: 2420
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35961
+X_test size: 2420
+
+
+Accuracy: [0.59421487603305789, 0.59421487603305789, 0.59421487603305789]
+Accuracy Mean: 0.5942148760330579, Accuracy Standard deviation: 0.0
+F1 Score: [0.55767663741294882, 0.55767663741294882, 0.55767663741294882]
+F1 Mean: 0.5576766374129488, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'albert', 'james']
+Testing Subjects: ['nathania']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35965
+X_test size: 2416
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35965
+X_test size: 2416
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35965
+X_test size: 2416
+
+
+Accuracy: [0.52193708609271527, 0.52193708609271527, 0.52193708609271527]
+Accuracy Mean: 0.5219370860927153, Accuracy Standard deviation: 0.0
+F1 Score: [0.49129298879424593, 0.49129298879424593, 0.49129298879424593]
+F1 Mean: 0.49129298879424593, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'james']
+Testing Subjects: ['albert']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35973
+X_test size: 2408
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35973
+X_test size: 2408
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/utils/validation.py:526: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+
+X_train size: 35973
+X_test size: 2408
+
+
+Accuracy: [0.61669435215946844, 0.61669435215946844, 0.61669435215946844]
+Accuracy Mean: 0.6166943521594684, Accuracy Standard deviation: 0.0
+F1 Score: [0.58952526852379317, 0.58952526852379317, 0.58952526852379317]
+F1 Mean: 0.5895252685237932, F1 Standard deviation: 0.0
+
+
+
+
+Data Source: 
+Activities: ['standing', 'sitting', 'lying', 'walking', 'running', 'brushing', 'writing', 'reading', 'typing', 'going_downstairs', 'going_upstairs', 'food_preparation', 'folding', 'sweeping_the_floor']
+Cost: 1
+Gamma: auto
+Sampling Frequency: 5
+Window Size: 2000
+Training Subjects: ['edwin', 'shelina', 'mellita', 'nikolas', 'samuel', 'elmo', 'monica', 'inge', 'andri', 'arianto', 'orlin', 'valerie', 'nathania', 'albert']
+Testing Subjects: ['james']
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35993
+X_test size: 2388
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35993
+X_test size: 2388
+
+45
+['sp_mean_ax_zero_mean', 'sp_mean_ay_zero_mean', 'sp_mean_az_zero_mean', 'sp_mean_acc_magnitude_zero_mean', 'sp_var_ax_zero_mean', 'sp_var_ay_zero_mean', 'sp_var_az_zero_mean', 'sp_var_acc_magnitude_zero_mean', 'sp_cov_a_xy_zero_mean', 'sp_cov_a_xz_zero_mean', 'sp_cov_a_yz_zero_mean', 'sp_cov_a_xmag_zero_mean', 'sp_cov_a_ymag_zero_mean', 'sp_cov_a_zmag_zero_mean', 'sp_energy_ax_zero_mean', 'sp_energy_ay_zero_mean', 'sp_energy_az_zero_mean', 'sp_energy_acc_magnitude_zero_mean', 'sp_entropy_ax_zero_mean', 'sp_entropy_ay_zero_mean', 'sp_entropy_az_zero_mean', 'sp_entropy_acc_magnitude_zero_mean', 'sw_mean_ax_zero_mean', 'sw_mean_ay_zero_mean', 'sw_mean_az_zero_mean', 'sw_mean_acc_magnitude_zero_mean', 'sw_var_ax_zero_mean', 'sw_var_ay_zero_mean', 'sw_var_az_zero_mean', 'sw_var_acc_magnitude_zero_mean', 'sw_cov_a_xy_zero_mean', 'sw_cov_a_xz_zero_mean', 'sw_cov_a_yz_zero_mean', 'sw_cov_a_xmag_zero_mean', 'sw_cov_a_ymag_zero_mean', 'sw_cov_a_zmag_zero_mean', 'sw_energy_ax_zero_mean', 'sw_energy_ay_zero_mean', 'sw_energy_az_zero_mean', 'sw_energy_acc_magnitude_zero_mean', 'sw_entropy_ax_zero_mean', 'sw_entropy_ay_zero_mean', 'sw_entropy_az_zero_mean', 'sw_entropy_acc_magnitude_zero_mean', 'activity']
+X_train size: 35993
+X_test size: 2388
+
+
+Accuracy: [0.57160804020100497, 0.57118927973199329, 0.57160804020100497]
+Accuracy Mean: 0.5714684533780011, Accuracy Standard deviation: 0.0001974055782206791
+F1 Score: [0.54236894764717436, 0.5420413773549041, 0.54236894764717436]
+F1 Mean: 0.542259757549751, F1 Standard deviation: 0.00015441811665304142
+
+
+
+

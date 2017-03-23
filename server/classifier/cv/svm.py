@@ -112,7 +112,7 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='sw',
+                        data_source='sp',
                         activities=[
                             'brushing',
                             'folding',
