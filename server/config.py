@@ -145,10 +145,10 @@ WINDOWED_DATA_RESULT = {
 }
 
 COMBINED_DATA_RESULT = {
-    'sp': 'combined_smartphone.csv',
-    'sw': 'combined_smartwatch.csv',
-    'sp_sw': 'combined_sp_sw.csv',
-    'full': 'combined_full_[{}].csv'.format('+'.join(SENSOR_SOURCES['sp'] + SENSOR_SOURCES['sw']))
+    'sp': 'new_benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_smartphone.csv',
+    'sw': 'new_benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_smartwatch.csv',
+    'sp_sw': 'new_benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_sp_sw.csv',
+    'full': 'new_benchmark_smartwatch_based_activity_recognition_a_machine_learning_approach_combined_full_[{}].csv'.format('+'.join(SENSOR_SOURCES['sp'] + SENSOR_SOURCES['sw']))
 }
 
 FEATURES_DATA_RESULT = {

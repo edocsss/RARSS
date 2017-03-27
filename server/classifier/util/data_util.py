@@ -29,37 +29,6 @@ def _load_data(subject):
 def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0', axis=1, inplace=True)
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
-
-    # ZERO MEAN ONLY!!
-    # for col_name in df.columns:
-    #     if 'zero_mean' not in col_name and ('sp' in col_name or 'sw' in col_name):
-    #         df.drop(col_name, axis=1, inplace=True)
-
-    # ORIGINAL ONLY!!
-    # for col_name in df.columns:
-    #     if 'zero_mean' in col_name:
-    #         df.drop(col_name, axis=1, inplace=True)
-
-    # Accelerometer only!!
-    # for col_name in df.columns:
-    #     if 'ax' not in col_name and \
-    #                     'ay' not in col_name and \
-    #                     'az' not in col_name and \
-    #                     'acc_magnitude' not in col_name and \
-    #                     'cov_a' not in col_name and \
-    #                     ('sp' in col_name or 'sw' in col_name):
-    #         df.drop(col_name, axis=1, inplace=True)
-
-    # Accelerometer and Barometer 2 only!
-    # for col_name in df.columns:
-    #     if '_gx' in col_name or '_gy' in col_name or '_gz' in col_name or 'gyro_magnitude' in col_name or 'cov_g' in col_name:
-    #         df.drop(col_name, axis=1, inplace=True)
-
-    # Acc + Gyro only
-    # for col_name in df.columns:
-    #     if '_baro' in col_name:
-    #         df.drop(col_name, axis=1, inplace=True)
-
     return df
 
 

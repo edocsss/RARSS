@@ -29,7 +29,7 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
             dataframe = dataframe[(dataframe.timestamp >= starting_timestamp) & (dataframe.timestamp <= ending_timestamp)]
 
             dataframe = _include_additional_data(k, dataframe)
-            dataframe = _zero_mean_cols(dataframe)
+            # dataframe = _zero_mean_cols(dataframe)
 
             lower_bound = 0
             upper_bound = starting_timestamp
