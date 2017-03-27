@@ -29,7 +29,6 @@ def _load_data(subject):
 def _drop_irrelevant_columns(df):
     df.drop('Unnamed: 0', axis=1, inplace=True)
     df.drop('Unnamed: 0.1', axis=1, inplace=True)
-
     return df
 
 
