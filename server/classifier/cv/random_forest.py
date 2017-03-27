@@ -88,26 +88,24 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [100, 300, 500, 1000]
+    n_estimators = [100, 200, 300, 500, 1000]
     for n in n_estimators:
         run_cv(
             n_estimators=n,
             data_source='',
             permutate_xyz=False,
             activities=[
-                'brushing',
-                'folding',
-                'going_downstairs',
-                'going_upstairs',
                 'lying',
-                'reading',
-                'running',
                 'sitting',
                 'standing',
-                'sweeping_the_floor',
-                'food_preparation',
-                'typing',
                 'walking',
-                'writing'
+                'running',
+                'cycling',
+                'nordic_walking',
+                'going_upstairs',
+                'going_downstairs',
+                'vacuum_cleaning',
+                'ironing',
+                'rope_jumping'
             ]
         )

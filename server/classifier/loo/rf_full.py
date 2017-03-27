@@ -18,7 +18,7 @@ c_matrix = []
 def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', activities=None, permutate_xyz=False, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -26,7 +26,7 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
