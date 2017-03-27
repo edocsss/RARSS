@@ -98,7 +98,7 @@ if __name__ == '__main__':
     x = []
     y = []
 
-    C = [1, 100, 500, 1000, 5000]
+    C = [1, 10, 100, 500, 1000, 5000]
     kernel = ['rbf']
     gamma = ['auto', 0.1, 0.5, 1]
     degree = [1]
@@ -112,21 +112,19 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='sp',
+                        data_source='',
                         activities=[
-                            'brushing',
-                            'folding',
-                            'going_downstairs',
-                            'going_upstairs',
                             'lying',
-                            'reading',
-                            'running',
                             'sitting',
                             'standing',
-                            'sweeping_the_floor',
-                            'food_preparation',
-                            'typing',
                             'walking',
-                            'writing'
+                            'running',
+                            'cycling',
+                            'nordic_walking',
+                            'going_upstairs',
+                            'going_downstairs',
+                            'vacuum_cleaning',
+                            'ironing',
+                            'rope_jumping'
                         ]
                     )

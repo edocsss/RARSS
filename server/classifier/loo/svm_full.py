@@ -17,7 +17,7 @@ c_matrix = []
 def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_svmloo4_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_svmloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -25,7 +25,7 @@ def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamm
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_svmloo4_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_svmloo3_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -65,20 +65,18 @@ if __name__ == '__main__':
     show_confusion = False
 
     activities = [
-        'standing',
-        'sitting',
         'lying',
+        'sitting',
+        'standing',
         'walking',
         'running',
-        'brushing',
-        'writing',
-        'reading',
-        'typing',
-        'going_downstairs',
+        'cycling',
+        'nordic_walking',
         'going_upstairs',
-        'food_preparation',
-        'folding',
-        'sweeping_the_floor'
+        'going_downstairs',
+        'vacuum_cleaning',
+        'ironing',
+        'rope_jumping'
     ]
 
     for test_subject in CONFIG.FULL_SUBJECT_LIST:

@@ -2,42 +2,31 @@ import os
 
 # DATA SELECTION CONFIGURATIONS
 FULL_SUBJECT_LIST = [
-    'edwin',
-    'shelina',
-    'mellita',
-    'nikolas',
-    'samuel',
-    'elmo',
-    'monica',
-    'inge',
-    'andri',
-    'arianto',
-    'orlin',
-    'valerie',
-    'nathania',
-    'albert',
-    'james'
+    'subject101',
+    'subject102',
+    'subject103',
+    'subject104',
+    'subject105',
+    'subject106',
+    'subject107',
+    'subject108',
+    'subject109'
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'james'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'subject109'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
-    'shelina',
-    'mellita',
-    'nikolas',
-    'samuel',
-    'elmo',
-    'monica',
-    'inge',
-    'andri',
-    'arianto',
-    'orlin',
-    'valerie',
-    'nathania',
-    'albert',
-    'james'
+    'subject101',
+    'subject102',
+    'subject103',
+    'subject104',
+    'subject105',
+    'subject106',
+    'subject107',
+    'subject108',
+    'subject109'
 ]
 
 # Select whose data to use for MODEL TESTING DATA --> the data for the subject/s must have been pre-processed
@@ -45,21 +34,15 @@ TESTING_DATA_SOURCE_SUBJECT = ['edwin']
 
 # Select whose data to use for the K-FOLD CROSS VALIDATION --> the data for the subject/s must have been pre-processed
 KFOLD_DATA_SOURCE_SUBJECT = [
-    'edwin',
-    'shelina',
-    'mellita',
-    'nikolas',
-    'samuel',
-    'elmo',
-    'monica',
-    'inge',
-    'andri',
-    'arianto',
-    'orlin',
-    'valerie',
-    'nathania',
-    'albert',
-    'james'
+    'subject101',
+    'subject102',
+    'subject103',
+    'subject104',
+    'subject105',
+    'subject106',
+    'subject107',
+    'subject108',
+    'subject109'
 ]
 
 # Select whose data to use for the REAL TIME MONITORING MODEL BUILDING --> the dta for the subject/s must have been pre-processed
@@ -82,8 +65,8 @@ REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
 ]
 
 SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer', 'sp_gyroscope', 'sp_barometer'], # Change this to include other sensors in the data pre-processing
-    'sw': ['sw_accelerometer', 'sw_gyroscope', 'sw_pressure'], # Change this to include other sensors in the data pre-processing
+    'sp': ['sp_accelerometer'], # Change this to include other sensors in the data pre-processing
+    'sw': ['sw_accelerometer'], # Change this to include other sensors in the data pre-processing
     'sp_full': [
         'sp_accelerometer',
         'sp_barometer',
@@ -106,7 +89,7 @@ SENSOR_SOURCES = {
 
 # DIRECTORY PATH CONFIGURATIONS
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR = os.path.join(ROOT_DIR, 'data')
+DATA_DIR = os.path.join(ROOT_DIR, 'data_benchmark')
 RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 SAMPLED_DATA_DIR = os.path.join(DATA_DIR, 'sampled')
 WINDOWED_DATA_DIR = os.path.join(DATA_DIR, 'windowed')

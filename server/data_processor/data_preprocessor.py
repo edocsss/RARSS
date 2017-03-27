@@ -11,25 +11,34 @@ from data_processor.util import raw_data_reader
 
 def preprocess_data_for_manual_testing(activity_type, data_subject=CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT):
     raw_data = raw_data_reader.read_all_raw_data(activity_type)
+    if len(raw_data['sp_accelerometer']) == 0 or len(raw_data['sw_accelerometer']) == 0:
+        print('No data available for activity:', activity_type)
+        return
 
+    start = time.time()
     print('Data sampling started for {}!'.format(activity_type))
     sampled_data = data_sampler.sample_data(raw_data)
     data_sampler.write_sampled_data_to_files(sampled_data, activity_type)
+    print('Time: ', time.time() - start)
     print('Data sampling done for {}!'.format(activity_type))
     print()
 
+    start = time.time()
     print('Data windowing started for {}!'.format(activity_type))
     windowed_data = data_window_selector.divide_sampled_data_to_windows(sampled_data)
     data_window_selector.store_windowed_data_to_files(windowed_data, activity_type)
+    print('Time: ', time.time() - start)
     print('Data windowing done for {}!'.format(activity_type))
     print()
 
     combined_smartphone_dfs, combined_smartwatch_dfs = data_combiner.combine_data_by_device_source(windowed_data)
     data_combiner.store_combined_data_by_device_source(combined_smartphone_dfs, combined_smartwatch_dfs, activity_type)
 
+    start = time.time()
     print('Features generation started for {}!'.format(activity_type))
     smartphone_features, smartwatch_features = feature_generator.generate_feature(combined_smartphone_dfs, combined_smartwatch_dfs)
     feature_generator.store_features_df(smartphone_features, smartwatch_features, activity_type)
+    print('Time: ', time.time() - start)
     print('Features generation done for {}!'.format(activity_type))
     print()
     print()
@@ -49,20 +58,18 @@ def preprocess_data_for_real_time_monitoring(raw_data):
 
 if __name__ == '__main__':
     activities = [
-        'brushing',
-        'folding',
-        'going_downstairs',
-        'going_upstairs',
         'lying',
-        'reading',
-        'running',
         'sitting',
         'standing',
-        'sweeping_the_floor',
-        'food_preparation',
-        'typing',
         'walking',
-        'writing'
+        'running',
+        'cycling',
+        'nordic_walking',
+        'going_upstairs',
+        'going_downstairs',
+        'vacuum_cleaning',
+        'ironing',
+        'rope_jumping'
     ]
 
     print('Data preprocessing configuration:')

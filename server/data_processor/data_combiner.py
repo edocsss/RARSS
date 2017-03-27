@@ -15,10 +15,14 @@ def combine_all_data_into_one_complete_dataset():
             CONFIG.FILE_NAME_SUFFIX + CONFIG.PREPROCESS_DATA_SOURCE_SUBJECT + '_' + CONFIG.COMBINED_DATA_RESULT['sp_sw']
         )
 
-        df = pd.read_csv(file_path)
-        activity_df = pd.DataFrame(data=[[activity]] * len(df), columns=['activity'])
-        df = df.join(activity_df)
-        combined_dfs.append(df)
+        try:
+            df = pd.read_csv(file_path)
+            activity_df = pd.DataFrame(data=[[activity]] * len(df), columns=['activity'])
+            df = df.join(activity_df)
+            combined_dfs.append(df)
+
+        except:
+            print('This subject did not do {}'.format(activity))
 
     result_df = pd.DataFrame(data=None, columns=combined_dfs[0].columns)
     result_df = result_df.append(combined_dfs, ignore_index=True)
