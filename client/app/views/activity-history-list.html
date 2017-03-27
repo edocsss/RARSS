@@ -14,23 +14,23 @@
                     </thead>
 
                     <tbody md-body>
-                        <tr 
-                            md-row 
-                            ng-repeat="activityHistoryItem in activityHistoryListController.activityHistoryList | 
-                                       orderBy: activityHistoryListController.query.order | 
+                        <tr
+                            md-row
+                            ng-repeat="activityHistoryItem in activityHistoryListController.activityHistoryList |
+                                       orderBy: activityHistoryListController.query.order |
                                        limitTo: activityHistoryListController.query.limit: (activityHistoryListController.query.page - 1) * activityHistoryListController.query.limit">
                             <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.datetime.split(' ')[0].toLowerCase() }}</td>
-                            <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.datetime.split(' ')[1].toLowerCase() }}</td>
+                            <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.datetime.split(' ')[1].toLowerCase().split('.')[0] }}</td>
                             <td md-cell class="activity-history-table-cell">{{ activityHistoryItem.activity.toLowerCase() }}</td>
                         </tr>
                     </tbody>
                 </table>
             </md-table-container>
 
-            <md-table-pagination 
+            <md-table-pagination
                 md-limit="activityHistoryListController.query.limit"
                 md-limit-options="[10, 15, 20]"
-                md-page="activityHistoryListController.query.page" 
+                md-page="activityHistoryListController.query.page"
                 md-total="{{ activityHistoryListController.activityHistoryList.length }}">
             </md-table-pagination>
         </md-card>

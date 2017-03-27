@@ -1,20 +1,23 @@
-from sklearn.metrics import accuracy_score, f1_score
-from sklearn.svm import SVC
-
-import config as CONFIG
-from classifier.util import data_util
-import numpy as np
 import time
 
-from sklearn.metrics import confusion_matrix
-from classifier.util import activity_encoding, plot_util
+import numpy as np
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+from sklearn.svm import SVC
 import matplotlib.pyplot as plt
+import os
+
+import config as CONFIG
+from classifier.util import activity_encoding, plot_util
+from classifier.util import data_util
 
 
-def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None):
+c_matrix = []
+
+
+def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamma='auto', data_source='', permutate_xyz=False, activities=None, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_svmloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_svmloo4_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -22,7 +25,7 @@ def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamm
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_svmloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_svmloo4_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -44,6 +47,10 @@ def run_test(training_subjects, test_subjects, C=1, kernel='rbf', degree=1, gamm
     fscore = f1_score(Y_test, predictions, average='weighted')
     fscore_results.append(fscore)
 
+    if show_confusion:
+        cm = confusion_matrix(Y_test, predictions)
+        c_matrix.append(cm)
+
     return accuracy, fscore
 
 
@@ -55,6 +62,7 @@ if __name__ == '__main__':
     gamma = 'auto'
     permutate_xyz = False
     data_source = ''
+    show_confusion = False
 
     activities = [
         'standing',
@@ -81,6 +89,7 @@ if __name__ == '__main__':
         f1 = []
 
         print('Data Source: {}'.format(data_source))
+        print('Activities: {}'.format(activities))
         print('Cost: {}'.format(C))
         print('Gamma: {}'.format(gamma))
         print('Sampling Frequency: {}'.format(CONFIG.SAMPLING_FREQUENCY))
@@ -98,7 +107,8 @@ if __name__ == '__main__':
                 activities=activities,
                 kernel='rbf',
                 degree=1,
-                permutate_xyz=permutate_xyz
+                permutate_xyz=permutate_xyz,
+                show_confusion=show_confusion
             )
 
             accuracy.append(a)
@@ -114,7 +124,23 @@ if __name__ == '__main__':
         print()
         print()
 
+    if show_confusion:
+        cmr = c_matrix[0]
+        for i in range(1, len(c_matrix)):
+            cmr += c_matrix[i]
 
-    for i in range (0, 5):
-        print('\a')
-        time.sleep(0.5)
+        plt.figure(figsize=(7, 7), dpi=100)
+        plot_util.plot_confusion_matrix(
+            cmr,
+            [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+             sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+        )
+
+        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'loo_cm', 'cm_lopo_stairs_svm_accbaro_{}_{}_{}.png'.format(
+            C,
+            gamma,
+            data_source
+        ))
+
+        plt.savefig(fig_name)
+        plt.clf()

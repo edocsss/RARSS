@@ -1,10 +1,13 @@
 import numpy as np
+import os
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 import time
 
 import config as CONFIG
-from classifier.util import data_util
+from classifier.util import activity_encoding
+from classifier.util import data_util, plot_util
+import matplotlib.pyplot as plt
 
 
 def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False):
@@ -18,6 +21,7 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
     accuracy_results = []
     fscore_results = []
+    c_matrix = []
 
     print('Data Source: {}'.format(data_source))
     print('Number of Estimators: {}'.format(n_estimators))
@@ -44,12 +48,33 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
         fscore = f1_score(Y_test, predictions, average='weighted')
         fscore_results.append(fscore)
 
+        cm = confusion_matrix(Y_test, predictions)
+        c_matrix.append(cm)
+
     accuracy_mean = np.mean(accuracy_results)
     accuracy_std_dev = np.std(accuracy_results)
 
     fscore_mean = np.mean(fscore_results)
     fscore_std_dev = np.std(fscore_results)
 
+    # cmr = c_matrix[0]
+    # for i in range(1, len(c_matrix)):
+    #     cmr += c_matrix[i]
+    #
+    # plt.figure(figsize=(7, 7), dpi=100)
+    # plot_util.plot_confusion_matrix(
+    #     cmr,
+    #     [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+    #      sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+    # )
+    #
+    # fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'cv', 'results', 'cm_kfold_stairs_accbaro_rf_{}_{}.png'.format(
+    #     n_estimators,
+    #     data_source
+    # ))
+    #
+    # plt.savefig(fig_name)
+    # plt.clf()
 
     print('Accuracy: {}'.format(accuracy_results))
     print('Accuracy Mean: {}, Accuracy Standard deviation: {}'.format(accuracy_mean, accuracy_std_dev))
@@ -63,11 +88,11 @@ def run_cv(n_estimators=50, data_source='', activities=None, permutate_xyz=False
 
 
 if __name__ == '__main__':
-    n_estimators = [1000]
+    n_estimators = [100, 300, 500, 1000]
     for n in n_estimators:
-        accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
+        run_cv(
             n_estimators=n,
-            data_source='sw',
+            data_source='',
             permutate_xyz=False,
             activities=[
                 'brushing',

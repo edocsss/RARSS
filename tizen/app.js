@@ -72,9 +72,7 @@
 			
 			if (startRecording) {
 				sensorReadings.accelerometer.data.push({ ax: ax, ay: ay, az: az, timestamp: getCurrentTimestamp() });
-				if (!realTime) {
-					sensorReadings.gyroscope.data.push({ gx: gx, gy: gy, gz: gz, timestamp: getCurrentTimestamp() });
-				}
+				sensorReadings.gyroscope.data.push({ gx: gx, gy: gy, gz: gz, timestamp: getCurrentTimestamp() });
 			}
 			
 			prevTimestamp = getCurrentTimestamp();
@@ -211,8 +209,9 @@
 		if (!realTime) {
 			setupLightSensor();
 			setupMagneticSensor();
-			setupPressureSensor();
 			setupUVSensor();
+		} else {
+			setupPressureSensor();
 		}
 		
 		tizen.power.request("SCREEN", "SCREEN_NORMAL");

@@ -5,7 +5,7 @@ angular.module('FYPClient').factory('ActivityFactory',[
     function ($rootScope) {
         const SMOOTHING_WINDOW_SIZE = 5;
         const HALF_SMOOTHING_WINDOW_SIZE = Math.floor(SMOOTHING_WINDOW_SIZE / 2);
-        const STARTING_INDEX = Math.ceil(SMOOTHING_WINDOW_SIZE / 2);
+        const STARTING_INDEX = Math.floor(SMOOTHING_WINDOW_SIZE / 2);
         let currentSmoothingIndex = STARTING_INDEX;
 
         let activityHistoryList = [{
@@ -18,14 +18,14 @@ angular.module('FYPClient').factory('ActivityFactory',[
             let datetime = data.datetime;
             let activity = activityType.toUpperCase();
 
-            if (activityHistoryList.length >= SMOOTHING_WINDOW_SIZE) {
-                smoothActivityHistoryList();
-            }
-
             activityHistoryList.unshift({
                 activity: activity,
                 datetime: datetime
             });
+
+            if (activityHistoryList.length > SMOOTHING_WINDOW_SIZE) {
+                smoothActivityHistoryList();
+            }
         });
 
         return {
@@ -64,7 +64,6 @@ angular.module('FYPClient').factory('ActivityFactory',[
 
             // Smooth activity history
             activityHistoryList[currentSmoothingIndex].activity = maxActivity;
-            currentSmoothingIndex++;
         }
     }
 ]);

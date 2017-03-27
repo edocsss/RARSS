@@ -3,6 +3,7 @@ server/data/sampled
 server/data/features
 server/data/windowed
 server/data/combined
+server/data_benchmark
 server/.idea/workspace.xml
 
 android/FYP/volley

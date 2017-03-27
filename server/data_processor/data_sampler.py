@@ -1,5 +1,6 @@
 import os
 
+import math
 import pandas as pd
 
 import config as CONFIG
@@ -25,6 +26,10 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
             ending_timestamp = item['ending_timestamp']
 
             dataframe = raw_data_item.dataframe
+            dataframe = dataframe[(dataframe.timestamp >= starting_timestamp) & (dataframe.timestamp <= ending_timestamp)]
+            dataframe = _include_additional_data(k, dataframe)
+            dataframe = _zero_mean_cols(dataframe)
+
             lower_bound = 0
             upper_bound = starting_timestamp
 
@@ -146,3 +151,34 @@ def _create_sampled_activity_directory(activity_type):
 def _write_sampled_dataframe_to_csv(activity_type, file_name, dataframe):
     file_path = os.path.join(CONFIG.SAMPLED_DATA_DIR, activity_type, file_name)
     dataframe.to_csv(file_path)
+
+
+###############################################
+
+def _include_additional_data(type, df):
+    if 'accelerometer' in type:
+        df['acc_magnitude'] = df.apply(
+            _calculate_magnitude,
+            axis=1,
+            args=(['ax', 'ay', 'az'],)
+        )
+
+    elif 'gyroscope' in type:
+        df['gyro_magnitude'] = df.apply(
+            _calculate_magnitude,
+            axis=1,
+            args=(['gx', 'gy', 'gz'],)
+        )
+
+    return df
+
+
+def _calculate_magnitude(row, fields):
+    return math.sqrt(sum([math.pow(row[f], 2) for f in fields]))
+
+
+def _zero_mean_cols(df):
+    zero_mean_df = df - df.mean()
+    zero_mean_df = zero_mean_df.rename(columns=lambda c: c + '_zero_mean')
+    zero_mean_df.drop('timestamp_zero_mean', axis=1, inplace=True)
+    return pd.concat([df, zero_mean_df], axis=1)

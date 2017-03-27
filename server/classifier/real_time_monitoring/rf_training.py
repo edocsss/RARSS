@@ -17,7 +17,7 @@ def run_training(n_estimators=50, data_source=''):
     X_train, Y_train = data_util.load_training_data(
         CONFIG.REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT,
         CONFIG.MODEL_NAMES['real_time_monitoring_minmax_scaler'],
-        source=data_source
+        source=data_source,
     )
 
     model = RandomForestClassifier(n_estimators=n_estimators, n_jobs=-1)
@@ -33,5 +33,5 @@ def store_model(model):
 
 
 if __name__ == '__main__':
-    model = run_training(n_estimators=2000)
+    model = run_training(n_estimators=500)
     store_model(model)

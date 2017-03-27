@@ -43,8 +43,17 @@ class ActivityRecognizerWorker():
 
         LOGGER.info('Processing UUID: {}'.format(next_uuid))
         raw_accelerometer_data = self._get_raw_accelerometer_data_by_uuid(next_uuid)
+        raw_gyroscope_data = self._get_raw_gyroscope_data_by_uuid(next_uuid)
+        raw_barometer_data = self._get_raw_barometer_data_by_uuid(next_uuid)
+
+        full_raw_data = {
+            **raw_accelerometer_data,
+            **raw_gyroscope_data,
+            **raw_barometer_data
+        }
+
         current_datetime = str(datetime.fromtimestamp(self._get_first_sp_timestamp(raw_accelerometer_data) / 1e3))
-        predicted_activity = self._get_activity_prediction(raw_accelerometer_data)
+        predicted_activity = self._get_activity_prediction(full_raw_data)
 
         self._store_activity_history(current_datetime, next_uuid, predicted_activity)
         self._notify_web_client(current_datetime, next_uuid, predicted_activity)
@@ -54,19 +63,37 @@ class ActivityRecognizerWorker():
         sw_accelerometer_data = self._raw_sensory_data_db.get_sw_raw_accelerometer_data_by_uuid(uuid)
 
         return {
-            'sp_accelerometer': self._convert_accelerometer_data_to_data_processor_format(uuid, sp_accelerometer_data),
-            'sw_accelerometer': self._convert_accelerometer_data_to_data_processor_format(uuid, sw_accelerometer_data)
+            'sp_accelerometer': self._convert_raw_data_to_data_processor_format(uuid, sp_accelerometer_data),
+            'sw_accelerometer': self._convert_raw_data_to_data_processor_format(uuid, sw_accelerometer_data)
+        }
+
+    def _get_raw_gyroscope_data_by_uuid(self, uuid):
+        sp_gyroscope_data = self._raw_sensory_data_db.get_sp_raw_gyroscope_data_by_uuid(uuid)
+        sw_gyroscope_data = self._raw_sensory_data_db.get_sw_raw_gyroscope_data_by_uuid(uuid)
+
+        return {
+            'sp_gyroscope': self._convert_raw_data_to_data_processor_format(uuid, sp_gyroscope_data),
+            'sw_gyroscope': self._convert_raw_data_to_data_processor_format(uuid, sw_gyroscope_data)
+        }
+
+    def _get_raw_barometer_data_by_uuid(self, uuid):
+        sp_barometer_data = self._raw_sensory_data_db.get_sp_raw_barometer_data_by_uuid(uuid)
+        sw_barometer_data = self._raw_sensory_data_db.get_sw_raw_barometer_data_by_uuid(uuid)
+
+        return {
+            'sp_barometer': self._convert_raw_data_to_data_processor_format(uuid, sp_barometer_data),
+            'sw_pressure': self._convert_raw_data_to_data_processor_format(uuid, sw_barometer_data)
         }
 
     # Normalize the data format to the format used in the data pre-processing pipeline
-    def _convert_accelerometer_data_to_data_processor_format(self, uuid, accelerometer_data):
-        df = self._convert_accelerometer_data_to_df_and_clean(accelerometer_data)
+    def _convert_raw_data_to_data_processor_format(self, uuid, raw_data):
+        df = self._convert_raw_data_to_df_and_clean(raw_data)
         data_item = DataItem(uuid, df)
         return [data_item]
 
     # Convert the accelerometer data from dict() type to a Pandas DataFrame
-    def _convert_accelerometer_data_to_df_and_clean(self, accelerometer_data):
-        df = pd.DataFrame(accelerometer_data)
+    def _convert_raw_data_to_df_and_clean(self, raw_data):
+        df = pd.DataFrame(raw_data)
         df['timestamp'] = df['timestamp'].apply(int)
         df.sort_values(by='timestamp', ascending=True, inplace=True)
         df.drop(['_id', 'uuid'], inplace=True, axis=1)

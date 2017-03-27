@@ -67,11 +67,10 @@ if __name__ == '__main__':
     for n in n_neighbors:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_neighbors=n,
-            data_source='',
+            data_source='sw',
             permutate_xyz=False,
             activities=[
                 'brushing',
-                # 'eating',
                 'folding',
                 'going_downstairs',
                 'going_upstairs',

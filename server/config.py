@@ -20,7 +20,7 @@ FULL_SUBJECT_LIST = [
 ]
 
 # Select whose data to pre-process
-PREPROCESS_DATA_SOURCE_SUBJECT = 'nathania'
+PREPROCESS_DATA_SOURCE_SUBJECT = 'james'
 
 # Select whose data to use for MODEL TRAINING DATA --> the data for the subject/s must have been pre-processed
 TRAINING_DATA_SOURCE_SUBJECT = [
@@ -82,8 +82,8 @@ REAL_TIME_MONITORING_TRAINING_DATA_SOURCE_SUBJECT = [
 ]
 
 SENSOR_SOURCES = {
-    'sp': ['sp_accelerometer'], # Change this to include other sensors in the data pre-processing
-    'sw': ['sw_accelerometer'], # Change this to include other sensors in the data pre-processing
+    'sp': ['sp_accelerometer', 'sp_gyroscope', 'sp_barometer'], # Change this to include other sensors in the data pre-processing
+    'sw': ['sw_accelerometer', 'sw_gyroscope', 'sw_pressure'], # Change this to include other sensors in the data pre-processing
     'sp_full': [
         'sp_accelerometer',
         'sp_barometer',
@@ -176,7 +176,7 @@ FEATURES_DATA_RESULT = {
 ######################################################################################
 
 # DATA PREPROCESSING CONFIGURATIONS
-SAMPLING_FREQUENCY = 10 # in Hz
+SAMPLING_FREQUENCY = 5 # in Hz
 WINDOW_SIZE = 2000
 WINDOW_OVERLAP = 0.5
 STARTING_OUTLIER_REMOVAL_SIZE = 7000

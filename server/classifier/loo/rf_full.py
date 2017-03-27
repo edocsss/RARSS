@@ -9,12 +9,16 @@ from sklearn.metrics import confusion_matrix
 import config as CONFIG
 from classifier.util import activity_encoding, plot_util
 from classifier.util import data_util
+import os
+
+
+c_matrix = []
 
 
 def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', activities=None, permutate_xyz=False, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo1_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -22,7 +26,7 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo1_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -45,17 +49,8 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
     fscore_results.append(fscore)
 
     if show_confusion:
-        cm = confusion_matrix(
-            Y_test,
-            predictions
-        )
-
-        plt.figure()
-        plot_util.plot_confusion_matrix(
-            cm,
-            [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
-        )
-        plt.show()
+        cm = confusion_matrix(Y_test, predictions)
+        c_matrix.append(cm)
 
     return accuracy, fscore
 
@@ -123,3 +118,23 @@ if __name__ == '__main__':
             print()
             print()
             print()
+
+    if show_confusion:
+        cmr = c_matrix[0]
+        for i in range(1, len(c_matrix)):
+            cmr += c_matrix[i]
+
+        plt.figure(figsize=(7, 7), dpi=100)
+        plot_util.plot_confusion_matrix(
+            cmr,
+            [activity_encoding.INT_TO_ACTIVITY_MAPPING[i] for i in
+             sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
+        )
+
+        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'cm_lopo_all_rf_accbarogyro_ori_zero_mean_{}_{}.png'.format(
+            n_estimators,
+            data_source
+        ))
+
+        plt.savefig(fig_name)
+        plt.clf()
