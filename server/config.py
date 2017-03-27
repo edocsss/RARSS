@@ -102,6 +102,25 @@ SENSOR_SOURCES = {
     ]
 }
 
+FEATURE_SETS = {
+    'ORI': 'original',
+    'MD': 'mean_deducted',
+    'ORI+MD': 'ori+md'
+}
+
+USE_FEATURE_SET = FEATURE_SETS['ORI+MD']
+
+SENSOR_FEATURES = {
+    'ACC': 'acc',
+    'BARO': 'baro',
+    'GYRO': 'gyro',
+    'ACC+BARO': 'acc+baro',
+    'ACC+GYRO': 'acc+gyro',
+    'ACC+BARO+GYRO': 'acc+baro+gyro'
+}
+
+USE_SENSOR_FEATURES = SENSOR_FEATURES['ACC+BARO+GYRO']
+
 ######################################################################################
 
 # DIRECTORY PATH CONFIGURATIONS
