@@ -27,6 +27,7 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
 
             dataframe = raw_data_item.dataframe
             dataframe = dataframe[(dataframe.timestamp >= starting_timestamp) & (dataframe.timestamp <= ending_timestamp)]
+
             dataframe = _include_additional_data(k, dataframe)
             dataframe = _zero_mean_cols(dataframe)
 
@@ -37,8 +38,8 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
             sampled_df = pd.DataFrame(data=None, columns=dataframe.columns)
 
             while upper_bound <= ending_timestamp:
-                df_within_time_boundary = dataframe[(dataframe.timestamp >= lower_bound) & (dataframe.timestamp <= upper_bound)]
-                timestamps_within_boundary = [int(series['timestamp']) for index, series in df_within_time_boundary.iterrows()]
+                df_within_time_boundary = dataframe[(dataframe.timestamp >= lower_bound - 0.1) & (dataframe.timestamp <= upper_bound + 0.1)]
+                timestamps_within_boundary = [series['timestamp'] for index, series in df_within_time_boundary.iterrows()]
 
                 # When there is no row for the given timestamp boundary, then use the last value
                 if len(timestamps_within_boundary) == 0:
@@ -48,7 +49,7 @@ def _sample_data_by_frequency(raw_data, real_time_mode=False):
                 # If there is at least 1 row, then take the latest data as the sampled data
                 else:
                     largest_timestamp_within_boundary = max(timestamps_within_boundary)
-                    sample_series = dataframe[dataframe.timestamp == largest_timestamp_within_boundary].iloc[0]
+                    sample_series = dataframe[(dataframe.timestamp >= largest_timestamp_within_boundary - 0.1) & (dataframe.timestamp <= largest_timestamp_within_boundary + 0.1)].iloc[0]
                     sample_series.set_value('timestamp', upper_bound)
                     prev_series = sample_series
 
