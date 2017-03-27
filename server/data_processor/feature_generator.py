@@ -1,6 +1,6 @@
 import math
 import os
-from scipy.stats._binned_statistic import binned_statistic
+import numpy as np
 import pandas as pd
 import config as CONFIG
 
@@ -22,39 +22,27 @@ def _generate_smartphone_features(smartphone_df):
         'sp_std_ax',
         'sp_std_ay',
         'sp_std_az',
-        'sp_aad_ax',
-        'sp_aad_ay',
-        'sp_aad_az',
-        'sp_bin_ax_0',
-        'sp_bin_ax_1',
-        'sp_bin_ax_2',
-        'sp_bin_ax_3',
-        'sp_bin_ax_4',
-        'sp_bin_ax_5',
-        'sp_bin_ax_6',
-        'sp_bin_ax_7',
-        'sp_bin_ax_8',
-        'sp_bin_ax_9',
-        'sp_bin_ay_0',
-        'sp_bin_ay_1',
-        'sp_bin_ay_2',
-        'sp_bin_ay_3',
-        'sp_bin_ay_4',
-        'sp_bin_ay_5',
-        'sp_bin_ay_6',
-        'sp_bin_ay_7',
-        'sp_bin_ay_8',
-        'sp_bin_ay_9',
-        'sp_bin_az_0',
-        'sp_bin_az_1',
-        'sp_bin_az_2',
-        'sp_bin_az_3',
-        'sp_bin_az_4',
-        'sp_bin_az_5',
-        'sp_bin_az_6',
-        'sp_bin_az_7',
-        'sp_bin_az_8',
-        'sp_bin_az_9'
+        'sp_std_acc_magnitude',
+        'sp_min_ax',
+        'sp_min_ay',
+        'sp_min_az',
+        'sp_min_acc_magnitude',
+        'sp_max_ax',
+        'sp_max_ay',
+        'sp_max_az',
+        'sp_max_acc_magnitude',
+        'sp_semi_quartile_ax',
+        'sp_semi_quartile_ay',
+        'sp_semi_quartile_az',
+        'sp_semi_quartile_acc_magnitude',
+        'sp_median_ax',
+        'sp_median_ay',
+        'sp_median_az',
+        'sp_median_acc_magnitude',
+        'sp_sum_10_fft_ax',
+        'sp_sum_10_fft_ay',
+        'sp_sum_10_fft_az',
+        'sp_sum_10_fft_acc_magnitude'
     ])
 
     for i in range(0, smartphone_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -79,39 +67,27 @@ def _generate_smartwatch_features(smartwatch_df):
         'sw_std_ax',
         'sw_std_ay',
         'sw_std_az',
-        'sw_aad_ax',
-        'sw_aad_ay',
-        'sw_aad_az',
-        'sw_bin_ax_0',
-        'sw_bin_ax_1',
-        'sw_bin_ax_2',
-        'sw_bin_ax_3',
-        'sw_bin_ax_4',
-        'sw_bin_ax_5',
-        'sw_bin_ax_6',
-        'sw_bin_ax_7',
-        'sw_bin_ax_8',
-        'sw_bin_ax_9',
-        'sw_bin_ay_0',
-        'sw_bin_ay_1',
-        'sw_bin_ay_2',
-        'sw_bin_ay_3',
-        'sw_bin_ay_4',
-        'sw_bin_ay_5',
-        'sw_bin_ay_6',
-        'sw_bin_ay_7',
-        'sw_bin_ay_8',
-        'sw_bin_ay_9',
-        'sw_bin_az_0',
-        'sw_bin_az_1',
-        'sw_bin_az_2',
-        'sw_bin_az_3',
-        'sw_bin_az_4',
-        'sw_bin_az_5',
-        'sw_bin_az_6',
-        'sw_bin_az_7',
-        'sw_bin_az_8',
-        'sw_bin_az_9'
+        'sw_std_acc_magnitude',
+        'sw_min_ax',
+        'sw_min_ay',
+        'sw_min_az',
+        'sw_min_acc_magnitude',
+        'sw_max_ax',
+        'sw_max_ay',
+        'sw_max_az',
+        'sw_max_acc_magnitude',
+        'sw_median_ax',
+        'sw_median_ay',
+        'sw_median_az',
+        'sw_median_acc_magnitude',
+        'sw_semi_quartile_ax',
+        'sw_semi_quartile_ay',
+        'sw_semi_quartile_az',
+        'sw_semi_quartile_acc_magnitude',
+        'sw_sum_10_fft_ax',
+        'sw_sum_10_fft_ay',
+        'sw_sum_10_fft_az',
+        'sw_sum_10_fft_acc_magnitude'
     ])
 
     for i in range(0, smartwatch_df.shape[0], CONFIG.N_ROWS_PER_WINDOW):
@@ -126,7 +102,7 @@ def _generate_smartwatch_features(smartwatch_df):
     return result_df
 
 
-def _generate_accelerometer_feature_per_window(df, column_prefix, column_type=''):
+def _generate_accelerometer_feature_per_window(df, column_prefix):
     accelerometer_related_data = df[['ax', 'ay', 'az', 'acc_magnitude']]
     result = []
     result_cols = [
@@ -137,56 +113,49 @@ def _generate_accelerometer_feature_per_window(df, column_prefix, column_type=''
         column_prefix + 'std_ax',
         column_prefix + 'std_ay',
         column_prefix + 'std_az',
-        column_prefix + 'aad_ax',
-        column_prefix + 'aad_ay',
-        column_prefix + 'aad_az',
-        column_prefix + 'bin_ax_0',
-        column_prefix + 'bin_ax_1',
-        column_prefix + 'bin_ax_2',
-        column_prefix + 'bin_ax_3',
-        column_prefix + 'bin_ax_4',
-        column_prefix + 'bin_ax_5',
-        column_prefix + 'bin_ax_6',
-        column_prefix + 'bin_ax_7',
-        column_prefix + 'bin_ax_8',
-        column_prefix + 'bin_ax_9',
-        column_prefix + 'bin_ay_0',
-        column_prefix + 'bin_ay_1',
-        column_prefix + 'bin_ay_2',
-        column_prefix + 'bin_ay_3',
-        column_prefix + 'bin_ay_4',
-        column_prefix + 'bin_ay_5',
-        column_prefix + 'bin_ay_6',
-        column_prefix + 'bin_ay_7',
-        column_prefix + 'bin_ay_8',
-        column_prefix + 'bin_ay_9',
-        column_prefix + 'bin_az_0',
-        column_prefix + 'bin_az_1',
-        column_prefix + 'bin_az_2',
-        column_prefix + 'bin_az_3',
-        column_prefix + 'bin_az_4',
-        column_prefix + 'bin_az_5',
-        column_prefix + 'bin_az_6',
-        column_prefix + 'bin_az_7',
-        column_prefix + 'bin_az_8',
-        column_prefix + 'bin_az_9'
+        column_prefix + 'std_acc_magnitude',
+        column_prefix + 'min_ax',
+        column_prefix + 'min_ay',
+        column_prefix + 'min_az',
+        column_prefix + 'min_acc_magnitude',
+        column_prefix + 'max_ax',
+        column_prefix + 'max_ay',
+        column_prefix + 'max_az',
+        column_prefix + 'max_acc_magnitude',
+        column_prefix + 'median_ax',
+        column_prefix + 'median_ay',
+        column_prefix + 'median_az',
+        column_prefix + 'median_acc_magnitude',
+        column_prefix + 'semi_quartile_ax',
+        column_prefix + 'semi_quartile_ay',
+        column_prefix + 'semi_quartile_az',
+        column_prefix + 'semi_quartile_acc_magnitude',
+        column_prefix + 'sum_10_fft_ax',
+        column_prefix + 'sum_10_fft_ay',
+        column_prefix + 'sum_10_fft_az',
+        column_prefix + 'sum_10_fft_acc_magnitude',
     ]
 
     result += accelerometer_related_data.mean().tolist()
-    result += accelerometer_related_data.std().tolist()[0:3]  # ignore std acc magnitude
+    result += accelerometer_related_data.std().tolist()
+    result += accelerometer_related_data.min().tolist()
+    result += accelerometer_related_data.max().tolist()
+    result += accelerometer_related_data.median().tolist()
 
     try:
-        result.append(_calculate_average_absolute_difference(accelerometer_related_data['ax']))
-        result.append(_calculate_average_absolute_difference(accelerometer_related_data['ay']))
-        result.append(_calculate_average_absolute_difference(accelerometer_related_data['az']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['ax']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['ay']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['az']))
+        result.append(_calculate_semi_quartile(accelerometer_related_data['acc_magnitude']))
 
-        result += _calculate_bin_distribution(accelerometer_related_data['ax'])
-        result += _calculate_bin_distribution(accelerometer_related_data['ay'])
-        result += _calculate_bin_distribution(accelerometer_related_data['az'])
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['ax']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['ay']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['az']))
+        result.append(_calculate_sum_first_10_fft(accelerometer_related_data['acc_magnitude']))
 
     except Exception as e:
-        print(e)
         print('Feature generation exception!')
+        print(e)
         print()
         print()
 
@@ -194,19 +163,26 @@ def _generate_accelerometer_feature_per_window(df, column_prefix, column_type=''
     return result_df
 
 
-def _calculate_average_absolute_difference(series):
-    data = series.tolist()
-    mean = series.mean()
-    absolute_difference = [math.fabs(d - mean) for d in data]
-    return sum(absolute_difference) / len(absolute_difference)
+def _calculate_semi_quartile(series):
+    first_quartile = series.quantile(0.25)
+    third_quartile = series.quantile(0.75)
+    return (first_quartile + third_quartile) / 2
 
 
-def _calculate_bin_distribution(series):
-    data = series.tolist()
-    bin_count, _, _ = binned_statistic(data, data, statistic='count', bins=10)
+def _calculate_sum_first_10_fft(series):
+    values = series.tolist()
+    fft = _calculate_fft(values)
+    return sum(fft[:10])
 
-    n = len(data)
-    return [item / n for item in bin_count]
+
+# For details about FFT, take a look at Prof. Tan's and Dr. Wang's paper
+# Basically, the FFT in NumPy and the one in the paper is slightly different
+# The one in NumPy has already iterated through the K value, we just need to sum them up
+# That's why the NumPy still produces an array of size len(series) after calculating FFT
+# WE NEED TO DISCARD THE FIRST ITEM, SEE EQUATION (6) --> k = 1 to N - 1
+def _calculate_fft(vector):
+    fft_vector = np.fft.fft(vector)
+    return np.absolute(fft_vector)
 
 
 def store_features_df(smartphone_features, smartwatch_features, activity_type):
