@@ -1,8 +1,10 @@
 server/data/db
+server/data/raw
 server/data/sampled
 server/data/features
 server/data/windowed
 server/data/combined
+server/data_benchmark/raw
 server/data_benchmark/sampled
 server/data_benchmark/features
 server/data_benchmark/windowed
