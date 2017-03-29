@@ -1,6 +1,6 @@
 scikit-learn
 tornado
-Lasagne
+keras==1.2.2
 matplotlib
 numpy
 pandas
