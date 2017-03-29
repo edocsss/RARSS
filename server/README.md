@@ -1,5 +1,5 @@
 # Quick Setup
-1. The raw folder is stored in this GitHub.
+1. The raw folder is **NOT** stored in this GitHub. Please asked me or Dr. Wang Di for the full raw data. Then, put the raw data into `<path_to_server_dir>/data/raw`.
 2. The `data` folder currently only contains the `raw` folder. You need to **create directory** for the **DB**. The new directory should have this path: `<path_to_server_dir>/data/db`.
 3. Use PyCharm!! This handles a lot of Pythonpath issues much easier.
 4. In order to use the classifiers, you will have to perform data preprocessing again **for each subject**.
