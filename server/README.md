@@ -14,6 +14,8 @@ Here is the list of technologies used:
 4. Tizen OS (with WebSocket)
 5. AngularJS (with WebSocket)
 6. ngrok (tunnelling)
+7. bower
+8. npm
 
 # Important Note
 This quick setup note is **NOT** complete! Please read my FYP report and the Wiki pages in this repository. The FYP report focuses on the ideas from the high level perspective while the Wiki pages give more technical details.
