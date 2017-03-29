@@ -1,4 +1,5 @@
 server/data/db
+server/data/raw
 server/data/sampled
 server/data/features
 server/data/windowed
