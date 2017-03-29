@@ -1,5 +1,5 @@
-# Final Year Project: Human Activity Recognition System
-This repository contains all the code related to my Final Year Project which is about recognizing human activities using Smartphone and Smartwatch. Raw data collected can be found in this repository as well.
+# Robust Activity Recognition using Smartphone and Smartwatch (RARSS)
+This repository contains all the code related to my Final Year Project which is about recognizing human activities using Smartphone and Smartwatch.
 
 An important contribution is the exploration on how using **mean deducted sensory data** can **significantly** improve the testing results, especially the Leave-One-Person-Out (LOPO) testing. To my own knowledge, there **has not been** any other work using a similar technique to a Human Activity Recognition problem.
 
