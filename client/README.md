@@ -31,5 +31,8 @@ This client AngularJS web application is able to generate charts based on the ra
 7. This will trigger the Smartwatch to start recording.
 8. The server will then take care of the data reading from MongoDB, preprocessing the data, and send the predicted activity to the AngularJS web application.
 
+# Training the Real Time Model
+The model training is in the `server/classifier/real_time_monitoring` folder. Please be sure the configuration used and which dataset to use for training. Once the model is ready, then you can try the real time monitoring
+
 # Real Time Monitoring Logic
 Please take a look at the `server` folder `README` file.
