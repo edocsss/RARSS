@@ -5,6 +5,9 @@ version 0.15.1.
 # Requirements
 1. NPM installed
 2. Bower installed
+
+For the next two items, if you obtained the self-contained source codes from Dr. Wang, you will **NOT** need to do this:
+
 3. Run `npm install` in ```<path_to_client_root_dir>```
 4. Run `bower install` in ```<path_to_client_root_dir>```
 
@@ -15,13 +18,17 @@ Running `grunt serve` will open the website in a new tab in your default browser
 # Using the Data Explorer
 This client AngularJS web application is able to generate charts based on the raw data stored in the server. You can easily choose the type of activities, the subject name, and the data source (Smartphone or Smartwatch).
 
+# WebSocket
+In the web application, a WebSocket connection is used to handle the incoming real time predicted activity. However, please note that reconnection mechanism is not implemented!
+Hence, if the server is restarted, you need to simply refresh to reconnect to the server.
+
 # Preparing Real Time Monitoring
 1. Run the `Tornado` server and configure the `Server URL` for the Smartphone and Smartwatch application.
    - If you are not using `ngrok` as the tunneling provider, you need to dive into the Smartphone and Smartwatch code to change your preferred way of updating the URL!
    
 2. Run the MongoDB server
    - The script ```<path_to_server_root_dir>/run_mongod.sh``` can be used to run the MongoDB server with the configuration found in ```<path_to_server_root_dir>/mongod.cfg```.
-   - Make sure to run the ```run_mongod.sh``` script from ```bash``` terminal (or create your own `.bat` script) and make sure the current working directory is the ```<path_to_server_root_dir>``` since the configuration is using **relative path**!
+   - Make sure to run the ```run_mongod.sh``` script from ```bash``` terminal (or create your own `.bat` script) and make sure the **current working directory** is the ```<path_to_server_root_dir>``` since the configuration is using **relative path**!
    
 3. Open the `Real Time Monitoring` activity in the Smartphone application.
 4. Open the Smartwatch application.
@@ -33,6 +40,3 @@ This client AngularJS web application is able to generate charts based on the ra
 
 # Training the Real Time Model
 The model training is in the `server/classifier/real_time_monitoring` folder. Please be sure the configuration used and which dataset to use for training. Once the model is ready, then you can try the real time monitoring
-
-# Real Time Monitoring Logic
-Please take a look at the `server` folder `README` file.
