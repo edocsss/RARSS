@@ -19,7 +19,7 @@ def preprocess_data_for_manual_testing(activity_type, data_subject=CONFIG.PREPRO
     print('Data sampling started for {}!'.format(activity_type))
     sampled_data = data_sampler.sample_data(raw_data)
     data_sampler.write_sampled_data_to_files(sampled_data, activity_type)
-    print('Time: ', time.time() - start)
+    print('Sampling Time: ', time.time() - start)
     print('Data sampling done for {}!'.format(activity_type))
     print()
 
@@ -27,7 +27,7 @@ def preprocess_data_for_manual_testing(activity_type, data_subject=CONFIG.PREPRO
     print('Data windowing started for {}!'.format(activity_type))
     windowed_data = data_window_selector.divide_sampled_data_to_windows(sampled_data)
     data_window_selector.store_windowed_data_to_files(windowed_data, activity_type)
-    print('Time: ', time.time() - start)
+    print('Windowing Time: ', time.time() - start)
     print('Data windowing done for {}!'.format(activity_type))
     print()
 
@@ -38,7 +38,7 @@ def preprocess_data_for_manual_testing(activity_type, data_subject=CONFIG.PREPRO
     print('Features generation started for {}!'.format(activity_type))
     smartphone_features, smartwatch_features = feature_generator.generate_feature(combined_smartphone_dfs, combined_smartwatch_dfs)
     feature_generator.store_features_df(smartphone_features, smartwatch_features, activity_type)
-    print('Time: ', time.time() - start)
+    print('Features Time: ', time.time() - start)
     print('Features generation done for {}!'.format(activity_type))
     print()
     print()
