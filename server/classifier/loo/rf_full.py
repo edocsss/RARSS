@@ -18,7 +18,7 @@ c_matrix = []
 def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', activities=None, permutate_xyz=False, show_confusion=False):
     X_train, Y_train = data_util.load_training_data(
         training_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo1_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo2_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities,
         permutate_xyz=permutate_xyz
@@ -26,7 +26,7 @@ def run_test(training_subjects, test_subjects, n_estimators=50, data_source='', 
 
     X_test, Y_test = data_util.load_testing_data(
         test_subjects,
-        data_source + '_' + ''.join(training_subjects) + '_rfloo1_' + CONFIG.MODEL_NAMES['minmax_scaler'],
+        data_source + '_' + ''.join(training_subjects) + '_rfloo2_' + CONFIG.MODEL_NAMES['minmax_scaler'],
         source=data_source,
         activities=activities
     )
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     permutate_xyz = False
     n_estimators = [500]
     n_experiments = 3
-    show_confusion = False
+    show_confusion = True
 
     for n in n_estimators:
         for test_subject in CONFIG.FULL_SUBJECT_LIST:
@@ -131,7 +131,7 @@ if __name__ == '__main__':
              sorted([activity_encoding.ACTIVITY_TO_INT_MAPPING[a] for a in activities])]
         )
 
-        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'cm_lopo_all_rf_accbarogyro_ori_zero_mean_{}_{}.png'.format(
+        fig_name = os.path.join(CONFIG.CLASSIFIER_DIR, 'loo', 'cm_lopo_all_rf_acc_baro_gyro_ori_md_{}_{}.png'.format(
             n_estimators,
             data_source
         ))

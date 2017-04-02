@@ -439,7 +439,7 @@ def _calculate_energy(series):
     N = len(values)
 
     fft = _calculate_fft(values)
-    total = sum(fft[1:])
+    total = sum(x ** 2 for x in fft[1:])
     return math.sqrt(total / (N - 1))
 
 
