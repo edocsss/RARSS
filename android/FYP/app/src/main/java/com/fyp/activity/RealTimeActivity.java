@@ -180,6 +180,8 @@ public class RealTimeActivity extends AppCompatActivity {
     }
 
     private void startActivityMonitoring() {
+        RealTimeMonitoringController.getInstance().startSmartwatchSensorMonitoring();
+        
         Intent accelerometerServiceIntent = new Intent(this, AccelerometerReaderService.class);
         Intent gyroscopeServiceIntent = new Intent(this, GyroscopeReaderService.class);
         Intent barometerServiceIntent = new Intent(this, BarometerReaderService.class);
@@ -188,7 +190,6 @@ public class RealTimeActivity extends AppCompatActivity {
         this.bindService(gyroscopeServiceIntent, this.gyroscopeServiceConnection, Context.BIND_AUTO_CREATE);
         this.bindService(barometerServiceIntent, this.barometerServiceConnection, Context.BIND_AUTO_CREATE);
 
-        RealTimeMonitoringController.getInstance().startSmartwatchSensorMonitoring();
         this.stopTimer = false;
         new ActivityMonitoringTimer().execute();
 
@@ -199,6 +200,8 @@ public class RealTimeActivity extends AppCompatActivity {
 
     private void stopActivityMonitoring() {
         if (this.accelerometerServiceBound && this.gyroscopeServiceBound && this.barometerServiceBound) {
+            RealTimeMonitoringController.getInstance().stopSmartwatchSensorMonitoring();
+
             this.unbindService(this.accelerometerServiceConnection);
             this.unbindService(this.gyroscopeServiceConnection);
             this.unbindService(this.barometerServiceConnection);
@@ -208,7 +211,6 @@ public class RealTimeActivity extends AppCompatActivity {
             this.barometerServiceBound = false;
 
             this.stopTimer = true;
-            RealTimeMonitoringController.getInstance().stopSmartwatchSensorMonitoring();
 
             Toast.makeText(this, "Activity Monitoring Stopped!", Toast.LENGTH_SHORT).show();
             AudioUtil.playStopRecordingRingtone(this);
