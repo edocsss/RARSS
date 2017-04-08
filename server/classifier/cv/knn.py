@@ -62,12 +62,12 @@ def run_cv(n_neighbors=50, data_source='', activities=None, permutate_xyz=False)
 
 
 if __name__ == '__main__':
-    n_neighbors = [1, 3, 5, 10, 15, 20, 25, 30]
+    n_neighbors = [1, 3, 5, 7, 10, 15, 20]
 
     for n in n_neighbors:
         accuracy_mean, accuracy_std_dev, fscore_mean, fscore_std_dev = run_cv(
             n_neighbors=n,
-            data_source='sw',
+            data_source='',
             permutate_xyz=False,
             activities=[
                 'brushing',
