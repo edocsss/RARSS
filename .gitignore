@@ -11,6 +11,6 @@ android/FYP/volley
 server/classifier/model
 docs/report
 tizen_key
-.idea
+**/.idea
 **/.DS_Store
 **/__pycache__
