@@ -11,6 +11,10 @@ from classifier.util import activity_encoding, plot_util
 from classifier.util import data_util
 
 
+# Run for each person one by one
+# For comparison, 'svm.py' --> it's for one person at a time only
+
+
 c_matrix = []
 
 

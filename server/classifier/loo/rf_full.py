@@ -12,6 +12,9 @@ from classifier.util import data_util
 import os
 
 
+# Run for each person one by one
+# For comparison, 'rf.py' --> it's for one person at a time only
+
 c_matrix = []
 
 

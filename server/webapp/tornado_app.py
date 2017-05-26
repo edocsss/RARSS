@@ -57,7 +57,6 @@ if __name__ == '__main__':
         LOGGER.info('Shutting down server!')
 
     # Register OS signal listeners
-    signal.signal(signal.SIGQUIT, kill_activity_recognizer_worker)
     signal.signal(signal.SIGTERM, kill_activity_recognizer_worker)
     signal.signal(signal.SIGINT, kill_activity_recognizer_worker)
 

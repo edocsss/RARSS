@@ -92,7 +92,7 @@ if __name__ == '__main__':
     for n in n_estimators:
         run_cv(
             n_estimators=n,
-            data_source='',
+            data_source='', # 'sw' (smartwatch only), 'sp' (smartphone only), '<empty_string>' (both SP + SW)
             permutate_xyz=False,
             activities=[
                 'brushing',

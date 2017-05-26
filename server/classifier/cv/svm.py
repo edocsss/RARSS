@@ -114,7 +114,7 @@ if __name__ == '__main__':
                         kernel=k,
                         gamma=g,
                         degree=d,
-                        data_source='',
+                        data_source='',  # 'sw' (smartwatch only), 'sp' (smartphone only), '<empty_string>' (both SP + SW)
                         activities=[
                             'brushing',
                             'folding',
