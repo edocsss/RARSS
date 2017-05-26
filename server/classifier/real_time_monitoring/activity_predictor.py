@@ -12,9 +12,9 @@ def predict_activity(X, model_name=CONFIG.MODEL_NAMES['real_time_monitoring_rf_m
         LOGGER.error('Please pass in a 1-D array!')
         return ''
 
-    model = _load_model(model_name)
     X_norm = data_util._normalize_X(X, CONFIG.MODEL_NAMES['real_time_monitoring_minmax_scaler'])
 
+    model = _load_model(model_name)
     predicted_activity = model.predict(X_norm)
     labelled_predicted_activity = activity_encoding.INT_TO_ACTIVITY_MAPPING[predicted_activity[0]]
 

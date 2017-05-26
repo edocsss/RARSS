@@ -13,7 +13,6 @@ def generate_feature(smartphone_df, smartwatch_df):
 
 
 def _generate_smartphone_features(smartphone_df):
-    print('Generating smartphone features..')
     result_df = pd.DataFrame(data=None, columns=[
         'sp_mean_ax',
         'sp_mean_ay',
@@ -147,7 +146,6 @@ def _generate_smartphone_features(smartphone_df):
 
 
 def _generate_smartwatch_features(smartwatch_df):
-    print('Generating smartwatch features..')
     result_df = pd.DataFrame(data=None, columns=[
         'sw_mean_ax',
         'sw_mean_ay',
@@ -431,16 +429,21 @@ def _calculate_covariance(df, col1, col2):
     for i, row in relevant_df.iterrows():
         total += (row[col1] - mean_col1) * (row[col2] - mean_col2)
 
-    return total / (len(relevant_df) - 1)
+    temp = total / (len(relevant_df) - 1)
+    return temp
 
 
 def _calculate_energy(series):
     values = series.tolist()
     N = len(values)
 
-    fft = _calculate_fft(values)
-    total = sum(x ** 2 for x in fft[1:])
-    return math.sqrt(total / (N - 1))
+    try:
+        fft = _calculate_fft(values)
+        total = sum(x ** 2 for x in fft[1:])
+        return math.sqrt(total / (N - 1))
+
+    except:
+        return 0
 
 
 def _calculate_entropy(series):

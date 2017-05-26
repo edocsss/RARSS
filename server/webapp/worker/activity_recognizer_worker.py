@@ -30,6 +30,9 @@ class ActivityRecognizerWorker():
                 print(e)
                 print('Exception during processing the next UUID!')
 
+            except ValueError:
+                print('ValueError in Worker!')
+
     def stop(self):
         LOGGER.info('Stopping activity recognizer worker..')
         self._working = False
